@@ -46,7 +46,7 @@ import java.lang.ref.WeakReference
  */
 
 private val TOP_MOVE_LIMIT = CommonUtils.getDimension(R.dimen.sticky_audio_control_top_limit)
-private val BOTTOM_MOVE_LIMIT = CommonUtils.getDeviceScreenHeight() - CommonUtils.getDimension(R.dimen.bottom_bar_large_height)
+private val BOTTOM_MOVE_LIMIT = CommonUtils.getDeviceScreenHeight() - CommonUtils.getDimension(com.newshunt.common.util.R.dimen.bottom_bar_large_height)
 private val INITIAL_POSTION = CommonUtils.getDeviceScreenHeight() - CommonUtils.getDimension(R.dimen.sticky_audio_control_def_position_from_bottom)
 private const val COLLAPSE_ANIMATION = 0
 private const val EXPAND_ANIMATION = 1
@@ -237,7 +237,7 @@ object StickyAudioPlayController : StickyAudioPlayControlInterface {
             playButton.visibility = View.VISIBLE
             stopButton.visibility = View.GONE
             eqalizerAnimation.stop()
-            description.setText(CommonUtils.getString(R.string.live_commentary))
+            description.setText(CommonUtils.getString(com.newshunt.common.util.R.string.live_commentary))
             StickyNotificationsManager.playOrStopAudioCommentary(false)
             val collapsedValue = getLastPosition()?.collapsed ?: false
             logStickyAudioFloatingWidgetPlayStopEvent(stickyAudioCommentary.id,
@@ -249,18 +249,18 @@ object StickyAudioPlayController : StickyAudioPlayControlInterface {
         if (stickyAudioCommentary.state == CommentaryState.PLAYING) {
             stopButton.visibility = View.VISIBLE
             playButton.visibility = View.GONE
-            description.setText(CommonUtils.getString(R.string.live_commentary))
+            description.setText(CommonUtils.getString(com.newshunt.common.util.R.string.live_commentary))
             eqalizerAnimation.start()
         } else if (stickyAudioCommentary.state == CommentaryState
                         .BUFFERING) {
             stopButton.visibility = View.VISIBLE
             playButton.visibility = View.GONE
-            description.setText(CommonUtils.getString(R.string.buffering))
+            description.setText(CommonUtils.getString(com.newshunt.common.util.R.string.buffering))
             eqalizerAnimation.start()
         } else {
             playButton.visibility = View.VISIBLE
             stopButton.visibility = View.GONE
-            description.setText(CommonUtils.getString(R.string.live_commentary))
+            description.setText(CommonUtils.getString(com.newshunt.common.util.R.string.live_commentary))
             eqalizerAnimation.stop()
 
         }

@@ -64,7 +64,7 @@ class BigActionableNotificationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setBackgroundDrawable(ColorDrawable(CommonUtils.getColor(R.color.notification_activity_background)))
+        window.setBackgroundDrawable(ColorDrawable(CommonUtils.getColor(com.newshunt.common.util.R.color.notification_activity_background)))
         setContentView(R.layout.big_actionable_notification_activity)
         val imageUrl = intent.getStringExtra(Constants.DH_IMG)
         val imgUrl1 = intent.getStringExtra(Constants.DH_IMG1)
@@ -138,10 +138,10 @@ class BigActionableNotificationActivity : AppCompatActivity() {
 
         checkbox.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-                button.setBackgroundColor(resources.getColor(R.color.text_red))
+                button.setBackgroundColor(resources.getColor(com.newshunt.dhutil.R.color.text_red))
                 button.text = negativeBtnText
             } else {
-                button.setBackgroundColor(resources.getColor(R.color.social_handle_text_color))
+                button.setBackgroundColor(resources.getColor(com.newshunt.dhutil.R.color.social_handle_text_color))
                 button.text = positiveBtnText
             }
         }
