@@ -390,14 +390,14 @@ public class AnalyticsHelper {
 
 
   public static NhAnalyticsUtility.ErrorResponseCode getErrorResponseCode(String message) {
-    if (CommonUtils.isEmpty(message) || CommonUtils.getString(R.string.error_no_content_msg).equals(message)
-        || CommonUtils.getString(R.string.no_content_found).equals(message) ||
-        CommonUtils.getString(R.string.error_no_content_msg_snackbar).equals(message)) {
+    if (CommonUtils.isEmpty(message) || CommonUtils.getString(com.newshunt.common.util.R.string.error_no_content_msg).equals(message)
+        || CommonUtils.getString(com.newshunt.common.util.R.string.no_content_found).equals(message) ||
+        CommonUtils.getString(com.newshunt.common.util.R.string.error_no_content_msg_snackbar).equals(message)) {
       return NhAnalyticsUtility.ErrorResponseCode.CONTENT_ERROR;
-    } else if (CommonUtils.getString(R.string.error_no_connection).equals(message) ||
-        CommonUtils.getString(R.string.error_no_connection_snackbar).equals(message)) {
+    } else if (CommonUtils.getString(com.newshunt.common.util.R.string.error_no_connection).equals(message) ||
+        CommonUtils.getString(com.newshunt.common.util.R.string.error_no_connection_snackbar).equals(message)) {
       return NhAnalyticsUtility.ErrorResponseCode.NO_INTERNET;
-    } else if (CommonUtils.getString(R.string.error_server_issue).equals(message)) {
+    } else if (CommonUtils.getString(com.newshunt.common.util.R.string.error_server_issue).equals(message)) {
       return NhAnalyticsUtility.ErrorResponseCode.SERVER_ERROR;
     } else {
       return NhAnalyticsUtility.ErrorResponseCode.NETWORK_ERROR;

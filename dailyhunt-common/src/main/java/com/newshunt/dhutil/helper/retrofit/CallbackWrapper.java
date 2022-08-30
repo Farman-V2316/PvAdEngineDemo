@@ -80,7 +80,7 @@ public abstract class CallbackWrapper<T> implements Callback<T> {
         Logger.e(LOG_TAG, statusCode + " response");
         error = new BaseError(
             new DbgCode.DbgHttpCode(statusCode),
-            CommonUtils.getString(R.string.no_content_found),statusCode, url);
+            CommonUtils.getString(com.newshunt.common.util.R.string.no_content_found),statusCode, url);
         break;
       }
       case HttpURLConnection.HTTP_NOT_MODIFIED: {
@@ -97,7 +97,7 @@ public abstract class CallbackWrapper<T> implements Callback<T> {
       case HttpURLConnection.HTTP_VERSION: {
         Logger.e(LOG_TAG, "Server Error " + statusCode);
         error = new BaseError(new DbgCode.DbgHttpCode(statusCode),
-            CommonUtils.getString(R.string.error_server_issue),statusCode,
+            CommonUtils.getString(com.newshunt.common.util.R.string.error_server_issue),statusCode,
             null);
         break;
       }
@@ -105,7 +105,7 @@ public abstract class CallbackWrapper<T> implements Callback<T> {
         Logger.e(LOG_TAG, "Request " + call.request().url() + " failed with " + errorBody);
         error =
             BaseErrorBuilder.getBaseError(ErrorTypes.API_STATUS_CODE_UNDEFINED,
-                context.getString(R.string.error_generic));
+                context.getString(com.newshunt.common.util.R.string.error_generic));
       }
     }
     //Code 200, 204 is considered success by okHttp, so errorBody will be null.
@@ -118,23 +118,23 @@ public abstract class CallbackWrapper<T> implements Callback<T> {
   public static BaseError getError(Throwable t) {
     BaseError error;
     if (t instanceof SocketTimeoutException) {
-      error = new BaseError(t, CommonUtils.getApplication().getString(R.string.error_connectivity),null,
+      error = new BaseError(t, CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.error_connectivity),null,
           null);
     } else if (t instanceof NoConnectivityException) {
-      error = new BaseError(t, CommonUtils.getApplication().getString(R.string.error_no_connection),null
+      error = new BaseError(t, CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.error_no_connection),null
           ,null);
     } else if (t instanceof UnknownHostException) {
       if (CommonUtils.isNetworkAvailable(CommonUtils.getApplication())) {
-        error = new BaseError(t, CommonUtils.getApplication().getString(R.string.error_connectivity),
+        error = new BaseError(t, CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.error_connectivity),
             null,null);
       } else {
-        error = new BaseError(t, CommonUtils.getApplication().getString(R.string.error_no_connection),
+        error = new BaseError(t, CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.error_no_connection),
             null,null);
       }
     } else if (t instanceof ListNoContentException) {
       error = ((ListNoContentException) t).getError();
     } else {
-      error = new BaseError(t, CommonUtils.getApplication().getString(R.string.error_generic),null,null);
+      error = new BaseError(t, CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.error_generic),null,null);
     }
     return error;
   }

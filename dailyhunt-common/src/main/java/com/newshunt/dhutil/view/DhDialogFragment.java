@@ -54,10 +54,10 @@ public class DhDialogFragment extends DialogFragment {
                                                  DhDialogListener listener) {
     DhDialogFragment dialog =
         DhDialogFragment.createInstance(listener,
-            CommonUtils.getString(R.string.stop_saving_article_dialog_title_text),
-            CommonUtils.getString(R.string.stop_saving_article_dialog_content_text),
-            CommonUtils.getString(R.string.restore_setting_yes),
-            CommonUtils.getString(R.string.restore_setting_no), null);
+            CommonUtils.getString(com.newshunt.common.util.R.string.stop_saving_article_dialog_title_text),
+            CommonUtils.getString(com.newshunt.common.util.R.string.stop_saving_article_dialog_content_text),
+            CommonUtils.getString(com.newshunt.common.util.R.string.restore_setting_yes),
+            CommonUtils.getString(com.newshunt.common.util.R.string.restore_setting_no), null);
     dialog.show(fragmentManager, STOP_SAVING);
   }
 
@@ -66,9 +66,9 @@ public class DhDialogFragment extends DialogFragment {
 
     DhDialogFragment dialog =
         DhDialogFragment.createInstance(listener,
-            CommonUtils.getString(R.string.remove_saved_articles_dialog_title_text),
-            CommonUtils.getString(R.string.remove_saved_articles_dialog_content_text),
-            CommonUtils.getString(R.string.dialog_remove), CommonUtils.getString(R.string.dialog_cancel),
+            CommonUtils.getString(com.newshunt.common.util.R.string.remove_saved_articles_dialog_title_text),
+            CommonUtils.getString(com.newshunt.common.util.R.string.remove_saved_articles_dialog_content_text),
+            CommonUtils.getString(com.newshunt.common.util.R.string.dialog_remove), CommonUtils.getString(com.newshunt.common.util.R.string.dialog_cancel),
             null);
     dialog.show(fragmentManager, REMOVE_ARTICLES);
   }
@@ -77,9 +77,9 @@ public class DhDialogFragment extends DialogFragment {
                                                          DhDialogListener listener) {
     DhDialogFragment dialog =
         DhDialogFragment.createInstance(listener,
-            CommonUtils.getString(R.string.delete_saved_articles_dialog_title_text),
-            CommonUtils.getString(R.string.remove_saved_articles_dialog_content_text),
-            CommonUtils.getString(R.string.dialog_delete), CommonUtils.getString(R.string.dialog_cancel),
+            CommonUtils.getString(com.newshunt.common.util.R.string.delete_saved_articles_dialog_title_text),
+            CommonUtils.getString(com.newshunt.common.util.R.string.remove_saved_articles_dialog_content_text),
+            CommonUtils.getString(com.newshunt.common.util.R.string.dialog_delete), CommonUtils.getString(com.newshunt.common.util.R.string.dialog_cancel),
             null);
     dialog.show(fragmentManager, DELETE_ARTICLES);
   }
@@ -88,9 +88,9 @@ public class DhDialogFragment extends DialogFragment {
                                                               DhDialogListener listener) {
     DhDialogFragment dialog =
         DhDialogFragment.createInstance(listener,
-            CommonUtils.getString(R.string.delete_notification_dialog_title_text),
-            CommonUtils.getString(R.string.remove_notification_dialog_content_text),
-            CommonUtils.getString(R.string.dialog_delete), CommonUtils.getString(R.string.dialog_cancel),
+            CommonUtils.getString(com.newshunt.common.util.R.string.delete_notification_dialog_title_text),
+            CommonUtils.getString(com.newshunt.common.util.R.string.remove_notification_dialog_content_text),
+            CommonUtils.getString(com.newshunt.common.util.R.string.dialog_delete), CommonUtils.getString(com.newshunt.common.util.R.string.dialog_cancel),
             null);
     dialog.show(fragmentManager, DELETE_Notifications);
   }

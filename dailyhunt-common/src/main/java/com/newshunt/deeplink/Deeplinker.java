@@ -376,7 +376,7 @@ public class Deeplinker {
       return;
     }
     BaseInfo baseInfo = baseModel.getBaseInfo();
-    String langCode = CommonUtils.getLangCode(baseInfo.getLanguage(), R.array.language_list);
+    String langCode = CommonUtils.getLangCode(baseInfo.getLanguage(), com.newshunt.common.util.R.array.language_list);
     baseInfo.setLanguageCode(langCode);
   }
 }

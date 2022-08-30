@@ -28,7 +28,7 @@ public class BehaviorUtils {
   }
 
   public static int getBottomBarHeight() {
-    return CommonUtils.getDimension(R.dimen.bottom_bar_height);
+    return CommonUtils.getDimension(com.newshunt.common.util.R.dimen.bottom_bar_height);
   }
 
   static int lerp(int startValue, int endValue, float fraction) {

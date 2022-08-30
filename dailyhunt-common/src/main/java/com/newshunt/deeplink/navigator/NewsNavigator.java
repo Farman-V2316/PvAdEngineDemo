@@ -158,7 +158,7 @@ public class NewsNavigator {
     if (prevNewsAppSection != null) {
       intent.putExtra(Constants.APP_SECTION_ID, prevNewsAppSection.getId());
     }
-    intent.putExtra(NewsConstants.INTENT_NEWS_HOME_TAB, CommonUtils.getString(R.string.headlines));
+    intent.putExtra(NewsConstants.INTENT_NEWS_HOME_TAB, CommonUtils.getString(com.newshunt.common.util.R.string.headlines));
     PageReferrer pageReferrer = new PageReferrer(navReferrer.getReferrer(), null);
     intent.putExtra(NewsConstants.BUNDLE_ACTIVITY_REFERRER, pageReferrer);
     return intent;

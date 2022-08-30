@@ -90,32 +90,32 @@ public class NHListView extends RelativeLayout {
 
   private void init() {
     final RelativeLayout root =
-        (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.nhlistview, this, true);
+        (RelativeLayout) LayoutInflater.from(getContext()).inflate(com.newshunt.common.util.R.layout.nhlistview, this, true);
     layoutManager = new StaggeredGridLayoutManager(SPAN_COUNT, StaggeredGridLayoutManager.VERTICAL);
 
-    recyclerView = (RecyclerView) root.findViewById(R.id.recycler_view);
+    recyclerView = (RecyclerView) root.findViewById(com.newshunt.common.util.R.id.recycler_view);
     recyclerView.setLayoutManager(layoutManager);
     endlessScrollListener = new EndlessScrollListener(this);
     recyclerView.setOnScrollListener(endlessScrollListener);
     recyclerView.setHasFixedSize(true);
 
-    swipeRefreshLayout = (SwipeRefreshLayout) root.findViewById(R.id.swipe_refresh_layout);
+    swipeRefreshLayout = (SwipeRefreshLayout) root.findViewById(com.newshunt.common.util.R.id.swipe_refresh_layout);
     swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_red_light);
     swipeRefreshLayout.setOnRefreshListener(new RefreshListener(this));
     swipeRefreshLayout.setEnabled(true);
     swipeRefreshLayout.setRefreshing(true);
 
-    pbInitialize = (ProgressBar) root.findViewById(R.id.init_progress_bar);
+    pbInitialize = (ProgressBar) root.findViewById(com.newshunt.common.util.R.id.init_progress_bar);
     pbInitialize.setVisibility(VISIBLE);
 
-    pbInfiniteScroll = (ProgressBar) root.findViewById(R.id.footer_progress);
+    pbInfiniteScroll = (ProgressBar) root.findViewById(com.newshunt.common.util.R.id.footer_progress);
     pbInfiniteScroll.setVisibility(View.GONE);
 
-    tvRetryView = (LinearLayout) root.findViewById(R.id.refresh_layout);
+    tvRetryView = (LinearLayout) root.findViewById(com.newshunt.common.util.R.id.refresh_layout);
     tvRetryView.setVisibility(View.GONE);
 
     rlInfiniteScrollLayout = (RelativeLayout) root.findViewById(
-        R.id.infinite_scroll_layout);
+        com.newshunt.common.util.R.id.infinite_scroll_layout);
     rlInfiniteScrollLayout.setVisibility(View.GONE);
 
     tvRetryView.setOnClickListener(new OnClickListener() {
@@ -373,14 +373,14 @@ public class NHListView extends RelativeLayout {
           listView.rlInfiniteScrollLayout.setVisibility(View.VISIBLE);
           listView.pbInfiniteScroll.setVisibility(View.GONE);
           StatusError statusError = status.getCodeType();
-          TextView textView = (TextView) listView.tvRetryView.findViewById(R.id.error_message);
+          TextView textView = (TextView) listView.tvRetryView.findViewById(com.newshunt.common.util.R.id.error_message);
           listView.tvRetryView.setVisibility(View.VISIBLE);
           switch (statusError) {
             case NETWORK_ERROR:
-              textView.setText(R.string.error_no_connection);
+              textView.setText(com.newshunt.common.util.R.string.error_no_connection);
               break;
             default:
-              textView.setText(R.string.no_content_found);
+              textView.setText(com.newshunt.common.util.R.string.no_content_found);
           }
           presenter.onNextPageError(status, uniqueId);
         }

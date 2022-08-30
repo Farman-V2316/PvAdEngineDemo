@@ -68,12 +68,12 @@ public class NhTabVIewItem extends LinearLayout {
     this.info = info;
     this.nightModeNotSupported = nightModeNotSupported;
     View view;
-    view = LayoutInflater.from(getContext()).inflate(R.layout
+    view = LayoutInflater.from(getContext()).inflate(com.newshunt.common.util.R.layout
         .view_items_navigation_bar, this, true);
-    ivIcon = view.findViewById(R.id.navbar_appsection_icon);
-    tvNotificationBadge = view.findViewById(R.id.navbar_notification_count_tv);
-    highlightIcon = findViewById(R.id.navbar_highlight);
-    buttonBackground = findViewById(R.id.navbar_item_container);
+    ivIcon = view.findViewById(com.newshunt.common.util.R.id.navbar_appsection_icon);
+    tvNotificationBadge = view.findViewById(com.newshunt.common.util.R.id.navbar_notification_count_tv);
+    highlightIcon = findViewById(com.newshunt.common.util.R.id.navbar_highlight);
+    buttonBackground = findViewById(com.newshunt.common.util.R.id.navbar_item_container);
 
     setPressedStateColor();
     setBadgeColor();
@@ -117,15 +117,16 @@ public class NhTabVIewItem extends LinearLayout {
     boolean isNightMode = isNightMode();
     String pressedStateColor =
         isNightMode ? info.getPressedStateColorNight() : info.getPressedStateColor();
-    int normalStateColor = isNightMode ? CommonUtils.getColor(R.color.bottombar_night) : CommonUtils.getColor(R.color.bottombar_day);
+    int normalStateColor = isNightMode ? CommonUtils.getColor(R.color.bottom_bar_text_color_night)
+            : CommonUtils.getColor(R.color.bottom_bar_text_color_day);
     int pressedColor;
 
     int normalColor = -1;
     if (!CommonUtils.isEmpty(pressedStateColor)) {
       pressedColor = Color.parseColor(pressedStateColor);
     } else {
-      pressedColor = isNightMode ? CommonUtils.getColor(R.color.bottom_bar_pressed_color_night) :
-          CommonUtils.getColor(R.color.bottom_bar_pressed_color);
+      pressedColor = isNightMode ? CommonUtils.getColor(com.newshunt.common.util.R.color.bottom_bar_pressed_color_night) :
+          CommonUtils.getColor(com.newshunt.common.util.R.color.bottom_bar_pressed_color);
     }
 
 
@@ -161,37 +162,37 @@ public class NhTabVIewItem extends LinearLayout {
 
   public Drawable getInActiveIconFromDrawables(AppSection type) {
     int tintColor = isNightMode() ?
-        R.color.navbar_icon_color_night_unselected : R.color.black_color;
+        com.newshunt.common.util.R.color.navbar_icon_color_night_unselected : com.newshunt.common.util.R.color.black_color;
 
     switch (type) {
       case NEWS:
-        return getTintedDrawable(R.drawable.vector_news_tab, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_news_tab, tintColor);
       case TV:
-        return getTintedDrawable(R.drawable.vector_tab_tv, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_tab_tv, tintColor);
       case DEEPLINK:
-        return getTintedDrawable(R.drawable.vector_local_tab,
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_local_tab,
             tintColor);
       case SEARCH:
-        return getTintedDrawable(R.drawable.vector_search_tab, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_search_tab, tintColor);
       default:
-        return getTintedDrawable(R.drawable.vector_follow_tab_unselected, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_follow_tab_unselected, tintColor);
     }
   }
 
   public Drawable getActiveIconFromDrawables(AppSection type) {
     int tintColor = isNightMode() ?
-            R.color.navbar_icon_color_night_unselected : R.color.black_color;
+            com.newshunt.common.util.R.color.navbar_icon_color_night_unselected : com.newshunt.common.util.R.color.black_color;
     switch (type) {
       case NEWS:
-        return getTintedDrawable(R.drawable.vector_news_tab_selected, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_news_tab_selected, tintColor);
       case TV:
-        return getTintedDrawable(R.drawable.vector_tab_tv_selected, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_tab_tv_selected, tintColor);
       case DEEPLINK:
-        return getTintedDrawable(R.drawable.vector_local_tab_selected, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_local_tab_selected, tintColor);
       case SEARCH:
-        return getTintedDrawable(R.drawable.vector_serach_selected, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_serach_selected, tintColor);
       default:
-        return getTintedDrawable(R.drawable.vector_follow_tab_selected, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_follow_tab_selected, tintColor);
     }
   }
 
@@ -304,11 +305,11 @@ public class NhTabVIewItem extends LinearLayout {
         text = MAX_BADGE_COUNT + "+";
         drawable = ThemeUtils.getThemeDrawableByAttribute(getContext(), R.attr
             .notification_badge_squared, View.NO_ID);
-        layoutParams.width = CommonUtils.getDimension(R.dimen.notification_badge_width_squared);
+        layoutParams.width = CommonUtils.getDimension(com.newshunt.common.util.R.dimen.notification_badge_width_squared);
       } else {
         drawable = ThemeUtils.getThemeDrawableByAttribute(getContext(), R.attr
             .notification_badge_circle, View.NO_ID);
-        layoutParams.width = CommonUtils.getDimension(R.dimen.notification_badge_width_circle);
+        layoutParams.width = CommonUtils.getDimension(com.newshunt.common.util.R.dimen.notification_badge_width_circle);
       }
       tvNotificationBadge.setText(text);
       tvNotificationBadge.setLayoutParams(layoutParams);

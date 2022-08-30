@@ -153,7 +153,7 @@ public class VHShareHelper {
       }
     }
     return BitmapFactory.decodeResource(CommonUtils.getApplication().getResources(),
-        R.drawable.dh_banner);
+        com.newshunt.common.util.R.drawable.dh_banner);
   }
 
   private boolean isDefaultShareBannerPresent() {
@@ -324,7 +324,7 @@ public class VHShareHelper {
         return config.getShareText();
       }
     }
-    return CommonUtils.getString(R.string.share_txt);
+    return CommonUtils.getString(com.newshunt.common.util.R.string.share_txt);
   }
 
   public void clearFiles() {

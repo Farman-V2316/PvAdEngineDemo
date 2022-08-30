@@ -37,7 +37,7 @@ public class ExpandableTextView extends NHTextView {
   private boolean descriptionTextExpanded;  //Flag indicates whether or not description is expanded.
 
   private String moreText =
-      CommonUtils.getString(com.newshunt.dhutil.R.string.photo_gallery_description_more) + "       ";
+      CommonUtils.getString(com.newshunt.common.util.R.string.photo_gallery_description_more) + "       ";
   //adding extra space as hack to give buffer width for more text, as sometimes more button is
   // not exactly ending in the last line, instead moved to the next line
 
@@ -85,8 +85,8 @@ public class ExpandableTextView extends NHTextView {
       if (index == com.newshunt.dhutil.R.styleable.ExpandableText_desc_collapsed_max_lines) {
         collapsedMaxLines = array.getInt(index, DEFAULT_MAX_LINES);
       } else if (index == com.newshunt.dhutil.R.styleable.ExpandableText_more_text_color) {
-        readMoreTextColor = CommonUtils.getColor(array.getResourceId(index, com.newshunt.dhutil.R.color
-            .white_color));
+        readMoreTextColor = CommonUtils.getColor(array.getResourceId(index, R.color
+            .color_white));
       } else if (index == R.styleable.ExpandableText_more_text_style) {
         readMoreTextStyle = array.getInt(index, Typeface.NORMAL);
       }

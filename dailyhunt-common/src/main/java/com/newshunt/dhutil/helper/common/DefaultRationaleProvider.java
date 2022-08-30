@@ -16,20 +16,20 @@ import com.newshunt.permissionhelper.utilities.PermissionGroup;
  */
 public class DefaultRationaleProvider implements PermissionRationaleProvider {
 
-  private String locationSubtitle = CommonUtils.getString(R.string.permission_location_access);
-  private String storageSubtitle = CommonUtils.getString(R.string.permission_storage_access);
-  private String locationRationale = CommonUtils.getString(R.string.permission_location_rationale);
-  private String storageRationale = CommonUtils.getString(R.string.permission_storage_rationale);
-  private String permissionTitle = CommonUtils.getString(R.string.permission_title);
-  private String permissionDesc = CommonUtils.getString(R.string.permission_desc);
-  private String permissionSettings = CommonUtils.getString(R.string.permission_settings);
-  private String permissionSettingsAction = CommonUtils.getString(R.string.action_settings);
-  private String contactsSubTitle = CommonUtils.getString(R.string.contacts_perm_subtitle);
-  private String contactsRationale = CommonUtils.getString(R.string.contacts_perm_rationale);
-  private String cameraSubTitle = CommonUtils.getString(R.string.cp_camera_permission_title);
-  private String cameraRationale = CommonUtils.getString(R.string.cp_permission_storage_rationale);
-  private String positiveBtn = CommonUtils.getString(R.string.permission_btn_allow);
-  private String negativeBtn = CommonUtils.getString(R.string.permission_btn_later);
+  private String locationSubtitle = CommonUtils.getString(com.newshunt.common.util.R.string.permission_location_access);
+  private String storageSubtitle = CommonUtils.getString(com.newshunt.common.util.R.string.permission_storage_access);
+  private String locationRationale = CommonUtils.getString(com.newshunt.common.util.R.string.permission_location_rationale);
+  private String storageRationale = CommonUtils.getString(com.newshunt.common.util.R.string.permission_storage_rationale);
+  private String permissionTitle = CommonUtils.getString(com.newshunt.common.util.R.string.permission_title);
+  private String permissionDesc = CommonUtils.getString(com.newshunt.common.util.R.string.permission_desc);
+  private String permissionSettings = CommonUtils.getString(com.newshunt.common.util.R.string.permission_settings);
+  private String permissionSettingsAction = CommonUtils.getString(com.newshunt.common.util.R.string.action_settings);
+  private String contactsSubTitle = CommonUtils.getString(com.newshunt.common.util.R.string.contacts_perm_subtitle);
+  private String contactsRationale = CommonUtils.getString(com.newshunt.common.util.R.string.contacts_perm_rationale);
+  private String cameraSubTitle = CommonUtils.getString(com.newshunt.common.util.R.string.cp_camera_permission_title);
+  private String cameraRationale = CommonUtils.getString(com.newshunt.common.util.R.string.cp_permission_storage_rationale);
+  private String positiveBtn = CommonUtils.getString(com.newshunt.common.util.R.string.permission_btn_allow);
+  private String negativeBtn = CommonUtils.getString(com.newshunt.common.util.R.string.permission_btn_later);
 
   /**
    * {@inheritDoc}

@@ -61,11 +61,11 @@ public abstract class BaseService<RESPONSE> {
     @Override
     public void onFailure(Call<ApiResponse<RESPONSE>> call, Throwable t) {
       String code = String.valueOf(Constants.ERROR_UNEXPECTED);
-      String message = CommonUtils.getString(R.string.unexpected_error_message);
+      String message = CommonUtils.getString(com.newshunt.common.util.R.string.unexpected_error_message);
       String description = Constants.EMPTY_STRING;
       if (t instanceof UnknownHostException) {
         code = String.valueOf(Constants.ERROR_NO_INTERNET);
-        message = CommonUtils.getString(R.string.error_no_connection);
+        message = CommonUtils.getString(com.newshunt.common.util.R.string.error_no_connection);
       }
 
       handleError(new Status(code, message), uniqueId);
@@ -80,7 +80,7 @@ public abstract class BaseService<RESPONSE> {
   private void handleError(Response error, int uniqueId) {
 
     String code = Constants.ERROR_UNEXPECTED;
-    String message = CommonUtils.getString(R.string.unexpected_error_message);
+    String message = CommonUtils.getString(com.newshunt.common.util.R.string.unexpected_error_message);
 
     //Worst case scenario where error itself null or its kind is null.
     if (error == null) {
@@ -136,7 +136,7 @@ public abstract class BaseService<RESPONSE> {
     }
 
     if (!isConnected(manager)) {
-      final String reason = CommonUtils.getString(R.string.no_connection_error);
+      final String reason = CommonUtils.getString(com.newshunt.common.util.R.string.no_connection_error);
       Handler handler = new Handler(Looper.getMainLooper());
       final NoConnectivityException noConnectivityException = new NoConnectivityException(reason);
       handler.post(new Runnable() {

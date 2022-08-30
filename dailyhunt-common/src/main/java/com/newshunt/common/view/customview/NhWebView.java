@@ -85,7 +85,7 @@ public class NhWebView extends WebView {
   @Override
   public void loadUrl(String url) {
     if (!CommonUtils.isNetworkAvailable(CommonUtils.getApplication()) && webViewErrorCallback != null) {
-      BaseError baseError = BaseErrorBuilder.getBaseError(CommonUtils.getApplication().getString(R.string
+      BaseError baseError = BaseErrorBuilder.getBaseError(CommonUtils.getApplication().getString(com.newshunt.common.util.R.string
           .error_no_connection), Constants.ERROR_NO_INTERNET);
       webViewErrorCallback.onErrorReceived(baseError);
       return;

@@ -23,6 +23,6 @@ public class CustomTabsBroadcastReceiver extends BroadcastReceiver {
   public void onReceive(Context context, Intent intent) {
     String url = intent.getDataString();
     AndroidUtils.CopyContent(context, "url", url,
-        CommonUtils.getString(R.string.copy_to_clipboard));
+        CommonUtils.getString(com.newshunt.common.util.R.string.copy_to_clipboard));
   }
 }

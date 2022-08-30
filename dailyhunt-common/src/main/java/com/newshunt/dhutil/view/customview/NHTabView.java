@@ -265,7 +265,7 @@ public class NHTabView extends LinearLayout implements View.OnClickListener {
           }
           else {
             int tintColor = isNightMode() ?
-                R.color.navbar_icon_color_night_unselected : R.color.black_color;
+                com.newshunt.common.util.R.color.navbar_icon_color_night_unselected : com.newshunt.common.util.R.color.black_color;
             iconView.setImageDrawable(getInActiveIconFromDrawables(info.getType()));
             iconView.setImageTintList(ColorStateList.valueOf(CommonUtils.getColor(tintColor)));
           }
@@ -278,7 +278,7 @@ public class NHTabView extends LinearLayout implements View.OnClickListener {
             Image.load(new File(getInActiveIconFilePath(info)), false)
                 .priority(Priority.PRIORITY_HIGH).into(iconView);
             int tintColor = isNightMode() ?
-                R.color.navbar_icon_color_night_unselected : R.color.black_color;
+                com.newshunt.common.util.R.color.navbar_icon_color_night_unselected : com.newshunt.common.util.R.color.black_color;
             iconView.setImageTintList(ColorStateList.valueOf(CommonUtils.getColor(tintColor)));
           }
         }
@@ -297,34 +297,34 @@ public class NHTabView extends LinearLayout implements View.OnClickListener {
 
   public Drawable getInActiveIconFromDrawables(AppSection type) {
     int tintColor = isNightMode() ?
-        R.color.navbar_icon_color_night_unselected : R.color.black_color;
+        com.newshunt.common.util.R.color.navbar_icon_color_night_unselected : com.newshunt.common.util.R.color.black_color;
 
     switch (type) {
       case NEWS:
-        return getTintedDrawable(R.drawable.vector_news_tab, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_news_tab, tintColor);
       case TV:
-        return getTintedDrawable(R.drawable.vector_tab_tv, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_tab_tv, tintColor);
       case FOLLOW:
-        return getTintedDrawable(R.drawable.vector_follow_tab_unselected,
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_follow_tab_unselected,
             tintColor);
       default:
-        return getTintedDrawable(R.drawable.vector_notification_tab, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_notification_tab, tintColor);
     }
   }
 
   public Drawable getActiveIconFromDrawables(AppSection type) {
     int tintColor = isNightMode() ?
-            R.color.navbar_icon_color_night_unselected : R.color.black_color;
+            com.newshunt.common.util.R.color.navbar_icon_color_night_unselected : com.newshunt.common.util.R.color.black_color;
 
     switch (type) {
       case NEWS:
-        return getTintedDrawable(R.drawable.vector_news_tab_selected, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_news_tab_selected, tintColor);
       case TV:
-        return getTintedDrawable(R.drawable.vector_tab_tv_selected, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_tab_tv_selected, tintColor);
       case FOLLOW:
-        return getTintedDrawable(R.drawable.vector_follow_tab_selected, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_follow_tab_selected, tintColor);
       default:
-        return getTintedDrawable(R.drawable.vector_notification_tab_selected, tintColor);
+        return getTintedDrawable(com.newshunt.common.util.R.drawable.vector_notification_tab_selected, tintColor);
     }
   }
 
@@ -650,7 +650,7 @@ public class NHTabView extends LinearLayout implements View.OnClickListener {
         AppUserPreferenceUtils.setAppSectionSelected(prevFollowSection);
       } else {
         Toast.makeText(getContext(),
-            CommonUtils.getString(R.string.follow_disabled), Toast.LENGTH_SHORT).show();
+            CommonUtils.getString(com.newshunt.common.util.R.string.follow_disabled), Toast.LENGTH_SHORT).show();
       }
     } else {
       boolean launchFollowHome = CommonNavigator.launchFollowHome(getContext(), true,
@@ -663,7 +663,7 @@ public class NHTabView extends LinearLayout implements View.OnClickListener {
         AppUserPreferenceUtils.setAppSectionSelected(prevFollowSection);
       } else {
         Toast.makeText(getContext(),
-            CommonUtils.getString(R.string.follow_disabled), Toast.LENGTH_SHORT).show();
+            CommonUtils.getString(com.newshunt.common.util.R.string.follow_disabled), Toast.LENGTH_SHORT).show();
       }
     }
   }

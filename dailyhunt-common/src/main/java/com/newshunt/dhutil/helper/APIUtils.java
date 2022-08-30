@@ -53,7 +53,7 @@ public class APIUtils {
         Logger.e(LOG_TAG, "404 response");
         error =
             new BaseError(new DbgCode.DbgHttpCode(statusCode),
-                CommonUtils.getString(R.string.no_content_found),
+                CommonUtils.getString(com.newshunt.common.util.R.string.no_content_found),
                 HttpURLConnection
                     .HTTP_NOT_FOUND, null);
         break;
@@ -73,7 +73,7 @@ public class APIUtils {
         Logger.e(LOG_TAG, "Server Error " + statusCode);
         error =
             new BaseError(new DbgCode.DbgHttpCode(statusCode),
-                CommonUtils.getString(R.string.error_server_issue), statusCode,
+                CommonUtils.getString(com.newshunt.common.util.R.string.error_server_issue), statusCode,
                 null);
         break;
       }
@@ -89,7 +89,7 @@ public class APIUtils {
 
         error =
             BaseErrorBuilder.getBaseError(ErrorTypes.API_STATUS_CODE_UNDEFINED,
-                CommonUtils.getString(R.string.error_generic));
+                CommonUtils.getString(com.newshunt.common.util.R.string.error_generic));
       }
     }
     if (errorBody != null) {
@@ -106,20 +106,20 @@ public class APIUtils {
     final BaseError error;
     if (t instanceof SocketTimeoutException) {
       error = new BaseError(
-          t, CommonUtils.getApplication().getString(R.string.error_connectivity),
+          t, CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.error_connectivity),
           null, null);
     } else if (t instanceof NoConnectivityException) {
       error = new BaseError(
-          t, CommonUtils.getApplication().getString(R.string.error_no_connection),
+          t, CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.error_no_connection),
           null, null);
     } else if (t instanceof UnknownHostException) {
       if (CommonUtils.isNetworkAvailable(CommonUtils.getApplication())) {
         error = new BaseError(
-            t, CommonUtils.getApplication().getString(R.string.error_connectivity),
+            t, CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.error_connectivity),
             null, null);
       } else {
         error = new BaseError(
-            t, CommonUtils.getApplication().getString(R.string.error_no_connection),
+            t, CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.error_no_connection),
             null, null);
       }
     } else if (t instanceof retrofit2.HttpException) {
@@ -130,7 +130,7 @@ public class APIUtils {
       error = ((ListNoContentException) t).getError();
     } else {
       error = new BaseError(
-          t, CommonUtils.getApplication().getString(R.string.error_generic), null,
+          t, CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.error_generic), null,
           null);
     }
     return error;
@@ -155,8 +155,8 @@ public class APIUtils {
 
   public static String getGenericErrorMessage() {
     return CommonUtils.isNetworkAvailable(CommonUtils.getApplication()) ?
-        CommonUtils.getApplication().getString(R.string.error_generic) :
-        CommonUtils.getApplication().getString(R.string.error_no_connection);
+        CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.error_generic) :
+        CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.error_no_connection);
   }
 
 }

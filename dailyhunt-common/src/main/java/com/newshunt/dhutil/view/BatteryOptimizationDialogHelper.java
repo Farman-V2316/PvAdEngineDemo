@@ -94,7 +94,7 @@ public class BatteryOptimizationDialogHelper {
       @Override
       public void run() {
         FontHelper.showCustomFontToast(activity,
-            CommonUtils.getApplication().getString(R.string.auto_start_toast_text),
+            CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.auto_start_toast_text),
             Toast.LENGTH_SHORT);
       }
     }, MIN_DELAY_FOR_TOAST);

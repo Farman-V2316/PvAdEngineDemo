@@ -58,14 +58,14 @@ public class BatteryOptimizationDialog extends Dialog {
     dialogTitle = findViewById(R.id.autostart_dialogTitletext);
     dialogHeader = findViewById(R.id.autostart_dialogHeadertext);
     positiveButton = findViewById(R.id.positive_button);
-    positiveButton.setText(CommonUtils.getString(R.string.ok_text));
+    positiveButton.setText(CommonUtils.getString(com.newshunt.common.util.R.string.ok_text));
     openBatteryOptimizationScreen();
   }
 
   private void openBatteryOptimizationScreen() {
-    ViewUtils.setTextWithFontSpacing(dialogTitle, CommonUtils.getString(R.string
-        .disable_battery_optimization_prompt_title), 1f);
-    ViewUtils.setTextWithFontSpacing(dialogHeader, CommonUtils.getString(R.string
+    ViewUtils.setTextWithFontSpacing(dialogTitle, CommonUtils.getString(com.newshunt.common.util.R.string
+        .disable_battery_optimization_prompt_text), 1f);
+    ViewUtils.setTextWithFontSpacing(dialogHeader, CommonUtils.getString(com.newshunt.common.util.R.string
         .disable_battery_optimization_prompt_text), 1f);
 
     positiveButton.setOnClickListener(v -> {
@@ -87,9 +87,9 @@ public class BatteryOptimizationDialog extends Dialog {
   }
 
   private void autoStartAction() {
-    ViewUtils.setTextWithFontSpacing(dialogTitle, CommonUtils.getString(R.string
+    ViewUtils.setTextWithFontSpacing(dialogTitle, CommonUtils.getString(com.newshunt.common.util.R.string
         .auto_start_dialog_title_text), 1f);
-    ViewUtils.setTextWithFontSpacing(dialogHeader, CommonUtils.getString(R.string
+    ViewUtils.setTextWithFontSpacing(dialogHeader, CommonUtils.getString(com.newshunt.common.util.R.string
         .auto_start_dialog_header_text), 1f);
 
     positiveButton.setOnClickListener(v -> {
@@ -105,7 +105,7 @@ public class BatteryOptimizationDialog extends Dialog {
         getContext().startActivity(intent);
       } catch (Exception e) {
         Logger.e(BatteryOptimizationDialog.class.getSimpleName(), "Error launching activity", e);
-        FontHelper.showCustomFontToast(getContext(), CommonUtils.getString(R.string.error_generic),
+        FontHelper.showCustomFontToast(getContext(), CommonUtils.getString(com.newshunt.common.util.R.string.error_generic),
             Toast.LENGTH_SHORT);
       }
       BatteryOptimizationDialogHelper.showAutoStartEnableToast(activity);

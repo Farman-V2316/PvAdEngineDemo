@@ -1269,7 +1269,7 @@ public class CommonNavigator {
     intent.putExtra(Constants.BUNDLE_SIGN_ON_UI_MODE,
         SignInUIModes.SIGN_IN_WITH_SKIP_BUTTON.toString());
     intent.putExtra(Constants.BUNDLE_SIGN_IN_CUSTOM_HEADER,
-        CommonUtils.getString(R.string.sign_up_header_text_default));
+        CommonUtils.getString(com.newshunt.common.util.R.string.sign_up_header_text_default));
     intent.putExtra(Constants.BUNDLE_COUNT_SKIP_CLICK, true);
     intent.putExtra(Constants.BUNDLE_SIGNIN_SUCCESS_PENDING_INTENT, successPendingIntent);
     intent.putExtra(Constants.BUNDLE_SIGNIN_SKIP_PENDING_INTENT, skipPendingIntent);
@@ -1446,7 +1446,7 @@ public class CommonNavigator {
     Intent intent = SSONavigator.getIntentForSignIn();
     intent.putExtra(Constants.BUNDLE_ACTIVITY_REFERRER, pageReferrer);
     intent.putExtra(Constants.BUNDLE_SIGN_IN_CUSTOM_HEADER,
-        CommonUtils.getString(R.string.sign_up_header_text_default));
+        CommonUtils.getString(com.newshunt.common.util.R.string.sign_up_header_text_default));
     intent.putExtra(Constants.BUNDLE_SIGNIN_SUCCESS_PENDING_INTENT, deeplinkPendingIntent);
     intent.putExtra(Constants.BUNDLE_REFERRER_VIEW_IS_FVP, true);
     intent.putExtra(Constants.BUNDLE_LINK_ACCOUNTS_POST_LOGIN, true);
@@ -1459,7 +1459,7 @@ public class CommonNavigator {
     Intent intent = SSONavigator.getIntentForSignIn();
     intent.putExtra(Constants.BUNDLE_ACTIVITY_REFERRER, pageReferrer);
     intent.putExtra(Constants.BUNDLE_SIGN_IN_CUSTOM_HEADER,
-        CommonUtils.getString(R.string.sign_up_header_text_default));
+        CommonUtils.getString(com.newshunt.common.util.R.string.sign_up_header_text_default));
     intent.putExtra(Constants.BUNDLE_REFERRER_VIEW_IS_FVP, true);
     intent.putExtra(Constants.BUNDLE_LINK_ACCOUNTS_POST_LOGIN, true);
     context.startActivity(intent);

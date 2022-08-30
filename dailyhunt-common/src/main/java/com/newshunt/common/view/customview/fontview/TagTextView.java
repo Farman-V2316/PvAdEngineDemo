@@ -65,7 +65,7 @@ public class TagTextView extends RelativeLayout {
 
   private void init(Context context, AttributeSet attrs) {
 
-    tagViewStrokeSize = CommonUtils.getDimension(R.dimen.tag_view_default_border_size);
+    tagViewStrokeSize = CommonUtils.getDimension(com.newshunt.common.util.R.dimen.tag_view_default_border_size);
 
     int[] ATTRS = new int[]{android.R.attr.textStyle};
     TypedArray typedArray = context.obtainStyledAttributes(attrs, ATTRS);
@@ -80,8 +80,8 @@ public class TagTextView extends RelativeLayout {
     String backgroundColorStr = typedArray.getString(0);
     backgroundColor = ViewUtils.getColor(backgroundColorStr, Color.WHITE);
 
-    typedArray = context.obtainStyledAttributes(attrs, R.styleable.TagTextView);
-    String tagTextColorStr = typedArray.getString(R.styleable.TagTextView_textColor);
+    typedArray = context.obtainStyledAttributes(attrs, com.newshunt.common.util.R.styleable.TagTextView);
+    String tagTextColorStr = typedArray.getString(com.newshunt.common.util.R.styleable.TagTextView_textColor);
     tagTextColor = ViewUtils.getColor(tagTextColorStr, Color.BLACK);
 
     typedArray.recycle();
@@ -96,13 +96,13 @@ public class TagTextView extends RelativeLayout {
   private void initView() {
     LayoutInflater inflater =
         (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    View view = inflater.inflate(R.layout.layout_tag_view, this, true);
+    View view = inflater.inflate(com.newshunt.common.util.R.layout.layout_tag_view, this, true);
 
-    tagViewImage = view.findViewById(R.id.tag_view_image);
-    tagViewText = view.findViewById(R.id.tag_view_text);
-    tagViewRightImage = view.findViewById(R.id.tag_view_right_image);
+    tagViewImage = view.findViewById(com.newshunt.common.util.R.id.tag_view_image);
+    tagViewText = view.findViewById(com.newshunt.common.util.R.id.tag_view_text);
+    tagViewRightImage = view.findViewById(com.newshunt.common.util.R.id.tag_view_right_image);
     tagViewRightImage.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-    tagToggleImage = view.findViewById(R.id.tag_view_toggle_image);
+    tagToggleImage = view.findViewById(com.newshunt.common.util.R.id.tag_view_toggle_image);
     tagToggleImage.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     if (typeface == Typeface.BOLD) {
       tagViewText.setTypeface(null, Typeface.BOLD);
@@ -142,7 +142,7 @@ public class TagTextView extends RelativeLayout {
     }
     gradientDrawable.setShape(GradientDrawable.RECTANGLE);
     if (radius == 0.0f) {
-      radius = CommonUtils.getDimension(R.dimen.tag_view_default_radius);
+      radius = CommonUtils.getDimension(com.newshunt.common.util.R.dimen.tag_view_default_radius);
     }
     gradientDrawable.setCornerRadii(new float[]{
         radius, radius, radius, radius,
@@ -182,7 +182,7 @@ public class TagTextView extends RelativeLayout {
         }
 
         LayoutParams layoutParams = (LayoutParams) tagViewImage.getLayoutParams();
-        int leftMargin = CommonUtils.getDimension(R.dimen.tag_image_margin_left);
+        int leftMargin = CommonUtils.getDimension(com.newshunt.common.util.R.dimen.tag_image_margin_left);
         layoutParams.setMargins(leftMargin, 0, 0, 0);
         tagViewImage.setLayoutParams(layoutParams);
         tagViewImage.setImageBitmap((Bitmap) resource);

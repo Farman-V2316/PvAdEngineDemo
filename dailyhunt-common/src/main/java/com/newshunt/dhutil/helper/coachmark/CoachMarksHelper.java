@@ -41,7 +41,7 @@ public class CoachMarksHelper {
   public static int totalShownForNotificationToDetail = 0;
   public static final int STICKY_MAX_COUNT = 4;
   private static boolean isDotVisible;
-  public static String displayText = CommonUtils.getString(R.string.swipe_coach_mark);
+  public static String displayText = CommonUtils.getString(com.newshunt.common.util.R.string.swipe_coach_mark);
   public static LiveData<Result0<CommunicationEventsResponse>>  communicationLiveData;
   public static MediatorUsecase<Object, CommunicationEventsResponse> communicationEventUseCase;
   public static int  maxCoachMarksShow = 3;

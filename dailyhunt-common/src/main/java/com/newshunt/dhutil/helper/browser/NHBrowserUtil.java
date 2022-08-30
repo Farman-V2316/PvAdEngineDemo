@@ -265,7 +265,7 @@ public class NHBrowserUtil {
         Intent intent = new Intent(activity, CustomTabsBroadcastReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, 0, intent, PendingIntent
             .FLAG_UPDATE_CURRENT);
-        intentBuilder.addMenuItem(CommonUtils.getString(R.string.menu_copy_link), pendingIntent);
+        intentBuilder.addMenuItem(CommonUtils.getString(com.newshunt.common.util.R.string.menu_copy_link), pendingIntent);
 
         intentBuilder.setStartAnimations(activity, R.anim.slide_in_right, R.anim.slide_out_left);
         intentBuilder.setExitAnimations(activity, android.R.anim.slide_in_left,
