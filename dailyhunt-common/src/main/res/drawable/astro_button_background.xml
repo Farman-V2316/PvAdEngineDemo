@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2022 NewsHunt. All rights reserved.
+  -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/black" android:state_enabled="true" />
+
+    <item android:drawable="@color/grey_desc" android:state_enabled="false" />
+</selector>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="0dp"
+    android:background="?attr/bottom_bar_menu_item_bg_color"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/section_icon"
+        android:layout_width="@dimen/bottom_bar_icon_size_width"
+        android:layout_height="@dimen/bottom_nav_bar_height"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="22dp" />
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/section_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:gravity="left"
+        android:includeFontPadding="false"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp"
+        android:textColor="?attr/onboarding_language_text_color"
+        android:textSize="14dp" />
+
+</LinearLayout>

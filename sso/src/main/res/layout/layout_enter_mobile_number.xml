@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/story_card_list_background"
+    android:paddingEnd="@dimen/layout_enter_mobile_l_r"
+    android:paddingStart="@dimen/layout_enter_mobile_l_r">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/mobile_number_dialog_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mobile_number_dialog_margin_top"
+        android:gravity="center"
+        android:text="@string/enter_your_mobile_number"
+        android:textColor="?attr/truecaller_text_color"
+        android:textSize="@dimen/otp_header_dialog_textSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/country_code"
+        android:layout_width="@dimen/enter_mobile_iso_width"
+        android:layout_height="@dimen/enter_name_textview_height"
+        android:layout_marginTop="@dimen/enter_mobile_iso_margin_top"
+        android:background="?attr/truecaller_box_background_color"
+        android:gravity="center"
+        android:text="@string/india_iso_code"
+        android:textColor="?attr/history_clear_all_title_color"
+        android:textSize="@dimen/facebook_icon_padding"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mobile_number_dialog_header" />
+
+    <com.newshunt.common.view.customview.fontview.NHEditText
+        android:id="@+id/mobile_number"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/enter_name_textview_height"
+        android:layout_marginStart="4dp"
+        android:background="?attr/truecaller_box_background_color"
+        android:ellipsize="end"
+        android:gravity="start|center_vertical"
+        android:hint="@string/enter_your_mobile_number_hint"
+        android:inputType="phone"
+        android:maxLines="1"
+        android:paddingStart="10dp"
+        android:textColor="?attr/history_clear_all_title_color"
+        android:textColorHint="@color/truecaller_mobile_text_color"
+        android:textSize="@dimen/enter_name_textSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/country_code"
+        app:layout_constraintTop_toTopOf="@+id/country_code" />
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/truecaller_terms_and_conditions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/terms_and_conditions_text"
+        android:textColor="@color/truecaller_mobile_text_color"
+        android:textSize="@dimen/enter_name_textSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mobile_number" />
+
+    <com.newshunt.common.view.customview.fontview.NHButton
+        android:id="@+id/phone_number_verify_button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/enter_name_verify_button_height"
+        android:layout_marginBottom="@dimen/enter_name_verify_button_marginBottom"
+        android:layout_marginTop="@dimen/enter_name_verify_button_marginBottom"
+        android:background="@drawable/verify_button_background"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="@string/verify"
+        android:textAllCaps="false"
+        android:textColor="@color/white_color"
+        android:textSize="@dimen/verify_button_text_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/truecaller_terms_and_conditions" />
+</androidx.constraintlayout.widget.ConstraintLayout>

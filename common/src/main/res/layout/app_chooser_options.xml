@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/share_view_padding"
+        android:paddingTop="@dimen/share_view_padding">
+
+        <ImageView
+            android:id="@+id/application_image"
+            android:layout_width="@dimen/share_icon_size"
+            android:layout_height="@dimen/share_icon_size"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/share_view_margine"
+            android:src="@drawable/facebook_icon"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/application_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/share_view_margine"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/photo_gallery_text_color"/>
+</LinearLayout>

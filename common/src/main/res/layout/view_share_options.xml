@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:gravity="center_horizontal"
+              android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/share_standing_bar_width"
+        android:background="@color/share_horizontal_bar"/>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:weightSum="1"
+        android:background="@color/share_background"
+        android:layout_height="@dimen/share_dialog_height">
+
+        <View
+            android:layout_width="@dimen/share_standing_bar_width"
+            android:layout_height="fill_parent"
+            android:background="@color/share_horizontal_bar"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:layout_weight=".20">
+
+            <ImageButton
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:contentDescription="@null"
+                android:padding="@dimen/share_icon_padding"
+                android:src="@drawable/facebook_icon"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:background="@drawable/view_selector"
+                android:id="@+id/first_share_shortcut"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/share_standing_bar_width"
+            android:layout_height="fill_parent"
+            android:background="@color/share_vertical_bar"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:layout_weight=".20">
+
+            <ImageButton
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:contentDescription="@null"
+                android:padding="@dimen/share_icon_padding"
+                android:src="@drawable/twr_icn"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:background="@drawable/view_selector"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/second_share_shortcut"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/share_standing_bar_width"
+            android:layout_height="fill_parent"
+            android:background="@color/share_vertical_bar"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:layout_weight=".20">
+
+            <ImageButton
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="@dimen/share_icon_padding"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:src="@drawable/mils_icn"
+                android:background="@drawable/view_selector"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/third_share_shortcut"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/share_standing_bar_width"
+            android:layout_height="fill_parent"
+            android:background="@color/share_vertical_bar"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:layout_weight=".20">
+
+            <ImageButton
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="@dimen/share_icon_padding"
+                android:contentDescription="@null"
+                android:src="@drawable/wtsapp_icn"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:background="@drawable/view_selector"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/fourth_share_shortcut"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/share_standing_bar_width"
+            android:layout_height="fill_parent"
+            android:background="@color/share_vertical_bar"/>
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:contentDescription="@null"
+            android:src="@drawable/more_icn_hr"
+            android:layout_weight=".201"
+            android:background="@drawable/view_selector"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/more_share_options"/>
+
+        <View
+            android:layout_width="@dimen/share_standing_bar_width"
+            android:layout_height="fill_parent"
+            android:background="@color/share_horizontal_bar"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/share_standing_bar_width"
+        android:background="@color/share_horizontal_bar"/>
+</LinearLayout>

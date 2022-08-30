@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:top="1dp"
+        >
+        <shape
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="oval">
+
+            <solid
+                android:color="@color/font_slider"/>
+
+            <size
+                android:width="5dp"
+                android:height="5dp"/>
+        </shape>
+    </item>
+</layer-list>

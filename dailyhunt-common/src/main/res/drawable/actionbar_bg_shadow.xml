@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Shadow drawable
+https://gist.github.com/lecho/6473458-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item>
+        <shape>
+            <padding android:bottom="1dp" />
+            <solid android:color="#08262626" />
+        </shape>
+    </item>
+
+    <item>
+        <shape>
+            <padding android:bottom="1dp" />
+            <solid android:color="#12262626" />
+        </shape>
+    </item>
+
+    <item>
+        <shape>
+            <padding android:bottom="1dp" />
+            <solid android:color="#16262626" />
+        </shape>
+    </item>
+
+    <!-- Background -->
+    <item>
+        <shape>
+            <solid android:color="@color/toolbar_background_color" />
+        </shape>
+    </item>
+
+</layer-list>

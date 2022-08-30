@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/app_rate_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/app_rate_bg">
+
+        <com.newshunt.dhutil.view.customview.IsometricView
+            android:id="@+id/app_rate_dialog"
+            android:layout_width="312dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="?attr/app_rate_dialog_bg"
+            app:depth="4dp"
+            app:depth_color="@color/onboarding_popup_item_border_color"
+            app:depth_orientation="topRight"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/app_rate_cancel_btn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="2dp"
+                android:background="@android:color/transparent"
+                android:src="?attr/dialog_box_cross_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/dialogTitletext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/app_rate_cancel_btn">
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/dialog_title_text_in_app"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:textColor="?attr/app_rate_dialog_title_text_color"
+                    android:textSize="@dimen/rate_us_dialog_title_text"
+                    android:textStyle="bold"
+                    app:dh_custom_font_weight="six_hundred" />
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/dialog_title_text_play_store"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:textColor="?attr/app_rate_dialog_title_text_color"
+                    android:textSize="@dimen/rate_us_dialog_title_text"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:dh_custom_font_weight="six_hundred"/>
+
+
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rating_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="26dp"
+                android:layout_marginTop="29dp"
+                android:layout_marginBottom="21dp"
+                app:layout_constraintBottom_toTopOf="@+id/submit_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dialogTitletext">
+
+                <LinearLayout
+                    android:id="@+id/rating1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.newshunt.common.view.customview.NHImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="?attr/ic_rating_star" />
+
+                    <com.newshunt.common.view.customview.NHImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_emoji_1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rating2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toEndOf="@id/rating1"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.newshunt.common.view.customview.NHImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="?attr/ic_rating_star" />
+
+                    <com.newshunt.common.view.customview.NHImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_emoji_2" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rating3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toEndOf="@id/rating2"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.newshunt.common.view.customview.NHImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="?attr/ic_rating_star" />
+
+                    <com.newshunt.common.view.customview.NHImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_emoji_3" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rating4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toEndOf="@id/rating3"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.newshunt.common.view.customview.NHImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="?attr/ic_rating_star" />
+
+                    <com.newshunt.common.view.customview.NHImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_emoji_4" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rating5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toEndOf="@id/rating4"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.newshunt.common.view.customview.NHImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="?attr/ic_rating_star" />
+
+                    <com.newshunt.common.view.customview.NHImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_emoji_5" />
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <FrameLayout
+                android:id="@+id/submit_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="26dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/submit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_rate_us_button_bg"
+                    android:gravity="center"
+                    android:textColor="@color/white_color"
+                    android:textSize="14dp"
+                    android:paddingTop="11dp"
+                    android:paddingBottom="11dp"
+                    app:dh_custom_font_weight="five_hundred" />
+
+            </FrameLayout>
+
+        </com.newshunt.dhutil.view.customview.IsometricView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

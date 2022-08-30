@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ /*
+  ~  *Copyright (c) 2016 Newshunt. All rights reserved.
+  ~  */
+  -->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/Mode_box_width"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/notification_dialog_shadow_color">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/play_services_dialog_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/notification_enable_text_margin_left"
+        android:layout_marginRight="@dimen/notification_enable_text_margin_right"
+        android:layout_marginTop="@dimen/notification_enable_text_margin_top"
+        android:textColor="@color/notification_enable_dialog_titletext_color"
+        android:textSize="@dimen/notification_title_text_size"/>
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/play_services_dialogHeadertext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/play_services_dialog_text"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/notification_enable_text_margin_left"
+        android:layout_marginRight="@dimen/notification_enable_text_margin_right"
+        android:layout_marginTop="-5dp"
+        android:textColor="@color/notification_enable_dialog_headertext_color"
+        android:textSize="@dimen/notification_header_text_size"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/play_services_dialogHeadertext"
+        android:layout_marginBottom="@dimen/notification_button_layout_margin_bottom">
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/positive_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/notification_enable_text_margin_right"
+            android:gravity="left"
+            android:padding="@dimen/notification_button_text_padding"
+            android:text="@string/ok_text"
+            android:textColor="@color/notification_enable_dialog_titletext_color"
+            android:textSize="@dimen/notification_button_text_size"/>
+
+    </RelativeLayout>
+</RelativeLayout>

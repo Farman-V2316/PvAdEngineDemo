@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/toggle_button"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/follow_btn_horizontal_padding"
+    android:paddingBottom="@dimen/follow_button_top_bottom_padding"
+    android:paddingTop="@dimen/follow_button_top_bottom_padding">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/toggle_on_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="left"
+        android:includeFontPadding="false"
+        android:minHeight="0dp"
+        android:text="@string/follow"
+        android:textAlignment="gravity"
+        android:textColor="@color/follow_green"
+        android:textSize="@dimen/follow_btn_text_size"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/toggle_off_text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/follow_btn_horizontal_padding"
+        android:layout_marginRight="@dimen/follow_btn_horizontal_padding"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:minHeight="0dp"
+        android:text="@string/following"
+        android:textAlignment="gravity"
+        android:textColor="@color/white_color"
+        android:textSize="@dimen/follow_btn_text_size"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

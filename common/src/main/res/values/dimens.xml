@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+<resources>
+
+    <!-- Dimensions for text -->
+    <dimen name="text_xx_small">10dp</dimen>
+    <dimen name="text_x_small">12dp</dimen>
+    <dimen name="text_small">14dp</dimen>
+    <dimen name="text_medium">18dp</dimen>
+    <dimen name="text_large">22dp</dimen>
+    <dimen name="text_xlarge">26dp</dimen>
+
+    <!-- Dimensions for margins -->
+    <dimen name="margin_small">14dp</dimen>
+
+    <dimen name="viral_social_icon_text_size">4dp</dimen>
+
+    <!-- Dimensions for buttons -->
+
+    <!-- Dimensions for various views -->
+
+    <!-- Dimensions for paddings -->
+    <dimen name="padding_small">12dp</dimen>
+    <dimen name="error_msg_size">14dp</dimen>
+
+    <dimen name="share_dialog_height">45dp</dimen>
+    <dimen name="share_standing_bar_width">0.5dp</dimen>
+
+    <dimen name="action_bar_padding">16dp</dimen>
+    <dimen name="actionbar_height">48dp</dimen>
+
+
+    <dimen name="font_slot_height">10dp</dimen>
+
+    <dimen name="share_icon_padding">12dp</dimen>
+    <dimen name="share_icon_size">32dp</dimen>
+    <dimen name="share_view_margine">20dp</dimen>
+    <dimen name="share_view_padding">10dp</dimen>
+
+    <dimen name="facebook_icon_padding">17dp</dimen>
+
+
+    <!-- Dimension for action bar option -->
+    <dimen name="action_bar_text_margin">10dp</dimen>
+    <dimen name="actionbar_title_size">20dp</dimen>
+
+    <!-- Dimension for Tab bar bottom -->
+
+    <!-- Dimension for setting app rate -->
+
+    <dimen name="rate_now_text_size">14dp</dimen>
+
+    <dimen name="app_rate_options_right_margin">26dp</dimen>
+    <dimen name="app_rate_options_distance">32dp</dimen>
+
+    <!-- Dimensions for app share view -->
+    <dimen name="app_share_top_margin">13dp</dimen>
+    <dimen name="app_share_bottom_margin">17dp</dimen>
+    <dimen name="app_share_side_margin">26dp</dimen>
+    <dimen name="next_refresh_dimentions">25dp</dimen>
+    <dimen name="footer_progress_dimension">30dp</dimen>
+    <dimen name="infinite_scroll_layout_margin">2dp</dimen>
+    <dimen name="content_count_top_margin">8dp</dimen>
+    <dimen name="info_text_top_margin">30dp</dimen>
+    <dimen name="email_top_margin">19dp</dimen>
+    <dimen name="email_bottom_margin">15dp</dimen>
+    <dimen name="seprator_height">1dp</dimen>
+    <dimen name="bottom_nav_bar_height">22dp</dimen>
+    <dimen name="bottom_nav_bar_text_size">10dp</dimen>
+
+    <!-- App Rate -->
+    <dimen name="app_rate_text_margin_right">20dp</dimen>
+    <dimen name="app_rate_text_margin_left">20dp</dimen>
+    <dimen name="app_rate_text_size">16dp</dimen>
+    <dimen name="app_rate_button_padding">3dp</dimen>
+
+    <!-- App upgrade -->
+    <dimen name="upgrade_box_width">312dp</dimen>
+    <dimen name="header_view_height">45dp</dimen>
+    <dimen name="header_view_margin">18dp</dimen>
+    <dimen name="header_text_size">15dp</dimen>
+
+    <dimen name="image_holder_height">165dp</dimen>
+    <dimen name="bottom_text_size">14dp</dimen>
+    <dimen name="bottom_text_margin">18dp</dimen>
+    <dimen name="option_button_top_margin">32dp</dimen>
+    <dimen name="option_button_bottom_margin">22dp</dimen>
+    <dimen name="book_list_bottom_bar_height">48dp</dimen>
+
+    <!-- App Mode -->
+    <dimen name="Mode_box_width">280dp</dimen>
+    <dimen name="disable_battery_optimization_dialog_width">320dp</dimen>
+
+    <!-- Dimen for Swipe toRefresh Y threshold -->
+    <dimen name="swipe_threshold_dimen">50dp</dimen>
+
+    <!-- Notification Enable -->
+    <dimen name="notification_title_text_size">20dp</dimen>
+    <dimen name="notification_header_text_size">16dp</dimen>
+    <dimen name="notification_button_text_size">14dp</dimen>
+    <dimen name="notification_enable_text_margin_left">20dp</dimen>
+    <dimen name="notification_enable_text_margin_right">20dp</dimen>
+    <dimen name="notification_enable_text_margin_top">14dp</dimen>
+    <dimen name="notification_button_layout_margin_bottom">10dp</dimen>
+    <dimen name="notification_button_text_padding">10dp</dimen>
+    <dimen name="notification_button_text_margin_right">15dp</dimen>
+
+    <!-- menu pop up dimens -->
+    <dimen name="popup_text_size">14dp</dimen>
+    <dimen name="popup_text_paddingtop">10dp</dimen>
+    <dimen name="popup_text_paddingbottom">10dp</dimen>
+    <dimen name="popup_text_paddingright">10dp</dimen>
+    <dimen name="popup_text_paddingleft">10dp</dimen>
+    <dimen name="popup_menu_drawable_padding">10dp</dimen>
+    <dimen name="popup_menu_divider_height">0.5dp</dimen>
+
+    <!-- Bottom bar dimens -->
+    <dimen name="bottom_bar_height">48dp</dimen>
+    <dimen name="new_bottom_bar_height">110dp</dimen>
+    <dimen name="bottom_bar_large_height">56dp</dimen>
+    <dimen name="bottom_bar_nav_highlight_w_h">9dp</dimen>
+    <dimen name="bottom_bar_margin">13dp</dimen>
+    <dimen name="bottom_bar_background_height">54dp</dimen>
+
+    <!-- Payment Dimens -->
+    <dimen name="actionbar_subtitle_size">11dp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="activity_horizontal_margin">30dp</dimen>
+
+    <!-- App rate dailog dimens -->
+    <dimen name="title_text_size">18dp</dimen>
+    <dimen name="content_text_size">14dp</dimen>
+    <dimen name="button_text_size">16dp</dimen>
+    <dimen name="nevershow_text_size">12dp</dimen>
+    <dimen name="dialog_margin">20dp</dimen>
+    <dimen name="cancel_button_padding_top_right">5dp</dimen>
+    <dimen name="cancel_button_padding_bottom_left">24dp</dimen>
+    <dimen name="mobile_image_margin_top">11dp</dimen>
+    <dimen name="title_content_text_margin_left_right">15dp</dimen>
+    <dimen name="title_text_margin_top">8dp</dimen>
+    <dimen name="content_margin_top">5dp</dimen>
+    <dimen name="checkbox_left_bottom_top_padding">12dp</dimen>
+    <dimen name="checkbox_right_padding">6dp</dimen>
+    <dimen name="button_layout_margin_top">5dp</dimen>
+    <dimen name="button_layout_margin_bottom">15dp</dimen>
+    <dimen name="feedback_button_layout_margin_left">24dp</dimen>
+    <dimen name="feedback_button_layout_margin_right">8dp</dimen>
+    <dimen name="feedback_button_layout_max_height">40dp</dimen>
+    <dimen name="feedback_sad_smile_margin_right">2.5dp</dimen>
+    <dimen name="ratenow_button_layout_margin_left">8dp</dimen>
+    <dimen name="ratenow_button_layout_margin_right">24dp</dimen>
+    <dimen name="ratenow_button_layout_max_height">40dp</dimen>
+    <dimen name="ratenow_happy_smile_margin_right">2.5dp</dimen>
+
+    <!-- read more btn-->
+    <dimen name="readmore_btn_radius">5dp</dimen>
+    <dimen name="readmore_btn_stroke_width">1dp</dimen>
+
+    <!-- Read More News dimens  -->
+    <dimen name="progress_bar_width_and_height">25dp</dimen>
+    <dimen name="progress_bar_margin_top">50dp</dimen>
+    <dimen name="progress_bar_margin_bottom">75dp</dimen>
+
+    <!-- error dimens -->
+
+
+    <!-- share fab button -->
+    <dimen name="share_fab_layout_height">100dp</dimen>
+    <dimen name="share_fab_size">50dp</dimen>
+    <dimen name="share_fab_margin">20dp</dimen>
+
+    <dimen name="bottom_bar_icon_size_width">26dp</dimen>
+
+    <dimen name="fab_share_text_size">12dp</dimen>
+    <dimen name="fab_share_elevation_size">16dp</dimen>
+    <dimen name="custom_toast_radius">20dp</dimen>
+    <dimen name="custom_toast_padding_left_right">20dp</dimen>
+    <dimen name="custom_toast_padding_top_bottom">10dp</dimen>
+    <dimen name="custom_toast_margin">10dp</dimen>
+    <dimen name="custom_toast_text_size">16dp</dimen>
+    <dimen name="tool_tip_title_text_size">15dp</dimen>
+    <dimen name="tool_tip_nudge_text_size">14dp</dimen>
+    <dimen name="tool_tip_msg_text_size">12dp</dimen>
+    <dimen name="tool_tip_padding_bottom">12dp</dimen>
+    <dimen name="nsfw_text_padding_left">24dp</dimen>
+    <dimen name="nsfw_text_padding_right">24dp</dimen>
+    <dimen name="tag_view_default_border_size">1dp</dimen>
+    <dimen name="tag_view_default_radius">40dp</dimen>
+
+    <dimen name="tag_view_image_width">16dp</dimen>
+    <dimen name="tag_view_image_height">16dp</dimen>
+    <dimen name="tag_view_height">36dp</dimen>
+    <dimen name="tag_text_size">14dp</dimen>
+    <dimen name="tag_text_margin_left">15dp</dimen>
+    <dimen name="tag_text_margin_right">14dp</dimen>
+    <dimen name="tag_image_margin_left">14dp</dimen>
+    <dimen name="flow_layout_item_spacing">10dp</dimen>
+    <dimen name="viral_read_more_margin_right">10dp</dimen>
+    <dimen name="viral_read_more_margin_bottom">15dp</dimen>
+    <dimen name="viral_read_more_text_size">10dp</dimen>
+    <dimen name="viral_read_more_padding">5dp</dimen>
+    <dimen name="viral_read_more_padding_top">2dp</dimen>
+    <dimen name="read_more_arrow_width_height">8dp</dimen>
+    <dimen name="read_more_arrow_padding">2dp</dimen>
+    <dimen name="viral_txt_meme_margin">10dp</dimen>
+
+    <!--Multi choice button-->
+    <dimen name="tag_view_toggle_height">32dp</dimen>
+    <dimen name="tag_toggle_image_margin_right">2dp</dimen>
+
+    <dimen name="dialog_header_marginTop">5dp</dimen>
+
+    <dimen name="notification_badge_text_size">8dp</dimen>
+    <dimen name="notification_badge_width_circle">17dp</dimen>
+    <dimen name="notification_badge_width_squared">20dp</dimen>
+    <dimen name="notification_badge_height">17dp</dimen>
+    <dimen name="notification_badge_paddingTop">2dp</dimen>
+    <dimen name="notification_badge_paddingLeft">4dp</dimen>
+    <dimen name="collection_landing_other_elements_height">400dp</dimen>
+    <dimen name="bottom_bar_ripple_bg_stroke_width">3dp</dimen>
+
+    <!--Tag Text-->
+
+    <!--Sign out popup-->
+
+    <dimen name="signout_text_margin">20dp</dimen>
+    <dimen name="signout_text_bottom_margin">14dp</dimen>
+    <dimen name="signout_text_left_right_margin">22dp</dimen>
+    <dimen name="signout_conf_text_bottom_margin">90dp</dimen>
+    <dimen name="logout_button_margin_right">36dp</dimen>
+    <dimen name="cancel_button_margin_right">20dp</dimen>
+    <dimen name="signout_title_text_size">20dp</dimen>
+    <dimen name="signout_conf_text_size">16dp</dimen>
+
+    <dimen name="customizable_min_height">30dp</dimen>
+    <dimen name="customizable_max_height">100dp</dimen>
+    <dimen name="customizable_width">400dp</dimen>
+
+
+    <dimen name="rich_gallery_slide_show_text">12dp</dimen>
+    <dimen name="rich_gallery_slideshow_icon_padding">12dp</dimen>
+    <dimen name="rich_gallery_slideshow_layout_padding">9dp</dimen>
+    <dimen name="rich_gallery_slideshow_layout_paddingBottom">8dp</dimen>
+    <dimen name="rich_gallery_slideshow_marginBottom">20dp</dimen>
+    <dimen name="rich_gallery_slideshow_marginRight">20dp</dimen>
+    <dimen name="rich_gallery_slideshow_text_size">12dp</dimen>
+
+    <dimen name="location_list_state_logo_w">32dp</dimen>
+    <dimen name="location_list_stage_logo_margin_left">10dp</dimen>
+    <dimen name="location_list_state_logo_margin_top">13dp</dimen>
+    <dimen name="container_expand_toggle_w">24dp</dimen>
+    <dimen name="container_expand_toggle_margin_right">10dp</dimen>
+    <dimen name="container_expand_toggle_margin_top">17dp</dimen>
+    <dimen name="state_expand_toggle_width">12dp</dimen>
+    <dimen name="state_expand_toggle_height">8dp</dimen>
+    <dimen name="fragment_location_list_margin_top">15dp</dimen>
+    <dimen name="search_locations_text_size">14dp</dimen>
+    <dimen name="state_info_margin_right">10dp</dimen>
+    <dimen name="location_list_child_marginBottom">5dp</dimen>
+    <dimen name="location_list_margin">20dp</dimen>
+    <dimen name="location_list_parent_title_size">18dp</dimen>
+    <dimen name="location_list_padding_left">24dp</dimen>
+    <dimen name="suggested_location_view_height">19dp</dimen>
+    <dimen name="suggested_location_view_textsize">14dp</dimen>
+    <dimen name="suggested_location_view_line_height">19dp</dimen>
+    <dimen name="location_margin_right">14dp</dimen>
+    <dimen name="location_margin_top">16dp</dimen>
+    <dimen name="location_margin_top_small">24dp</dimen>
+    <dimen name="location_padding_bottom">5dp</dimen>
+    <dimen name="location_suggestion_height">110dp</dimen>
+    <dimen name="location_marginStart">18dp</dimen>
+    <dimen name="rate_us_dialog_title_text">21dp</dimen>
+
+    <dimen name="share_drawable_size">24dp</dimen>
+
+    <dimen name="cap_text_size">50dp</dimen>
+    <dimen name="body_text_size">16dp</dimen>
+    <dimen name="first_akshar_padding">4dp</dimen>
+    <dimen name="first_akshar_text_padding">12dp</dimen>
+
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="ad_choices_view" type="id"/>
+    <item name="ad_click_tag_id" type="id"/>
+    <item name="publisher_ad_id" type="id"/>
+    <item name="amazon_ad_id" type="id"/>
+    <item name="dh_view_tag_id" type="id"/>
+</resources>

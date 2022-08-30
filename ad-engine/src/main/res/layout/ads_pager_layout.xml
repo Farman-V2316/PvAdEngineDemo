@@ -1,0 +1,101 @@
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.adengine.util.AdConstants" />
+
+        <import type="com.newshunt.adengine.view.helper.AdBindUtils" />
+
+        <import type="com.newshunt.adengine.model.entity.version.AdPosition"/>
+
+        <variable
+            name="adEntity"
+            type="com.newshunt.adengine.model.entity.BaseDisplayAdEntity" />
+
+        <variable
+            name="adReportListener"
+            type="com.newshunt.adengine.listeners.ReportAdsMenuListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/default_background">
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/ad_report"
+            style="@style/ad_report_style"
+            android:drawableEnd="@drawable/ic_report_ads_menu_icon_grey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/ad_report_margin_start_end"
+            android:layout_marginTop="@dimen/ad_icon_margin_top"
+            android:onClick="@{(v) -> AdBindUtils.reportAd(adReportListener, adEntity, (String)null)}"
+            android:text="@{adEntity.content.reportText.data}"
+            android:visibility="@{AdBindUtils.canShowAdsReportIcon(adEntity)? View.VISIBLE : View.GONE}"
+            app:dh_custom_font_weight="four_hundred"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.newshunt.adengine.view.viewholder.AdsViewPager
+            android:id="@+id/viewpager_ads"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ad_icon_margin_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ad_report" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/sponsored_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/ad_content_margin"
+            android:layout_marginTop="@dimen/ads_pager_sponsored_marginTop"
+            android:text="@{adEntity.content.itemTag.data}"
+            android:textColor="@color/sponsored_text_color"
+            android:textSize="10dp"
+            app:dh_custom_font_weight="four_hundred"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewpager_ads"
+            android:visibility="@{AdBindUtils.canShow(adEntity.content.itemTag.data) ? View.VISIBLE : View.GONE}"
+            />
+        <!--todo mukesh need to verify field-->
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/sourceAlphabet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@{adEntity.content.sourceAlphabet}"
+            android:textColor="?attr/source_alphabet_text_color"
+            android:textSize="@dimen/source_alphabet_text_size"
+            android:visibility="@{AdBindUtils.canShow(adEntity.content.sourceAlphabet) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/sponsored_text"
+            app:layout_constraintStart_toEndOf="@+id/sponsored_text" />
+
+        <View
+            android:id="@+id/bottom_divider"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginStart="@dimen/ad_divider_margin"
+            android:layout_marginTop="@dimen/divider_marginTop"
+            android:layout_marginEnd="@dimen/ad_divider_margin"
+            android:background="?attr/separator_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sponsored_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="1"
+            bind:marginBottomDetail="@{@dimen/ad_margin_top}"
+            bind:storyPageAd="@{adEntity.adPosition == AdPosition.STORY}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

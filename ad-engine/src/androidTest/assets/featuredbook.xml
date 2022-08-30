@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<response>
+    <header status="Success"/>
+    <body disable="0" responseType="showAds" time="1800">
+        <ad bannerid="1234" card-position="5" id="Z1597M8501001355838249" min-ad-distance="4"
+            position="card-p1" type="featuredBook">
+            <type><![CDATA[featuredBook]]>
+            </type>
+            <beaconUrl>
+                <![CDATA[http://newshuntads.com/openx/ads/log.php?md5=-1&log_id=Z1597M8501001355838249…]]></beaconUrl>
+            <content bg-color="rgba(255,255,255,1)" bg-color-night="rgba(0,0,0,1)" language="12">
+                <iconLink>
+                    <![CDATA[http://acdn.newshuntads.com/openx/resize_cache/dc/28/19/ NHIMGRESREPLACE_dc2819a40bfbf06449d4fe8047ee6bb3.NHIMGEXTREPLACE]]></iconLink>
+                <itemTag color="rgba(0,0,0,1)" color-night="rgba(255,255,255,1)">
+                    <![CDATA[Featured Book]]></itemTag>
+                <itemTitle color="rgba(0,0,0,1)" color-night="rgba(255,255,255,1)">
+                    <![CDATA[Learn English In 30 Days]]></itemTitle>
+                <itemSubtitle1 color="rgba(0,0,0,1)" color-night="rgba(255,255,255,1)">
+                    <![CDATA[Language]]></itemSubtitle1>
+                <itemSubtitle2 color="rgba(0,0,0,1)" color-night="rgba(255,255,255,1)">
+                    <![CDATA[John H Douglas]]></itemSubtitle2>
+                <itemSubtitle3 color="rgba(0,0,0,1)" color-night="rgba(255,255,255,1)">
+                    <![CDATA[Rs. 30/-]]></itemSubtitle3>
+            </content>
+            <action>
+                <![CDATA[<a href="http://newshuntads.com/openx/ads/click.php?md5=-1__click_id=NAZ1583MC0864081416997116__clientId=735086408__oaparams=2__bannerid=8588__zoneid=1583__cb=27f4ca7458__ccsf=1__clkh=c91ba7b4f24651f1691706a80c549669__oadest=openbook:34532">Click here to launch Browser</a>]]></action>
+        </ad>
+    </body>
+</response>

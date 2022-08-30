@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.adengine.view.helper.AdBindUtils" />
+
+        <variable
+            name="adEntity"
+            type="com.newshunt.adengine.model.entity.BaseDisplayAdEntity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/external_ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/sponsored_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/ad_content_margin"
+            android:text="@{adEntity.content.itemTag.data}"
+            android:textColor="?attr/sponsored_text_color"
+            android:textSize="@dimen/sponsored_text_size"
+            android:visibility="@{AdBindUtils.canShow(adEntity.content.itemTag.data) ? View.VISIBLE : View.GONE}"
+            app:dh_custom_font_weight="four_hundred"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--    external_ad_layout is added in the xml to provide only background and border. The sdk view is not added here -->
+        <com.newshunt.common.view.customview.NHRoundedFrameLayout
+            android:id="@+id/external_ad_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/ad_content_margin"
+            android:layout_marginEnd="@dimen/ad_content_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2017 Newshunt. All rights reserved.
+  -->
+<resources>
+
+    <string name="about_us_link" translatable="false">http://www.dailyhunt.in/about.php</string>
+    <string name="about_us_more_info" translatable="false">For more information please visit:</string>
+    <string name="about_us_title" translatable="false">Eterno Infotech, A wholly owned subsidiary of Verse Innovation</string>
+    <string name="app_share_email_subject" translatable="false">Get Dailyhunt on your phone to read News and Books in your language!</string>
+    <string name="copyright_year" translatable="false">&#169; 2018</string>
+    <string name="facebook_share_error" translatable="false">Facebook not Installed</string>
+    <string name="gmail_share_error" translatable="false">Gmail not Installed</string>
+    <string name="language_list" translatable="false">List of languages to choose .</string>
+    <string name="login_screen_title" translatable="false">Dailyhunt</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="please_wait" translatable="false">Please wait...</string>
+    <string name="share_source" translatable="false">via Dailyhunt</string>
+    <string name="share_source_twitter_gu" translatable="false">via @DhuntGujarati</string>
+    <string name="share_source_twitter_hi" translatable="false">via @DhuntHindi</string>
+    <string name="share_source_twitter_kn" translatable="false">via @DhuntKannada</string>
+    <string name="share_source_twitter_ml" translatable="false">via @DhuntMalayalam</string>
+    <string name="share_source_twitter_mr" translatable="false">via @DhuntMarathi</string>
+    <string name="share_source_twitter_bn" translatable="false">via @DhuntBangla</string>
+    <string name="share_source_twitter" translatable="false">via @DailyhuntApp</string>
+    <string name="twitter_share_error" translatable="false">Twitter not Installed</string>
+    <string name="whatsapp_share_error" translatable="false">WhatsApp not Installed</string>
+    <string name="privacy_policy_link" translatable="false">http://www.dailyhunt.in/privacy</string>
+    <string name="content_policy_link" translatable="false">http://www.dailyhunt.in/content-policy</string>
+    <string name="user_agreement_link" translatable="false">http://www.dailyhunt.in/user-agreement</string>
+    <string name="terms_and_condition_link" translatable="false">http://www.dailyhunt.in/terms-conditions</string>
+    <string name="grievance_link" translatable="false">http://m.dailyhunt.in/webItem/grievance.html</string>
+    <string name="ellipsis_char" translatable="false">&#8230;</string>
+    <string name="nh_to_dh_upgradeUser" translatable="false">Upgrading to DailyHunt</string>
+
+    <string name="gcm_registration_info" translatable="false">GCM info registered on the server: </string>
+    <string name="notification_update_status" translatable="false">Notification status updated on the server: </string>
+    <string name="follow_subheading_to_follow_updates" translatable="false">Follow To Not Miss Any Updates</string>
+    <string name="block_subheading_to_follow_updates" translatable="false">Block To See Less From This Publisher </string>
+
+    <string name="ad_test_mode_title" translatable="false">Ads Test mode for Logged builds</string>
+    <string name="amazon_ad_test_mode" translatable="false">Enable Amazon test ads</string>
+    <string name="all_ads_test_mode" translatable="false">Enable all test ads</string>
+    <string name="enable_prefetch_logs" translatable="false">Enable Prefetch Logs</string>
+    <string name="enable_bandwidth_logs" translatable="false">Enable Bandwidth Logs</string>
+    <!--Books Strings-->
+
+    <!--ActionBar Strings-->
+
+    <!-- Book Details & Chapters -->
+
+    <!--Post Review-->
+
+    <!-- My Books -->
+
+    <!--Book Search-->
+
+    <!--My Books Values-->
+
+    <!--Error Messages for Downloading-->
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="nh_js_command" translatable="false">NHCommand</string>
+
+    <!--Payment dialog action button names-->
+
+    <!--xml string constants-->
+
+    <string name="activity_lollipop_transition" translatable="false">LollipopTransition</string>
+
+    <!-- In app browser -->
+    <string name="menu_open_external" translatable="false">Open in Browser</string>
+    <string name="menu_copy_link" translatable="false">Copy Link</string>
+    <string name="menu_share_link" translatable="false">Share Link</string>
+
+    <string-array name="languages_supported" translatable="false">
+        <item>as</item>
+        <item>bh</item>
+        <item>bn</item>
+        <item>en</item>
+        <item>gu</item>
+        <item>hi</item>
+        <item>kn</item>
+        <item>ml</item>
+        <item>mr</item>
+        <item>ne</item>
+        <item>or</item>
+        <item>pa</item>
+        <item>sd</item>
+        <item>ta</item>
+        <item>te</item>
+        <item>ur</item>
+    </string-array>
+    <string-array name="app_languages_hierarchy" translatable="false">
+        <item>hi</item>
+        <item>en</item>
+        <item>ml</item>
+        <item>te</item>
+        <item>ta</item>
+        <item>kn</item>
+        <item>gu</item>
+        <item>mr</item>
+        <item>bn</item>
+        <item>pa</item>
+        <item>or</item>
+        <item>as</item>
+        <item>ur</item>
+        <item>bh</item>
+        <item>sd</item>
+        <item>ne</item>
+    </string-array>
+    <string-array name="language_list">
+        <item>English,en</item>
+        <item>Hindi,hi</item>
+        <item>Marathi,mr</item>
+        <item>Gujarati,gu</item>
+        <item>Punjabi,pa</item>
+        <item>Bangla,bn</item>
+        <item>Kannada,kn</item>
+        <item>Tamil,ta</item>
+        <item>Telugu,te</item>
+        <item>Malayalam,ml</item>
+        <item>Oriya,or</item>
+        <item>Urdu,ur</item>
+        <item>Bhojpuri,bh</item>
+    </string-array>
+
+    <plurals name="viral_more_stories" translatable="false">
+        <item quantity="one">@string/new_story</item>
+        <item quantity="other">@string/new_stories</item>
+    </plurals>
+
+    <plurals name="new_stories_top" translatable="false">
+        <item quantity="one">@string/new_story</item>
+        <item quantity="other">@string/new_stories</item>
+    </plurals>
+
+    <string name="scheme_http" translatable="false">http</string>
+
+    <string name="webview_downloading_file_toast" translatable="false">Downloading file
+        %1$s</string>
+    <string name="sticky_notification_updating" translatable="false">Updating..</string>
+    <string name="font_provider_authority" translatable="false">com.google.android.gms.fonts</string>
+    <string name="font_provider_package" translatable="false">com.google.android.gms</string>
+    <string name="font_query" translatable="false">Noto Color Emoji Compat</string>
+    <string name="share_txt" translatable="false">Check out this great post</string>
+
+    <string name="report" translatable="false">Report</string>
+
+    <string name="views_count" translatable="false">%s views</string>
+    <string name="view_count" translatable="false">%s view</string>
+
+    <plurals name="story_view_count" translatable="false">
+        <item quantity="one">@string/view_count</item>
+        <item quantity="other">@string/views_count</item>
+    </plurals>
+
+    <string name="live_video_tag" translatable="false">Live</string>
+
+    <string name="carousel_view_more" translatable="false">View more</string>
+    <string name="user_terms_condition" translatable="false">By continuing, you accept the&lt;a href=http://www.dailyhunt.in/user-agreement&gt;User Agreement &amp; Privacy
+            Policy&lt;/a&gt;</string>
+    <string name="user_terms_condition_2" translatable="false">"By continuing, you accept
+        the &lt;b&gt; &lt;a href=http://www.dailyhunt.in/user-agreement&gt;User Agreement &amp;
+        Privacy Policy&lt;/a&gt; &lt;b/&gt;"</string>
+    <string name="user_terms_condition_dialog_confirmation" translatable="false">Please accept the
+       &lt;a href=http://www.dailyhunt.in/user-agreement&gt; User Agreement &amp; Privacy
+       Policy&lt;/a&gt; to continue</string>
+    <string name="privacy_policy" translatable="false">Privacy policy</string>
+    <string name="user_agreement" translatable="false">User Agreement</string>
+    <string name="content_policy" translatable="false">Content Policy</string>
+    <string name="terms_and_conditions" translatable="false">Terms &amp; Conditions</string>
+    <string name="grievance" translatable="false">Grievance</string>
+    <string name="follow_disabled" translatable="false">"Follow section disabled"</string>
+
+    <!--DHTV Module -->
+    <string name="default_video_duration_text" translatable="false">0:00</string>
+
+    <string name="choose_preferred" translatable="false">Choose Your Preferred</string>
+    <string name="language_selected_en" translatable="false">Your selected language</string>
+    <string name="add_more_languages_en" translatable="false">Add more languages</string>
+    <string name="preferred_lang" translatable="false">Language</string>
+    <string name="change_en" translatable="false">Change</string>
+    <string name="see_all_en" translatable="false">See All</string>
+    <string name="save_en" translatable="false">Save</string>
+    <string name="agree_and_continue_string" translatable="false"><![CDATA[AGREE & CONTINUE]]></string>
+
+    <string name="live_commentary" translatable="false">Live Commentary</string>
+    <string name="buffering" translatable="false">Buffering…</string>
+    <string name="india_iso_code" translatable="false">+91</string>
+    <string name="votes" translatable="false">Votes</string>
+    <string name="time_left" translatable="false">Left</string>
+    <string name="poll_expired" translatable="false">Poll has ended</string>
+    <string name="nsfw_display" translatable="false">View</string>
+    <string name="nsfw_description" translatable="false">Suitable for adult viewing</string>
+    <string name="share" translatable="false">Share</string>
+
+    <string name="group_id_exists" translatable="false">Group Username already exists. Try with
+        another.</string>
+    <string name="handle_symbol" translatable="false">\u0040</string>
+    <string name="image_path_invalid" translatable="false">Image path invalid. Discarding</string>
+
+    <string name="your_current_location" translatable="false">Your current location</string>
+    <string name="post_create_new_hash_tag" translatable="false">Create your new hashtag</string>
+    <string name="requested" translatable="false">Requested</string>
+
+    <!--    Profile Strings-->
+    <string name="similar_sources_text" translatable="false">Similar Sources</string>
+    <string name="describe_your_comment" translatable="false">Write your comment</string>
+    <string name="saved_videos" translatable="false">Saved Videos</string>
+
+    <string name="can_not_play_video" translatable="false">"Cannot play video"</string>
+
+    <string name="cp_privacy_header_tv_comments" translatable="false">"Comments"</string>
+
+    <string name="cp_prog_message" translatable="false">Posting on Dailyhunt</string>
+    <string name="post_comment_failure" translatable="false">Comment failed</string>
+
+    <string name="followers_error_title" translatable="false">You have no followers</string>
+    <string name="followers_error_description" translatable="false">Start posting to get followers</string>
+
+    <string name="followers_error_title_tpv" translatable="false">%s has no followers</string>
+    <string name="following_error_title_tpv" translatable="false">%s is not following any source</string>
+    <string name="blocked_error_title" translatable="false">Feels great to know that you are happy with our content partners</string>
+    <string name="blocked_error_description" translatable="false">Feel free to block irrelevant sources. This will help us provide you with better experience</string>
+
+    <!--TODO :: @amit.chaudhary add id in translation sheet after strings are added-->
+    <string name="delete_post_dialog_heading" translatable="false">Delete post</string>
+
+
+    <string name="goto_myposts" translatable="false">You can view your posts in profile section</string>
+    <string name="goto_myposts_action" translatable="false">Go</string>
+    <string name="related_stories_widget_name" translatable="false">RelatedStories</string>
+    <string name="cp_no_gif_support" translatable="false">We do not support GIF.</string>
+    <string name="discard_desc" translatable="false">This action cannot be undone. You can
+        retry instead.</string>
+
+    <plurals name="reply_count_display" translatable="false">
+        <item quantity="one">@string/view_reply</item>
+        <item quantity="other">@string/view_replies</item>
+    </plurals>
+
+
+    <plurals name="q_c_replies" translatable="false">
+        <item quantity="one">@string/c_replies</item>
+        <item quantity="other">@string/c_reply</item>
+    </plurals>
+    <plurals name="q_view_all_reposts_with_count" translatable="false">
+        <item quantity="one">@string/view_all_reposts_with_count_single</item>
+        <item quantity="other">@string/view_all_reposts_with_count_plural</item>
+    </plurals>
+
+
+
+    <string name="group_post_approval" translatable="false">Your post will be published once
+        approved</string>
+
+    <string name="notification_fetching_new" translatable="false">Updating News...</string>
+
+    <string name="offline_video_unsaving_failed" translatable="false">Failed</string>
+    <string name="offline_unsaving_failed" translatable="false">Failed</string>
+
+    <string name="photo_gallery_description_less" translatable="false">Less</string>
+
+    <!--    tooltip texts  -->
+    <string name="tooltip_share_text" translatable="false">Share with your friends &amp; family</string>
+    <string name="tooltip_follow_text" translatable="false">Follow to get latest updates</string>
+    <string name="tooltip_comment_text" translatable="false">join the conversation</string>
+    <string name="tooltip_repost_text1" translatable="false">Repost</string>
+    <string name="tooltip_repost_text2" translatable="false">Repost this story to start a conversation</string>
+
+
+    <string name="disclaimer_text_view_text" translatable="false">Disclaimer&#160;&#160;</string>
+    <string name="comment_likes_count" translatable="false">%s Likes</string>
+    <string name="comment_repliees_count" translatable="false">%s Replies</string>
+    <string name="comment_likes_count_dot" translatable="false">\u2022</string>
+
+    <string name="location_more_tile_list" translatable="false">List of tiles of available categories in a location.</string>
+    <string name="location_no_content_found_error" translatable="false">Sorry, we do not have any stories for %s right now.\n Tap below to read the latest news</string>
+    <string name="location_search_no_content_subtitle" translatable="false">Try modifying your search query to get
+        relevant results</string>
+    <string name="location_search_no_content_title" translatable="false">No results for &lt;b>%1$s&lt;/b></string>
+    <string name="location_search" translatable="false">Search Locations</string>
+    <string name="add_topic_button" translatable="false">See More</string>
+    <string name="more_menu" translatable="false">More</string>
+    <string name="error_syncing" translatable="false">There was an issue while syncing with our
+        servers. Some features like logging in may be unavailable during this time</string>
+    <string name="np_unblock_text" translatable="false">You will not recieve stories from this source</string>
+
+    <string name="default_share_app_toast" translatable="false">Your default sharing app is changed to %s now</string>
+    <string name="comment_deleted" translatable="false">Your comment has been deleted</string>
+    <string name="no_comments" translatable="false">No Comments yet</string>
+    <string name="read_story" translatable="false">Read Story</string>
+    <string name="first_person_start_conversation" translatable="false" >Be the 1st one to Start the Conversation</string>
+    <string name="no_comments_title" translatable="false">No Comments</string>
+    <string name="comments_have_disabled" translatable="false" >Comments have been disabled</string>
+    <string name="allow" translatable="false">Yes,Delete</string>
+    <string name="not_now" translatable="false">Not now</string>
+    <string name="profile_dialog_title" translatable="false">Clear Activity</string>
+    <string name="profile_dialog_subtitle" translatable="false">Are you sure you want to delete entire Activity Log?</string>
+<!--    <string name="type_to_search" translatable="false"> Type to search</string>-->
+    <string name="start_commenting" translatable="false"> Start Commenting</string>
+    <string name="saved_204_msg" translatable="false">You have not saved anything yet</string>
+    <string name="login" translatable="false">Log In</string>
+
+    <string name="video_detail_coachmark_text" translatable="false">Swipe up for related videos</string>
+    <string name="repost_fragment_name" translatable="false">Reposts</string>
+</resources>

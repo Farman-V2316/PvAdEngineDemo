@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="adEntity"
+            type="com.newshunt.adengine.model.entity.BaseDisplayAdEntity" />
+
+        <variable
+            name="item"
+            type="com.newshunt.adengine.model.entity.NativeData" />
+
+        <variable
+            name="category"
+            type="String" />
+
+        <variable
+            name="adsShareViewHelper"
+            type="com.newshunt.adengine.util.AdsShareViewHelper" />
+
+        <variable
+            name="appSettingsProvider"
+            type="com.newshunt.dhutil.helper.AppSettingsProvider" />
+    </data>
+
+    <com.facebook.ads.NativeAdLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sdk_custom_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/pgi_native_ad"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            bind:adEntity="@{adEntity}"
+            bind:adsShareViewHelper="@{adsShareViewHelper}"
+            bind:appSettingsProvider="@{appSettingsProvider}"
+            bind:category="@{category}"
+            bind:item="@{item}" />
+    </com.facebook.ads.NativeAdLayout>
+</layout>

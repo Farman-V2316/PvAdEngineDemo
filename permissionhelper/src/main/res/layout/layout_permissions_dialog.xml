@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dialog_margin"
+    android:paddingLeft="@dimen/padding_horizontal"
+    android:paddingTop="@dimen/padding_vertical"
+    android:paddingRight="@dimen/padding_horizontal"
+    android:paddingBottom="@dimen/padding_vertical">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/permission_dialog_title"
+        style="@style/title_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:dh_custom_font_weight="eight_hundred"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/permission_dialog_desc"
+        style="@style/title_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:dh_custom_font_weight="four_hundred"
+        app:layout_constraintTop_toBottomOf="@+id/permission_dialog_title" />
+
+    <ListView
+        android:id="@+id/list_permissions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:listSelector="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@+id/permission_dialog_desc" />
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/dialog_positive_button"
+        style="@style/button_selected_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_horizontal"
+        android:gravity="center"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        android:text="@string/permission_btn_allow"
+        android:background="@drawable/permission_positive_btn_bg"
+        android:textColor="@color/dialogActionSelectedColor"
+        app:dh_custom_font_weight="five_hundred"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_permissions" />
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/dialog_negative_button"
+        style="@style/button_unselected_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_horizontal"
+        android:gravity="center"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        android:text="@string/permission_btn_later"
+        android:background="@drawable/permission_btn_background_unselected"
+        android:textColor="@color/dialogActionUnSelectedColor"
+        app:dh_custom_font_weight="five_hundred"
+        app:layout_constraintRight_toLeftOf="@+id/dialog_positive_button"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_positive_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

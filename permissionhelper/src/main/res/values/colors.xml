@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black_title">#333333</color>
+    <color name="grey_subtitle">#9B9B9B</color>
+    <color name="blue_subtitle">#587595</color>
+    <color name="dialogActionSelectedColor">#ffffff</color>
+    <color name="dialogActionUnSelectedColor">#000000</color>
+    <color name="default_background">#FFFFFF</color>
+
+</resources>

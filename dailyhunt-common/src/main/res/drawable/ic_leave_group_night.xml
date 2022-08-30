@@ -1,0 +1,9 @@
+<!--
+  ~ Copyright (c) 2020 . All rights reserved.
+  -->
+
+<vector android:autoMirrored="true" android:height="20dp"
+    android:viewportHeight="20" android:viewportWidth="20"
+    android:width="20dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#EAEAEA" android:fillType="nonZero" android:pathData="m10,2c4.416,0 8,3.584 8,8s-3.584,8 -8,8 -8,-3.584 -8,-8 3.584,-8 8,-8zM10,3.6c-3.528,0 -6.4,2.872 -6.4,6.4s2.872,6.4 6.4,6.4 6.4,-2.872 6.4,-6.4 -2.872,-6.4 -6.4,-6.4zM10.8,7 L14,10.2 10.8,13.4v-2.4h-4.8v-1.6h4.8v-2.4z"/>
+</vector>

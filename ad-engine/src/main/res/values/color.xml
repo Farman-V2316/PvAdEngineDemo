@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<resources>
+
+    <color name="adview_background_color_dark">#ff3a3a3a</color>
+    <color name="carousel_ad_bg_color">#F9F9F9</color>
+
+    <color name="sponsored_text_color">#999999</color>
+
+    <color name="pgi_ads_action_btn_bg">#3EA11A</color>
+    <color name="ads_shadow_dark_color">#BABABA</color>
+
+    <color name="carousel_text_color">#1C1C1C</color>
+    <color name="carousel_subtitle_text_color">#999999</color>
+    <color name="ad_border_color">#0c000000</color>
+
+    <color name="image_link_ad_place_holder_color">#F2F2F2</color>
+    <color name ="interactive_ad_cta_text_color">#565868</color>
+    <color name="ad_cta_translucent_color">#66000000</color>
+    <color name="ad_i_icon_color_blue">#798DED</color>
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+~ Copyright (c) 2015 Newshunt. All rights reserved.
+-->
+<resources>
+
+    <declare-styleable name="TagFlowLayout">
+        <attr name="max_select" format="integer"></attr>
+        <attr name="tag_gravity">
+            <enum name="left" value="-1" />
+            <enum name="center" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <style name="DH.Theme.Transparent" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <declare-styleable name="CapTextView">
+        <attr name="capTextSize" format="dimension" />
+        <attr name="capTextColor" format="color" />
+
+        <attr name="lineDropNo" format="integer" />
+        <attr name="capFont" format="reference" />
+
+        <attr name="bodyTextSize" format="dimension" />
+        <attr name="bodyTextColor" format="color" />
+        <attr name="bodyTextFont" format="reference" />
+
+        <attr name="isCapText" format="boolean" />
+
+        <attr name="android:text" />
+    </declare-styleable>
+
+</resources>

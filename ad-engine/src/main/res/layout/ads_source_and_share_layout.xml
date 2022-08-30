@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+<!--this bottombar layout is only for native low ads-->
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.adengine.view.helper.AdBindUtils" />
+
+        <import type="com.newshunt.adengine.util.AdConstants" />
+
+        <variable
+            name="item"
+            type="com.newshunt.adengine.model.entity.NativeData" />
+
+        <variable
+            name="adEntity"
+            type="com.newshunt.adengine.model.entity.BaseDisplayAdEntity" />
+
+        <variable
+            name="showCta"
+            type="boolean" />
+
+        <variable
+            name="adsShareViewHelper"
+            type="com.newshunt.adengine.util.AdsShareViewHelper" />
+
+        <variable
+            name="appSettingsProvider"
+            type="com.newshunt.dhutil.helper.AppSettingsProvider" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.newshunt.dhutil.view.customview.IsometricView
+            android:id="@+id/cta_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
+            android:background="?attr/ads_bottombar_cta_bg"
+            android:elevation="3dp"
+            android:visibility="@{AdBindUtils.canShow(item.ctaText) ? View.VISIBLE : View.GONE}"
+            app:depth="2dp"
+            app:depth_color="?attr/isometric_depth_color"
+            app:depth_orientation="bottomRight"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/share_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginEnd="4dp"
+            app:layout_goneMarginTop="16dp">
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/cta_button"
+                android:layout_width="0dp"
+                android:layout_height="41dp"
+                android:drawableEnd="?attr/ads_forward_icon"
+                android:gravity="center_vertical|start"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="5dp"
+                android:text="@{item.ctaText}"
+                android:textColor="?attr/cta_text_color"
+                android:textSize="16dp"
+                android:visibility="@{AdBindUtils.canShow(item.ctaText) ? View.VISIBLE : View.GONE}"
+                app:dh_custom_font_weight="five_hundred"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/share_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_goneMarginEnd="2dp"
+                bind:adTag="@{AdConstants.AD_ASSET_CALL_TO_ACTION}" />
+        </com.newshunt.dhutil.view.customview.IsometricView>
+
+        <ImageView
+            android:id="@+id/share_icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="4dp"
+            android:onClick="@{(v) -> adsShareViewHelper.onShareIconClick(adEntity.shareability)}"
+            android:padding="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cta_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toEndOf="@+id/cta_view"
+            app:layout_constraintTop_toTopOf="@+id/cta_view"
+            bind:active="@{AdBindUtils.canShowShareIcon(item.ctaText, adEntity)}"
+            bind:adEntity="@{adEntity}"
+            bind:adsShareViewHelper="@{adsShareViewHelper}"
+            bind:defaultShareChange="@{appSettingsProvider.preferredSharableAppLiveData}" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@{item.sourceAlphabet}"
+            android:textColor="?attr/source_alphabet_text_color"
+            android:textSize="6dp"
+            android:visibility="@{AdBindUtils.canShow(item.sourceAlphabet) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/cta_view"
+            app:layout_constraintStart_toStartOf="@+id/cta_view"
+            app:layout_constraintTop_toTopOf="@+id/cta_view" />
+
+        <com.newshunt.dhutil.view.customview.IsometricView
+            android:id="@+id/share_layout"
+            android:layout_width="0dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="?attr/ads_bottombar_cta_bg"
+            android:elevation="3dp"
+            android:onClick="@{(v) -> adsShareViewHelper.onShareIconClick(adEntity.shareability)}"
+            android:visibility="@{adsShareViewHelper!=null &amp;&amp; AdBindUtils.canShowShareLayout(item.ctaText, adEntity)? View.VISIBLE: View.GONE}"
+            app:depth="2dp"
+            app:depth_color="?attr/isometric_depth_color"
+            app:depth_orientation="bottomRight"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/share_icon_1"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginEnd="30dp"
+                android:paddingBottom="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:active="@{AdBindUtils.canShowShareLayout(item.ctaText, adEntity)}"
+                bind:adEntity="@{adEntity}"
+                bind:adsShareViewHelper="@{adsShareViewHelper}"
+                bind:defaultShareChange="@{appSettingsProvider.preferredSharableAppLiveData}" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="7dp"
+                android:text="@string/fab_share_text"
+                android:textColor="?attr/cta_text_color"
+                android:textSize="16dp"
+                app:dh_custom_font_weight="five_hundred"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@+id/share_icon_1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </com.newshunt.dhutil.view.customview.IsometricView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,16 @@
+<!--
+  ~ Created by Rahul Ravindran at 25/9/19 10:36 PM
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="14dp"
+    android:height="13dp"
+    android:viewportWidth="14"
+    android:viewportHeight="13">
+    <path
+        android:fillColor="#818181"
+        android:pathData="M6.4221,6.0018L1.0731,11.3507C0.9245,11.4993 0.9245,11.74 1.0731,11.8886C1.1473,11.963 1.2447,12 1.342,12C1.4394,12 1.5366,11.963 1.6108,11.8886L7.0001,6.4996L12.3893,11.8886C12.4637,11.963 12.561,12 12.6582,12C12.7555,12 12.8529,11.963 12.9271,11.8886C13.0757,11.74 13.0757,11.4993 12.9271,11.3507L7.5783,6.0018L12.9307,0.6492C13.0793,0.5006 13.0793,0.2599 12.9307,0.1113C12.7821,-0.0371 12.5413,-0.0371 12.3929,0.1113L7.0003,5.5041L1.6071,0.1115C1.4585,-0.0369 1.2179,-0.0369 1.0693,0.1115C0.9207,0.2601 0.9207,0.5008 1.0693,0.6494L6.4221,6.0018Z"
+        android:strokeWidth=".2"
+        android:strokeColor="#818181" />
+</vector>

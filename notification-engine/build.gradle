@@ -1,0 +1,105 @@
+/*
+ * Copyright (c) 2016 Newshunt. All rights reserved.
+ */
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+  compileSdkVersion project.csv
+
+  defaultConfig {
+    minSdkVersion project.msv
+    targetSdkVersion project.tsv
+    versionCode 1
+    versionName "1.0"
+    vectorDrawables.useSupportLibrary=true
+  }
+
+  lintOptions {
+    warning 'InvalidPackage'
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
+
+  dexOptions {
+    dexInProcess = true
+    maxProcessCount = 2
+    jumboMode = true
+    javaMaxHeapSize "5g"
+  }
+
+  sourceSets {
+    main {
+      resources {
+        srcDir 'src/main/res'
+        if (project.featureGo) {
+          srcDir 'src/go/res'
+        }
+        else {
+          srcDir 'src/regular/res'
+        }
+      }
+    }
+  }
+}
+
+dependencies {
+  implementation platform('com.google.firebase:firebase-bom:'+project.bom_v)
+  api fileTree(dir: 'libs', include: ['*.jar'])
+
+  implementation project(':analytics')
+
+  api 'com.google.firebase:firebase-messaging'
+  implementation "androidx.work:work-runtime-ktx:"+project.work_version
+  api project(path: ':dailyhunt-common')
+  annotationProcessor 'com.google.auto.factory:auto-factory:1.0-beta3'
+
+  kapt 'com.google.auto.factory:auto-factory:1.0-beta3'
+  kapt "androidx.room:room-compiler:"+project.room_v
+  // Add the Firebase Crashlytics SDK.
+  implementation 'com.google.firebase:firebase-crashlytics'
+}
+
+uploadArchives {
+
+  configuration = configurations.archives
+
+  repositories {
+    mavenDeployer {
+
+      pom.project {
+        groupId 'com.newshunt.sdk.feature'
+        artifactId 'notification-engine'
+        name rootProject.name
+        version project.ext.fsv
+        description 'notification-engine'
+        packaging 'aar'
+        scm {
+          url 'git@git.newshunt.com:nh-commons/commons-android.git'
+        }
+
+        properties {
+          setProperty('project.build.sourceEncoding', 'UTF8')
+        }
+      }
+
+      repository(url: "http://artifactory.newshunt.com/nexus/content/repositories/releases") {
+        authentication(userName: "deployment", password: "Cr4LHA\$!hYoTG35")
+      }
+
+      snapshotRepository(url: "http://artifactory.newshunt.com/nexus/content/repositories/snapshots") {
+        authentication(userName: "deployment", password: "Cr4LHA\$!hYoTG35")
+      }
+    }
+  }
+}

@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<resources>
+    <!-- Dimensions for buttons -->
+
+    <!-- Dimensions for various views -->
+
+    <!-- Dimensions for text -->
+    <dimen name="text_x_small">12dp</dimen>
+    <dimen name="text_small">14dp</dimen>
+    <dimen name="text_medium">18dp</dimen>
+    <dimen name="text_large">20dp</dimen>
+
+    <!-- Dimensions for margins -->
+    <dimen name="margin_small">14dp</dimen>
+    <!-- Dimensions for paddings -->
+    <dimen name="padding_small">12dp</dimen>
+
+    <dimen name="dimen_45">45dp</dimen>
+
+    <dimen name="error_msg_size">14dp</dimen>
+
+    <dimen name="share_dialog_height">45dp</dimen>
+    <dimen name="share_standing_bar_width">0.5dp</dimen>
+
+    <dimen name="hamburger_margin">10dp</dimen>
+    <dimen name="action_bar_padding">16dp</dimen>
+    <dimen name="actionbar_height">56dp</dimen>
+    <dimen name="actionbar_icons_padding">10dp</dimen>
+
+    <dimen name="hamburger_text_right_margin">64dp</dimen>
+    <dimen name="hamburger_sub_layout_padding">16dp</dimen>
+    <dimen name="hamburger_text_size">15dp</dimen>
+    <dimen name="hamburger_sub_text_size">14dp</dimen>
+    <dimen name="hamburger_sub_text_paddingtop">3dp</dimen>
+    <dimen name="hamburger_text_paddingleft">16dp</dimen>
+    <dimen name="hamburger_drawablepadding">16dp</dimen>
+    <dimen name="hamburger_view_margin_left">16dp</dimen>
+    <dimen name="hamburger_cricket_notification_padding">18dp</dimen>
+    <dimen name="settings_text_size">14dp</dimen>
+    <dimen name="settings_news_lang_label_height_width">26dp</dimen>
+    <dimen name="settings_news_lang_label_text_height_width">14dp</dimen>
+    <dimen name="settings_news_lang_desc_margin_right">36dp</dimen>
+
+
+    <dimen name="nsfw_filter_padding">10dp</dimen>
+
+    <dimen name="hashtag_horz_padding">16dp</dimen>
+    <dimen name="hashtag_vert_padding">8dp</dimen>
+    <dimen name="hashtag_bottom_margin">7dp</dimen>
+    <dimen name="hashtag_end_margin">8dp</dimen>
+
+    <dimen name="font_slot_height">10dp</dimen>
+
+    <dimen name="share_icon_padding">12dp</dimen>
+    <dimen name="share_icon_size">32dp</dimen>
+    <dimen name="share_view_margine">20dp</dimen>
+    <dimen name="share_view_padding">10dp</dimen>
+
+    <dimen name="facebook_icon_padding">17dp</dimen>
+
+    <!-- Dimensions for video card-->
+
+
+    <dimen name="watchLater_video_card_width">104dp</dimen>
+    <dimen name="watchLatervideo_card_height">125dp</dimen>
+    <dimen name="video_card_image_height">58dp</dimen>
+    <dimen name="video_indicator_size">20dp</dimen>
+    <dimen name="saved_stories_card_height">142dp</dimen>
+
+    <!-- Dimensions for coach marks -->
+    <dimen name="sticky_coachmark_height">90dp</dimen>
+    <dimen name="sticky_dialog_height1">125dp</dimen>
+    <dimen name="hamburger_divider_height">0.3dp</dimen>
+
+
+    <!-- Dimension for action bar option -->
+    <dimen name="action_bar_text_margin">10dp</dimen>
+    <dimen name="actionbar_title_size">20dp</dimen>
+
+    <!-- Dimension for Tab bar bottom -->
+
+    <!-- Dimension for setting app rate -->
+
+    <dimen name="rate_now_text_size">14dp</dimen>
+
+    <dimen name="app_rate_options_right_margin">26dp</dimen>
+    <dimen name="app_rate_options_distance">32dp</dimen>
+
+    <!-- Dimensions for app share view -->
+    <dimen name="app_share_top_margin">13dp</dimen>
+    <dimen name="app_share_bottom_margin">17dp</dimen>
+    <dimen name="app_share_side_margin">26dp</dimen>
+
+    <!-- Dimensions for app Litemode view -->
+
+    <dimen name="onboarding_scroll_margin">5dp</dimen>
+    <dimen name="onboarding_label_padding">5dp</dimen>
+    <dimen name="onboarding_label_size">12dp</dimen>
+    <dimen name="onboarding_header_size">16dp</dimen>
+    <dimen name="onboarding_choose_lang_text_height">56dp</dimen>
+    <dimen name="onboarding_choose_lang_text_size">14dp</dimen>
+    <dimen name="onboarding_continue_button_height">60dp</dimen>
+    <dimen name="onboarding_choose_preferred_language_text_size">18dp</dimen>
+    <dimen name="onboarding_padding_bottom">11dp</dimen>
+    <dimen name="onboarding_popup_recycler_margin">24dp</dimen>
+    <dimen name="onboarding_popup_screen2_recycler_margin">16dp</dimen>
+    <dimen name="onboarding_popup_corner_radius">4dp</dimen>
+    <dimen name="onboarding_popup_item_width">94dp</dimen>
+    <dimen name="onboarding_popup_item_height">36dp</dimen>
+    <dimen name="onboarding_popup_item_radius">18dp</dimen>
+    <dimen name="onboarding_popup_screen2_item_radius">12.5dp</dimen>
+    <dimen name="onboarding_item_stroke_width">1dp</dimen>
+    <dimen name="onboarding_fs_item_radius">22dp</dimen>
+    <dimen name="onboarding_popup_horz_padding">24dp</dimen>
+    <dimen name="onboarding_popup_vert_padding">20dp</dimen>
+    <dimen name="onboarding_popup_screen2_horz_padding">10dp</dimen>
+    <dimen name="onboarding_popup_screen2_vert_padding">20dp</dimen>
+    <dimen name="onboarding_popup_title_marginLeft">24dp</dimen>
+    <dimen name="onboarding_popup_title_size2">20dp</dimen>
+    <dimen name="onboarding_popup_title_marginTop">30dp</dimen>
+    <dimen name="onboarding_popup_screen2_iso_depth">4dp</dimen>
+    <dimen name="onboarding_save_height">54dp</dimen>
+    <dimen name="onboarding_item_horz_padding">28dp</dimen>
+    <dimen name="onboarding_item_vert_padding">24dp</dimen>
+    <dimen name="onboarding_fs_item_width">142dp</dimen>
+    <dimen name="onboarding_fs_item_height">44dp</dimen>
+    <dimen name="onboarding_fs_bottomPadding">72dp</dimen>
+    <dimen name="onboarding_popup_horzGuideline">22dp</dimen>
+    <dimen name="onboarding_popup_screen2_horzGuideline">20dp</dimen>
+    <dimen name="onboarding_popup_bottomGuideline">68dp</dimen>
+    <dimen name="onboarding_popup_topGuideline">98dp</dimen>
+    <dimen name="onboarding_continue_indic_language_text_size">7dp</dimen>
+    <dimen name="language_select_popup_marginTop">64dp</dimen>
+    <dimen name="language_select_popup_marginBottom">54dp</dimen>
+    <dimen name="language_select_popup_marginStart">20dp</dimen>
+    <dimen name="language_header_marginTop">4dp</dimen>
+    <dimen name="language_header_marginBottom">15dp</dimen>
+    <dimen name="termsView_marginTop">30dp</dimen>
+    <dimen name="termsView_marginBottom">30dp</dimen>
+    <dimen name="termsView_marginStart">24dp</dimen>
+    <dimen name="termsView_marginEnd">18dp</dimen>
+
+
+    <dimen name="actionbar_back_button_height">16dp</dimen>
+    <dimen name="actionbar_top_bottom_padding">3dp</dimen>
+
+    <dimen name="next_refresh_dimentions">25dp</dimen>
+    <dimen name="footer_progress_dimension">30dp</dimen>
+    <dimen name="infinite_scroll_layout_margin">2dp</dimen>
+
+    <!-- Feedback -->
+    <dimen name="feedback_text_top_margin">26dp</dimen>
+    <dimen name="feedback_text_left_margin">30dp</dimen>
+    <dimen name="feedback_edit_text">16dp</dimen>
+
+    <dimen name="feedback_content_height">80dp</dimen>
+    <dimen name="feedback_content_top_margin">19dp</dimen>
+    <dimen name="feedback_content_left_margin">40dp</dimen>
+    <dimen name="feedback_content_bottom_margin">15dp</dimen>
+
+    <dimen name="content_count_top_margin">8dp</dimen>
+
+    <dimen name="info_text_top_margin">30dp</dimen>
+
+    <dimen name="email_top_margin">19dp</dimen>
+    <dimen name="email_bottom_margin">15dp</dimen>
+
+    <dimen name="seprator_height">1dp</dimen>
+
+    <!-- App Rate -->
+    <dimen name="app_rate_text_margin_right">20dp</dimen>
+    <dimen name="app_rate_text_margin_left">20dp</dimen>
+    <dimen name="app_rate_text_size">16dp</dimen>
+    <dimen name="app_rate_button_padding">3dp</dimen>
+
+    <!-- App upgrade -->
+    <dimen name="upgrade_box_width">312dp</dimen>
+
+    <dimen name="header_view_height">45dp</dimen>
+    <dimen name="header_view_margin">18dp</dimen>
+    <dimen name="header_text_size">15dp</dimen>
+
+    <dimen name="image_holder_height">165dp</dimen>
+
+
+    <dimen name="bottom_text_size">14dp</dimen>
+    <dimen name="bottom_text_margin">18dp</dimen>
+
+
+    <dimen name="option_button_top_margin">32dp</dimen>
+    <dimen name="option_button_bottom_margin">22dp</dimen>
+    <dimen name="book_list_bottom_bar_height">48dp</dimen>
+
+    <!-- App up-to-date -->
+
+
+    <!-- App Mode -->
+    <dimen name="Mode_box_width">280dp</dimen>
+
+
+    <!-- Dimen for Swipe toRefresh Y threshold -->
+    <dimen name="swipe_threshold_dimen">50dp</dimen>
+
+    <!-- New section addition popup -->
+
+    <!-- Lite Mode Header Text -->
+
+    <!-- Notification Enable -->
+    <dimen name="notification_title_text_size">20dp</dimen>
+    <dimen name="notification_header_text_size">16dp</dimen>
+    <dimen name="notification_button_text_size">14dp</dimen>
+    <dimen name="notification_enable_text_margin_left">20dp</dimen>
+    <dimen name="notification_enable_text_margin_right">20dp</dimen>
+    <dimen name="notification_enable_text_margin_top">14dp</dimen>
+    <dimen name="notification_button_layout_margin_bottom">10dp</dimen>
+    <dimen name="notification_button_text_padding">10dp</dimen>
+    <dimen name="notification_button_text_margin_right">15dp</dimen>
+
+    <!-- App Dialog -->
+    <dimen name="app_dialog_width">280dp</dimen>
+    <dimen name="app_dialog_title_text_size">20dp</dimen>
+    <dimen name="app_dialog_content_text_size">16dp</dimen>
+    <dimen name="app_dialog_button_text_size">16dp</dimen>
+    <dimen name="app_dialog_title_text_margin_top">20dp</dimen>
+    <dimen name="app_dialog_content_text_margin_top">-5dp</dimen>
+    <dimen name="app_dialog_text_margin_left_right">25dp</dimen>
+    <dimen name="app_dialog_button_layout_margin_top">25dp</dimen>
+    <dimen name="app_dialog_button_layout_margin_bottom">14dp</dimen>
+    <dimen name="app_dialog_button_text_padding">8dp</dimen>
+    <dimen name="app_dialog_pos_button_marginRight">25dp</dimen>
+    <dimen name="app_dialog_neg_button_marginRight">8dp</dimen>
+
+    <!-- menu pop up dimens -->
+    <dimen name="popup_text_size">14dp</dimen>
+    <dimen name="popup_text_paddingtop">10dp</dimen>
+    <dimen name="popup_text_paddingbottom">10dp</dimen>
+    <dimen name="popup_text_paddingright">10dp</dimen>
+    <dimen name="popup_text_paddingleft">10dp</dimen>
+    <dimen name="popup_menu_drawable_padding">10dp</dimen>
+    <dimen name="popup_menu_divider_height">0.5dp</dimen>
+
+    <!-- chosen location -->
+
+    <dimen name="coach_mark_swipe_text_height">18dp</dimen>
+    <dimen name="image_container_width">60dp</dimen>
+    <dimen name="image_container_height">60dp</dimen>
+    <dimen name="toolbar_bottom_line_height">1dp</dimen>
+    <dimen name="toolbar_margin_top">5dp</dimen>
+    <dimen name="tab_layout_top_padding">9dp</dimen>
+
+    <dimen name="one_dp">1dp</dimen>
+
+    <!-- Rate us button dimens-->
+    <dimen name="button_drawable_radius">30dip</dimen>
+    <dimen name="button_drawable_width">1dip</dimen>
+
+    <!-- Dimensions of native ads -->
+
+    <!-- Dimensions of native ads with rectangular image Adtemplate("R") -->
+    <dimen name="article_ad_image_rect_width">96dp</dimen>
+
+    <dimen name="action_bar_height">48dp</dimen>
+
+    <dimen name="dh_video_details_action_bar">64dp</dimen>
+    <dimen name="dh_vd_follow_btn_width">72dp</dimen>
+
+    <!-- newspaper tab dimens -->
+
+    <!-- common dimens used by news and buzz -->
+    <dimen name="add_page_toolbar">60dp</dimen>
+    <dimen name="recommend_np_list_text">12dp</dimen>
+    <dimen name="more_news_font_size">14dp</dimen>
+    <dimen name="add_page_button_width">35dp</dimen>
+    <dimen name="add_page_sliding_tab_layout">48dp</dimen>
+    <dimen name="tab_vertical_padding">6dp</dimen>
+    <dimen name="topic_tile_height">160dp</dimen>
+    <dimen name="topic_featured_row_height">60dp</dimen>
+    <dimen name="topic_item_text_size">16dp</dimen>
+    <dimen name="news_home_tooltip_side_padding">10dp</dimen>
+    <dimen name="news_home_tooltip_paddingTop">10dp</dimen>
+    <dimen name="news_home_tooltip_padding">5dp</dimen>
+    <dimen name="news_detail_category_text_size">10dp</dimen>
+    <dimen name="more_news_rounded_radius">10dp</dimen>
+    <dimen name="tab_text_side_padding">12dp</dimen>
+    <dimen name="tab_icon_left_padding">18dp</dimen>
+    <dimen name="tab_icon_right_padding">12dp</dimen>
+    <dimen name="news_home_tab_text_size">14dp</dimen>
+    <dimen name="tab_icon_width_height">16dp</dimen>
+    <dimen name="tab_icon_margin_start">9dp</dimen>
+    <dimen name="tab_text_padding_start">2dp</dimen>
+
+    <dimen name="viral_text_marginTop">12dp</dimen>
+    <dimen name="story_toolbar_padding">10dp</dimen>
+    <dimen name="story_detail_padding_left">16dp</dimen>
+    <dimen name="story_card_padding_left">20dp</dimen>
+    <dimen name="entity_card_padding_left">12dp</dimen>
+    <dimen name="viral_card_padding_left">16dp</dimen>
+    <dimen name="repost_story_card_padding_left">12dp</dimen>
+    <dimen name="repost_story_card_padding_right">8dp</dimen>
+    <dimen name="similar_sources_right_item_padding">12dp</dimen>
+    <dimen name="edit_comment_right_margin">12dp</dimen>
+    <dimen name="edit_comment_live_right_margin">0dp</dimen>
+    <dimen name="source_icon_list_width_height">20dp</dimen>
+    <dimen name="creator_badge_width_height">14dp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="divider_marginTop">30dp</dimen>
+
+    <dimen name="autoplay_info_marginTop">75.5dp</dimen>
+    <dimen name="autoplay_info_marginLeft">16dp</dimen>
+    <dimen name="autoplay_info_marginRight">24dp</dimen>
+    <dimen name="autoplay_info_textSize">14dp</dimen>
+    <dimen name="autoplay_title_marginTop">19dp</dimen>
+    <dimen name="autoplay_title_textSize">16dp</dimen>
+    <dimen name="autoplay_divider1_marginTop">7.5dp</dimen>
+    <dimen name="autoplay_item_marginRight">16dp</dimen>
+    <dimen name="autoplay_item_height">43dp</dimen>
+    <dimen name="autoplay_item_width">34dp</dimen>
+    <dimen name="autoplay_item_textSize">14dp</dimen>
+
+    <dimen name="text_18">18dp</dimen>
+    <dimen name="text_21">21dp</dimen>
+    <dimen name="text_19">19dp</dimen>
+    <dimen name="text_15">15dp</dimen>
+    <dimen name="text_14">14dp</dimen>
+    <dimen name="text_16">16dp</dimen>
+    <dimen name="button_spacing">40dp</dimen>
+    <dimen name="padding_horizontal">24dp</dimen>
+    <dimen name="dialog_padding">10dp</dimen>
+    <dimen name="padding_vertical">24dp</dimen>
+    <dimen name="dialog_margin">16dp</dimen>
+    <dimen name="text_size_21">21dp</dimen>
+    <dimen name="coc_elevation_day">24dp</dimen>
+    <dimen name="coc_elevation_night">0dp</dimen>
+
+    <dimen name="follow_btn_text_size">12dp</dimen>
+    <dimen name="follow_button_top_bottom_padding">5dp</dimen>
+    <dimen name="follow_btn_horizontal_padding">8dp</dimen>
+    <dimen name="newspaper_appbar_height">250dp</dimen>
+    <dimen name="np_fav_grid_card_view_radius">1.33dp</dimen>
+    <dimen name="collection_guideline_dimens">16dp</dimen>
+    <dimen name="collection_landing_page_margin_top">20dp</dimen>
+    <dimen name="collection_landing_title_textsize">24dp</dimen>
+    <dimen name="collection_landing_cardview_margintop">20dp</dimen>
+    <dimen name="play_all_button_height">48dp</dimen>
+    <dimen name="collection_landing_play_button_radius">4dp</dimen>
+    <dimen name="collection_landing_subtitle_textSize">12dp</dimen>
+    <dimen name="collection_landing_subtitle_margintop">10dp</dimen>
+    <dimen name="collection_landing_cardview_radius">2dp</dimen>
+    <dimen name="collection_of_collection_end_padding">20dp</dimen>
+    <dimen name="collection_of_collection_end_padding_default">12dp</dimen>
+    <dimen name="collection_landing_cardview1_elevation">6dp</dimen>
+    <dimen name="collection_landing_image_left_right_top">5dp</dimen>
+    <dimen name="collection_landing_item_source_textSize">12dp</dimen>
+    <dimen name="collection_landing_source_name_marginLeft">16dp</dimen>
+    <dimen name="collection_landing_source_name_marginTop">8dp</dimen>
+    <dimen name="collection_landing_counts_textSize">10dp</dimen>
+    <dimen name="collection_landing_bg_image_margin_bottom">16dp</dimen>
+    <dimen name="collection_landing_play_button_margin_topBottom">16dp</dimen>
+    <dimen name="collection_landing_cardview2_elevation">4dp</dimen>
+    <dimen name="collection_play_icon_width_height">12dp</dimen>
+    <dimen name="collection_play_all_textSize">16dp</dimen>
+    <dimen name="collection_play_all_marginLeft">5dp</dimen>
+    <dimen name="collection_landing_cardview3_elevation">2dp</dimen>
+    <dimen name="collection_landing_cardview2_margin_leftRight">10dp</dimen>
+    <dimen name="collection_landing_cardview3_margin_leftRight">20dp</dimen>
+    <dimen name="collection_landing_cardview2_height">12dp</dimen>
+    <dimen name="collection_landing_counts_marginbottom">14dp</dimen>
+    <dimen name="collection_landing_counts_marginLeft">16dp</dimen>
+    <dimen name="collection_landing_counts_margintop">6dp</dimen>
+    <dimen name="collection_landing_play_icon">32dp</dimen>
+    <dimen name="collection_landing_play_icon_margin">8dp</dimen>
+
+
+
+    <!--Dislike L2 card-->
+    <dimen name="dislike_l1_title_padding_horizontal">42dp</dimen>
+    <dimen name="dislike_l1_title_text_size">22dp</dimen>
+    <dimen name="dislike_l1_shorttitle_margintop">6dp</dimen>
+    <dimen name="dislike_l1_shorttitle_marginbottom">16dp</dimen>
+    <dimen name="dislike_l1_shorttitle_textsize">12dp</dimen>
+    <dimen name="dislike_l1_option_list_padding_vertical">10dp</dimen>
+    <dimen name="dislike_option_horizontal_padding">18dp</dimen>
+    <dimen name="dislike_l1_opt_icon_size">20dp</dimen>
+    <dimen name="dislike_l1_option_icon_marginend">20dp</dimen>
+    <dimen name="dislike_l1_option_text_size">14dp</dimen>
+    <dimen name="dislike_l1_option_padding_vertical">10dp</dimen>
+
+    <dimen name="autoplay_mute_button_padding">5dp</dimen>
+    <dimen name="follow_button_padding_right">5dp</dimen>
+
+    <!--Expand button NHExpandButtonView-->
+    <dimen name="collection_item_image_gone_margin_bottom">10dp</dimen>
+    <dimen name="expand_button_icon_size">27dp</dimen>
+
+    <!-- Common Card Dimens across app -->
+    <dimen name="story_card_padding">30dp</dimen>
+    <dimen name="story_card_corner_radius">5dp</dimen>
+    <dimen name="hero_card_image_height">184dp</dimen>
+    <dimen name="breaking_news_image_margin_top">16dp</dimen>
+    <dimen name="big_video_play_icon_size">32dp</dimen>
+    <dimen name="big_video_play_icon_side_margin">10dp</dimen>
+    <dimen name="big_video_play_icon_bottom_margin">5dp</dimen>
+    <dimen name="hero_card_video_duration_marginBottom">4dp</dimen>
+    <dimen name="hero_card_video_duration_textSize">12dp</dimen>
+    <dimen name="hero_card_video_duration_paddingLeft">8dp</dimen>
+    <dimen name="hero_card_video_duration_paddingTop">6dp</dimen>
+    <dimen name="source_share_margintop">12dp</dimen>
+    <dimen name="more_perspective_margintop">30dp</dimen>
+    <dimen name="breaking_news_text_size">9dp</dimen>
+    <dimen name="breaking_news_image_tags_margin">8dp</dimen>
+    <dimen name="small_storycard_width">100dp</dimen>
+    <dimen name="small_story_title_marginRight">8dp</dimen>
+    <dimen name="breaking_news_live_tag_margin_bottom">8dp</dimen>
+    <dimen name="breaking_news_live_tag_margin_start">8dp</dimen>
+    <dimen name="breaking_news_simple_live_tag_margin_bottom">10dp</dimen>
+
+    <dimen name="source_name_text_size">10dp</dimen>
+    <dimen name="story_dislike_icon_height">36dp</dimen>
+    <dimen name="news_detail_content_margin_dimen">16dp</dimen>
+    <dimen name="news_detail_comments_disabled_margin_dimen">24dp</dimen>
+    <dimen name="news_detail_content_end_margin_dimen">30dp</dimen>
+    <dimen name="news_detail_content_margin_dimen_1">6dp</dimen>
+    <dimen name="news_detail_smile_margin_dimen_start">3dp</dimen>
+    <dimen name="news_detail_reply_margin_dimen">72dp</dimen>
+    <dimen name="story_supplement_title_text_size">14dp</dimen>
+    <dimen name="meme_img_radius">4dp</dimen>
+    <dimen name="expand_btn_margin">8dp</dimen>
+
+    <dimen name="shimmer_top_margin">14dp</dimen>
+    <dimen name="shimmer_text_height">18dp</dimen>
+    <dimen name="shimmer_text_radius">9dp</dimen>
+    <dimen name="ticker_border_width">1dp</dimen>
+    <dimen name="ticker_corner_radius">4dp</dimen>
+    <dimen name="shimmer_title_one_top_margin">21dp</dimen>
+    <dimen name="shimmer_title_one_right_margin">56dp</dimen>
+    <dimen name="shimmer_title_two_right_margin">64dp</dimen>
+    <dimen name="shimmer_title_three_right_margin">139dp</dimen>
+    <dimen name="shimmer_video_top_margin">42dp</dimen>
+    <dimen name="shimmer_video_image_size">96dp</dimen>
+    <dimen name="shimmer_text_views_margin">6dp</dimen>
+    <dimen name="shimmer_video_title_one_right_margin">27dp</dimen>
+    <dimen name="shimmer_video_title_two_right_margin">67dp</dimen>
+    <dimen name="shimmer_video_title_three_width">55dp</dimen>
+    <dimen name="shimmer_image_radius">4dp</dimen>
+
+    <dimen name="carousel_progress_bar_paddingTop">6dp</dimen>
+    <dimen name="carousel_progress_bar_height">16dp</dimen>
+    <dimen name="tool_bar_shadow">3dp</dimen>
+    <dimen name="follow_btn_padding">2dp</dimen>
+    <dimen name="delete_btn_padding">24dp</dimen>
+    <dimen name="delete_btn_vert_padding">12dp</dimen>
+
+    <dimen name="ad_image_corner_radius">5dp</dimen>
+    <dimen name="collection_play_all_height_with_margin">80dp</dimen>
+
+    <!--- TV detail screen dimens -->
+    <dimen name="tv_topofeveryvideo_falsepadding">15dp</dimen>
+
+    <dimen name="search_photo_grid_image_height">115dp</dimen>
+    <dimen name="search_photo_grid_icon_size">20dp</dimen>
+    <dimen name="search_photo_grid_margin">2dp</dimen>
+    <dimen name="search_photo_grid_title_padding_top">9dp</dimen>
+    <dimen name="search_photo_grid_title_padding_bottom">5dp</dimen>
+    <dimen name="search_photo_grid_title_text">12dp</dimen>
+    <dimen name="circular_avatar_text_default_size">18dp</dimen>
+    <dimen name="entity_image_w_h">38dp</dimen>
+    <dimen name="search_bar_toolbar_height">76dp</dimen>
+    <dimen name="search_bar_toolbar_new_height">46dp</dimen>
+    <dimen name="profile_banner_image_height">140dp</dimen>
+    <dimen name="profile_ner_top_margin">20dp</dimen>
+    <dimen name="profile_ner_user_det_top_margin">16dp</dimen>
+    <dimen name="profile_ner_username_size">21dp</dimen>
+    <dimen name="profile_ner_medium_text_size">12dp</dimen>
+    <dimen name="profile_ner_medium_14_text_size">14dp</dimen>
+    <dimen name="profile_ner_user_handle_top_margin">4dp</dimen>
+    <dimen name="profile_ner_location_info_top_margin">14dp</dimen>
+    <dimen name="profile_ner_small_text_size">12dp</dimen>
+    <dimen name="profile_ner_follower_end_margin">20dp</dimen>
+    <dimen name="search_box_height">46dp</dimen>
+    <dimen name="search_bar_right_spacing">16dp</dimen>
+    <dimen name="search_bar_top_spacing">3dp</dimen>
+    <dimen name="follow_btn_height">26dp</dimen>
+    <dimen name="follow_btn_width">80dp</dimen>
+    <dimen name="follow_btn_padding_left">5dp</dimen>
+    <dimen name="follow_btn_padding_right">8dp</dimen>
+    <dimen name="follow_btn_icon_w_h">16dp</dimen>
+    <dimen name="follow_btn_text_margin_left">5dp</dimen>
+    <dimen name="search_icon_padding">8dp</dimen>
+    <dimen name="follow_carousel_text_height">43dp</dimen>
+    <dimen name="presearch_back_padding">12dp</dimen>
+    <dimen name="presearch_bar_margin_top">3dp</dimen>
+    <dimen name="sliding_tab_strip_size">12dp</dimen>
+    <dimen name="snackbar_margin">8dp</dimen>
+    <dimen name="snackbar_bottom_margin">64dp</dimen>
+    <dimen name="snackbar_bottom_margin_no_bottom_bar">24dp</dimen>
+    <dimen name="snackbar_bottom_margin_bottom_bar">60dp</dimen>
+    <dimen name="snackbar_padding_left_right">6dp</dimen>
+    <dimen name="snackbar_padding_top_bottom">15dp</dimen>
+    <dimen name="snackbar_text_size">12dp</dimen>
+    <dimen name="perspective_icon_margin_right">2dp</dimen>
+    <dimen name="perspective_card_width">280dp</dimen>
+    <dimen name="perspective_card_image_height">64dp</dimen>
+    <dimen name="perspective_source_icon_height">14dp</dimen>
+    <dimen name="perspective_margin">8dp</dimen>
+    <dimen name="entity_list_guideline">16dp</dimen>
+    <dimen name="cards_count_text_padding_bottom">5dp</dimen>
+    <dimen name="follow_count_text_size">14dp</dimen>
+    <dimen name="entity_item_margin_left">16dp</dimen>
+    <dimen name="follow_card_name_text_size">14dp</dimen>
+    <dimen name="follow_entity_play_icon_w_h">16dp</dimen>
+    <dimen name="profile_icon_height_width">30dp</dimen>
+    <dimen name="profile_icon_border_dimension">33dp</dimen>
+    <dimen name="profile_icon_padding">3dp</dimen>
+    <dimen name="profile_icon_margin_start">16dp</dimen>
+    <dimen name="red_dot_height_width">14dp</dimen>
+    <dimen name="notification_icon_height_width">30dp</dimen>
+
+    <dimen name="perspective_card_margin">2dp</dimen>
+    <dimen name="news_detail_other_perspective_border">4dp</dimen>
+    <dimen name="more_perspective_card_height">80dp</dimen>
+    <dimen name="news_detail_perspective_icon_padding_top">1.5dp</dimen>
+    <dimen name="client_id_box_padding">4dp</dimen>
+
+    <!--Profile-->
+    <dimen name="history_filterText_marginTop">17dp</dimen>
+    <dimen name="filter_box_radius">4dp</dimen>
+    <dimen name="history_filterText_marginLeft">16dp</dimen>
+    <dimen name="history_clearall_action_btn_topMargin">43dp</dimen>
+    <dimen name="filter_option_icon_width">20dp</dimen>
+    <dimen name="filter_option_icon_view_width">30dp</dimen>
+    <dimen name="square_option_icon_small_size">16dp</dimen>
+    <dimen name="tooltip_padding">10dp</dimen>
+    <dimen name="tooltip_padding_top_urdu">8dp</dimen>
+    <dimen name="group_tooltip_padding">12dp</dimen>
+
+    <dimen name="topbar_icons_height_width">30dp</dimen>
+    <dimen name="topbar_icons_padding">6dp</dimen>
+    <dimen name="topbar_icons_margin">16dp</dimen>
+    <dimen name="back_button_padding_left_right">18dp</dimen>
+    <dimen name="back_button_padding_top_bottom">16dp</dimen>
+
+    <!--search -->
+    <dimen name="suggestion_item_height">42dp</dimen>
+    <dimen name="suggestion_text_size">16dp</dimen>
+    <dimen name="suggestion_side_margin">10dp</dimen>
+    <dimen name="header_margin_left">16dp</dimen>
+    <dimen name="search_edit_text_size">16dp</dimen>
+    <dimen name="search_edit_side_margin">16dp</dimen>
+    <dimen name="search_back_left_margin">20dp</dimen>
+    <dimen name="search_error_title_text_size">16dp</dimen>
+    <dimen name="search_error_title_top_margin">41dp</dimen>
+    <dimen name="search_error_subtitle_top_margin">13dp</dimen>
+    <dimen name="search_error_subtitle_text_size">14dp</dimen>
+    <dimen name="search_header_height">52dp</dimen>
+    <dimen name="search_bar_padding_bottom">5dp</dimen>
+
+
+    <!--news detail -->
+    <dimen name="news_detail_component_spacing">8dp</dimen>
+    <dimen name="news_detail_16dp_spacing">16dp</dimen>
+    <dimen name="follow_item_height">62dp</dimen>
+    <dimen name="search_photo_h">115dp</dimen>
+    <dimen name="news_detail_divider_spacing">30dp</dimen>
+
+    <dimen name="news_icon_radius">4dp</dimen>
+    <dimen name="like_popup_margin">20dp</dimen>
+    <dimen name="discussion_scroll_margin">8dp</dimen>
+    <dimen name="discussion_hori_margin">4dp</dimen>
+    <dimen name="news_image_radius">0dp</dimen>
+
+    <dimen name="history_clearall_title_marginLeft">22dp</dimen>
+    <dimen name="history_clearall_title_marginTop">20dp</dimen>
+    <dimen name="history_clearall_msg_marginTop">14dp</dimen>
+    <dimen name="history_positive_marginRight">32dp</dimen>
+    <dimen name="info_icon_height_width">33dp</dimen>
+
+    <dimen name="comment_source_max_width">166dp</dimen>
+    <dimen name="location_fragment_search_container_height">36dp</dimen>
+    <dimen name="location_fragment_search_container_width">10dp</dimen>
+    <dimen name="search_icon_margin_left">20dp</dimen>
+    <dimen name="location_list_view_child_paddingLeft">19dp</dimen>
+    <dimen name="location_list_view_paddingBottom">5dp</dimen>
+    <dimen name="location_list_view_paddingRight">30dp</dimen>
+    <dimen name="location_list_view_paddingTop">5dp</dimen>
+    <dimen name="location_list_view_parent_paddingLeft">10dp</dimen>
+    <dimen name="location_list_child_title_size">14dp</dimen>
+    <dimen name="like_popup_width">230dp</dimen>
+    <dimen name="ad_container_corner_radius">6dp</dimen>
+    <dimen name="bottombar_margin">16dp</dimen>
+
+    <dimen name="select_app_to_share_title_height">56dp</dimen>
+    <dimen name="rc_padding">4dp</dimen>
+    <dimen name="app_logo_size">30dp</dimen>
+    <dimen name="radio_btn_size">24dp</dimen>
+    <dimen name="app_logo_topMargin">12dp</dimen>
+    <dimen name="app_logo_bottomMargin">9dp</dimen>
+    <dimen name="app_logo_startMargin">16dp</dimen>
+
+    <dimen name="privacy_container_margin">30dp</dimen>
+    <dimen name="privacy_shield_width">60dp</dimen>
+    <dimen name="privacy_shield_margin_top">17dp</dimen>
+    <dimen name="privacy_title_margin_horz">24dp</dimen>
+    <dimen name="privacy_title_margin_top">9dp</dimen>
+    <dimen name="privacy_title_text_size">20dp</dimen>
+    <dimen name="privacy_html_margin_horz">12dp</dimen>
+    <dimen name="privacy_html_margin_top">16dp</dimen>
+    <dimen name="privacy_positive_margin_top">16dp</dimen>
+    <dimen name="privacy_negative_margin_vert">10dp</dimen>
+    <dimen name="privacy_action_btn_height">42dp</dimen>
+    <dimen name="privacy_title_height">40dp</dimen>
+    <dimen name="home_loader_anim_width">240dp</dimen>
+    <dimen name="home_loader_text_marginTop">21dp</dimen>
+    <dimen name="home_personalizing_textSize">16dp</dimen>
+
+    <dimen name="theme_anim_size">240dp</dimen>
+    <dimen name="theme_anim_top_margin">180dp</dimen>
+    <dimen name="searchbar_padding">8dp</dimen>
+</resources>

@@ -1,0 +1,19 @@
+{
+  "code": 200,
+  "data": {
+    "version": 0,
+    "deviceInfo": [{
+      "manufacturer": "Xiaomi",
+      "security_app_packagename": "com.miui.securitycenter",
+      "security_app_activityname": "com.miui.permcenter.autostart.AutoStartManagementActivity"
+    }, {
+      "manufacturer": "Letv",
+      "security_app_packagename": "com.letv.android.letvsafe",
+      "security_app_activityname": "com.letv.android.letvsafe.AutobootManageActivity"
+    }, {
+      "manufacturer": "Vivo",
+      "security_app_packagename": "null",
+      "security_app_activityname": "null"
+    }]
+  }
+}

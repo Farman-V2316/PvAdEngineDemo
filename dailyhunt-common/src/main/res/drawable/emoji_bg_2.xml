@@ -1,0 +1,21 @@
+<!--
+  ~ /*
+  ~  * Copyright (c) 2021 Newshunt. All rights reserved.
+  ~  */
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="252dp"
+    android:height="70dp"
+    android:viewportWidth="252"
+    android:viewportHeight="70">
+  <path
+      android:pathData="M11,33C11,19.745 21.745,9 35,9H217C230.255,9 241,19.745 241,33C241,46.255 230.255,57 217,57H35C21.745,57 11,46.255 11,33Z"
+      android:fillColor="#ffffff"
+      android:fillType="evenOdd"/>
+  <path
+      android:pathData="M35,8.75C21.607,8.75 10.75,19.607 10.75,33C10.75,46.393 21.607,57.25 35,57.25H217C230.393,57.25 241.25,46.393 241.25,33C241.25,19.607 230.393,8.75 217,8.75H35Z"
+      android:strokeWidth="0.5"
+      android:fillColor="#00000000"
+      android:strokeColor="#EEEEEE"/>
+</vector>

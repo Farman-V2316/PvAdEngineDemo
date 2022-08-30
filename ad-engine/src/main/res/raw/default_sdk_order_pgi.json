@@ -1,0 +1,55 @@
+{
+  "ads": [
+    {
+      "aduid": "notId=0",
+      "srcUrlExpiry": "60",
+      "position": "pgi",
+      "adGroupId": "",
+      "width": "1080",
+      "height": "540",
+      "sessionCount": "5",
+      "minThresholdSwipeCount": "6",
+      "firstAdSwipeCount": "12",
+      "pageSwipeCount": "12",
+      "maxPageSwipeCount": "15",
+      "titleBar": "true",
+      "skipTimer": "5",
+      "sdk-order": "1",
+      "adTemplate": "L",
+      "id": "0",
+      "span": "60",
+      "type": "external-sdk",
+      "external": {
+        "adunitid": "131285656905938_1066520380049123",
+        "data": "FB-Interstitial"
+      }
+    },
+    {
+      "aduid": "notId=0",
+      "srcUrlExpiry": "60",
+      "position": "pgi",
+      "adGroupId": "",
+      "width": "1080",
+      "height": "540",
+      "sessionCount": "5",
+      "minThresholdSwipeCount": "6",
+      "firstAdSwipeCount": "12",
+      "pageSwipeCount": "12",
+      "maxPageSwipeCount": "15",
+      "titleBar": "true",
+      "skipTimer": "5",
+      "sdk-order": "2",
+      "adTemplate": "L",
+      "id": "0",
+      "span": "60",
+      "type": "external-sdk",
+      "external": {
+        "span": "30",
+        "extras": "staging:enabled",
+        "adsizes": "320x480",
+        "adunitid": "/83414793/Common_PageInsert",
+        "data": "DFP-Interstitial"
+      }
+    }
+  ]
+}

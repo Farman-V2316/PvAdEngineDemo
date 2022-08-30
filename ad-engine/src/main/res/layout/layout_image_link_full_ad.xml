@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.adengine.view.helper.AdBindUtils" />
+        <import type="com.newshunt.adengine.model.entity.version.AdUIType"/>
+        <import type="com.newshunt.adengine.model.entity.version.AdPosition"/>
+
+        <variable
+            name="adEntity"
+            type="com.newshunt.adengine.model.entity.BaseDisplayAdEntity" />
+
+        <variable
+            name="adReportListener"
+            type="com.newshunt.adengine.listeners.ReportAdsMenuListener" />
+
+        <variable
+            name="adsShareViewHelper"
+            type="com.newshunt.adengine.util.AdsShareViewHelper" />
+
+        <variable
+            name="adExitListener"
+            type="com.newshunt.adengine.listeners.AdExitListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/imglink"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:visibility="@{AdBindUtils.canShow(adEntity.content.imgLink) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:imageUrl="@{adEntity.content.imgLink}" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/ad_report"
+            style="@style/ad_report_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/white"
+            android:elevation="1dp"
+            android:onClick="@{(v) -> AdBindUtils.reportAd(adReportListener, adEntity, (String)null, adExitListener)}"
+            android:text="@{adEntity.content.reportText.data}"
+            android:visibility="@{AdBindUtils.canShowAdsReportIcon(adEntity)? View.VISIBLE : View.GONE}"
+            app:dh_custom_font_weight="four_hundred"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:adReportStyle="@{adEntity}"
+            bind:container="@{adContainer}"
+            bind:parentView="@{adContainer}" />
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/video_play_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_video_play"
+            android:visibility="@{adEntity.showPlayIcon == true ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

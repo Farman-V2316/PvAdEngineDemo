@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+            <!-- SHADOW LAYER -->
+            <item>
+                <shape>
+                    <gradient
+                        android:startColor="@color/app_alert_dialog_shadow_color"
+                        android:endColor="@color/app_alert_dialog_shadow_color"
+                        android:angle="0"
+                        android:type="linear"
+                    />
+                    <corners
+                        android:radius="1dip"/>
+                </shape>
+            </item>
+            <!-- CONTENT LAYER -->
+            <item>
+                <shape>
+                    <solid android:color="@color/app_rate_night_bg_color"/>
+                    <corners android:radius="1dip"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

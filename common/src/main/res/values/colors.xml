@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<resources>
+
+    <!-- black colors -->
+    <color name="color_black">#000000</color>
+    <color name="color_black_50">#80000000</color>
+
+    <!-- Text colors -->
+    <color name="text_light_grey">#999999</color>
+    <color name="text_dark_grey">#656565</color>
+    <color name="text_grey">#9B9B9B</color>
+    <color name="big_notification_text_color">#7B7B7B</color>
+    <color name="big_notification_title_color">#000000</color>
+    <color name="text_red">#D0021B</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="bottom_bar_top">#f3f3f3</color>
+    <color name="bottom_bar_top_night">#1A1A1A</color>
+    <color name="theme_day_settings_text">#1C1C1C</color>
+    <color name="theme_day_divider">#FFEAEAEA</color>
+    <color name="theme_day_divider_thin">#EEEEEE</color>
+    <color name="theme_night_divider">#000000</color>
+    <color name="sel_app_language_text_color">#FFEFAA02</color>
+    <color name="bottombar_night">#0d0d0d</color>
+    <color name="bottombar_day">#ffffff</color>
+
+    <!-- Button background colors -->
+    <color name="button_red">#DF4A32</color>
+
+    <!-- Share colors -->
+    <color name="share_background">#FAFAFA</color>
+    <color name="share_vertical_bar">#F1F1F1</color>
+    <color name="share_horizontal_bar">#CDCDCD</color>
+    <color name="share_transparent">#00000000</color>
+
+    <color name="button_email_login_bgcolor">#9B9B9B</color>
+    <color name="button_fb_login_fgcolor">#3C5A99</color>
+    <color name="sign_on_email_progress_bgcolor">#44FFFFFF</color>
+
+    <color name="photo_gallery_text_color">#9B9B9B</color>
+    <color name="photo_gallery_text_color_nm">#F5F5F5</color>
+    <color name="ner_know_more_color">#1F9EE1</color>
+    <color name="ner_know_more_color_nm">#50AFCD</color>
+    <color name="navbar_icon_color_day_unselected">#565868</color>
+    <color name="navbar_icon_color_night_unselected">#C2C2C2</color>
+    <color name="bottom_bar_pressed_color">#F2F2F2</color>
+    <color name="bottom_bar_selected_color">#1ADB4437</color>
+    <color name="navbar_text_color_selected">#DB4437</color>
+    <color name="bottom_bar_pressed_color_night">#323232</color>
+    <color name="bottom_bar_selected_color_night">#23232D</color>
+    <color name="back_arrow_day">#565868</color>
+    <color name="back_arrow_night">#ffffff</color>
+    <color name="notification_activity_background">#80565868</color>
+
+    <color name="theme_day_background">#ffffffff</color>
+    <color name="theme_day_text_color">#ff000000</color>
+    <color name="theme_day_hamburger_color">#4d4d4d</color>
+    <color name="theme_day_source_tab_background">#FAFAFA</color>
+    <color name="divider_dark_gray">#666666</color>
+    <color name="divider_light_gray">#E2E2E2</color>
+
+    <color name="theme_featured_day_background">#f4f4f4</color>
+    <color name="theme_featured_night_background">#424242</color>
+
+    <!--Saved articles-->
+
+    <!--App Notification Dialog-->
+    <color name="notification_enable_dialog_shadow_color">#22000000</color>
+    <color name="notification_enable_dialog_color">#fafafa</color>r>
+    <color name="notification_enable_dialog_titletext_color">#D0021B</color>r>
+    <color name="notification_enable_dialog_headertext_color">#8C000000</color>r>
+    <color name="background_bottom_tab">#F8F8F8</color>
+    <color name="background_bottom_tab_night">#1E1E1E</color>
+
+    <!--In app browser -->
+    <color name="menu_pop_up_background">#ffffff</color>
+    <color name="menu_pop_shadow">#24000000</color>
+    <color name="news_detail_branding_bar_color_day">#FFFFFF</color>
+    <color name="news_detail_branding_bar_color_night">#3C3C3C</color>
+    <color name="theme_night_date_text_color">#ff999999</color>
+    <color name="theme_day_date_text_color">#545454</color>
+    <color name="theme_night_follower_text_color">#787878</color>
+    <color name="theme_day_follower_text_color">#A5A5A5</color>
+    <color name="font_slider">#D0021B</color>
+
+    <color name="toolbar_underline_color">#d3d3d3</color>
+    <color name="white_color">#FFFFFF</color>
+    <color name="follow_green">#26BE6A</color>
+    <color name="follow_color">#000000</color>
+    <color name="ner_follow_color">#999999</color>
+    <color name="follow_color_night">#50AFCD</color>
+    <color name="ner_follow_color_night">#D9D9D9</color>
+    <color name="block_bg_color">#41474D</color>
+    <color name="suggested_location_border_color">#D3D3D3</color>
+    <color name="suggested_location_border_color_night">#A7A7AB</color>
+
+    <!--Rate the app dialog-->
+    <color name="app_rate_background_day">#80000000</color>
+    <color name="app_rate_background_night">#60FFFFFF</color>
+    <color name="app_rate_day_bg_color">#ffffff</color>
+    <color name="app_rate_night_bg_color">#333333</color>
+    <color name="app_rate_top_layout_day_bg_color">#494998</color>
+    <color name="app_rate_top_layout_night_bg_color">#3c3c3c</color>
+    <color name="app_rate_title_text_day_color">#000000</color>
+    <color name="app_rate_title_text_night_color">#FFFFFF</color>
+    <color name="app_rate_content_text_color">#9E9E9E</color>
+    <color name="app_rate_rb_btn_day_bg_color">#26be6a</color>
+    <color name="app_rate_rb_btn_night_bg_color">#3c3c3c</color>
+    <color name="app_rate_fb_btn_day_bg_color">#dedede</color>
+    <color name="app_rate_fb_btn_night_bg_color">#3c3c3c</color>
+    <color name="app_rate_fb_btn_text_day_color">#999999</color>
+    <color name="app_rate_nevershow_text_day_color">#629e9e9e</color>
+    <color name="app_rate_nevershow_text_night_color">#80FFFFFF</color>
+    <color name="astro_gender_selected_bg_color">#333333</color>
+
+    <color name="black_color">#ff000000</color>
+    <color name="color_blue_1F9EE1">#1F9EE1</color>
+
+    <color name="image_overlay">#A34A4A4A</color>
+    <color name="nhquickscroll_text_color">#949494</color>
+
+    <color name="list_header_message_background">#FFE3F2FD</color>
+    <color name="list_header_message_background_night">#FF37474F</color>
+    <color name="list_header_message_text">#FF000000</color>
+    <color name="list_header_message_text_night">#FFB1B7BA</color>
+
+    <color name="fav_grid_container_bg">#52A08D</color>
+    <color name="fav_grid_container_bg_night_mode">#4A4A4A</color>
+    <color name="np_fav_grid_color_dm">#ffffff</color>
+    <color name="np_fav_grid_color_nm">#ffffff</color>
+    <color name="np_browse_categories_bg">#212121</color>
+
+    <color name="story_supplement_section_title_text_color">#999999</color>
+    <color name="story_supplement_section_title_text_color_night">#FFFFFF</color>
+    <color name="story_supplement_item_text_color">#000000</color>
+    <color name="story_supplement_item_text_color_night">#FFFFFF</color>
+    <color name="story_supplement_item_desc_text_color">#666666</color>
+    <color name="story_supplement_item_desc_text_color_night">#D4FFFFFF</color>
+    <color name="story_supplement_carousel_item_bg_color">#FFFFFF</color>
+    <color name="story_supplement_carousel_item_bg_color_night">#4A4A4A</color>
+    <color name="story_supplement_grid_item_bg_color">#FFFFFF</color>
+    <color name="story_supplement_grid_item_bg_color_night">#4A4A4A</color>
+    <color name="story_supplement_carousel_bg_color">#F5A623</color>
+    <color name="story_supplement_carousel_bg_color_night">#4A4A4A</color>
+    <color name="story_supplement_grid_bg_color">#FFFFFF</color>
+    <color name="story_supplement_grid_bg_color_night">#000000</color>
+    <color name="story_supplement_source_text_color">#000000</color>
+    <color name="story_supplement_source_text_color_night">#FFFFFF</color>
+    <color name="story_supplement_source_pub_time_stamp_text_color">#4A4A4A</color>
+    <color name="story_supplement_source_pub_time_stamp_text_color_night">#FFFFFF</color>
+
+    <color name="share_fab_color">#D0021B</color>
+
+    <color name="toast_color">#666666</color>
+    <color name="tool_tip_title_text_color">#FFFFFF</color>
+    <color name="tool_tip_msg_text_color">#EAF3F6</color>
+    <color name="black">#000000</color>
+    <color name="tooltip_comment_text_color">#fafafa</color>
+
+
+    <color name="default_dialog_button_text">#4285f4</color>
+    <color name="grey_desc">#787878</color>
+
+    <color name="inactive_text_color_day_mode">#66000000</color>
+    <color name="inactive_text_color_night_mode">#787878</color>
+
+    <color name="color_hide_content_bar_heading2">#99000000</color>
+    <color name="color_hide_content_bar_heading2_night">#8B8B8B</color>
+    <color name="color_hide_content_bar_heading1_night">#E5E5E5</color>
+    <color name="color_hide_content_bar_divider_night">#8B8B8B</color>
+    <color name="topic_featured_background_nightmode">#262626</color>
+
+    <color name="carousel_progress_bg">#d3d3d3</color>
+    <color name="carousel_progress_fg">#919191</color>
+
+    <color name="shimmer_gray">#EAEAEA</color>
+    <color name="empty_image_color">#F2F2F2</color>
+    <color name="follow_entity_count_text_color">#999999</color>
+    <color name="explore_unselected_overlay">#EAEAEA</color>
+    <color name="explore_unselected_textcolor">#EAEAEA</color>
+    <color name="save_language_button_selected">#1F9EE1</color>
+    <color name="bottom_bar_shadow_top_bottom">#00000000</color>
+    <color name="bottom_bar_shadow_center">#0f000000</color>
+    <color name="bottom_bar_text_color">#565868</color>
+    <color name="city_text_color_night">#9b9b9b</color>
+    <color name="google_login_bg_color">#DD4B39</color>
+    <color name="otp_resend_msg_textColor">#9698A3</color>
+
+    <color name="logout_color">#FD6060</color>
+    <color name="gallery5_background">#1A565868</color>
+    <color name="verified_tv_color">#3ea11a</color>
+    <color name="joined_color">#bbe1f6</color>
+    <color name="member_role_text_color">#1f9ee1</color>
+    <color name="member_role_bg_color">#1a1f9ee1</color>
+    <color name="dot_fill_color">#647388</color>
+    <color name="location_expand_arrow_tint_color">#D8D8D8</color>
+    <color name="suggested_location_unselected">#23232D</color>
+    <color name="suggested_location_unselected_night">#A7A7AB</color>
+    <color name="suggested_location_background_might">#ff2e2e2e</color>
+    <color name="location_bottom_line">#F4F4F4</color>
+
+    <color name="add_location_header_color">#000000</color>
+    <color name="add_location_header_color_night">#FFFFFF</color>
+
+    <color name="reported_text_color">#FC607C</color>
+    <color name="pd_add_comment_bg">#F5F5F5</color>
+    <color name="pd_add_comment_bg_night">#333333</color>
+    <color name="pd_add_comment_text_color">#BDBDBD</color>
+
+    <color name="ad_overlay_color_dark">#55000000</color>
+    <color name="common_topbar_bg_night">#202020</color>
+</resources>

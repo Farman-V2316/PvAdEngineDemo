@@ -1,0 +1,15 @@
+<!--
+  ~ /*
+  ~  * Copyright (c) 2021 Newshunt. All rights reserved.
+  ~  */
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="36dp"
+    android:viewportWidth="320"
+    android:viewportHeight="36">
+  <path
+      android:pathData="M0,6C0,2.686 2.686,0 6,0H314C317.314,0 320,2.686 320,6V30C320,33.314 317.314,36 314,36H6C2.686,36 0,33.314 0,30V6Z"
+      android:fillColor="#1FA1FF"/>
+</vector>

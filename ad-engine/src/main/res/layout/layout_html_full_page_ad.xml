@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.adengine.view.helper.AdBindUtils" />
+
+        <variable
+            name="adEntity"
+            type="com.newshunt.adengine.model.entity.BaseDisplayAdEntity" />
+
+        <variable
+            name="adReportListener"
+            type="com.newshunt.adengine.listeners.ReportAdsMenuListener" />
+
+        <variable
+            name="adsShareViewHelper"
+            type="com.newshunt.adengine.util.AdsShareViewHelper" />
+
+        <variable
+            name="appSettingsProvider"
+            type="com.newshunt.dhutil.helper.AppSettingsProvider" />
+
+        <variable
+            name="adExitListener"
+            type="com.newshunt.adengine.listeners.AdExitListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ad_container">
+
+        <RelativeLayout
+            android:id="@+id/html_ad_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/share_icon_bottom"
+            android:layout_width="@dimen/ad_share_pgi_icon_size"
+            android:layout_height="@dimen/ad_share_pgi_icon_size"
+            android:layout_marginEnd="@dimen/ad_share_full_screen_pgi_icon_margin_right"
+            android:layout_marginBottom="@dimen/ad_share_full_screen_pgi_icon_margin_bottom"
+            android:onClick="@{(v) -> adsShareViewHelper.onShareIconClick(adEntity.shareability)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            bind:adEntity="@{adEntity}"
+            bind:active="@{AdBindUtils.isShareSupported(adEntity)}"
+            bind:defaultShareChange="@{appSettingsProvider.preferredSharableAppLiveData}"
+            bind:adsShareViewHelper="@{adsShareViewHelper}" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/ad_report"
+            style="@style/ad_report_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#BFFFFFFF"
+            android:onClick="@{(v) -> AdBindUtils.reportAd(adReportListener, adEntity, (String)null, adExitListener)}"
+            android:padding="4dp"
+            android:text="@{adEntity.content.reportText.data}"
+            android:visibility="@{AdBindUtils.canShowAdsReportIcon(adEntity)? View.VISIBLE : View.GONE}"
+            app:dh_custom_font_weight="four_hundred"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:adReportStyle="@{adEntity}"
+            app:parentView="@{adContainer}"
+            app:container="@{htmlAdLayout}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

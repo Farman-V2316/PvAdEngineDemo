@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ParallaxScroll">
+        <attr name="parallax_factor" format="float" />
+        <attr name="alpha_factor" format="float" />
+        <attr name="inner_parallax_factor" format="float" />
+        <attr name="parallax_views_num" format="integer" />
+        <attr name="circular_parallax" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="NHImageView">
+        <attr name="enableOverlay" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="NHFontView">
+        <attr name="dh_custom_font_weight" format="enum">
+            <enum name="four_hundred" value="0"/>
+            <enum name="five_hundred" value="1"/>
+            <enum name="six_hundred" value="2"/>
+            <enum name="seven_hundred" value="3"/>
+            <enum name="eight_hundred" value="4"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="NHTextView">
+        <attr name="supportsEmoji" format="boolean" />
+        <attr name="dh_custom_font_weight"/>
+    </declare-styleable>
+
+    <declare-styleable name="NHRadioButton">
+        <attr name="dh_custom_font_weight"/>
+    </declare-styleable>
+
+    <declare-styleable name="NHButton">
+        <attr name="dh_custom_font_weight"/>
+    </declare-styleable>
+
+    <declare-styleable name="NHCheckedTextView">
+        <attr name="dh_custom_font_weight"/>
+    </declare-styleable>
+
+    <declare-styleable name="NHEditText">
+        <attr name="dh_custom_font_weight"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="NHShareView">
+        <attr name="show_share_type" format="enum">
+            <enum name="bottom_bar" value="0" />
+            <enum name="floating_icon" value="1" />
+            <enum name="big_story_card" value="2" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="SocialIconText">
+        <attr name="si_icon_width" format="dimension" />
+        <attr name="si_icon_height" format="dimension" />
+        <attr name="si_text_enable" format="boolean" />
+        <attr name="si_icon" format="reference" />
+        <attr name="si_default_text" format="string" />
+        <attr name="si_text_color" format="reference" />
+        <attr name="si_icon_tint" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="TagTextView">
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundedCornerImageView">
+        <attr name="cornerRadius" format="dimension"/>
+        <attr name="roundedCorners">
+            <flag name="noCorners" value="0"/>
+            <flag name="topLeft" value="1"/>
+            <flag name="topRight" value="2"/>
+            <flag name="bottomRight" value="4"/>
+            <flag name="bottomLeft" value="8"/>
+            <flag name="allCorners" value="15"/>
+        </attr>
+        <attr name="borderColor" format="color"/>
+        <attr name="borderSize" format="dimension"/>
+        <attr name="layout_id" format="integer"/>
+    </declare-styleable>
+    
+    <declare-styleable name="PollOptionRelativeLayout">
+        <attr name="state_error" format="boolean"/>
+    </declare-styleable>
+
+</resources>

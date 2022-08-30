@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<response>
+    <header status="Success"/>
+    <body disable="0" responseType="showAds" time="1800">
+        <ad endepoch=" 1417592627" height="1920" id="Z1684M0649491417502082" position="splash"
+            startepoch="1417506228" type="html" width="1080">
+            <type><![CDATA[html]]></type>
+            <beaconUrl>
+                <![CDATA[http://newshunt.net.in/openx/ads/log.php?md5=-1&log_id=Z1684M0649491417502082&clientId=761064949&oxlg_cnt=7&oxlg_bannerid=2741&oxlg_campaignid=838&oxlg_zoneid=1684&oxlg_OXLIA=1&oxlg_loc=http%3A%2F%2Fnewshunt.net.in%2Fopenx%2Fads%2Findex.php%3Fcellid%3D43244-404-232-4324%26lat%3D17.1244%26long% 3D83.43423%26featuremask%3D16384%26t%3Dnads%26res%3D1080x1920%26client%3Dandroid%26appVer%3D4.02.26%26brand%3DNewsHunt%26clientId%3D761064949%26imgFmt%3D7%26app-id%3D7777777%26clientId%3D761064949%3Bclient%3Dandroid%3BappVer%3D4.42.21%3B%26zone%3Dsplash%26imgFmt%3D7%26conn%3Dw]]></beaconUrl>
+            <landingUrl></landingUrl>
+            <content/>
+            <action/>
+            <coolAd type="mraidzip" zipped="yes">
+                <meta>
+                    <![CDATA[<meta name="viewport" content="width=device-width, initial-scale=1"/>]]></meta>
+                <content link="yes" mainfile="index.html">
+                    <![CDATA[http://newshunt.net.in/openx/resize_cache/55/c6/b4/55c6b4a25af2071602f9c90931b9493b.zip]]></content>
+                <zipsubcontent name="eterno-clientuniqparams.js" link="no" zipped="no"><![CDATA[function+eterno_getclientuniqparams%28%29+%7Breturn+%27clientId%3D761064949%26bannerid%3D2741%26zoneid%3D1684%26paper%3Dbbchind%26actmethod%3D%26res%3D420x320%26ccsf%3D0%27%3B%7D
+function+eterno_getCookieLessExtTrackerParams%28%29+%7Breturn+%27clientId%3D761064949%26paper%3Dbbchind%26res%3D420x320%26%27%3B%7D]]></zipsubcontent>
+            </coolAd>
+        </ad>
+    </body>
+</response>

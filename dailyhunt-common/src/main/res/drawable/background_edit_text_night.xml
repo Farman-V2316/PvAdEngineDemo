@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Shadow drawable
+https://gist.github.com/lecho/6473458-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Drop Shadow Stack -->
+    <item>
+        <shape>
+            <padding android:bottom="1dp"/>
+            <solid android:color="@color/white_color"/>
+        </shape>
+    </item>
+    <!-- Background -->
+    <item>
+        <shape>
+            <solid android:color="@color/presearch_list_bg_night"/>
+        </shape>
+    </item>
+
+</layer-list>

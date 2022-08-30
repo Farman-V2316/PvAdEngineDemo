@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+<resources>
+
+    <string-array name="fb_permissions" translatable="false">
+        <item>public_profile</item>
+        <item>email</item>
+        <item>user_birthday</item>
+        <item>user_gender</item>
+    </string-array>
+
+    <string name="dh_tc_partnerKey" translatable="false">e6zfcb3d2bd2c592c4286a01cbe00f4d66959</string>
+
+</resources>

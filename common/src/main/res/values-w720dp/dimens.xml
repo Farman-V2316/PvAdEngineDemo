@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="customizable_min_height">30dp</dimen>
+    <dimen name="customizable_max_height">100dp</dimen>
+    <dimen name="customizable_width">720dp</dimen>
+</resources>

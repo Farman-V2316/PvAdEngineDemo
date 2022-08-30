@@ -1,0 +1,94 @@
+/*
+ * Copyright (c) 2016 Newshunt. All rights reserved.
+ */
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+  compileSdkVersion project.csv
+
+  testOptions.unitTests.includeAndroidResources = true
+
+  defaultConfig {
+    minSdkVersion project.msv
+    targetSdkVersion project.tsv
+    versionCode 1
+    versionName "1.0"
+    vectorDrawables.useSupportLibrary=true
+  }
+
+  lintOptions {
+    warning 'InvalidPackage'
+  }
+
+  dexOptions {
+    dexInProcess = true
+    maxProcessCount = 2
+    jumboMode = true
+    javaMaxHeapSize "5g"
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  buildFeatures {
+    dataBinding true
+  }
+}
+
+dependencies {
+  implementation platform('com.google.firebase:firebase-bom:'+project.bom_v)
+  api fileTree(dir: 'libs', include: ['*.jar'])
+
+  api project(':permissionhelper')
+  api project(':exo-library')
+  api project(':datastore')
+
+  // Add the Firebase Crashlytics SDK.
+  implementation 'com.google.firebase:firebase-crashlytics'
+  implementation 'com.google.android.play:core:' + project.play_core_v
+  implementation 'com.google.android.play:core-ktx:' + project.play_core_ktx_v
+
+  // for lottie animation
+  implementation 'com.airbnb.android:lottie:' +project.lottie_v
+
+  api 'com.google.firebase:firebase-appindexing'
+  api 'com.appsflyer:af-android-sdk:6.5.2@aar'
+  api 'com.squareup:otto:' + project.bus_v
+  api 'com.android.installreferrer:installreferrer:2.2'
+  api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+  api 'com.facebook.android:facebook-android-sdk:' + project.fb
+  annotationProcessor 'com.google.auto.factory:auto-factory:1.0-beta3'
+
+  api 'com.google.android.libraries.places:places:2.0.0'
+
+  api 'com.google.dagger:dagger:' + project.dagger_v
+  annotationProcessor "com.google.dagger:dagger-compiler:" + project.dagger_v
+
+  kapt 'com.google.auto.factory:auto-factory:1.0-beta3'
+  kapt "androidx.room:room-compiler:"+project.room_v
+
+
+  //Glide webp decoder dependencies
+  implementation "com.github.zjupure:webpdecoder:2.0.${project.glv}"
+  kapt "com.github.bumptech.glide:compiler:${project.glv}"
+
+  api "io.apisense:rhino-android:1.0"
+
+  //test dependencies
+  testImplementation 'junit:junit:' + project.test_jv
+  testImplementation 'org.mockito:mockito-core:' + project.test_mv
+  testImplementation "org.hamcrest:hamcrest-all:"+project.hamcrestVersion
+  testImplementation "androidx.arch.core:core-testing:"+project.archTestingVersion
+  testImplementation "org.robolectric:robolectric:"+project.robolectricVersion
+  testImplementation "androidx.test.espresso:espresso-core:"+project.espressoVersion
+  testImplementation "androidx.test.espresso:espresso-contrib:"+project.espressoVersion
+  testImplementation "androidx.test.espresso:espresso-intents:"+project.espressoVersion
+  testImplementation "com.google.truth:truth:"+project.truthVersion
+  testImplementation 'androidx.test.ext:junit:1.1.0'
+  // Once https://issuetracker.google.com/127986458 is fixed this can be testImplementation
+  testImplementation ("androidx.fragment:fragment-testing:"+project.fragmentVersion)
+  testImplementation("io.mockk:mockk:1.9.3")
+}

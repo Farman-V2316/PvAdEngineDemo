@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by Rahul Ravindran at 19/6/20 1:42 PM
+  ~ Copyright (c) 2020 Newshunt. All rights reserved.
+  -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ad_banner_bottombar_immersive"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    android:background="@color/black_color">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/ad_attr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/image_banner_sponsored_text_marginLeft"
+        android:layout_marginTop="@dimen/ad_margin_top"
+        android:layout_marginBottom="@dimen/ad_margin_top"
+        android:text="@{sponsoredText}"
+        android:textColor="@color/white_color"
+        android:textSize="@dimen/sponsored_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/cta_button"
+        style="@style/adclickHereTextStyleImmsersive"
+        android:layout_marginTop="@dimen/subtitle_text_marginTop"
+        android:layout_marginEnd="@dimen/subtitle_text_marginRight"
+        android:layout_marginBottom="@dimen/subtitle_text_marginTop"
+        android:text="@{ctaText}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

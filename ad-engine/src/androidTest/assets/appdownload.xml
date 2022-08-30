@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<response>
+    <header status="Success"/>
+    <body
+        UAQueryLink="http://localhost/openx/ads/getClickUA.php?clientId=761064949&amp;response_type=xml&amp;ccsf=0"
+        disable="0" responseType="showAds" time="1800">
+        <ad aduid="notId=ad-2702" banner-fill="center" bannerid="2702" card-position="4"
+            height="100" id="Z1753M0649491429084790" min-ad-distance="4" position="card-p1"
+            span="45" srcUrlExpiry="86400" type="appDownload" width="320">
+            <type><![CDATA[appDownload]]></type>
+            <beaconUrl>
+                <![CDATA[http://localhost/openx/ads/log.php?md5=-1&log_id=Z1753M0649491429084790&clientId=761064949&oxlg_cnt=7&oxlg_bannerid=2702&oxlg_campaignid=804&oxlg_zoneid=1753&oxlg_OXLIA=1&oxlg_loc=http%3A%2F%2Flocalhost%2Fopenx%2Fads%2Findex.php%3Ft%3Dnads%26res%3D480x320%26client%3Dandroid%26appVer%3D4.02.26%26brand%3DNewsHunt%26clientId%3D761064949%26imgFmt%3D7%26app-id%3D7777777%26context%3Dcat%3Daajtak%3ANational%3BnpKey%3Daajtak%3BclientId%3D761064949%3Bclient%3Dandroid%3BappVer%3D4.22.34%3B%26zone%3Dcard-p1%26sessionid%3D1312284616%26resolution%3D420x320%26imgFmt%3D7%26landingImageSize%3D300x50%26debug%3D1&oxlg_cb=f86b8519f6&oxlg_lgts=1429084790-49338700&ccsf=0]]></beaconUrl>
+            <beaconUrlAdditional><![CDATA[http://maruti.com/impression1]]></beaconUrlAdditional>
+            <beaconUrlAdditional><![CDATA[http://maruti.com/impression2]]></beaconUrlAdditional>
+            <beaconUrlAdditional><![CDATA[http://maruti.com/impression3]]></beaconUrlAdditional>
+            <landingUrl>
+                <![CDATA[http://localhost/openx/ads/click.php?md5=-1__click_id=NAZ1751MC0864081429184946__clientId=735086408__oaparams=2__bannerid=2710__zoneid=1751__OXLCA=1__cb=29ab379ab3__ccsf=1__clkh=de2a4a5fa9a93a9dceb3ff67ac3bd47d__oadest=]]></landingUrl>
+            <landingUrlAdditional><![CDATA[http://google.com/click]]></landingUrlAdditional>
+            <content bg-color="#003366" bg-color-night="" language="Telugu-edited">
+                <iconLink>
+                    <![CDATA[http://acdn.localhost/openx/resize_cache/eb/af/7f/NHIMGRESREPLACE_ICONebaf7fd8b5858ebc2de1ed821225fc5e.NHIMGEXTREPLACE?images_updated_at=1428684791]]></iconLink>
+                <itemTag color="#003366" color-night=""><![CDATA[क्या आप वहां मौजूद]]></itemTag>
+                <itemTitle color="#003366" color-night="">
+                    <![CDATA[ಹಾಯ್ ಯೆನ್ ಮಾಡ್ತಾ ಗೆಲುವು ಪಡೆದರು]]></itemTitle>
+                <itemImage height="80" width="250">
+                    <![CDATA[http://acdn.localhost/openx/resize_cache/eb/af/7f/NHIMGRESREPLACE_IMAGEebaf7fd8b5858ebc2de1ed821225fc5e.NHIMGEXTREPLACE?images_updated_at=1428684791]]></itemImage>
+                <itemDescription><![CDATA[मैं कार्यालय में हूँ]]></itemDescription>
+                <itemRating><![CDATA[3]]></itemRating>
+            </content>
+            <action>
+                <![CDATA[<a href="http://google.com">Click here to launch Browser</a>]]></action>
+        </ad>
+    </body>
+</response>

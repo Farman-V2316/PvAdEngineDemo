@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Rahul Ravindran at 8/10/19 6:04 PM
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:drawable="@drawable/news_detail_like_selected_day"
+        android:state_selected="true"/>
+
+    <item android:drawable="@drawable/news_detail_like_night"/>
+</selector>

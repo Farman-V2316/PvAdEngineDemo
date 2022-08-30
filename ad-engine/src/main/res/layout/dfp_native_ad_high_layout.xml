@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="adEntity"
+            type="com.newshunt.adengine.model.entity.BaseDisplayAdEntity" />
+
+        <variable
+            name="item"
+            type="com.newshunt.adengine.model.entity.NativeData" />
+    </data>
+
+    <com.google.android.gms.ads.nativead.NativeAdView
+        android:id="@+id/sdk_custom_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/ad_content_margin"
+        android:layout_marginEnd="@dimen/ad_content_margin"
+        android:paddingTop="10dp"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/native_layout"
+            layout="@layout/ads_native_high_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            bind:adEntity="@{adEntity}"
+            bind:item="@{item}"
+            bind:removeGap="@{true}" />
+    </com.google.android.gms.ads.nativead.NativeAdView>
+</layout>

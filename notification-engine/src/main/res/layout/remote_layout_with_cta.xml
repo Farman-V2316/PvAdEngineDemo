@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF">
+
+    <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp">
+
+    <RelativeLayout
+        android:id="@+id/iconLayout"
+        android:layout_width="55dp"
+        android:layout_height="65dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/border_margin">
+
+        <ImageView
+            android:id="@+id/notify_image"
+            android:layout_width="@dimen/image_size"
+            android:layout_height="@dimen/image_size"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/icon"
+            android:visibility="visible">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/notify_default_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/notification_icon"
+            android:visibility="gone">
+        </ImageView>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/notification_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/iconLayout"
+        android:layout_marginBottom="3dp"
+        android:layout_marginEnd="3dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_notif_br"
+        android:visibility="visible">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/notification_text_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/text_left_margin"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/notification_cta"
+        android:layout_toRightOf="@+id/iconLayout">
+    </ImageView>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_bar"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/cta_bar_top_margin"
+        android:layout_marginStart="@dimen/border_margin"
+        android:layout_marginBottom="@dimen/border_margin">
+
+        <ImageView
+            android:id="@+id/cta_1_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/cta_2_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/cta_3_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/cta_4_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+</RelativeLayout>

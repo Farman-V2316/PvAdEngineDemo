@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Shadow drawable
+https://gist.github.com/lecho/6473458-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- Drop Shadow Stack -->
+    <item>
+        <shape>
+            <padding android:top="1dp" />
+            <solid android:color="#10000000" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+
+    <item>
+        <shape>
+            <padding android:top="1dp" />
+            <solid android:color="#14000000" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+
+    <!-- Background -->
+    <item>
+        <shape>
+            <solid android:color="#FAFAFA" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+
+</layer-list>

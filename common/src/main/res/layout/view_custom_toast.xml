@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.newshunt.common.view.customview.CustomToastView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white_color"
+        android:textSize="@dimen/custom_toast_text_size"
+        android:layout_margin="@dimen/custom_toast_margin"
+        android:background="@drawable/custom_toast_background"
+        android:paddingLeft="@dimen/custom_toast_padding_left_right"
+        android:paddingRight="@dimen/custom_toast_padding_left_right"
+        android:paddingBottom="@dimen/custom_toast_padding_top_bottom"
+        android:paddingTop="@dimen/custom_toast_padding_top_bottom"
+        android:layout_height="wrap_content" />
+</com.newshunt.common.view.customview.CustomToastView>

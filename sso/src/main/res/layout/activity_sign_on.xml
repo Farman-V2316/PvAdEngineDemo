@@ -1,0 +1,101 @@
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ContentDescription">
+
+    <RelativeLayout
+        android:id="@+id/rl_container_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+
+        <!-- Action Bar component on the top of the Screen -->
+        <RelativeLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/sign_in_toolbar_color"
+            android:elevation="2dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_sign_on_navigation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/margin_small"
+                app:srcCompat="?attr/ic_actionbar_back"
+                android:background="?attr/selectableItemBackground"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="@dimen/actionbar_icons_padding">
+
+                <ImageView
+                    android:id="@+id/settings_icon"
+                    android:layout_width="@dimen/topbar_icons_height_width"
+                    android:layout_height="@dimen/topbar_icons_height_width"
+                    android:padding="@dimen/topbar_icons_padding"
+                    android:src="@drawable/ic_settings_global"
+                    android:layout_marginEnd="@dimen/topbar_icons_margin"
+                    android:layout_toStartOf="@+id/nh_notification_icon"
+                    android:layout_alignTop="@+id/nh_notification_icon"
+                    android:layout_alignBottom="@+id/nh_notification_icon"
+                    android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                <com.newshunt.common.view.customview.NHNotificationIcon
+                    android:layout_width="@dimen/topbar_icons_height_width"
+                    android:layout_height="@dimen/topbar_icons_height_width"
+                    android:padding="@dimen/topbar_icons_padding"
+                    android:id="@+id/nh_notification_icon"
+                    android:layout_marginEnd="4dp"
+                    android:layout_alignParentEnd="true"
+                    />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            tools:context="com.newshunt.shared.activities.SignOnActivity"
+            tools:ignore="MergeRootFrame" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_signon_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/sign_on_email_progress_bgcolor"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/signon_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminate="true"
+            android:indeterminateBehavior="cycle" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/tv_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signon_progress"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"
+            android:layout_marginTop="@dimen/padding_small"
+            android:gravity="center_horizontal"
+            android:visibility="gone" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="ctaText"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/ad_cta_translucent_color"
+        android:paddingStart="8dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/interactive_ad_icon_size"
+            android:layout_height="@dimen/interactive_ad_icon_size"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_ad_expand"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/action_cta"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/action_cta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="2dp"
+            android:text="@{ctaText}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/interactive_ad_cta_text_size"
+            app:dh_custom_font_weight="five_hundred"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Tap to Engage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+
+<com.newshunt.common.view.customview.fontview.NHTextView
+    android:id="@+id/onboarding_language_text"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center"
+    android:includeFontPadding="false"
+    android:paddingBottom="@dimen/onboarding_padding_bottom"
+    android:paddingTop="@dimen/onboarding_padding_bottom"
+    android:textColor="?attr/hamburger_text_color"
+    android:textSize="@dimen/onboarding_choose_preferred_language_text_size"/>

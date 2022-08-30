@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/toggle_button"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/follow_btn_height"
+    android:paddingLeft="@dimen/follow_btn_padding_left"
+    android:paddingRight="@dimen/follow_btn_padding_right">
+
+    <LinearLayout
+        android:id="@+id/follow_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/toggle_on_image"
+            android:layout_width="@dimen/follow_btn_icon_w_h"
+            android:layout_height="@dimen/follow_btn_icon_w_h"
+            android:scaleType="centerInside"
+            android:tint="?attr/follow_text_color"
+            android:src="@drawable/ic_follow_star"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/toggle_on_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/follow_btn_text_margin_left"
+            android:text="@string/follow"
+            android:textAlignment="gravity"
+            android:includeFontPadding="false"
+            android:textColor="?attr/follow_text_color"
+            android:textSize="@dimen/follow_btn_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/following_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/toggle_off_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/follow_btn_text_margin_left"
+            android:text="@string/following"
+            android:textAlignment="gravity"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/follow_btn_text_size"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/toggle_on_image_followed"
+            android:layout_width="@dimen/follow_btn_icon_w_h"
+            android:layout_height="@dimen/follow_btn_icon_w_h"
+            android:scaleType="centerInside"
+            android:tint="@color/follow_color"
+            android:src="@drawable/ic_follow_star_fill"
+            android:visibility="gone"/>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

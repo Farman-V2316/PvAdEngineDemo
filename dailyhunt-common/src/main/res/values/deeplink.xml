@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<resources>
+    <string translatable="false" name="host_url_books_in">books.newshunt.in</string>
+    <string translatable="false" name="host_url_ebooks_in">ebooks.newshunt.in</string>
+    <string translatable="false" name="host_url_news_net">m.newshunt.net.in</string>
+    <string translatable="false" name="host_url_ebooks_com">ebooks.newshunt.com</string>
+    <string translatable="false" name="host_url_newshunt_com">newshunt.com</string>
+    <string translatable="false" name="host_url_newshunt_net">newshunt.net.in</string>
+    <string translatable="false" name="host_url_m_newshunt_com">m.newshunt.com</string>
+    <string translatable="false" name="host_url_short_com">nhunt.in</string>
+    <string translatable="false" name="host_url_short_net">newshunt.net.in</string>
+    <string translatable="false" name="host_url_short_in">shorturl.newshunt.in</string>
+    <string translatable="false" name="host_url_short_dhunt_in">dhunt.in</string>
+    <string translatable="false" name="host_url_short_stage_dhunt_in">stage.dhunt.in</string>
+    <string translatable="false" name="host_url_short_stage">stg-s.dhunt.in</string>
+    <string translatable="false" name="host_url_qa_books_dhunt_in">qa-ebooks.dailyhunt.in</string>
+    <string translatable="false" name="scheme_dailyhunt">dailyhunt</string>
+    <string translatable="false" name="host_url_dailyhunt">m.dailyhunt.in</string>
+    <string translatable="false" name="host_url_web_dailyhunt">web.dailyhunt.in</string>
+    <string translatable="false" name="host_url_qa_dailyhunt">qa-testprep-cms.dailyhunt.in</string>
+    <string translatable="false" name="host_url_dhtv_in">dhtv1.dailyhunt.in</string>
+    <string translatable="false" name="host_url_short_buzz">bz.dhunt.in</string>
+    <string translatable="false" name="scheme_https">https</string>
+    <string translatable="false" name="scheme_http">http</string>
+    <string translatable="false" name="host_url_webqa">webqa.dailyhunt.in</string>
+    <string translatable="false" name="host_url_web">web.dailyhunt.in</string>
+    <string translatable="false" name="host_url_short_vh_dhunt_in">vh.dhunt.in</string>
+    <string name="profile_dailyhunt_in" translatable="false">profile.dailyhunt.in</string>
+    <string name="profile_dailyhunt_in_qa" translatable="false">qa-profile.dailyhunt.in</string>
+    <string name="group_dailyhunt_in" translatable="false">group.dailyhunt.in</string>
+    <string name="group_dailyhunt_in_qa" translatable="false">qa-group.dailyhunt.in</string>
+    <string name="profile_dailyhunt_in_stage" translatable="false">stage-profile.dailyhunt.in</string>
+    <string name="group_dailyhunt_in_stage" translatable="false">stage-group.dailyhunt.in</string>
+    <string name="adjunct_deeplink_cross" translatable="false"> http://m.dailyhunt.in/lang/update?removeLang=%s&amp;langFlow="adjunct_sticky"</string>
+    <string name="adjunct_deeplink_open" translatable="false"> http://m.dailyhunt.in/lang/update?langFlow="adjunct_sticky"</string>
+    <string name="adjunct_deeplink_tick" translatable="false"> http://m.dailyhunt.in/lang/update?addLang=%s&amp;langFlow="adjunct_sticky"</string>
+</resources>

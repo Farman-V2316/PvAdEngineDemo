@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="wrap_content"
+                                             android:layout_height="wrap_content"
+                                             android:background="@drawable/read_more_background"
+                                             android:paddingBottom="@dimen/viral_read_more_padding"
+                                             android:paddingLeft="@dimen/viral_read_more_padding"
+                                             android:paddingRight="@dimen/viral_read_more_padding"
+                                             android:paddingTop="@dimen/viral_read_more_padding_top">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/read_more_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:includeFontPadding="false"
+        android:text="@string/read_more_botton"
+        android:textColor="@color/white_color"
+        android:textSize="@dimen/viral_read_more_text_size"
+        tools:textColor="@color/white_color" />
+
+    <com.newshunt.common.view.customview.NHImageView
+        android:layout_width="@dimen/read_more_arrow_width_height"
+        android:layout_height="@dimen/read_more_arrow_width_height"
+        android:layout_marginLeft="@dimen/read_more_arrow_padding"
+        android:layout_marginTop="@dimen/read_more_arrow_padding"
+        android:src="@drawable/arrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/read_more_text"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

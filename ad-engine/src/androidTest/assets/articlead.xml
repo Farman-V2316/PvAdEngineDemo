@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<response>
+    <header status="Success"/>
+    <body disable="0" responseType="showAds" time="1800">
+        <ad banner-fill="fill-width" bannerid="1234" card-position="5" id="Z1597M8501001355838249"
+            min-ad-distance="4" position="card-p1" type="native-article">
+            <type><![CDATA[native-article]]></type>
+            <beaconUrl>
+                <![CDATA[http://newshuntads.com/openx/ads/log.php?md5=-1&log_id=Z1597M8501001355838249…]]></beaconUrl>
+            <beaconUrlAdditional><![CDATA[http://maruti.com/impression1]]></beaconUrlAdditional>
+            <beaconUrlAdditional><![CDATA[http://maruti.com/impression2]]></beaconUrlAdditional>
+            <beaconUrlAdditional><![CDATA[http://maruti.com/impression3]]></beaconUrlAdditional>
+            <landingUrl>
+                <![CDATA[http://localhost/openx/ads/click.php?md5=-1__click_id=NAZ1751MC0864081429184946__clientId=735086408__oaparams=2__bannerid=2710__zoneid=1751__OXLCA=1__cb=29ab379ab3__ccsf=1__clkh=de2a4a5fa9a93a9dceb3ff67ac3bd47d__oadest=]]></landingUrl>
+            <landingUrlAdditional><![CDATA[http://google.com/click]]></landingUrlAdditional>
+
+            <content bg-color="rgba(255,255,255,1)" bg-color-night="rgba(0,0,0,1)">
+                <newsItemId><![CDATA[12345]]></newsItemId>
+            </content>
+        </ad>
+    </body>
+</response>

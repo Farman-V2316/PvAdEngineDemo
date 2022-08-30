@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="rectangle">
+    <gradient
+        android:centerColor="?attr/notification_list_bg"
+        android:centerX="0.9"
+        android:endColor="?attr/notification_list_bg"
+        android:startColor="@color/transparent"
+        android:type="linear"/>
+</shape>

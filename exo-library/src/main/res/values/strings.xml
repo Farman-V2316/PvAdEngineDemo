@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">library</string>
+    <string name="video_not_found">Video not found</string>
+</resources>

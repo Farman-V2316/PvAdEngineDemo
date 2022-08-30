@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:background="#FFFFFF">
+
+    <RelativeLayout
+        android:id="@+id/iconLayout"
+        android:layout_width="55dp"
+        android:layout_height="65dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/border_margin">
+
+        <ImageView
+            android:id="@+id/notify_image"
+            android:layout_width="@dimen/image_size"
+            android:layout_height="@dimen/image_size"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/icon"
+            android:visibility="visible">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/notify_default_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/notification_icon"
+            android:visibility="gone">
+        </ImageView>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/notification_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/iconLayout"
+        android:layout_marginBottom="3dp"
+        android:layout_marginEnd="3dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_notif_br"
+        android:visibility="visible">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/notification_text_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/text_left_margin"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/notification_cta"
+        android:layout_toRightOf="@+id/iconLayout">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/notification_cta"
+        android:layout_width="@dimen/cta_image_size"
+        android:layout_height="@dimen/cta_image_size"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/border_margin"
+        android:scaleType="fitCenter"
+        android:visibility="gone">
+    </ImageView>
+
+</RelativeLayout>

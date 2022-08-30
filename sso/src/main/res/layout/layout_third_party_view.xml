@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.newshunt.common.view.customview.NHImageView
+        android:id="@+id/user_profile_image"
+        android:layout_width="@dimen/user_profile_image_w"
+        android:layout_height="@dimen/user_profile_image_w"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:padding="1dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/sign_up_drawable"
+        android:backgroundTint="?attr/default_background"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

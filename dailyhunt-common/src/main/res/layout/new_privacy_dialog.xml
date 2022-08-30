@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="positive"
+            type="String" />
+
+        <variable
+            name="negative"
+            type="String" />
+
+        <variable
+            name="canUserIgnore"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/privacy_dialog_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/privacy_dialog_bg">
+
+        <com.newshunt.dhutil.view.customview.IsometricView
+            android:id="@+id/privacy_content_parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/privacy_container_margin"
+            android:background="@drawable/privacy_dialog_view_bg"
+            app:depth="4dp"
+            app:depth_color="@color/onboarding_popup_item_border_color"
+            app:depth_orientation="topRight"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingBottom="30dp">
+
+            <ImageView
+                android:id="@+id/shield_icon"
+                android:layout_width="@dimen/privacy_shield_width"
+                android:layout_height="@dimen/privacy_shield_width"
+                android:layout_marginTop="@dimen/privacy_shield_margin_top"
+                android:src="@drawable/ic_shield"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/privacy_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/privacy_title_margin_horz"
+                android:layout_marginTop="@dimen/privacy_title_margin_top"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@{title}"
+                android:textColor="?attr/default_text_color"
+                android:textSize="@dimen/privacy_title_text_size"
+                android:textStyle="bold"
+                app:dh_custom_font_weight="seven_hundred"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/shield_icon" />
+
+            <com.newshunt.common.view.customview.NhWebView
+                android:id="@+id/privacy_html"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/privacy_html_margin_horz"
+                android:layout_marginTop="@dimen/privacy_html_margin_top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.44"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/privacy_title" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/privacy_bottom_bar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/privacy_title_margin_horz"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/privacy_html"
+                android:elevation="4dp"
+                android:background="@drawable/privacy_bottom_bar_bg">
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/privacy_positive"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/privacy_action_btn_height"
+                    android:layout_marginTop="@dimen/privacy_positive_margin_top"
+                    android:background="@drawable/accept_policy_btn_bg"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@{positive}"
+                    android:textColor="?attr/app_rate_submit_text_color"
+                    android:textSize="14dp"
+                    app:dh_custom_font_weight="five_hundred"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/privacy_negative"
+                    app:layout_goneMarginBottom="@dimen/privacy_html_margin_top"/>
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/privacy_negative"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/privacy_action_btn_height"
+                    android:layout_marginTop="@dimen/privacy_negative_margin_vert"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@{negative}"
+                    android:textColor="?attr/privacy_negative_text_color"
+                    android:textSize="14dp"
+                    android:visibility="@{canUserIgnore ? View.VISIBLE : View.GONE}"
+                    app:dh_custom_font_weight="five_hundred"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/privacy_positive"
+                    android:background="@drawable/privacy_negative_btn_bg"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.newshunt.dhutil.view.customview.IsometricView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navbar_item_container"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/bottom_bar_background_height"
+    android:layout_gravity="bottom"
+    android:gravity="bottom">
+
+    <ImageView
+        android:id="@+id/navbar_appsection_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/navbar_notification_count_tv"
+        android:layout_width="@dimen/notification_badge_width_circle"
+        android:layout_height="@dimen/notification_badge_height"
+        android:layout_marginStart="@dimen/bottom_bar_margin"
+        android:layout_marginLeft="@dimen/bottom_bar_margin"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/notification_badge_circle"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:paddingLeft="@dimen/notification_badge_paddingLeft"
+        android:paddingTop="@dimen/notification_badge_paddingTop"
+        android:paddingRight="@dimen/notification_badge_paddingLeft"
+        android:paddingBottom="@dimen/notification_badge_paddingTop"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/notification_badge_text_size"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="@+id/navbar_appsection_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/navbar_highlight"
+        android:layout_width="@dimen/bottom_bar_nav_highlight_w_h"
+        android:layout_height="@dimen/bottom_bar_nav_highlight_w_h"
+        android:background="@drawable/badge_oval_red"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/navbar_appsection_icon"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="@+id/navbar_appsection_icon"
+        app:layout_constraintRight_toRightOf="@+id/navbar_appsection_icon"
+        app:layout_constraintTop_toTopOf="@+id/navbar_appsection_icon"
+        app:layout_constraintVertical_bias="0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

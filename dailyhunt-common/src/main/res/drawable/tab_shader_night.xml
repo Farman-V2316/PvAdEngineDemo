@@ -1,0 +1,14 @@
+<!--
+    Copyright (c) 2016 Newshunt. All rights reserved.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <gradient
+                android:angle="0"
+                android:startColor="@color/tab_shader_night_start"
+                android:endColor="@color/tab_shader_night_end"
+                android:type="linear"/>
+        </shape>
+    </item>
+</selector>

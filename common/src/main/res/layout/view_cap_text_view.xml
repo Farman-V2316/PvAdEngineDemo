@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.newshunt.common.view.customview.fontview.LengthNotifyingSelectCopyTextView
+            android:id="@+id/tv_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:lineSpacingExtra="9dp"
+            android:textSize="@dimen/body_text_size"
+            android:textColorLink="#62BBEA"
+            android:minLines="2"
+            app:dh_custom_font_weight="four_hundred"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <com.newshunt.common.view.customview.fontview.LengthNotifyingSelectCopyTextView
+            android:id="@+id/tv_body_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/body_text_size"
+            android:textColorLink="#62BBEA"
+            app:dh_custom_font_weight="four_hundred"
+            android:lineSpacingExtra="9dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_body"
+
+            />
+
+        <com.newshunt.common.view.customview.fontview.LengthNotifyingSelectCopyTextView
+            android:id="@+id/tv_cap"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="top"
+            android:textColorLink="#62BBEA"
+            android:textSize="@dimen/cap_text_size"
+            android:singleLine="true"
+            app:dh_custom_font_weight="four_hundred"
+            android:includeFontPadding="false"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tool:text="T" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

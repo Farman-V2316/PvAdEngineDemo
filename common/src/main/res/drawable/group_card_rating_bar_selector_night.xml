@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2017 Newshunt. All rights reserved.
+  -->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@android:id/background"
+        android:drawable="@drawable/rating_star_empty_nm" />
+    <item
+        android:id="@android:id/secondaryProgress"
+        android:drawable="@drawable/rating_star_empty_nm" />
+    <item
+        android:id="@android:id/progress"
+        android:drawable="@drawable/rating_star_full_nm" />
+</layer-list>
+

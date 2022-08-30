@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.adengine.view.helper.AdBindUtils" />
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils" />
+
+        <import type="com.newshunt.common.helper.common.Constants" />
+
+        <import type="com.newshunt.news.helper.LikeEmojiBindingUtils" />
+
+        <import type="com.newshunt.dhutil.helper.theme.ThemeUtils" />
+
+        <import type="com.newshunt.adengine.model.entity.BaseDisplayAdEntity.LogoType" />
+
+        <import type="com.newshunt.dataentity.dhutil.model.entity.upgrade.IconsList" />
+
+
+        <variable
+            name="adReportListener"
+            type="com.newshunt.adengine.listeners.ReportAdsMenuListener" />
+
+        <variable
+            name="adsShareViewHelper"
+            type="com.newshunt.adengine.util.AdsShareViewHelper" />
+
+        <variable
+            name="adsActionHandler"
+            type="com.newshunt.adengine.util.AdsActionHandler" />
+
+        <variable
+            name="sourceAlphabetText"
+            type="String" />
+
+        <variable
+            name="adEntity"
+            type="com.newshunt.adengine.model.entity.BaseDisplayAdEntity" />
+
+        <variable
+            name="ctaText"
+            type="String" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.news.viewmodel.SocialInteractionViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ad_osv_bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="@{AdBindUtils.canShowOSVBottomBanner(adEntity) ? View.VISIBLE : View.GONE}">
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/source_logo_square"
+            android:layout_width="@dimen/osv_ad_icon_width_height"
+            android:layout_height="@dimen/osv_ad_icon_width_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:imageUrl="@{adEntity.brand.brandLogo.data}"
+            bind:sourceIconVisibility="@{(adEntity.brand.brandLogo.type == LogoType.S)}" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/source_fallback_bg"
+            android:layout_width="@dimen/osv_ad_icon_width_height"
+            android:layout_height="@dimen/osv_ad_icon_width_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:sourceIconVisibility="@{AdBindUtils.canShowFallbackText(adEntity)}">
+
+            <View
+                android:layout_width="@dimen/osv_ad_icon_width_height"
+                android:layout_height="@dimen/osv_ad_icon_width_height"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:brandImageBg="@{adEntity}" />
+
+            <View
+                android:layout_width="@dimen/osv_brand_logo_rounded_boundary"
+                android:layout_height="@dimen/osv_brand_logo_rounded_boundary"
+                android:background="@drawable/brand_fallback_logo_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/brandText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{adEntity.brand.brandFallbackText.data}"
+            android:textSize="@dimen/brand_bottombar_fallback_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/source_fallback_bg"
+            app:layout_constraintEnd_toEndOf="@+id/source_fallback_bg"
+            app:layout_constraintStart_toStartOf="@+id/source_fallback_bg"
+            app:layout_constraintTop_toTopOf="@+id/source_fallback_bg"
+            bind:sourceIconVisibility="@{AdBindUtils.canShowFallbackText(adEntity)}"
+            bind:titleColor="@{adEntity.brand.brandFallbackText.getThemeBasedTextColor(ThemeUtils.isNightMode)}" />
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/source_logo_rect"
+            android:layout_width="@dimen/brand_bottombar_rect_logo_width"
+            android:layout_height="@dimen/osv_ad_icon_width_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:imageUrl="@{adEntity.brand.brandLogo.data}"
+            bind:sourceIconVisibility="@{(adEntity.brand.brandLogo.type == LogoType.R)}" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="source_logo_square,source_logo_rect,source_fallback_bg" />
+
+        <View
+            android:id="@+id/barrier_space"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toEndOf="@+id/barrier" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_and_subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/ad_title_margin_top"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cta_view"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/barrier_space"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:marginStartTitle="@{@dimen/carousel_card_side_margin}">
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{adEntity.brand.brandTitle.data}"
+                android:textSize="@dimen/osv_ad_title_size"
+                android:visibility="@{CommonUtils.isEmpty(adEntity.brand.brandTitle.data) ? View.GONE : View.VISIBLE}"
+                app:dh_custom_font_weight="four_hundred"
+                app:layout_constraintBottom_toTopOf="@+id/item_subtitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread"
+                bind:titleColor="@{adEntity.brand.brandTitle.getThemeBasedTextColor(ThemeUtils.isNightMode)}" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/item_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{adEntity.brand.brandSubTitle.data}"
+                android:textSize="@dimen/osv_ad_subtitle_size"
+                android:visibility="@{CommonUtils.isEmpty(adEntity.brand.brandSubTitle.data) ? View.GONE : View.VISIBLE}"
+                app:dh_custom_font_weight="four_hundred"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_title"
+                app:layout_constraintVertical_chainStyle="spread"
+                bind:titleColor="@{adEntity.brand.brandSubTitle.getThemeBasedTextColor(ThemeUtils.isNightMode)}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:elevation="4dp"
+            android:text="@{sourceAlphabetText}"
+            android:textColor="?attr/source_alphabet_text_color"
+            android:textSize="6dp"
+            android:visibility="@{AdBindUtils.canShow(sourceAlphabetText) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/cta_view"
+            app:layout_constraintStart_toStartOf="@+id/cta_view"
+            app:layout_constraintTop_toTopOf="@+id/cta_view" />
+
+        <com.newshunt.dhutil.view.customview.IsometricView
+            android:id="@+id/cta_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
+            android:background="?attr/ads_bottombar_cta_bg"
+            android:elevation="3dp"
+            android:visibility="@{(AdBindUtils.canShow(adEntity.content.itemSubtitle2.data) &amp;&amp; !AdBindUtils.isEnhancedAd(adEntity))? View.VISIBLE: View.GONE}"
+            app:depth="2dp"
+            app:depth_color="?attr/isometric_depth_color"
+            app:depth_orientation="bottomRight"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/cta_button"
+                style="@style/adclickHereTextStyleOsv"
+                android:text="@{adEntity.content.itemSubtitle2.data}"
+                android:visibility="@{(AdBindUtils.canShow(adEntity.content.itemSubtitle2.data) &amp;&amp; !AdBindUtils.isEnhancedAd(adEntity))? View.VISIBLE: View.GONE}"
+                app:dh_custom_font_weight="five_hundred"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </com.newshunt.dhutil.view.customview.IsometricView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

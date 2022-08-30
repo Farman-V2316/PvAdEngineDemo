@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2017 Newshunt. All rights reserved.
+  -->
+
+<resources>
+    <declare-styleable name="ParallaxScroll">
+        <attr name="parallax_factor" format="float"/>
+        <attr name="alpha_factor" format="float"/>
+        <attr name="inner_parallax_factor" format="float"/>
+        <attr name="parallax_views_num" format="integer"/>
+        <attr name="circular_parallax" format="boolean"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="AppTheme">
+        <attr name="news_toolbar_bg" format="integer"/>
+        <attr name="source_title_tab_bg" format="integer"/>
+        <attr name="default_background" format="reference"/>
+        <attr name="hamburger_background" format="reference"/>
+        <attr name="default_toolbar_background" format="reference"/>
+        <attr name="default_text_color" format="reference"/>
+        <attr name="onboarding_title_text_color" format="reference"/>
+        <attr name="onboarding_subtitle_text_color" format="reference"/>
+        <attr name="onboarding_terms_color" format="reference"/>
+        <attr name="onboarding_terms_link_color" format="reference"/>
+        <attr name="onboarding_popup_bg" format="reference"/>
+        <attr name="onboarding_shadow_bg" format="reference"/>
+        <attr name="onboarding_div_color" format="reference"/>
+        <attr name="onboarding_title_popup_color" format="reference"/>
+        <attr name="onboarding_appbar_bg" format="reference"/>
+        <attr name="onboarding_bg" format="reference"/>
+        <attr name="onboarding_bottombar_bg" format="reference"/>
+        <attr name="onboarding_icon_color" format="reference"/>
+        <attr name="onboarding_icon_selected_color" format="reference"/>
+        <attr name="onboarding_text_color" format="reference"/>
+        <attr name="onboarding_text_selected_color" format="reference"/>
+        <attr name="onboarding_item_bg_color" format="reference"/>
+        <attr name="onboarding_item_selected_bg_color" format="reference"/>
+        <attr name="onboarding_item_border_color" format="reference"/>
+        <attr name="isometric_depth_color" format="reference"/>
+        <attr name="newspaper_group_info_text_color" format="reference"/>
+        <attr name="recommended_background" format="reference"/>
+        <attr name="entity_preview_background" format="reference"/>
+        <attr name="entity_tab_divider_background" format="reference"/>
+        <attr name="divider_color" format="reference"/>
+        <attr name="newspaper_name_text_color" format="reference"/>
+        <attr name="source_tab_background" format="reference"/>
+        <attr name="material_bg" format="reference"/>
+        <attr name="hamburger_menu" format="reference"/>
+        <attr name="ad_background" format="reference"/>
+        <attr name="ads_shadow_bg" format="reference"/>
+        <attr name="book_ad_bg_color" format="reference"/>
+        <attr name="ads_top_title_color" format="reference"/>
+        <attr name="ads_top_featured_title_color" format="reference"/>
+        <attr name="ad_banner_background_color" format="reference"/>
+        <attr name="default_opacity_color" format="reference"/>
+        <attr name="hamburger_text_color" format="reference"/>
+        <attr name="hamburger_saved_articles_img" format="integer"/>
+        <attr name="hamburger_line_divider" format="reference"/>
+        <attr name="toggle_selected_img" format="integer"/>
+        <attr name="toggle_unselected_img" format="reference"/>
+        <attr name="divider_gray" format="reference"/>
+        <attr name="forward_arrow" format="reference"/>
+        <attr name="action_bar_bg" format="reference"/>
+        <attr name="action_back_arrow_color" format="color"/>
+        <attr name="source_favorite_separator" format="reference"/>
+        <attr name="source_favorite_background" format="reference"/>
+        <attr name="recycler_list_divider" format="integer"/>
+        <attr name="story_list_divider" format="reference"/>
+        <attr name="read_more_bg" format="reference"/>
+        <attr name="daily_hunt_logo" format="integer"/>
+        <attr name="offline_toolbar_background" format="reference"/>
+        <attr name="onboarding_spinner_background" format="reference"/>
+        <attr name="onboarding_spinner_arrow_down" format="reference"/>
+        <attr name="onboarding_spinner_arrow_up" format="reference"/>
+        <attr name="onboarding_language_spinner_open" format="reference"/>
+        <attr name="onboarding_language_text_color" format="reference"/>
+        <attr name="readmore_background" format="integer"/>
+        <attr name="readmore_button_background" format="integer"/>
+        <attr name="readmore_text_color" format="reference"/>
+        <attr name="error_desc_text_color" format="reference"/>
+        <attr name="refresh_errormsg_text_color" format="reference"/>
+        <attr name="notification_bg" format="reference"/>
+        <attr name="notification_title" format="reference"/>
+        <attr name="notification_divider" format="reference"/>
+        <attr name="dh_logo" format="integer"/>
+        <attr name="empty_notification_logo" format="integer"/>
+        <attr name="date_background" format="reference"/>
+        <attr name="date_text_color" format="reference"/>
+        <attr name="follower_text_color" format="reference"/>
+        <attr name="np_name_color" format="reference"/>
+        <attr name="action_bar_delete_menu_icon" format="reference"/>
+        <attr name="action_bar_more_icon" format="reference"/>
+        <attr name="morenews_up_arrow" format="integer"/>
+        <attr name="default_tab_text_color" format="reference"/>
+        <attr name="connection_error" format="reference"/>
+        <attr name="content_error" format="reference"/>
+        <attr name="bad_error" format="reference"/>
+        <attr name="connectivity_error" format="reference"/>
+        <attr name="no_saved_artcles" format="reference"/>
+        <attr name="choosen_location_bg" format="integer"/>
+        <attr name="choosen_location_headertext_color" format="integer"/>
+        <attr name="choosen_location_yes_confirm_text_color" format="integer"/>
+        <attr name="choosen_location_yes_confirm_btn_bg_color" format="integer"/>
+        <attr name="chosen_location_button" format="reference"/>
+        <attr name="gallery_card_bg_color" format="reference"/>
+        <attr name="app_rate_bg" format="integer"/>
+        <attr name="app_rate_dialog_bg" format="integer"/>
+        <attr name="dialog_box_cross_btn" format="reference"/>
+        <attr name="astro_icon" format="reference"/>
+        <attr name="astro_submit_btn_bg" format="reference"/>
+        <attr name="astro_gender_selected_bg" format="reference"/>
+        <attr name="astro_dropdown_arrow" format="reference"/>
+        <attr name="app_rate_dialog_top_layout_bg" format="integer"/>
+        <attr name="app_rate_dialog_ratenow_bg" format="integer"/>
+        <attr name="app_rate_dialog_feedback_bg" format="integer"/>
+        <attr name="app_rate_dialog_title_text_color" format="integer"/>
+        <attr name="app_rate_dialog_fb_btn_text_color" format="integer"/>
+        <attr name="app_rate_dialog_nevershow_text_color" format="integer"/>
+        <attr name="app_rate_submit_text_color" format="reference"/>
+        <attr name="app_rate_submit_button_bg" format="reference"/>
+        <attr name="app_rate_dialog_checkbox" format="integer"/>
+        <attr name="toolbar_background" format="reference"/>
+        <attr name="toolbar_bottom_line" format="reference"/>
+        <attr name="comment_toolbar_bottom_line" format="reference"/>
+        <attr name="tab_shader" format="reference"/>
+        <attr name="default_featured_background" format="reference"/>
+        <attr name="location_list_divider" format="reference"/>
+        <attr name="reorder_cross" format="reference"/>
+        <attr name="pgi_ad_branding_bar_background" format="reference"/>
+        <attr name="like_dislike_bg" format="integer"/>
+        <attr name="header_message_background" format="reference"/>
+        <attr name="header_message_text_color" format="reference"/>
+        <attr name="reorder_header_text_color" format="reference"/>
+        <attr name="customizable_subtitle_color" format="reference"/>
+        <attr name="browse_categories_item_bg" format="reference"/>
+        <attr name="favourite_categories_grid_item_bg" format="reference"/>
+        <attr name="np_fav_grid_title_color" format="reference"/>
+        <attr name="story_supplement_section_title_text_color" format="reference"/>
+        <attr name="story_supplement_item_text_color" format="reference"/>
+        <attr name="story_supplement_item_desc_text_color" format="reference"/>
+        <attr name="story_supplement_carousel_item_bg_color" format="reference"/>
+        <attr name="story_supplement_grid_item_bg_color" format="reference"/>
+        <attr name="story_supplement_carousel_bg_color" format="reference"/>
+        <attr name="story_supplement_grid_bg_color" format="reference"/>
+        <attr name="story_supplement_source_text_color" format="reference"/>
+        <attr name="story_supplement_source_pub_time_stamp_text_color" format="reference"/>
+        <attr name="story_detail_back_arrow_color" format="reference"/>
+        <attr name="hamburger_icon_news" format="reference"/>
+        <attr name="hamburger_icon_buzz" format="reference"/>
+        <attr name="hamburger_icon_follow" format="reference"/>
+        <attr name="astro_card_read_more_text_color" format="reference"/>
+        <attr name="astro_card_read_more_text_bg" format="reference"/>
+        <attr name="astro_card_title_color" format="reference"/>
+        <attr name="astro_card_bg_color" format="reference"/>
+        <attr name="astro_card_read_more_bg_color" format="reference"/>
+        <attr name="astro_card_read_more_bg_inside_color" format="reference"/>
+        <attr name="carousel_video_item_background" format="reference"/>
+        <attr name="story_card_title_text_color" format="reference"/>
+        <attr name="post_collection_title_color" format="reference"/>
+        <attr name="story_card_bold_title_text_color" format="reference"/>
+        <attr name="story_card_desc_text_color" format="reference"/>
+        <attr name="cta_text_color" format="reference"/>
+        <attr name="related_news_text_color" format="reference"/>
+        <attr name="dislike_shader" format="reference"/>
+        <attr name="story_card_title_read_text_color" format="reference"/>
+        <attr name="group_card_rating_bar_selector" format="reference"/>
+        <attr name="vh_recommended_header_color" format="reference"/>
+        <attr name="vh_card_title_color" format="reference"/>
+        <attr name="vh_card_social_count_color" format="reference"/>
+        <attr name="vh_card_views_count_color" format="reference"/>
+        <attr name="social_comment_full_page_error_icon" format="reference"/>
+        <attr name="onboarding_lang_select_item_bg_color" format="reference"/>
+        <attr name="inactive_tab_text_color" format="reference"/>
+        <attr name="featured_topic_background_color" format="reference"/>
+        <attr name="onboarding_choose_lang_title_bg" format="reference"/>
+        <attr name="add_page_featured_topic_background_color" format="reference"/>
+        <attr name="add_page_featured_topic_divider_color" format="reference"/>
+        <attr name="recommended_np_divider_color" format="reference"/>
+        <attr name="photo_gallery_text_color" format="reference"/>
+        <attr name="ner_know_more_color" format="reference"/>
+        <attr name="default_city_title_color" format="reference"/>
+        <attr name="hide_content_title_color" format="reference"/>
+        <attr name="hide_content_short_title_color" format="reference"/>
+        <attr name="hide_content_divider_color" format="reference"/>
+        <attr name="collection_landing_title_textColor" format="reference"/>
+        <attr name="collection_landing_subtitle_textColor" format="reference"/>
+        <attr name="collection_landing_item_source_textColor" format="reference"/>
+        <attr name="collection_landing_counts_textColor" format="reference"/>
+        <attr name="collection_landing_cardview_background" format="reference"/>
+        <attr name="source_share_title_color" format="reference"/>
+        <attr name="source_share_timestamp_color" format="reference"/>
+        <attr name="related_title_color" format="reference"/>
+        <attr name="settings_text_color" format="reference"/>
+        <attr name="settings_sign_out_color" format="reference"/>
+        <attr name="settings_app_version_color" format="reference"/>
+        <attr name="settings_line_divider" format="reference"/>
+        <attr name="settings_line_divider_thin" format="reference"/>
+        <attr name="share_app_divider" format="reference"/>
+        <attr name="news_lang_desc_color_settings" format="reference"/>
+        <attr name="feed_divider_color" format="reference"/>
+        <attr name="settings_notification_options_text_color" format="reference"/>
+        <attr name="settings_notification_radio_button_highlighter_drawable" format="reference"/>
+        <attr name="push_notification_desc_text_color" format="reference"/>
+        <attr name="notification_radio_button" format="reference"/>
+        <attr name="push_notification_divider" format="reference" />
+        <attr name="notification_expand_button_toggle" format="reference" />
+        <attr name="carousel_source_share_bg" format="reference"/>
+        <attr name="carousel_card_title_color" format="reference"/>
+        <attr name="carousel_card_bg_color" format="reference"/>
+        <attr name="collection_bg_color" format="reference"/>
+        <attr name="carousel_card_progress_bar_color" format="reference"/>
+        <attr name="carousel_ad_bg_color" format="reference"/>
+        <attr name="detail_line_divider" format="reference"/>
+        <attr name="cold_start_color_heading1" format="reference"/>
+        <attr name="cold_start_color_heading2" format="reference"/>
+        <attr name="cold_start_card_divider_color" format="reference"/>
+        <attr name="cold_start_explore_divider_color" format="reference"/>
+        <attr name="cold_start_item_bg" format="reference"/>
+        <attr name="cold_start_item_name" format="reference"/>
+        <attr name="cold_start_explore_text_color" format="reference"/>
+        <attr name="cold_start_vh_bg_color" format="reference"/>
+        <attr name="cold_start_carousel_vh_bg_color" format="reference"/>
+        <attr name="cold_start_carousel_divider_color" format="reference"/>
+        <attr name="cold_start_list_item_name_color" format="reference"/>
+        <attr name="ic_three_dots" format="reference"/>
+        <attr name="astro_desc_text_color" format="reference"/>
+        <attr name="ic_three_dots_detail" format="reference"/>
+        <attr name="ic_actionbar_back" format="reference"/>
+        <attr name="ads_bottom_bg" format="reference"/>
+        <attr name="ads_cta_border_color" format="reference"/>
+        <attr name="ads_bottombar_cta_bg" format="reference"/>
+        <attr name="ads_divider_color" format="reference"/>
+        <attr name="ads_forward_icon" format="reference"/>
+        <attr name="comments_text_bg" format="reference"/>
+        <attr name="comment_user_name_text_color" format="reference"/>
+        <attr name="comment_body_text_color" format="reference"/>
+        <attr name="comment_section_bg_color" format="reference"/>
+        <attr name="dhtv_comment_title_bg_color" format="reference"/>
+        <attr name="view_all_bg_color" format="reference"/>
+        <attr name="comment_bar_shadow_bg" format="reference"/>
+        <attr name="edit_comment_bg" format="reference"/>
+        <attr name="edit_comment_bg_dhtv" format="reference"/>
+        <attr name="add_comment_bg" format="reference"/>
+        <attr name="comment_bar_top_divider_color" format="reference"/>
+        <attr name="comment_post_icon" format="reference"/>
+        <attr name="comment_post_icon_dhtv" format="reference"/>
+        <attr name="tv_item_falsepadding" format="integer"/>
+        <attr name="tv_detail_description_color" format="integer"/>
+        <attr name="tv_detail_divider_color" format="integer"/>
+        <attr name="coachmark_toggle_button" format="reference"/>
+        <attr name="coachmark_toggle_button_settings" format="reference"/>
+        <attr name="toggle_image_coachmark_bg" format="reference" />
+        <attr name="explore_background" format="reference" />
+        <attr name="explore_unselected_background" format="reference" />
+        <attr name="follow_card_name_color" format="reference" />
+        <attr name="followed_entities_background_color" format="reference" />
+        <attr name="no_follow_text_color" format="reference" />
+        <attr name="followed_items_holder_bg" format="reference" />
+        <attr name="followed_item_bg" format="reference" />
+        <attr name="follow_zero_state_bg" format="reference" />
+        <attr name="feed_no_follow_layout_bg" format="reference" />
+        <attr name="follow_small_card_bg" format="reference" />
+        <attr name="see_all_entity_toolbar_bg" format="reference" />
+        <attr name="background_bottom_tab" format="reference" />
+        <attr name="ad_bottom_banner_fill_color" format="reference" />
+        <attr name="presearch_bg" format="reference" />
+        <attr name="presearch_list_bg" format="reference" />
+        <attr name="location_presearch_list_bg" format="reference" />
+        <attr name="location_suggestion_divider" format="reference" />
+        <attr name="search_suggestion_text_color" format="reference" />
+        <attr name="hashtag_suggestion_title_color" format="reference" />
+        <attr name="hashtag_suggestion_subtitle_color" format="reference" />
+        <attr name="hashtag_new_highlight_color" format="reference"/>
+        <attr name="search_divider" format="reference" />
+        <attr name="search_edit_text_background" format="reference" />
+        <attr name="search_recent_icon" format="reference"/>
+        <attr name="search_trending_icon" format="reference"/>
+        <attr name="search_dustbin_icon" format="reference"/>
+        <attr name="search_noresult" format="reference"/>
+        <attr name="notification_badge_circle" format="reference" />
+        <attr name="notification_badge_squared" format="reference" />
+        <attr name="language_save_button_background" format="reference" />
+        <attr name="language_save_button_textcolor" format="reference" />
+        <attr name="language_select_text_color" format="reference" />
+        <attr name="user_selected_language_text_color" format="reference" />
+        <attr name="language_card_divider_color" format="reference" />
+        <attr name="language_selection_card_view_background" format="reference" />
+        <attr name="snackbar_background_color" format="reference" />
+        <attr name="snackbar_text_color" format="reference" />
+        <attr name="followed_location_background" format="reference" />
+        <attr name="explore_welcome_title_color" format="reference" />
+        <attr name="explore_welcome_bg_color" format="reference" />
+        <attr name="explore_welcome_subtitle_color" format="reference" />
+        <attr name="actionbar_bg_shadow" format="reference" />
+        <attr name="suggested_sources_border_bgcolor" format="reference" />
+        <attr name="state_info_layout_border" format="reference" />
+        <attr name="location_state_background" format="reference" />
+        <attr name="location_item_background" format="reference" />
+        <attr name="search_bottom_color" format="reference" />
+        <attr name="other_perspective_with_date_bg" format="reference" />
+        <attr name="ic_logout_settings" format="reference"/>
+        <attr name="ic_update_settings" format="reference"/>
+        <attr name="radio_button_text_color_settings" format="reference"/>
+        <attr name="sign_in_toolbar_color" format="reference"/>
+        <attr name="ic_leave_group" format="reference"/>
+        <attr name="admin_owner_badge_bg" format="reference"/>
+        <attr name="admin_owner_text_color" format="reference"/>
+        <attr name="chevron_right" format="reference"/>
+
+        <attr name="no_activity" format="reference"/>
+        <attr name="no_history" format="reference"/>
+        <attr name="no_saved_stories" format="reference"/>
+        <attr name="no_followers" format="reference"/>
+        <attr name="not_following" format="reference"/>
+        <attr name="no_blocked_items" format="reference"/>
+        <attr name="tooltip_bg" format="reference"/>
+        <attr name="reorder_tab_tooltip_bg" format="reference"/>
+
+        <attr name="discovery_follow_button_bg" format="reference"/>
+        <attr name="follow_discovery_button_text_color" format="reference"/>
+
+        <attr name="comment_toolbar_title2_color" format="reference"/>
+        <attr name="comment_toolbar_title3_color" format="reference"/>
+        <attr name="comment_toolbar_divider_color" format="reference"/>
+        <attr name="comment_edit_text_color" format="reference"/>
+        <attr name="comment_time_text_color" format="reference"/>
+
+        <attr name="collection_list_title_color" format="reference"/>
+        <attr name="collection_list_divider_color" format="reference"/>
+        <attr name="collection_list_separator_bgcolor" format="reference"/>
+        <attr name="collection_list_card_bgcolor" format="reference"/>
+        <attr name="collection_of_collection_card_bg" format="reference"/>
+        <attr name="collection_of_collection_square_icon_bg" format="reference"/>
+        <attr name="collection_of_collection_header_text_color" format="reference"/>
+        <attr name="collection_of_collection_divider_color" format="reference"/>
+        <attr name="tag_list_container_bg" format="reference"/>
+        <attr name="other_perspective_textcolor" format="reference"/>
+        <attr name="other_perspective_label_text_color" format="reference"/>
+        <attr name="perspective_card_background" format="reference"/>
+        <attr name="perspective_label_background" format="reference"/>
+        <attr name="perspective_label_textcolor" format="reference"/>
+        <attr name="story_card_list_background" format="reference"/>
+        <attr name="commentbar_background_color" format="reference"/>
+        <attr name="follow_snackbar_star_icon" format="reference"/>
+        <attr name="profile_dialog_delete_icon" format="reference"/>
+        <attr name="profile_toolbar_setting_icon" format="reference"/>
+        <attr name="profile_toolbar_back_btn_icon" format="reference"/>
+        <attr name="profile_dialog_bg" format="reference"/>
+
+        <attr name="story_tag_item_text_color" format="reference"/>
+        <attr name="story_tag_item_bg" format="reference"/>
+        <attr name="tv_detail_background_color" format="reference"/>
+        <attr name="tv_detail_actionbartitle_color" format="reference"/>
+        <attr name="tv_card_detail_item_mask" format="reference"/>
+        <attr name="tv_emoji_bg_color" format="reference"/>
+        <attr name="tv_emoji_divider_color" format="reference"/>
+        <attr name="tv_tags_background" format="reference"/>
+        <attr name="follow_text_color" format="reference"/>
+        <attr name="story_error_page_background" format="reference"/>
+        <attr name="sign_on_fragment_header_textColor" format="reference"/>
+        <attr name="sign_on_header_textColor_onboarding" format="reference"/>
+        <attr name="actionbar_follow_filter_option_icon" format="reference"/>
+        <attr name="history_divider_color" format="reference"/>
+        <attr name="profile_ner_down_arrow" format="reference"/>
+        <attr name="history_title_color" format="reference"/>
+        <attr name="history_clearAll_color" format="reference"/>
+        <attr name="popup_bg_color" format="reference"/>
+        <attr name="profile_popup_bg_color" format="reference"/>
+        <attr name="filterText_color" format="reference"/>
+        <attr name="history_clear_all_title_color" format="reference"/>
+        <attr name="list_signin_widget_bg" format="reference"/>
+        <attr name="list_signin_widget_border" format="reference"/>
+        <attr name="list_signin_layer_bg" format="reference"/>
+        <attr name="common_dialog_negative_btn_border" format="reference"/>
+        <attr name="common_dialog_positive_btn_text" format="reference"/>
+
+        <attr name="bottom_bar_menu_item_bg_color" format="reference"/>
+        <attr name="bottom_bar_menu_bg_drawable" format="reference"/>
+
+        <attr name="user_fullname_color" format="reference"/>
+        <attr name="gender_radio_btn_selected_bg" format="reference"/>
+        <attr name="edit_text_bg_border" format="reference"/>
+        <attr name="edit_icon" format="reference"/>
+        <attr name="disclaimer_icon" format="reference"/>
+        <attr name="ner_user_fullname_color" format="reference"/>
+        <attr name="ner_user_subtitle_color" format="reference"/>
+        <attr name="ner_follow_color" format="reference"/>
+        <attr name="ner_bio_color" format="reference"/>
+        <attr name="ner_user_handle_color" format="reference"/>
+        <attr name="ner_follow_button_text_color" format="reference"/>
+        <attr name="ner_follow_button_bg" format="reference"/>
+        <attr name="shimmer_rgb" format="reference"/>
+        <attr name="stop_audio_icon" format="reference"/>
+        <attr name="play_audio_icon" format="reference"/>
+        <attr name="leftarrow_audio_icon" format="reference"/>
+        <attr name="rightarrow_audio_icon" format="reference"/>
+        <attr name="collapsed_audio_icon" format="reference"/>
+        <attr name="container_audio_arch" format="reference"/>
+        <attr name="container_audio_rectangle" format="reference"/>
+        <attr name="equalizer_audio_icon" format="reference"/>
+        <attr name="cross_audio_icon" format="reference"/>
+        <attr name="snackbar_msg_color" format="reference"/>
+        <attr name="profile_count_background" format="reference"/>
+        <attr name="profile_title_text" format="reference"/>
+        <attr name="truecaller_verification_background" format="reference"/>
+        <attr name="truecaller_text_color" format="reference"/>
+        <attr name="truecaller_box_background_color" format="reference"/>
+        <attr name="truecaller_verify_button_background" format="reference"/>
+        <attr name="truecaller_otp_background" format="reference"/>
+        <attr name="truecaller_otp_verifying_textColor" format="reference"/>
+        <attr name="red_dot_stroke_color" format="reference"/>
+        <attr name="no_saved_story_card_bg" format="reference"/>
+        <attr name="notification_list_bg" format="reference"/>
+        <attr name="notification_right_icon_border_color" format="reference"/>
+        <attr name="notification_social_text_color" format="reference"/>
+        <attr name="notification_action_mode_graident" format="reference"/>
+        <attr name="ads_container_background_color" format="reference"/>
+        <attr name="ads_container_border_color" format="reference"/>
+        <attr name="tv_vertical_divider_color" format="reference"/>
+        <attr name="filter_background" format="reference"/>
+        <attr name="following_count_bg" format="reference"/>
+        <attr name="following_count_txt" format="reference"/>
+
+        <attr name="create_group_btn_text_color" format="reference"/>
+        <attr name="group_settings_text_color" format="color"/>
+        <attr name="group_settings_desc_text_color" format="color"/>
+        <attr name="create_group_text_color" format="color"/>
+        <attr name="edit_text_border_color" format="color"/>
+        <attr name="news_text_border_color" format="color"/>
+        <attr name="edit_text_fill_color" format="color"/>
+        <attr name="group_settings_screen_divider_color" format="color"/>
+        <attr name="member_handle_text_color" format="color"/>
+        <attr name="approval_btn_border_color" format="color"/>
+        <attr name="invite_text_color" format="color"/>
+        <attr name="invite_card_text_color" format="color"/>
+
+        <attr name="cp_tool_bar_color" format="color" />
+        <attr name="cp_btn_text_color_enable" format="color" />
+        <attr name="cp_btn_text_color_disable" format="color" />
+        <attr name="cp_btn_bg_color_enable" format="color" />
+        <attr name="cp_btn_bg_color_disable" format="color" />
+        <attr name="cp_edit_text_hint_color" format="color" />
+        <attr name="cp_edit_text_color" format="color" />
+        <attr name="cp_edit_text_bg_color" format="color" />
+        <attr name="cp_loc_toolbar_title_text_color" format="color" />
+        <attr name="cp_loc_title_text_color" format="color" />
+        <attr name="cp_places_powered_by_google" format="reference" />
+        <attr name="cp_loc_divider_color" format="color" />
+        <attr name="cp_loc_close_btn_color" format="color" />
+        <attr name="cp_loc_search_bg_color" format="color" />
+        <attr name="cp_bottom_bar_divider_color" format="color" />
+        <attr name="cp_loc_icon_color" format="color" />
+        <attr name="cp_action_item_bg_color" format="color" />
+        <attr name="cp_action_item_border_color" format="color" />
+        <attr name="cp_repost_bg_color" format="color" />
+        <attr name="cp_repost_border_color" format="color" />
+        <attr name="cp_og_name_color" format="color" />
+        <attr name="cp_og_title_color" format="color" />
+        <attr name="cp_og_desc_color" format="color" />
+        <attr name="cp_discard_dialog_desc_text_color" format="color" />
+        <attr name="cp_bg_color" format="color" />
+        <attr name="cp_hash_at_text_color" format="color" />
+        <attr name="cp_privacy_bg_color" format="color" />
+        <attr name="cp_privacy_header_text_color" format="color" />
+        <attr name="cp_privacy_sub_header_text_color" format="color" />
+        <attr name="cp_privacy_setting_icons_color" format="color" />
+        <attr name="cp_privacy_line_divider" format="reference" />
+        <attr name="cp_poll_option_edittext_color" format="color" />
+        <attr name="cp_poll_text_color" format="color" />
+        <attr name="cp_poll_lenght_header_text_color" format="color" />
+        <attr name="cp_poll_lenght_option_text_color" format="color" />
+        <attr name="cp_poll_lenght_bs_bg_color" format="color" />
+        <attr name="cp_poll_lenght_option_header_text_color" format="color" />
+        <attr name="cp_repost_display_name_text_color" format="color" />
+        <attr name="cp_repost_handle_text_color" format="color" />
+        <attr name="cp_repost_title_text_color" format="color" />
+
+        <attr name="source_alphabet_text_color" format="reference"/>
+        <attr name="source_alphabet_text_color_brand" format="reference"/>
+        <attr name="sponsored_text_color" format="reference"/>
+        <attr name="source_header_title_primary_color" format="reference"/>
+        <attr name="source_header_title_secondary_color" format="reference"/>
+        <attr name="hashtag_text_color" format="reference"/>
+        <attr name="hashtag_text_background" format="reference"/>
+        <attr name="location_text_color" format="reference"/>
+        <attr name="select_lang_text_color" format="reference"/>
+        <attr name="location_text_background" format="reference"/>
+        <attr name="bottom_bar_text_color" format="reference"/>
+        <attr name="display_name_text_color" format="reference"/>
+        <attr name="promoted_text_color" format="reference"/>
+        <attr name="display_name_color_related_story" format="reference"/>
+        <attr name="follow_button_text_color" format="reference"/>
+        <attr name="inbox_follow_button_text_color" format="reference"/>
+        <attr name="inbox_follow_button_bg" format="reference"/>
+        <attr name="ic_see_all" format="reference"/>
+        <attr name="ic_see_all_bg" format="reference"/>
+        <attr name="new_default_text_color" format="reference"/>
+        <attr name="following_button_text_color" format="reference"/>
+        <attr name="block_button_text_color" format="reference"/>
+        <attr name="follow_button_border_color" format="reference"/>
+        <attr name="follow_button_fill_color" format="reference"/>
+        <attr name="og_container_border_color" format="reference"/>
+        <attr name="og_title_color" format="reference"/>
+        <attr name="og_secondary_title_color" format="reference"/>
+        <attr name="og_bg_color" format="reference"/>
+        <attr name="card_divider_color" format="reference"/>
+        <attr name="poll_opt_color_1" format="reference"/>
+        <attr name="poll_opt_color_2" format="reference"/>
+        <attr name="poll_opt_color_3" format="reference"/>
+        <attr name="poll_opt_color_4" format="reference"/>
+        <attr name="poll_opt_text_color" format="reference"/>
+        <attr name="poll_opt_vote_color" format="reference"/>
+        <attr name="default_thumbnail_fill" format="reference"/>
+        <attr name="default_thumbnail_border" format="reference"/>
+        <attr name="like_icon" format="reference"/>
+        <attr name="repost_icon" format="reference"/>
+        <attr name="share_icon" format="reference"/>
+        <attr name="share_icon_detail" format="reference"/>
+        <attr name="commment_icon" format="reference"/>
+        <attr name="entity_profile_bg_color" format="reference"/>
+        <attr name="commment_icon_2" format="reference"/>
+        <attr name="repost_icon_2" format="reference"/>
+        <attr name="creator_badge" format="reference"/>
+        <attr name="source_tab_selected_text_new" format="reference"/>
+        <attr name="notification_icon" format="reference"/>
+        <attr name="settings_icon" format="reference"/>
+        <attr name="comment_repost_container_color" format="reference"/>
+        <attr name="comment_repost_text_color" format="reference"/>
+        <attr name="source_name_color" format="reference"/>
+        <attr name="profile_filter_background" format="reference"/>
+        <attr name="profile_filter_down_arrow" format="reference"/>
+        <attr name="ic_filter_delete" format="reference"/>
+        <attr name="vd_title_color" format="reference"/>
+        <attr name="vd_time_stamp_color" format="reference"/>
+        <attr name="vd_duration_color" format="reference"/>
+        <attr name="vd_bs_top_bar_color" format="reference"/>
+        <attr name="vd_bs_bottom_bar_color" format="reference"/>
+        <attr name="vd_unplayed_progress_color" format="reference"/>
+        <attr name="filter_option_item" format="reference"/>
+        <attr name="vd_mute_color" format="reference"/>
+        <attr name="vd_src_header_primary_color" format="reference"/>
+        <attr name="vd_src_header_secondary_color" format="reference"/>
+        <attr name="vd_ic_actionbar_back_color" format="reference"/>
+        <attr name="vd_bottom_bar_text_color" format="reference"/>
+        <attr name="vd_like_icon" format="reference"/>
+        <attr name="vd_repost_icon" format="reference"/>
+        <attr name="vd_share_icon" format="reference"/>
+        <attr name="vd_comment_icon" format="reference"/>
+        <attr name="vd_3dots_icon_color" format="reference"/>
+
+        <attr name="pd_header_title_color" format="reference"/>
+        <attr name="pd_discussion_name_color" format="reference"/>
+        <attr name="pd_discussion_handle_color" format="reference"/>
+        <attr name="pd_discussion_post_color" format="reference"/>
+        <attr name="pd_discussion_timestamp_color" format="reference"/>
+        <attr name="pd_btn_repost_ref" format="reference"/>
+        <attr name="see_all_repost_text_color_ref" format="reference"/>
+        <attr name="view_all_comment_text_color_ref" format="reference"/>
+        <attr name="action_button_count_color" format="reference"/>
+        <attr name="reply_button_border" format="reference"/>
+        <attr name="separator_line" format="color"/>
+        <attr name="collection_separator_line" format="color"/>
+        <attr name="more_perspective_separator_line" format="color"/>
+        <attr name="search_seperate_line" format="color"/>
+
+        <attr name="error_layout_text_color" format="reference"/>
+        <attr name="error_layout_desc_text_color" format="reference"/>
+        <attr name="repost_bg_color" format="reference"/>
+        <attr name="back_arrow" format="reference"/>
+        <attr name="repost_border_color" format="reference"/>
+        <attr name="thumbnail_border_style" format="reference"/>
+        <attr name="cold_start_source" format="reference"/>
+        <attr name="repost_title" format="reference"/>
+        <attr name="poll_bg_color" format="reference"/>
+        <attr name="poll_selected_color" format="reference"/>
+
+        <attr name="dislike_option_title_color" format="reference" />
+        <attr name="dislike_frag_background_color" format="reference" />
+        <attr name="dislike_frag_title_color" format="reference" />
+        <attr name="dislike_frag_sub_title_color" format="reference" />
+        <attr name="repost_hashtag_color" format="reference"/>
+        <attr name="three_dots_post" format="reference"/>
+        <attr name="carousel_progress_bg" format="reference"/>
+        <attr name="import_contacts_skip_color" format="reference"/>
+        <attr name="import_contacts_title_color" format="reference" />
+        <attr name="import_contacts_msg_color" format="reference" />
+        <attr name="finding_contact_text_color" format="reference" />
+        <attr name="follow_star" format="reference"/>
+        <attr name="follow_star_fill" format="reference"/>
+        <attr name="app_bar_color" format="reference"/>
+        <attr name="add_icon" format="reference"/>
+        <attr name="tab_title_color" format="reference"/>
+        <attr name="tab_title_select_color" format="reference"/>
+        <attr name="default_share_icon" format="reference"/>
+        <attr name="default_share_icon_detail" format="reference"/>
+        <attr name="collection_header_title" format="reference" />
+        <attr name="import_contacts_dh_logo" format="reference" />
+        <attr name="import_contacts_illus" format="reference" />
+        <attr name="import_contact_card_color" format="reference" />
+        <attr name="import_contact_card_icon" format="reference" />
+        <attr name="profile_import_contact" format="reference" />
+        <attr name="search_edit_text_bg_color" format="reference" />
+        <attr name="search_edit_text_color" format="reference" />
+        <attr name="background_runtime_permission" format="reference" />
+        <attr name="ic_logo_dh_runtime_permission" format="reference"/>
+        <attr name="coc_elevation" format="reference"/>
+        <attr name="runtime_permission_title_bg" format="reference"/>
+        <attr name="runtime_permission_sub_title_bg" format="reference"/>
+        <attr name="choose_primary_account_subtitle" format="reference" />
+        <attr name="rv_container_bg" format="reference" />
+        <attr name="progress_overlay_bg_color" format="reference" />
+        <attr name="likers_count_color" format="reference"/>
+        <attr name="add_location_header_color" format="reference"/>
+        <attr name="suggested_location_unselected" format="reference"/>
+        <attr name="add_entity_square_background" format="reference"/>
+        <attr name="suggested_location_text_color" format="reference"/>
+        <attr name="suggested_location_item_background" format="reference"/>
+        <attr name="location_bottom_line" format="reference"/>
+        <attr name="location_state_bottom_line" format="reference"/>
+        <attr name="location_toolbar_background" format="reference"/>
+        <attr name="location_toolbar_background_color" format="reference"/>
+        <attr name="line_4" format="reference"/>
+        <attr name="news_detail_actionbar_back_button" format="reference"/>
+        <attr name="ic_news_detail_like_count_background" format="reference"/>
+        <attr name="ic_news_detail_like_emoji_background" format="reference"/>
+        <attr name="news_detail_no_comments" format="reference"/>
+        <attr name="detail_emoji_count_text_color_ref" format="reference"/>
+        <attr name="view_all_comment_bg_ref" format="reference"/>
+        <attr name="detail_emoji_all_unseleceted_text_color_ref" format="reference"/>
+        <attr name="pd_add_comment_bg_ref" format="reference"/>
+        <attr name="comments_delete_icon" format="reference"/>
+        <attr name="edit_comment_bg_ref" format="reference"/>
+        <attr name="brand_bottombar_fallback_bg" format="reference"/>
+        <attr name="ic_rating_star" format="reference"/>
+        <attr name="privacy_negative_text_color" format="reference" />
+        <attr name="tickers_and_tray_management_color" format="reference"/>
+        <attr name="notification_setting_subtext_color" format="reference"/>
+        <attr name="notification_setting_radio_button_subtext_color" format="reference"/>
+        <attr name="notification_setting_radio_button_divider_color" format="reference"/>
+        <attr name="in_app_info_icon" format="reference"/>
+        <attr name="in_app_text_color" format="reference"/>
+        <attr name="in_app_cta_color" format="reference"/>
+        <attr name="in_app_text_bg" format="reference"/>
+        <attr name="in_app_cta_bg" format="reference"/>
+        <attr name="home_loader_anim" format="reference" />
+        <attr name="home_loader_dh" format="reference" />
+        <attr name="theme_screen_text_color" format="reference"/>
+        <attr name="vd_title_text_color" format="reference"/>
+        <attr name="nd_topbar_text_color" format="reference"/>
+        <attr name="live_carousel_tab_indicator_color" format="reference"/>
+        <attr name="searchbar_textColor" format="color"/>
+        <attr name="search_icon" format="reference"/>
+        <attr name="dailyhunt_logo" format="reference"/>
+        <attr name="searchbar_bg_color" format="color"/>
+        <attr name="common_topbar_bg" format="reference"/>
+        <attr name="create_post_fab_icon" format="reference" />
+        <attr name="reply_icon" format="reference" />
+        <attr name="ic_disclaimer" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableText">
+        <attr name="desc_text_size" format="reference"/>
+        <attr name="desc_text_color" format="reference"/>
+        <attr name="desc_text_includeFontPadding" format="boolean"/>
+        <attr name="desc_text_paddingLeft" format="reference"/>
+        <attr name="desc_text_paddingRight" format="reference"/>
+        <attr name="desc_collapsed_max_lines" format="integer"/>
+        <attr name="more_text_size" format="reference"/>
+        <attr name="more_text_color" format="reference"/>
+        <attr name="more_text_includeFontPadding" format="boolean"/>
+        <attr name="more_text_style">
+            <enum name="normal" value="0"/>
+            <enum name="bold" value="1"/>
+            <enum name="italic" value="2"/>
+            <enum name="bold_italic" value="3"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="NHShimmerView">
+        <attr name="rounded_radius" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="NHFollowButton">
+        <attr name="isUrdu" format="reference"/>
+        <attr name="isNewsList" format="boolean"/>
+        <attr name="nhIconSize" format="reference"/>
+        <attr name="isBorderVisible" format="boolean"/>
+        <attr name="followButtonMode" format="enum">
+            <enum name="DAY_MODE_ONLY" value="0"/>
+            <enum name="NIGHT_MODE_ONLY" value="1"/>
+            <enum name="DAY_AND_NIGHT_MODE" value="2"/>
+        </attr>
+        <attr name="isDHTV" format="boolean"/>
+        <attr name="customLayoutId" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="NHCarouselProgressView">
+        <attr name="progressBackground" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="NHTabView">
+        <attr name="nightModeNotSupported" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="CarouselProgressBarView">
+        <attr name="progress_bg" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="IsometricView">
+        <attr name="depth" format="dimension" />
+        <attr name="depth_color" format="reference" />
+        <attr name="depth_orientation" format="enum">
+            <enum name="topRight" value="0" />
+            <enum name="bottomRight" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>

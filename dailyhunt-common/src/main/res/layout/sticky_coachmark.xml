@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/sticky_parent"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/sticky_coachmark_height"
+                android:background="@drawable/coachmark_shadow"
+    >
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/sticky_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:text=""
+
+        android:layout_marginRight="27dp"
+        android:textColor="@color/text_grey"
+        android:layout_marginLeft="16dp"
+        android:gravity="center_vertical"
+        android:textSize="14dp"
+        android:layout_toLeftOf="@+id/divider_line"
+        android:layout_centerVertical="true"
+        />
+
+    <View
+        android:id="@+id/divider_line"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_toLeftOf="@+id/cancel_icon"
+        android:layout_marginTop="10dp"
+        android:background="@color/coachmark_divider_color"/>
+
+    <ImageView
+        android:id="@+id/cancel_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_cross"/>
+
+</RelativeLayout>

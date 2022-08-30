@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="260dp"
+    android:background="@drawable/edit_profile_tooltip_bg"
+    android:paddingBottom="@dimen/tool_tip_padding_bottom"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:text="Edit Profile"
+        android:textColor="@color/tool_tip_title_text_color"
+        android:textSize="@dimen/tool_tip_title_text_size"
+        android:textStyle="bold"
+         />
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="2dp"
+        android:maxLines="1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="You can edit your privacy settings"
+        android:textColor="@color/tool_tip_msg_text_color"
+        android:textSize="@dimen/tool_tip_msg_text_size"
+        android:layout_below="@+id/title"
+         />
+
+</RelativeLayout>

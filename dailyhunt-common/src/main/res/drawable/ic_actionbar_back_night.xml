@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2018 Newshunt. All rights reserved.
+  -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:autoMirrored="true">
+
+        <item android:drawable="@drawable/vector_actionbar_back_night"/>
+</selector>

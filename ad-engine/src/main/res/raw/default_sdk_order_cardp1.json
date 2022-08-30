@@ -1,0 +1,46 @@
+{
+  "ads": [
+    {
+      "aduid": "notId=0",
+      "srcUrlExpiry": "60",
+      "position": "card-p1",
+      "adGroupId": "0",
+      "width": "1080",
+      "height": "540",
+      "card-position": "6",
+      "min-ad-distance": "10",
+      "banner-fill": "center",
+      "bannerid": "0",
+      "sdk-order": "1",
+      "adTemplate": "L",
+      "id": "",
+      "span": "60",
+      "type": "external-sdk",
+      "external": {
+        "adunitid": "131285656905938_1049719051729256",
+        "data": "FB-Native"
+      }
+    },
+    {
+      "aduid": "notId=0",
+      "srcUrlExpiry": "60",
+      "position": "card-p1",
+      "adGroupId": "0",
+      "width": "1080",
+      "height": "540",
+      "card-position": "6",
+      "min-ad-distance": "10",
+      "banner-fill": "center",
+      "bannerid": "0",
+      "sdk-order": "2",
+      "adTemplate": "L",
+      "id": "",
+      "span": "60",
+      "type": "external-sdk",
+      "external": {
+        "adunitid": "/83414793/Common_Card_Premium_Native",
+        "data": "DFP-Native-Content"
+      }
+    }
+  ]
+}

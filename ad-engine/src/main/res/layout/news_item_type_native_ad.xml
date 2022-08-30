@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.adengine.view.helper.AdBindUtils" />
+
+        <variable
+            name="adEntity"
+            type="com.newshunt.adengine.model.entity.BaseDisplayAdEntity" />
+
+        <variable
+            name="adReportListener"
+            type="com.newshunt.adengine.listeners.ReportAdsMenuListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ads_pager_item_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.newshunt.common.view.customview.NHRoundedFrameLayout
+            android:id="@+id/border_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/parent_container"
+                android:layout_width="@dimen/carousel_card_width"
+                android:layout_height="wrap_content">
+
+                <com.newshunt.common.view.customview.NHRoundedCornerImageView
+                    android:id="@+id/banner_image"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/carousel_card_image_height"
+                    android:background="@drawable/carousel_ad_bg"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ad_banner_bottombar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/carousel_card_paddingBottom"
+                    app:layout_constraintLeft_toLeftOf="@id/banner_image"
+                    app:layout_constraintRight_toRightOf="@id/banner_image"
+                    app:layout_constraintTop_toBottomOf="@+id/banner_image">
+
+                    <com.newshunt.common.view.customview.fontview.NHTextView
+                        android:id="@+id/banner_title"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/carousel_card_title_height_1_lines"
+                        android:layout_marginTop="@dimen/carousel_card_banner_title1_marginTop"
+                        android:ellipsize="end"
+                        android:includeFontPadding="false"
+                        android:lineHeight="22dp"
+                        android:maxLines="1"
+                        android:textColor="?attr/story_card_title_text_color"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        app:dh_custom_font_weight="six_hundred"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.newshunt.common.view.customview.fontview.NHTextView
+                        android:id="@+id/banner_subtitle2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/carousel_card_banner_title1_marginTop"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:textAllCaps="true"
+                        android:textColor="@color/carousel_subtitle_text_color"
+                        android:textSize="11dp"
+                        app:dh_custom_font_weight="four_hundred"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/banner_title" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.newshunt.common.view.customview.NHRoundedFrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

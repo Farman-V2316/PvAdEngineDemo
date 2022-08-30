@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape
+            android:shape="rectangle">
+            <corners android:radius="@dimen/button_drawable_radius"/>
+            <stroke android:width="@dimen/button_drawable_width"
+                    android:color="@color/app_rate_fb_btn_day_bg_color"/>
+            <solid android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+</selector>

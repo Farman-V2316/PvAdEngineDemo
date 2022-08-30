@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/actionbar"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/actionbar_height"
+    android:background="?attr/toolbar_background"
+    android:elevation="0dp"
+    android:gravity="center_vertical"
+    android:title=""
+    app:contentInsetEnd="0dp"
+    app:contentInsetStart="0dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/actionbar_back_button_layout"
+            android:layout_width="@dimen/image_container_height"
+            android:layout_height="@dimen/image_container_height"
+            android:layout_centerVertical="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/actionbar_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="?attr/ic_actionbar_back"/>
+        </LinearLayout>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/actionbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/actionbar_back_button_layout"
+            android:layout_toRightOf="@+id/actionbar_back_button_layout"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:textColor="?attr/default_text_color"
+            android:textSize="@dimen/text_medium">
+        </com.newshunt.common.view.customview.fontview.NHTextView>
+
+        <ImageView
+            android:id="@+id/actionbar_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/actionbar_back_button_layout"
+            android:layout_toRightOf="@+id/actionbar_back_button_layout"
+            android:gravity="center_vertical"
+            android:src="@drawable/dailyhuntlogo1" />
+
+    </RelativeLayout>
+</androidx.appcompat.widget.Toolbar>

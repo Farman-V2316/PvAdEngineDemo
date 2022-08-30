@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.adengine.view.helper.AdBindUtils" />
+
+        <import type="com.newshunt.adengine.util.AdConstants" />
+
+        <variable
+            name="sourceAlphabetText"
+            type="String" />
+
+        <variable
+            name="iconUrl"
+            type="String" />
+
+        <variable
+            name="sponsoredText"
+            type="String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ad_branding_bar_height">
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/ad_icon"
+            android:layout_width="@dimen/pgi_ad_source_icon_height"
+            android:layout_height="@dimen/pgi_ad_source_icon_height"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/ad_margin_top"
+            android:adjustViewBounds="true"
+            android:baselineAligned="false"
+            android:scaleType="fitEnd"
+            app:cornerRadius="@dimen/pgi_ad_source_icon_corner_radius"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:roundedCorners="allCorners"
+            bind:adTag="@{AdConstants.AD_ASSET_ICON}"
+            bind:imageUrl="@{iconUrl}" />
+
+        <!--Category Tag text-->
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/ad_attr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pgi_ad_source_icon_margin"
+            android:layout_marginTop="@dimen/ad_margin_top"
+            android:gravity="start"
+            android:text="@{sponsoredText}"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/ad_category_text_size"
+            android:textStyle="normal"
+            android:visibility="@{AdBindUtils.canShow(sponsoredText)? View.VISIBLE: View.GONE}"
+            app:dh_custom_font_weight="four_hundred"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ad_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginStart="0dp" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/sourceAlphabet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@{sourceAlphabetText}"
+            android:textColor="?attr/source_alphabet_text_color"
+            android:textSize="@dimen/sponsored_text_size"
+            android:visibility="@{AdBindUtils.canShow(sourceAlphabetText)? View.VISIBLE: View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/ad_attr"
+            app:layout_constraintStart_toEndOf="@+id/ad_attr"
+            app:layout_constraintTop_toTopOf="@+id/ad_attr" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

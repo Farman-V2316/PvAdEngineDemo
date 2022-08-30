@@ -1,0 +1,52 @@
+/*
+ * Copyright (c) 2016 Newshunt. All rights reserved.
+ */
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+  compileSdkVersion project.csv
+
+  defaultConfig {
+    minSdkVersion project.msv
+    targetSdkVersion project.tsv
+    versionCode 1
+    versionName "1.0"
+    vectorDrawables.useSupportLibrary=true
+  }
+
+  lintOptions {
+    warning 'InvalidPackage'
+  }
+  dataBinding.enabled = true
+  dexOptions {
+    dexInProcess = true
+    maxProcessCount = 2
+    jumboMode = true
+    javaMaxHeapSize "5g"
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+
+dependencies {
+  api fileTree(dir: 'libs', include: ['*.jar'])
+  api project(':notification-engine')
+  api project(':sso')
+
+  api 'com.google.dagger:dagger:' + project.dagger_v
+  annotationProcessor "com.google.dagger:dagger-compiler:" + project.dagger_v
+  api 'com.google.auto.factory:auto-factory:1.0-beta3'
+  api 'org.glassfish:javax.annotation:10.0-b28'
+  api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+  kapt 'com.google.auto.factory:auto-factory:1.0-beta3'
+  kapt "androidx.room:room-compiler:"+project.room_v
+  kapt "com.google.dagger:dagger-compiler:" + project.dagger_v
+  annotationProcessor 'com.google.auto.factory:auto-factory:1.0-beta3'
+  annotationProcessor "com.google.dagger:dagger-compiler:" + project.dagger_v
+}

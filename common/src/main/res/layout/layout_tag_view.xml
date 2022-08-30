@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ /*
+  ~  * Copyright (c) 2017 Newshunt. All rights reserved.
+  ~  */
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.newshunt.common.view.customview.NHImageView
+        android:id="@+id/tag_view_image"
+        android:layout_width="@dimen/tag_view_image_width"
+        android:layout_height="@dimen/tag_view_image_height"
+        android:visibility="gone"
+        android:layout_centerVertical="true" />
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/tag_view_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/tag_text_size"
+        android:layout_centerVertical="true"
+        android:includeFontPadding="false"
+        android:paddingTop="@dimen/flow_layout_item_spacing"
+        android:paddingBottom="@dimen/flow_layout_item_spacing"
+        android:layout_marginLeft="@dimen/tag_text_margin_left"
+        android:layout_marginRight="@dimen/tag_text_margin_right"
+        android:layout_toRightOf="@id/tag_view_image"
+        android:textColor="@color/white_color" />
+
+    <com.newshunt.common.view.customview.NHImageView
+        android:layout_width="@dimen/tag_view_height"
+        android:layout_height="@dimen/tag_view_height"
+        android:src="@drawable/added_tick"
+        android:id="@+id/tag_view_right_image"
+        android:scaleType="centerInside"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/tag_view_text"/>
+
+    <ImageView
+        android:id="@+id/tag_view_toggle_image"
+        android:layout_width="@dimen/tag_view_toggle_height"
+        android:layout_height="@dimen/tag_view_toggle_height"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/tag_toggle_image_margin_right"
+        android:layout_marginTop="@dimen/tag_toggle_image_margin_right"
+        android:layout_marginBottom="@dimen/tag_toggle_image_margin_right"
+        android:layout_toRightOf="@id/tag_view_text"
+        android:visibility="gone"/>
+</RelativeLayout>

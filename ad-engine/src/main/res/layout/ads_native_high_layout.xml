@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.adengine.util.AdConstants" />
+
+        <import type="com.newshunt.adengine.model.entity.version.AdTemplate" />
+
+        <import type="com.newshunt.adengine.view.helper.AdBindUtils" />
+
+        <import type="com.newshunt.adengine.model.entity.version.AdPosition"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.adengine.model.entity.NativeData" />
+
+        <variable
+            name="adEntity"
+            type="com.newshunt.adengine.model.entity.BaseDisplayAdEntity" />
+
+        <variable
+            name="removeGap"
+            type="boolean" />
+
+        <variable
+            name="adReportListener"
+            type="com.newshunt.adengine.listeners.ReportAdsMenuListener" />
+
+        <variable
+            name="adsShareViewHelper"
+            type="com.newshunt.adengine.util.AdsShareViewHelper" />
+
+        <variable
+            name="adsActionHandler"
+            type="com.newshunt.adengine.util.AdsActionHandler" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.news.viewmodel.SocialInteractionViewModel" />
+
+        <variable
+            name="appSettingsProvider"
+            type="com.newshunt.dhutil.helper.AppSettingsProvider" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/ad_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@{removeGap ? (float)0 : @dimen/ad_content_margin}"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@{removeGap ? (float)0 : @dimen/ad_content_margin}"
+            android:background="@color/transparent"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:includeFontPadding="false"
+            android:maxLines="3"
+            android:textColor="?attr/story_card_title_text_color"
+            android:textSize="19dp"
+            android:visibility="@{adEntity.showOnlyImage ? View.GONE: View.VISIBLE}"
+            app:dh_custom_font_weight="six_hundred"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/border_container"
+            bind:adTag="@{AdConstants.AD_ASSET_HEADLINE}"
+            bind:adText="@{AdBindUtils.getTitle(item)}"
+            bind:storyPageAd="@{adEntity.adPosition == AdPosition.STORY}" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/ad_report"
+            style="@style/ad_report_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ad_icon_margin_top"
+            android:background="@color/white"
+            android:elevation="1dp"
+            android:onClick="@{(v) -> AdBindUtils.reportAd(adReportListener, adEntity, (String)null)}"
+            android:tag="@{AdConstants.AD_GENERIC_VIEW}"
+            android:text="@{adEntity.content.reportText.data}"
+            android:visibility="@{AdBindUtils.canShowAdsReportIcon(adEntity) &amp;&amp; !AdBindUtils.isEnhancedAd(adEntity) ? View.VISIBLE : View.GONE}"
+            app:dh_custom_font_weight="four_hundred"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:adReportStyle="@{adEntity}"
+            bind:container="@{borderContainer}"
+            bind:parentView="@{adContainer}" />
+
+        <com.newshunt.common.view.customview.NHRoundedFrameLayout
+            android:id="@+id/border_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@{removeGap ? (float)0 : @dimen/ad_content_margin}"
+            android:layout_marginEnd="@{removeGap ? (float)0 : @dimen/ad_content_margin}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ad_report"
+            app:layout_goneMarginTop="16dp"
+            bind:border="@{adEntity}">
+
+            <RelativeLayout
+                android:id="@+id/mediaLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ads_gradient_image_bg">
+
+                <com.newshunt.common.view.customview.NHWrappedHeightLayout
+                    android:id="@+id/mediaView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:visibility="gone" />
+
+                <com.newshunt.common.view.customview.NHImageView
+                    android:id="@+id/ad_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="fitCenter"
+                    android:visibility="gone"
+                    bind:adTag="@{AdConstants.AD_ASSET_MAIN_IMAGE}"
+                    bind:imageUrl="@{item.wideImageUrl}" />
+
+                <ImageView
+                    android:id="@+id/play_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@string/tap_to_play"
+                    android:src="@drawable/ic_video_play"
+                    android:visibility="@{item.showPlayIcon? View.VISIBLE : View.GONE}" />
+            </RelativeLayout>
+        </com.newshunt.common.view.customview.NHRoundedFrameLayout>
+
+        <include
+            android:id="@+id/ad_banner_bottombar"
+            layout="@layout/news_item_ad_banner_bottombar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@{removeGap ? (float)0 : @dimen/bottombar_margin}"
+            android:layout_marginEnd="@{removeGap ? (float)0 : @dimen/bottombar_margin}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ad_title"
+            bind:adEntity="@{adEntity}"
+            bind:adsShareViewHelper="@{adsShareViewHelper}"
+            bind:appSettingsProvider="@{appSettingsProvider}"
+            bind:ctaText="@{item.ctaText}"
+            bind:sourceAlphabetText="@{item.sourceAlphabet}"
+            bind:sponsoredText="@{item.sponsoredText}" />
+
+        <include
+            android:id="@+id/ad_banner_brand_bottombar"
+            layout="@layout/ad_brand_bottombar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@{removeGap ? (float)0 : @dimen/ad_content_margin}"
+            android:layout_marginTop="@dimen/bottombar_margin_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ad_title"
+            bind:adEntity="@{adEntity}"
+            bind:adReportListener="@{adReportListener}"
+            bind:adsActionHandler="@{adsActionHandler}"
+            bind:adsShareViewHelper="@{adsShareViewHelper}"
+            bind:appSettingsProvider="@{appSettingsProvider}"
+            bind:ctaText="@{item.ctaText}"
+            bind:sourceAlphabetText="@{item.sourceAlphabet}"
+            bind:vm="@{vm}" />
+
+        <include
+            android:id="@+id/ad_banner_brand_bottombar_osv"
+            layout="@layout/osv_bottom_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@{removeGap ? (float)0 : @dimen/ad_content_margin}"
+            android:layout_marginTop="@dimen/bottombar_margin_top"
+            android:layout_marginEnd="@{removeGap ? (float)0 : @dimen/ad_content_margin}"
+            android:visibility="@{AdBindUtils.isEnhancedAd(adEntity)?View.VISIBLE:View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ad_title"
+            bind:adEntity="@{adEntity}"
+            bind:adReportListener="@{adReportListener}"
+            bind:adsActionHandler="@{adsActionHandler}"
+            bind:adsShareViewHelper="@{adsShareViewHelper}"
+            bind:ctaText="@{item.ctaText}"
+            bind:sourceAlphabetText="@{item.sourceAlphabet}" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="ad_banner_brand_bottombar_osv,ad_banner_brand_bottombar,ad_banner_bottombar" />
+
+        <View
+            android:id="@+id/barrier_space"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/barrier" />
+
+        <View
+            android:id="@+id/bottom_divider"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/ad_divider_height"
+            android:layout_marginStart="@{removeGap ? (float)0 : @dimen/ad_divider_margin}"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="@{removeGap ? (float)0 : @dimen/ad_divider_margin}"
+            android:background="?attr/separator_line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barrier_space"
+            app:layout_constraintVertical_bias="1"
+            bind:marginBottomDetail="@{@dimen/ad_margin_top}"
+            bind:storyPageAd="@{adEntity.adPosition == AdPosition.STORY}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

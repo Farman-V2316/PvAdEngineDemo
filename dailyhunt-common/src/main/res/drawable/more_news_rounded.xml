@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+            <!-- SHADOW LAYER -->
+            <item>
+                <shape>
+                    <gradient
+                        android:startColor="@color/theme_day_tab_bar_start_shadow_color"
+                        android:endColor="@color/theme_day_tab_bar_end_shadow_color"
+                        android:angle="90"
+                        android:type="linear"/>
+                    <corners android:radius="@dimen/more_news_rounded_radius" />
+                </shape>
+            </item>
+            <!-- CONTENT LAYER -->
+            <item android:bottom="1dp"
+                  android:right="1dp"
+                  android:left="1dp"
+                  android:top="1dp">
+                <shape android:shape="rectangle"  >
+                    <corners android:radius="@dimen/more_news_rounded_radius" />
+                    <solid android:color="#d00a1b"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

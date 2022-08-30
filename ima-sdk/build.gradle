@@ -1,0 +1,39 @@
+apply plugin: 'com.android.library'
+
+android {
+  compileSdkVersion project.csv
+
+  defaultConfig {
+    minSdkVersion project.msv
+    targetSdkVersion project.tsv
+    vectorDrawables.useSupportLibrary = true
+  }
+
+  packagingOptions {
+    exclude 'APK LICENSE.txt'
+    exclude 'LICENSE.txt'
+  }
+
+  lintOptions {
+    abortOnError false
+  }
+
+  dexOptions {
+    dexInProcess = true
+    maxProcessCount = 2
+    jumboMode = true
+    javaMaxHeapSize "5g"
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  api project(':exo-library')
+  implementation project(':dailyhunt-common')
+
+  api 'com.google.ads.interactivemedia.v3:interactivemedia:3.10.6'
+}

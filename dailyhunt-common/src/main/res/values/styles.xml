@@ -1,0 +1,1674 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2017 Newshunt. All rights reserved.
+  -->
+<resources>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_up_dialog</item>
+        <item name="android:windowExitAnimation">@anim/slide_down_dialog</item>
+    </style>
+
+    <style name="DialogSlideAnim" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
+    </style>
+
+    <style name="TextViewOnboardingButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/onboarding_continue_button_height</item>
+        <item name="android:textSize">@dimen/onboarding_header_size</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+
+    <style name="AppTheme" parent="android:Theme.Light">
+        <item name="android:windowBackground">@color/theme_day_background</item>
+        <item name="dh_logo">@drawable/dh_actionbar_logo</item>
+    </style>
+
+    <style name="AppThemeDayV23" parent="AppTheme">
+        <!-- Will be customized in v23-->
+    </style>
+
+    <style name="AppThemeDay" parent="AppThemeDayV23">
+        <item name="android:windowBackground">@color/theme_day_background</item>
+        <item name="news_toolbar_bg">@color/theme_action_bar_day_color</item>
+        <item name="source_title_tab_bg">@drawable/shadow_day</item>
+        <item name="default_text_color">@color/theme_day_text_color</item>
+        <item name="onboarding_title_text_color">@color/onboarding_day_text_color</item>
+        <item name="onboarding_subtitle_text_color">@color/onboarding_popup_title_color</item>
+        <item name="onboarding_popup_bg">@drawable/language_selection_popup_bg</item>
+        <item name="onboarding_shadow_bg">@color/onboarding_popup_shadow_color</item>
+        <item name="onboarding_terms_color">@color/onboarding_terms_text_color</item>
+        <item name="onboarding_terms_link_color">@color/color_white</item>
+        <item name="onboarding_title_popup_color">@color/onboarding_popup_title_color</item>
+        <item name="onboarding_bg">@drawable/feed</item>
+        <item name="onboarding_appbar_bg">@drawable/app_bar</item>
+        <item name="onboarding_bottombar_bg">@drawable/bottom_navigationbar</item>
+        <item name="onboarding_div_color">@color/bottom_bar_top</item>
+        <item name="onboarding_icon_color">@color/black</item>
+        <item name="onboarding_icon_selected_color">@color/white_color</item>
+        <item name="onboarding_text_color">@color/color_333333</item>
+        <item name="onboarding_text_selected_color">@color/white_color</item>
+        <item name="onboarding_item_bg_color">@color/white_color</item>
+        <item name="onboarding_item_selected_bg_color">@color/black</item>
+        <item name="onboarding_item_border_color">@color/onboarding_popup_item_border_color</item>
+        <item name="isometric_depth_color">@color/isometric_depth_color</item>
+        <item name="default_background">@color/theme_day_background</item>
+        <item name="story_error_page_background">@color/theme_day_background</item>
+        <item name="newspaper_group_info_text_color">
+            @color/newspaper_group_info_text_color_day_mode
+        </item>
+        <item name="action_back_arrow_color">@color/back_arrow_day</item>
+        <item name="entity_preview_background">@color/theme_action_bar_day_color</item>
+        <item name="settings_text_color">@color/theme_day_settings_text</item>
+        <item name="settings_notification_options_text_color">@color/settings_notification_options_text_color_day</item>
+        <item name="settings_notification_radio_button_highlighter_drawable">@drawable/settings_notifications_radio_button_selector_day</item>
+        <item name="push_notification_desc_text_color">@color/push_notification_desc_text_color_day</item>
+        <item name="notification_radio_button">@drawable/notification_radio_button</item>
+        <item name="notification_expand_button_toggle">@drawable/live_tickers_management_toggle_day</item>
+        <item name="settings_line_divider">@color/theme_day_divider</item>
+        <item name="settings_line_divider_thin">@color/theme_day_divider_thin</item>
+        <item name="detail_line_divider">@color/detail_day_divider</item>
+        <item name="share_app_divider">@color/theme_day_divider_thin</item>
+        <item name="news_lang_desc_color_settings">@color/theme_day_lang_desc_color</item>
+        <item name="divider_color">@color/divider_color_day_mode</item>
+        <item name="recommended_background">@drawable/recommended_card_background</item>
+        <item name="newspaper_name_text_color">@color/newspaper_text_text_color_day_mode</item>
+        <item name="hamburger_background">@color/theme_hamburger_day_background</item>
+        <item name="default_toolbar_background">@color/actionbar_background</item>
+        <item name="source_tab_background">@color/theme_day_source_tab_background</item>
+        <item name="material_bg">@color/primary_material_light</item>
+        <item name="hamburger_menu">@drawable/hamburger_menu</item>
+        <item name="ad_background">@color/day_ad_background</item>
+        <item name="ads_shadow_bg">@drawable/ads_shadow</item>
+        <item name="brand_bottombar_fallback_bg">@color/white_color</item>
+        <item name="ads_top_title_color">@color/ads_sponsor_title_text_color</item>
+        <item name="ads_top_featured_title_color">@color/ads_featured_text_color</item>
+        <item name="hamburger_text_color">@color/theme_day_hamburger_color</item>
+        <item name="hamburger_line_divider">@color/day_ad_background</item>
+        <item name="ad_banner_background_color">@color/ad_banner_background_color</item>
+        <item name="hamburger_saved_articles_img">@drawable/hamburger_saved_articles</item>
+        <item name="toggle_selected_img">@drawable/ic_switch_on</item>
+        <item name="toggle_unselected_img">@drawable/ic_switch_off</item>
+        <item name="divider_gray">@color/divider_light_gray</item>
+        <item name="forward_arrow">@drawable/arrow_forward_day</item>
+        <item name="action_bar_bg">@color/button_material_light</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="source_favorite_separator">@color/theme_day_text_color</item>
+        <item name="source_favorite_background">@color/color_white</item>
+        <item name="recycler_list_divider">@drawable/recycler_view_list_divider</item>
+        <item name="story_list_divider">@color/story_card_divider_color</item>
+        <item name="read_more_bg">@color/story_card_divider_color</item>
+        <item name="daily_hunt_logo">@drawable/dailyhuntlogo1</item>
+        <item name="android:homeAsUpIndicator">@mipmap/arrow_dark_gray</item>
+        <item name="offline_toolbar_background">@drawable/offline_actionbar_shadow</item>
+        <item name="onboarding_spinner_background">@color/onboarding_edition_container_day</item>
+        <item name="onboarding_spinner_arrow_down">@drawable/dropdown_arrow</item>
+        <item name="onboarding_spinner_arrow_up">@drawable/dropdown_arrowup</item>
+        <item name="onboarding_language_spinner_open">@color/onboarding_language_spinner_open_day
+        </item>
+        <item name="onboarding_language_text_color">@color/hamburger_lang_day_color</item>
+        <item name="readmore_background">@drawable/readmore_day_shadow</item>
+        <item name="readmore_text_color">@color/text_red</item>
+        <item name="readmore_button_background">@drawable/readmore_day_shadow_rounded</item>
+        <item name="refresh_errormsg_text_color">@color/error_desc_txt_color</item>
+        <item name="notification_bg">@color/notification_bg_day</item>
+        <item name="notification_title">@color/notification_title_day</item>
+        <item name="notification_divider">@color/notification_divider_day</item>
+        <item name="date_background">@color/news_detail_branding_bar_color_day</item>
+        <item name="date_text_color">@color/theme_day_date_text_color</item>
+        <item name="follower_text_color">@color/theme_day_follower_text_color</item>
+        <item name="default_city_title_color">@color/theme_day_text_color</item>
+        <item name="empty_notification_logo">@drawable/ic_empty_notification</item>
+        <item name="action_bar_delete_menu_icon">@drawable/ic_delete</item>
+        <item name="action_bar_more_icon">@drawable/ic_more</item>
+        <item name="morenews_up_arrow">@drawable/more_news_up_arrow_daymode</item>
+        <item name="default_tab_text_color">@color/tab_text_color</item>
+        <item name="connection_error">@drawable/con_er</item>
+        <item name="content_error">@drawable/cnt_er</item>
+        <item name="bad_error">@drawable/srvr_er</item>
+        <item name="connectivity_error">@drawable/no_connectivity_icon_day</item>
+        <item name="np_name_color">@color/np_title_text_color_day</item>
+        <item name="no_saved_artcles">@drawable/ic_saved_articles_empty</item>
+        <item name="choosen_location_bg">@color/chosen_loaction_background_day_color</item>
+        <item name="choosen_location_headertext_color">
+            @color/chosen_loaction_header_text_day_color
+        </item>
+        <item name="choosen_location_yes_confirm_btn_bg_color">
+            @color/chosen_loaction_yes_confirm_bg_day_color
+        </item>
+        <item name="choosen_location_yes_confirm_text_color">
+            @color/chosen_loaction_yes_confirm_text_day_color
+        </item>
+        <item name="chosen_location_button">@drawable/yes_confirm_btn_bg</item>
+        <item name="gallery_card_bg_color">@color/gallery_card_bg_color</item>
+        <item name="app_rate_bg">@color/app_rate_background_day</item>
+        <item name="ic_rating_star">@drawable/ic_star_drawable</item>
+        <item name="app_rate_dialog_bg">@drawable/app_rate_dialog_day_background</item>
+        <item name="dialog_box_cross_btn">@drawable/ic_cross_button</item>
+        <item name="astro_icon">@drawable/ic_astro_icon</item>
+        <item name="astro_submit_btn_bg">@drawable/astro_button_background</item>
+        <item name="astro_gender_selected_bg">@color/black</item>
+        <item name="astro_dropdown_arrow">@drawable/dropdown_arrow</item>
+        <item name="app_rate_dialog_top_layout_bg">@color/app_rate_top_layout_day_bg_color</item>
+        <item name="app_rate_dialog_title_text_color">@color/app_rate_title_text_day_color</item>
+        <item name="app_rate_dialog_ratenow_bg">@drawable/app_rating_ratenow_day_bg</item>
+        <item name="app_rate_dialog_feedback_bg">@drawable/app_rating_feedback_day_bg</item>
+        <item name="app_rate_dialog_fb_btn_text_color">@color/app_rate_fb_btn_text_day_color</item>
+        <item name="app_rate_dialog_nevershow_text_color">@color/app_rate_nevershow_text_day_color
+        </item>
+        <item name="app_rate_submit_text_color">@color/white_color</item>
+        <item name="app_rate_submit_button_bg">@color/black</item>
+        <item name="app_rate_dialog_checkbox">@drawable/app_rating_checkbox_day_selector</item>
+        <item name="toolbar_background">@color/toolbar_background_color</item>
+        <item name="location_toolbar_background_color">@color/white_color</item>
+        <item name="location_toolbar_background">@drawable/location_toolbar_background</item>
+        <item name="toolbar_bottom_line">@color/toolbar_bottom_line_color</item>
+        <item name="comment_toolbar_bottom_line">@color/comment_toolbar_bottom_line_color</item>
+        <item name="tab_shader">@drawable/tab_shader_day</item>
+        <item name="error_desc_text_color">@color/error_desc_txt_color</item>
+        <item name="default_featured_background">@color/theme_featured_day_background</item>
+        <item name="location_list_divider">@color/location_list_divider_day_color</item>
+        <item name="reorder_cross">@color/reorder_cross_day</item>
+        <item name="pgi_ad_branding_bar_background">@color/pgi_ad_branding_bar_color_day</item>
+        <item name="like_dislike_bg">@color/like_dislike_background_day</item>
+        <item name="header_message_background">@color/list_header_message_background</item>
+        <item name="header_message_text_color">@color/list_header_message_text</item>
+        <item name="reorder_header_text_color">@color/reorder_header_color_day</item>
+        <item name="customizable_subtitle_color">@color/customizable_subtitle_color_day</item>
+        <item name="browse_categories_item_bg">@color/color_white</item>
+        <item name="favourite_categories_grid_item_bg">@color/fav_grid_container_bg</item>
+        <item name="np_fav_grid_title_color">@color/np_fav_grid_color_dm</item>
+        <item name="story_supplement_section_title_text_color">
+            @color/story_supplement_section_title_text_color
+        </item>
+        <item name="story_supplement_item_text_color">@color/story_supplement_item_text_color</item>
+        <item name="story_supplement_item_desc_text_color">
+            @color/story_supplement_item_desc_text_color
+        </item>
+        <item name="story_supplement_carousel_item_bg_color">
+            @color/story_supplement_carousel_item_bg_color
+        </item>
+        <item name="story_supplement_grid_item_bg_color">
+            @color/story_supplement_grid_item_bg_color
+        </item>
+        <item name="story_supplement_carousel_bg_color">@color/story_supplement_carousel_bg_color
+        </item>
+        <item name="story_supplement_grid_bg_color">@color/story_supplement_grid_bg_color</item>
+        <item name="story_supplement_source_text_color">@color/story_supplement_source_text_color
+        </item>
+        <item name="story_supplement_source_pub_time_stamp_text_color">
+            @color/story_supplement_source_pub_time_stamp_text_color
+        </item>
+        <item name="colorControlHighlight">@color/ripple_day</item>
+        <item name="hamburger_icon_news">@drawable/nav_news</item>
+        <item name="hamburger_icon_buzz">@drawable/nav_buzz</item>
+        <item name="hamburger_icon_follow">@drawable/nav_follow</item>
+        <item name="astro_card_read_more_text_color">@color/astro_card_read_more_text_color</item>
+        <item name="astro_card_read_more_text_bg">@drawable/astro_read_more_text_bg</item>
+        <item name="astro_card_bg_color">@color/astro_card_bg_color</item>
+        <item name="astro_card_title_color">@color/astro_card_title_color</item>
+        <item name="astro_card_read_more_bg_color">@color/astro_read_more_bg_color</item>
+        <item name="astro_card_read_more_bg_inside_color">
+            @color/astro_read_more_bg_inside_border_color
+        </item>
+        <item name="carousel_video_item_background">@color/carousel_video_item_background</item>
+        <item name="story_card_title_text_color">@color/story_card_title_text_color</item>
+        <item name="post_collection_title_color">@color/color_black</item>
+        <item name="story_card_bold_title_text_color">@color/story_card_bold_title_text_color</item>
+        <item name="story_card_desc_text_color">@color/story_card_desc_text_color</item>
+        <item name="cta_text_color">@color/cta_text_color_day</item>
+        <item name="related_news_text_color">@color/related_news_text_color</item>
+        <item name="dislike_shader">@drawable/dislike_shader_day</item>
+        <item name="story_card_title_read_text_color">@color/story_card_title_read_text_color</item>
+        <item name="group_card_rating_bar_selector">@drawable/group_card_rating_bar_selector</item>
+        <item name="vh_recommended_header_color">@color/dayvh_recommended_header_color</item>
+        <item name="vh_card_title_color">@color/dayvh_card_title_color</item>
+        <item name="vh_card_social_count_color">@color/dayvh_card_social_count_color</item>
+        <item name="vh_card_views_count_color">@color/dayvh_card_views_count_color</item>
+        <item name="social_comment_full_page_error_icon">@drawable/social_comment_full_page_error
+        </item>
+        <item name="inactive_tab_text_color">@color/inactive_text_color_day_mode</item>
+        <item name="featured_topic_background_color">@color/white_color</item>
+        <item name="onboarding_lang_select_item_bg_color">
+            @color/onboarding_lang_select_item_bg_color
+        </item>
+        <item name="onboarding_choose_lang_title_bg">@color/theme_day_background</item>
+        <item name="add_page_featured_topic_background_color">
+            @color/follow_button_background_day_mode
+        </item>
+        <item name="add_page_featured_topic_divider_color">@color/follow_button_divider_add_page
+        </item>
+        <item name="recommended_np_divider_color">@color/recommended_np_divider_color</item>
+        <item name="photo_gallery_text_color">@color/photo_gallery_text_color</item>
+        <item name="ner_know_more_color">@color/ner_know_more_color</item>
+        <item name="hide_content_title_color">@color/color_black</item>
+        <item name="hide_content_short_title_color">@color/color_hide_content_bar_heading2</item>
+        <item name="hide_content_divider_color">@color/notification_divider_day</item>
+        <item name="source_share_title_color">@color/source_share_title_color_day</item>
+        <item name="source_share_timestamp_color">@color/story_card_comments_text_color_day</item>
+        <item name="related_title_color">@color/related_title_color_day</item>
+        <item name="collection_list_title_color">@color/collection_list_title_color_day</item>
+        <item name="collection_list_separator_bgcolor">
+            @color/collection_list_separator_bgcolor_day
+        </item>
+        <item name="collection_list_card_bgcolor">@color/collection_list_card_bgcolor_day</item>
+        <item name="collection_landing_title_textColor">
+            @color/collection_landing_title_textColor_day
+        </item>
+        <item name="collection_landing_subtitle_textColor">
+            @color/collection_landing_subtitle_textColor_day
+        </item>
+        <item name="collection_landing_item_source_textColor">
+            @color/collection_landing_item_source_textColor_day
+        </item>
+        <item name="collection_landing_counts_textColor">
+            @color/collection_landing_counts_textColor_day
+        </item>
+        <item name="collection_landing_cardview_background">
+            @color/collection_landing_cardview_bg_color_day
+        </item>
+        <item name="feed_divider_color">@color/card_list_divider_day_color</item>
+
+        <item name="cold_start_color_heading1">@color/cold_start_color_heading1_day</item>
+        <item name="cold_start_color_heading2">@color/cold_start_color_heading2_day</item>
+        <item name="cold_start_card_divider_color">@color/cold_start_card_divider_color_day</item>
+        cold_start_carousel_divider_color
+        <item name="cold_start_explore_divider_color">
+            @color/cold_start_explore_divider_color_day
+        </item>
+        <item name="cold_start_item_bg">@color/cold_start_item_bg_day</item>
+        <item name="cold_start_item_name">@color/cold_start_item_name_day</item>
+        <item name="cold_start_explore_text_color">@color/cold_start_explore_text_color_day</item>
+        <item name="cold_start_vh_bg_color">@color/cold_start_vh_bg_color_day</item>
+        <item name="cold_start_carousel_vh_bg_color">@color/cold_start_carousel_vh_bg_color</item>
+        <item name="cold_start_carousel_divider_color">@color/cold_start_carousel_divider_color
+        </item>
+        <item name="cold_start_list_item_name_color">@color/cold_start_list_item_name_color</item>
+
+
+        <item name="carousel_card_title_color">
+            @color/carousel_card_title_color_day
+        </item>
+        <item name="carousel_card_bg_color">
+            @color/carousel_card_bg_color_day
+        </item>
+        <item name="collection_bg_color">@color/transparent</item>
+        <item name="carousel_card_progress_bar_color">
+            @color/carousel_card_progress_bar_color_day
+        </item>
+        <item name="coachmark_toggle_button">@drawable/card_toggle_selector</item>
+        <item name="coachmark_toggle_button_settings">@drawable/card_toggle_selector_settings</item>
+        <item name="carousel_source_share_bg">@color/carousel_source_share_bg_day</item>
+        <item name="carousel_ad_bg_color">@color/carousel_ad_bg_color</item>
+        <item name="ic_three_dots">@drawable/ic_three_dots</item>
+        <item name="astro_desc_text_color">@color/black</item>
+        <item name="ic_three_dots_detail">@drawable/ic_three_dots_detail</item>
+        <item name="ic_actionbar_back">@drawable/action_bar_back_button</item>
+        <item name="ads_bottom_bg">@drawable/ads_border_background_bottom_rounded</item>
+        <item name="ads_cta_border_color">@color/cta_button_color</item>
+        <item name="ads_bottombar_cta_bg">@color/ads_cta_bg_color_day</item>
+        <item name="ads_divider_color">@color/ads_divider_color_day</item>
+        <item name="ads_forward_icon">@drawable/ic_cta_forward_icon</item>
+        <item name="comments_text_bg">@drawable/comment_rounded_rect_bg</item>
+        <item name="comment_user_name_text_color">@color/comment_user_name_text_color</item>
+        <item name="comment_body_text_color">@color/comment_body_text_color</item>
+        <item name="comment_section_bg_color">@color/comment_section_bg_color</item>
+        <item name="view_all_bg_color">@color/view_all_bg_color_day</item>
+        <item name="dhtv_comment_title_bg_color">@color/dhtv_comment_title_bg_color_day</item>
+        <item name="comment_bar_shadow_bg">@drawable/comment_bar_shadow_bg</item>
+        <item name="edit_comment_bg">@drawable/edit_comment_bg</item>
+        <item name="add_comment_bg">@drawable/ic_add_comment_bg</item>
+        <item name="edit_comment_bg_dhtv">@drawable/edit_comment_bg_dhtv</item>
+        <item name="comment_bar_top_divider_color">@color/comment_bar_top_divider_color</item>
+        <item name="comment_post_icon">@drawable/ic_post_comment</item>
+        <item name="comment_post_icon_dhtv">@drawable/ic_post_comment_white</item>
+        <item name="tv_item_falsepadding">@dimen/tv_topofeveryvideo_falsepadding</item>
+        <item name="tv_detail_description_color">@color/daytv_detail_description_color</item>
+        <item name="tv_detail_divider_color">@color/daytv_detail_item_divider_color</item>
+        <item name="toggle_image_coachmark_bg">@drawable/toggle_image_coachmark_bg</item>
+        <item name="explore_background">@drawable/explore_child_outer_bg</item>
+        <item name="explore_unselected_background">@drawable/unselected_subtitle</item>
+        <item name="follow_card_name_color">@color/follow_card_name_text_color</item>
+        <item name="followed_entities_background_color">@color/followed_fragment_bg</item>
+        <item name="no_follow_text_color">@color/no_follow_text_color</item>
+        <item name="followed_items_holder_bg">@color/followed_items_holder_bg</item>
+        <item name="followed_item_bg">@color/followed_item_bg</item>
+        <item name="follow_zero_state_bg">@color/follow_zero_state_bg</item>
+        <item name="feed_no_follow_layout_bg">@color/feed_no_follow_layout_bg</item>
+        <item name="follow_small_card_bg">@drawable/follow_small_card_bg</item>
+        <item name="no_saved_story_card_bg">@color/white_color</item>
+        <item name="see_all_entity_toolbar_bg">@drawable/see_all_action_bar_bg</item>
+        <item name="background_bottom_tab">@drawable/bottom_bar_background</item>
+        <item name="ad_bottom_banner_fill_color">@color/color_white</item>
+        <item name="presearch_bg">@color/presearch_bg_day</item>
+        <item name="presearch_list_bg">@color/presearch_list_bg_day</item>
+        <item name="location_presearch_list_bg">@color/presearch_list_bg_day</item>
+        <item name="search_suggestion_text_color">@color/suggestion_text_day</item>
+        <item name="search_divider">@color/search_divider_day</item>
+        <item name="location_suggestion_divider">@color/location_suggestion_divider_day</item>
+        <item name="search_edit_text_background">@drawable/background_edit_text</item>
+        <item name="search_trending_icon" >@drawable/vector_trending_search</item>
+        <item name="search_recent_icon">@drawable/vector_recent_search</item>
+        <item name="search_dustbin_icon">@drawable/vector_dustbin_search</item>
+        <item name="search_noresult">@drawable/vector_search_noresult</item>
+        <item name="hashtag_suggestion_title_color">@color/hashtag_suggestion_title_color_day</item>
+        <item name="hashtag_suggestion_subtitle_color">@color/story_card_comments_text_color_day</item>
+        <item name="hashtag_new_highlight_color">@color/hashtag_new_hightlight_color_day</item>
+        <item name="notification_badge_circle">@drawable/notification_badge_circle</item>
+        <item name="notification_badge_squared">@drawable/notification_badge_squared</item>
+        <item name="language_save_button_background">@color/language_save_button_background_day
+        </item>
+        <item name="language_save_button_textcolor">@color/language_save_button_textcolor_day</item>
+        <item name="language_select_text_color">@color/language_select_text_color_day</item>
+        <item name="select_lang_text_color">@color/select_lang_text_color_day</item>
+        <item name="user_selected_language_text_color">@color/user_selected_lang_text_color_day
+        </item>
+        <item name="language_card_divider_color">@color/language_card_divider_color_day</item>
+        <item name="language_selection_card_view_background">
+            @color/language_card_view_selection_background_day
+        </item>
+        <item name="commentbar_background_color">@drawable/commentbar_rounded_corner</item>
+        <item name="snackbar_background_color">@drawable/snackbar_rounded_corner</item>
+        <item name="snackbar_text_color">@color/snackbar_background_color_night</item>
+        <item name="followed_location_background">@drawable/location_list_shadow_bg</item>
+        <item name="explore_welcome_title_color">@color/explore_welcome_title_color</item>
+        <item name="explore_welcome_bg_color">@color/explore_welcome_bg_color</item>
+        <item name="explore_welcome_subtitle_color">@color/explore_welcome_subtitle_color</item>
+        <item name="actionbar_bg_shadow">@drawable/actionbar_bg_shadow</item>
+        <item name="suggested_sources_border_bgcolor">@color/suggested_sources_border_bgcolor_day
+        </item>
+        <item name="state_info_layout_border">@color/state_info_layout_border_color</item>
+        <item name="coc_elevation">@dimen/coc_elevation_day</item>
+        <item name="location_state_background">@color/white_color</item>
+        <item name="search_bottom_color">@color/search_bar_highlight</item>
+        <item name="discovery_follow_button_bg">@drawable/follow_toggle_background</item>
+        <item name="follow_discovery_button_text_color">@color/follow_color</item>
+        <item name="comment_toolbar_title2_color">@color/title_2_color_d</item>
+        <item name="comment_toolbar_title3_color">@color/title_2_color_d</item>
+        <item name="comment_toolbar_divider_color">@color/title_2_color_n</item>
+        <item name="comment_edit_text_color">@color/comment_edit_text_color</item>
+        <item name="tag_list_container_bg">@drawable/tag_list_container_bg_day</item>
+        <item name="sign_in_toolbar_color">@color/sign_in_toolbar_color_day</item>
+        <item name="ic_leave_group">@drawable/ic_leave_group_new</item>
+        <item name="chevron_right">@drawable/ic_chevron_right</item>
+        <item name="admin_owner_badge_bg">@drawable/admin_owner_badge_bg</item>
+        <item name="admin_owner_text_color">@color/social_handle_text_color</item>
+        <item name="repost_border_color">@color/repost_border_color_day</item>
+        <item name="comment_time_text_color">@color/action_button_count_color</item>
+
+        <item name="no_activity">@drawable/ic_no_activity</item>
+        <item name="no_history">@drawable/ic_no_content_history</item>
+        <item name="no_saved_stories">@drawable/ic_no_saved_stories</item>
+        <item name="no_followers">@drawable/ic_no_followers</item>
+        <item name="not_following">@drawable/ic_not_following</item>
+        <item name="no_blocked_items">@drawable/ic_no_block</item>
+        <item name="tooltip_bg">@drawable/remove_tab_tool_tip_background</item>
+        <item name="reorder_tab_tooltip_bg">@drawable/reorder_tab_tool_tip_background</item>
+        <item name="tv_detail_background_color">@color/daytv_detail_background_color</item>
+        <item name="tv_detail_actionbartitle_color">@color/daytv_detail_actionbartitle_color</item>
+        <item name="tv_card_detail_item_mask">@color/daytv_card_item_mask</item>
+        <item name="tv_emoji_bg_color">@color/daytv_emoji_bg_color</item>
+        <item name="tv_emoji_divider_color">@color/daytv_emoji_divider_color</item>
+        <item name="tv_tags_background">@drawable/tags_border_rounded_day</item>
+
+        <item name="other_perspective_textcolor">@color/language_save_button_textcolor_day</item>
+
+        <item name="perspective_card_background">@drawable/perspective_card_background</item>
+        <item name="perspective_label_background">@drawable/other_perspective_label_background</item>
+        <item name="story_card_list_background">@color/theme_day_background</item>
+        <item name="other_perspective_with_date_bg">
+            @drawable/other_perspective_label_with_date_day
+        </item>
+
+        <item name="story_tag_item_text_color">@color/story_tag_text_color</item>
+        <item name="story_tag_item_bg">@drawable/story_tag_item</item>
+        <item name="follow_snackbar_star_icon">@drawable/follow_snackbar_star_icon_day</item>
+        <item name="follow_text_color">@color/follow_color</item>
+        <item name="sign_on_fragment_header_textColor">@color/language_select_text_color_day</item>
+
+        <item name="ic_logout_settings">@drawable/ic_logout</item>
+        <item name="ic_update_settings">@drawable/ic_update_blue</item>
+        <item name="settings_sign_out_color">@color/sign_out_color_day</item>
+        <item name="settings_app_version_color">@color/app_version_day_color</item>
+        <item name="radio_button_text_color_settings">@drawable/radio_button_text_color</item>
+
+        <item name="history_divider_color">@color/history_divider_color</item>
+        <item name="history_title_color">@color/history_title_color</item>
+        <item name="history_clearAll_color">@color/history_clearAll_color</item>
+        <item name="popup_bg_color">@color/popup_bg_color</item>
+        <item name="profile_popup_bg_color">@color/profile_popup_bg_color</item>
+        <item name="common_dialog_negative_btn_border">@color/black</item>
+        <item name="common_dialog_positive_btn_text">@color/white_color</item>
+        <item name="filterText_color">@color/filterText_color</item>
+        <item name="history_clear_all_title_color">@color/history_clear_all_title_color</item>
+        <item name="list_signin_widget_bg">@color/list_signin_widget_bg</item>
+        <item name="list_signin_widget_border">@color/list_signin_widget_border</item>
+        <item name="list_signin_layer_bg">@color/list_signin_layer_bg</item>
+        <item name="user_fullname_color">@color/user_fullname_color</item>
+        <item name="ner_user_fullname_color">@color/black_color</item>
+        <item name="ner_user_subtitle_color">@color/ner_subtitle_color_day</item>
+        <item name="filter_option_item">@drawable/filter_icon_day</item>
+        <item name="ner_follow_color">@color/ner_follow_color</item>
+        <item name="ner_bio_color">@color/black_color</item>
+        <item name="ner_user_handle_color">@color/black_color</item>
+        <item name="ner_follow_button_text_color">@color/white_color</item>
+        <item name="ner_follow_button_bg">@color/black_color</item>
+        <item name="gender_radio_btn_selected_bg">@color/gender_radio_btn_select_state_day</item>
+        <item name="edit_text_bg_border">@color/black</item>
+        <item name="edit_icon">@drawable/ic_edit_icon</item>
+        <item name="disclaimer_icon">@drawable/edit_profile_disclaimer_tooltip</item>
+        <item name="shimmer_rgb">@integer/shimmer_rgb_day</item>
+        <item name="stop_audio_icon">@drawable/ic_stop</item>
+        <item name="play_audio_icon">@drawable/ic_play</item>
+        <item name="leftarrow_audio_icon">@drawable/ic_left_arrow</item>
+        <item name="rightarrow_audio_icon">@drawable/ic_right_arrow_day</item>
+        <item name="container_audio_arch">@drawable/ic_container_arch</item>
+        <item name="container_audio_rectangle">@drawable/ic_container_rectangle</item>
+        <item name="equalizer_audio_icon">@drawable/ic_audio_equalizer_playing</item>
+        <item name="cross_audio_icon">@drawable/ic_close_audio</item>
+        <item name="snackbar_msg_color">@color/snackbar_background_color_night</item>
+        <item name="profile_count_background">@color/profile_count_background_day</item>
+        <item name="profile_title_text">@color/profile_title_color</item>
+        <item name="profile_toolbar_back_btn_icon">@drawable/profile_back_button_day_non_login</item>
+        <item name="truecaller_verification_background">@color/truecaller_background_day</item>
+        <item name="truecaller_text_color">@color/truecaller_text_color_day</item>
+        <item name="truecaller_box_background_color">@color/truecaller_box_color_day</item>
+        <item name="truecaller_verify_button_background">
+            @color/truecaller_verify_button_bg_color_day
+        </item>
+        <item name="truecaller_otp_background">@color/truecaller_otp_box_bg_day</item>
+        <item name="truecaller_otp_verifying_textColor">@color/truecaller_otp_box_bg_night</item>
+        <item name="notification_list_bg">@color/notification_list_bg_day</item>
+        <item name="notification_right_icon_border_color">
+            @color/notification_right_icon_border_color_day
+        </item>
+        <item name="notification_social_text_color">
+            @color/notification_social_text_color_day
+        </item>
+        <item name="red_dot_stroke_color">@color/white_color</item>
+        <item name="source_alphabet_text_color">@color/source_alphabet_text_color_day</item>
+        <item name="source_alphabet_text_color_brand">@color/source_alphabet_text_color_day</item>
+        <item name="sponsored_text_color">@color/sponsored_text_color_day</item>
+        <item name="ads_container_border_color">@color/ad_container_border_day</item>
+        <item name="ads_container_background_color">@color/ad_container_background_day</item>
+        <item name="tv_vertical_divider_color">@color/tv_vertical_divider_color_day</item>
+        <item name="filter_background">@color/history_edit_color</item>
+        <item name="following_count_bg">@color/followed_item_bg_night</item>
+        <item name="following_count_txt">@color/presearch_list_bg_day</item>
+        <item name="actionbar_follow_filter_option_icon">@drawable/actionbar_follow_filter_option_icon_day</item>
+        <item name="create_group_btn_text_color">@drawable/create_group_btn_text_day</item>
+        <item name="group_settings_text_color">@color/group_settings_text_color_day</item>
+        <item name="entity_tab_divider_background">@color/entity_tab_divider_background_day</item>
+        <item name="entity_profile_bg_color">@color/entity_profile_bg_color_day</item>
+        <item name="group_settings_desc_text_color">@color/group_settings_desc_text_color_day</item>
+        <item name="create_group_text_color">@color/create_group_text_color_day</item>
+        <item name="edit_text_border_color">@color/edit_text_border_color_day</item>
+        <item name="news_text_border_color">@color/news_text_border_color_day</item>
+        <item name="edit_text_fill_color">@color/edit_text_fill_color_day</item>
+        <item name="group_settings_screen_divider_color">@color/group_settings_screen_divider_color_day</item>
+        <item name="member_handle_text_color">@color/member_handle_text_color_day</item>
+        <item name="approval_btn_border_color">@color/approval_btn_border_color_day</item>
+        <item name="invite_text_color">@color/social_handle_text_color</item>
+        <item name="error_layout_desc_text_color">@color/header_text_color</item>
+        <item name="error_layout_text_color">@color/error_layout_text_color</item>
+        <item name="invite_card_text_color">@color/invite_card_text_color_day</item>
+
+        <item name="cp_tool_bar_color">@color/cp_tool_bar_color_day</item>
+        <item name="in_app_text_color">@color/theme_night_share_divider</item>
+        <item name="in_app_cta_color">@color/color_white</item>
+        <item name="in_app_text_bg">@color/color_white</item>
+        <item name="in_app_cta_bg">@color/filter_type_blue</item>
+        <item name="in_app_info_icon">@drawable/info_icon</item>
+        <item name="cp_btn_text_color_enable">@color/cp_btn_text_color_day</item>
+        <item name="cp_btn_text_color_disable">@color/cp_btn_text_color_day</item>
+        <item name="cp_btn_bg_color_enable">@color/cp_btn_bg_color_day_enable</item>
+        <item name="cp_btn_bg_color_disable">@color/cp_btn_bg_color_day_disable</item>
+        <item name="cp_edit_text_hint_color">@color/cp_edit_text_hint_color_day</item>
+        <item name="cp_edit_text_color">@color/cp_edit_text_color_day</item>
+        <item name="cp_edit_text_bg_color">@color/cp_edit_text_bg_color_day</item>
+        <item name="cp_loc_toolbar_title_text_color">@color/cp_loc_toolbar_title_text_color_day</item>
+        <item name="cp_loc_title_text_color">@color/cp_loc_title_text_color_day</item>
+        <item name="cp_places_powered_by_google">@drawable/places_powered_by_google_light</item>
+        <item name="cp_loc_divider_color">@color/cp_loc_divider_color_day</item>
+        <item name="cp_loc_close_btn_color">@color/cp_loc_close_btn_color_day</item>
+        <item name="cp_loc_search_bg_color">@color/cp_loc_search_bg_color_day</item>
+        <item name="cp_bottom_bar_divider_color">@color/cp_bottom_bar_divider_color_day</item>
+        <item name="cp_loc_icon_color">@color/cp_loc_icon_color_day</item>
+        <item name="cp_action_item_bg_color">@color/cp_action_item_bg_color_day</item>
+        <item name="cp_action_item_border_color">@color/cp_action_item_border_color_day</item>
+        <item name="cp_repost_bg_color">@color/cp_repost_bg_color_day</item>
+        <item name="cp_repost_border_color">@color/cp_repost_border_color_day</item>
+        <item name="cp_og_name_color">@color/cp_og_name_color_day</item>
+        <item name="cp_og_title_color">@color/cp_og_title_color_day</item>
+        <item name="cp_og_desc_color">@color/cp_og_desc_color_day</item>
+        <item name="cp_discard_dialog_desc_text_color">@color/cp_discard_dialog_desc_text_color_day</item>
+        <item name="cp_bg_color">@color/cp_bg_color_day</item>
+        <item name="cp_hash_at_text_color">@color/cp_hash_at_text_color_day</item>
+        <item name="cp_privacy_bg_color">@color/cp_privacy_bg_color_day</item>
+        <item name="cp_privacy_header_text_color">@color/cp_privacy_header_text_color_day</item>
+        <item name="cp_privacy_sub_header_text_color">@color/cp_privacy_sun_header_text_color_day</item>
+        <item name="cp_privacy_setting_icons_color">@color/cp_privacy_setting_icons_color_day</item>
+        <item name="cp_privacy_line_divider">@color/cp_privacy_line_divider_day</item>
+        <item name="cp_poll_option_edittext_color">@color/cp_poll_option_edittext_normal_color_day</item>
+        <item name="cp_poll_text_color">@color/poll_text_color_day</item>
+        <item name="cp_poll_lenght_header_text_color">@color/cp_poll_lenght_header_text_color_day</item>
+        <item name="cp_poll_lenght_option_text_color">@color/cp_poll_lenght_option_text_color_day</item>
+        <item name="cp_poll_lenght_bs_bg_color">@color/cp_poll_lenght_bs_bg_color_day</item>
+        <item name="cp_poll_lenght_option_header_text_color">@color/cp_poll_lenght_option_header_text_color_day</item>
+        <item name="cp_repost_display_name_text_color">@color/cp_repost_display_name_text_color_day</item>
+        <item name="cp_repost_handle_text_color">@color/cp_repost_handle_text_color_day</item>
+        <item name="cp_repost_title_text_color">@color/cp_repost_title_text_color_day</item>
+        <item name="repost_title">@color/repost_title_day</item>
+
+
+        <item name="source_header_title_primary_color">
+            @color/source_header_title_primary_color_day
+        </item>
+        <item name="source_header_title_secondary_color">
+            @color/source_header_title_secondary_color_day
+        </item>
+        <item name="hashtag_text_color">@color/hashtag_text_color_day</item>
+        <item name="hashtag_text_background">@drawable/background_hashcode</item>
+        <item name="location_text_color">@color/location_color_selector</item>
+        <item name="location_text_background">@drawable/background_location_day</item>
+        <item name="bottom_bar_text_color">@color/bottom_bar_text_color_day</item>
+        <item name="nd_topbar_text_color">@color/nd_topbar_text_color_day</item>
+        <item name="display_name_text_color">@color/time_stamp_text_color</item>
+        <item name="promoted_text_color">@color/promoted_text_color</item>
+        <item name="theme_screen_text_color">@color/theme_screen_text_color</item>
+        <item name="display_name_color_related_story">@color/display_name_color_related_story_day</item>
+        <item name="follow_button_text_color">@color/follow_button_text_color_day</item>
+        <item name="inbox_follow_button_text_color">@color/inbox_follow_button_text_color_day</item>
+        <item name="inbox_follow_button_bg">@drawable/follow_btn_notification_bg_day</item>
+        <item name="ic_see_all">@drawable/see_all_icon</item>
+        <item name="ic_see_all_bg">@drawable/see_all_bg</item>
+        <item name="following_button_text_color">@color/following_button_text_color_day</item>
+        <item name="new_default_text_color">@color/color_black</item>
+        <item name="block_button_text_color">@color/block_button_text_color_day</item>
+        <item name="follow_button_border_color">@color/follow_button_border_color_day</item>
+        <item name="follow_button_fill_color">@color/follow_button_fill_color_day</item>
+        <item name="og_container_border_color">@color/og_container_border_color_day</item>
+        <item name="og_secondary_title_color">@color/og_secondary_title_color_day</item>
+        <item name="og_title_color">@color/og_title_color</item>
+        <item name="og_bg_color">@color/white_color</item>
+        <item name="card_divider_color">@color/card_divider_color_day</item>
+        <item name="poll_opt_color_1">@color/poll_opt_color_1_day</item>
+        <item name="poll_opt_color_2">@color/poll_opt_color_2_day</item>
+        <item name="poll_opt_color_3">@color/poll_opt_color_3_day</item>
+        <item name="poll_opt_color_4">@color/poll_opt_color_4_day</item>
+        <item name="poll_opt_text_color">@color/poll_opt_text_color_day</item>
+        <item name="poll_opt_vote_color">@color/poll_opt_vote_color_day</item>
+        <item name="default_thumbnail_fill">@color/default_thumbnail_fill_day</item>
+        <item name="default_thumbnail_border">@color/default_thumbnail_border_day</item>
+        <item name="source_tab_selected_text_new">@color/source_tab_selected_text_new_day</item>
+        <item name="profile_filter_background">@drawable/black_filter_background</item>
+        <item name="ic_filter_delete">@drawable/ic_filter_delete_day</item>
+        <item name="profile_filter_down_arrow">@drawable/black_filter_down_arrow</item>
+        <item name="like_icon">@drawable/ic_likes</item>
+        <item name="repost_icon">@drawable/repost_vector</item>
+        <item name="repost_icon_2">@drawable/ic_repost</item>
+        <item name="share_icon">@drawable/share_vector</item>
+        <item name="share_icon_detail">@drawable/share_vector_detail</item>
+        <item name="commment_icon">@drawable/comment_vector</item>
+        <item name="commment_icon_2">@drawable/comment_vector_2</item>
+        <item name="comment_repost_container_color">@drawable/comment_repost_container</item>
+        <item name="comment_repost_text_color">@color/black_color</item>
+        <item name="source_name_color">@color/dot_fill_color</item>
+        <item name="news_detail_actionbar_back_button">@drawable/ic_news_detail_comment_bar_back_arrow</item>
+        <item name="ic_news_detail_like_count_background">@drawable/ic_news_detail_like_count_bg</item>
+        <item name="ic_news_detail_like_emoji_background">@drawable/news_detail_likes_selector_day</item>
+        <item name="news_detail_no_comments">@drawable/no_comments</item>
+        <item name="detail_emoji_count_text_color_ref">@color/detail_emoji_count_text_color</item>
+        <item name="view_all_comment_bg_ref">@drawable/view_all_comments_bg_day</item>
+        <item name="detail_emoji_all_unseleceted_text_color_ref">@color/detail_emoji_all_unseleceted_text_color</item>
+        <item name="edit_comment_bg_ref">@drawable/edit_comment_bg</item>
+        <item name="pd_add_comment_bg_ref">@color/pd_add_comment_bg</item>
+        <item name="comments_delete_icon">@drawable/ic_delete_news_details_1</item>
+        <item name="see_all_repost_text_color_ref">@color/see_all_repost_text_color</item>
+        <item name="view_all_comment_text_color_ref">@color/see_all_repost_text_color_night</item>
+        <item name="pd_btn_repost_ref">@drawable/pd_btn_repost</item>
+
+        <!-- Post Detail -->
+        <item name="pd_header_title_color">@color/pd_header_title_color_day</item>
+        <item name="pd_discussion_name_color">@color/pd_discussion_name_color_day</item>
+        <item name="pd_discussion_handle_color">@color/pd_discussion_handle_color_day</item>
+        <item name="pd_discussion_post_color">@color/pd_discussion_post_color_day</item>
+        <item name="pd_discussion_timestamp_color">@color/pd_discussion_timestamp_color_day</item>
+        <item name="action_button_count_color">@color/action_button_count_color</item>
+        <item name="reply_button_border">@color/reply_button_border</item>
+        <item name="separator_line">@color/seprator_color_day</item>
+        <item name="collection_separator_line">@color/seprator_color_day</item>
+        <item name="more_perspective_separator_line">@color/black</item>
+        <item name="search_seperate_line">@color/search_seprator_color_day</item>
+        <item name="ic_disclaimer">@drawable/ic_info</item>
+
+        <!--Video Detail white bg mode-->
+        <item name="vd_title_color">@color/vd_title_color_day</item>
+        <item name="vd_time_stamp_color">@color/vd_time_stamp_color_day</item>
+        <item name="vd_duration_color">@color/vd_duration_color_day</item>
+        <item name="vd_bs_top_bar_color">@color/vd_bs_top_bar_color_day</item>
+        <item name="vd_bs_bottom_bar_color">@color/vd_bs_bottom_bar_color_day</item>
+        <item name="vd_unplayed_progress_color">@color/vd_unplayed_progress_color_day</item>
+        <item name="vd_mute_color">@color/vd_mute_color_day</item>
+        <item name="vd_src_header_primary_color">@color/src_header_primary_color_day</item>
+        <item name="vd_src_header_secondary_color">@color/src_header_secondary_color_day</item>
+        <item name="vd_ic_actionbar_back_color">@color/vd_ic_actionbar_back_color_day</item>
+        <item name="vd_bottom_bar_text_color">@color/bottom_bar_text_color_day</item>
+        <item name="vd_like_icon">@drawable/ic_likes</item>
+        <item name="vd_repost_icon">@drawable/ic_repost</item>
+        <item name="vd_share_icon">@drawable/ic_share_whatsapp</item>
+        <item name="vd_comment_icon">@drawable/ic_comments</item>
+        <item name="vd_3dots_icon_color">@color/vd_3dots_icon_color_day</item>
+
+        <item name="repost_bg_color">@color/repost_bg</item>
+        <item name="back_arrow">@drawable/ic_actionbar_back</item>
+        <item name="creator_badge">@drawable/ic_badge</item>
+        <item name="notification_icon">@drawable/ic_bell_icon</item>
+        <item name="settings_icon">@drawable/ic_settings_global</item>
+        <item name="thumbnail_border_style">@color/thumbnail_border_color</item>
+        <item name="cold_start_source">@color/cold_start_item_name_day</item>
+        <item name="poll_bg_color">@color/poll_default_bg</item>
+        <item name="poll_selected_color">@color/poll_progress_color</item>
+        <item name="profile_ner_down_arrow">@drawable/profile_ner_down_arrow_day</item>
+        <item name="profile_dialog_delete_icon">@drawable/profile_dialog_delete_icon_day</item>
+
+        <item name="bottom_bar_menu_item_bg_color">@color/bottom_bar_menu_item_bg_color_day</item>
+        <item name="bottom_bar_menu_bg_drawable">@drawable/bottom_bar_menu_bg_drawable_day</item>
+
+        <item name="dislike_option_title_color">@color/dislike_option_title_color_day</item>
+        <item name="dislike_frag_background_color">@color/dislike_frag_background_color_day</item>
+        <item name="dislike_frag_title_color">@color/dislike_frag_title_color_day</item>
+        <item name="dislike_frag_sub_title_color">@color/dislike_frag_sub_title_color_day</item>
+        <item name="repost_hashtag_color">@color/repost_hashtag_color</item>
+        <item name="three_dots_post">@drawable/ic_3_dots</item>
+        <item name="follow_star">@drawable/ic_follow_star</item>
+        <item name="follow_star_fill">@drawable/ic_follow_star_fill</item>
+        <item name="carousel_progress_bg">@drawable/carousel_progress</item>
+        <item name="import_contacts_skip_color">@color/import_contacts_skip</item>
+        <item name="import_contacts_title_color">@color/import_contacts_title</item>
+        <item name="import_contacts_msg_color">@color/import_contacts_title</item>
+        <item name="sign_on_header_textColor_onboarding">@color/sign_on_onboarding_color_day</item>
+        <item name="app_bar_color">@color/presearch_bg_day</item>
+        <item name="add_icon">@drawable/ic_addmore</item>
+        <item name="tab_title_color">@color/profile_tab_unselected_text_new</item>
+        <item name="tab_title_select_color">@color/source_tab_selected_text</item>
+        <item name="default_share_icon">@drawable/default_share_vector</item>
+        <item name="default_share_icon_detail">@drawable/default_share_detail</item>
+        <item name="collection_header_title">@color/collection_header_title_day</item>
+        <item name="collection_of_collection_card_bg">@color/collection_of_collection_card_bg_day</item>
+        <item name="collection_of_collection_square_icon_bg">@color/collection_of_collection_square_icon_bg_day</item>
+        <item name="collection_of_collection_header_text_color">@color/collection_of_collection_header_text_color_day</item>
+        <item name="collection_of_collection_divider_color">@color/collection_of_collection_divider_color_day</item>
+        <item name="import_contacts_illus">@drawable/ic_find_contacts_illus</item>
+        <item name="import_contacts_dh_logo">@drawable/ic_dh_logo_day</item>
+        <item name="finding_contact_text_color">@color/finding_contact_day</item>
+        <item name="import_contact_card_color">@color/import_contact_card_color</item>
+        <item name="import_contact_card_icon">@drawable/ic_import_contact_card</item>
+        <item name="profile_toolbar_setting_icon">@drawable/profile_settings_icon_non_login</item>
+        <item name="search_edit_text_bg_color">@color/search_edit_text_bg_color</item>
+        <item name="search_edit_text_color">@color/search_edit_text_color_night</item>
+        <item name="background_runtime_permission">@color/background_runtime_permission_day</item>
+        <item name="ic_logo_dh_runtime_permission">@drawable/ic_dh_logo_day</item>
+        <item name="runtime_permission_title_bg">@color/msg_header_txt_color_day</item>
+        <item name="runtime_permission_sub_title_bg">@color/msg_body_txt_color_day</item>
+        <item name="choose_primary_account_subtitle">@color/choose_primary_account_subtitle_day</item>
+        <item name="rv_container_bg">@color/rv_container_bg_day</item>
+        <item name="progress_overlay_bg_color">@color/progress_overlay_bg_color</item>
+        <item name="likers_count_color">@color/likers_count_color</item>
+        <item name="add_location_header_color">@color/add_location_header_color</item>
+        <item name="suggested_location_unselected">@color/suggested_location_unselected</item>
+        <item name="add_entity_square_background">@drawable/add_entity_square_background</item>
+        <item name="suggested_location_text_color">@color/black_color</item>
+        <item name="suggested_location_item_background">@drawable/suggested_location_item_background</item>
+        <item name="location_bottom_line">@color/location_bottom_line</item>
+        <item name="location_state_bottom_line">@color/location_bottom_line</item>
+        <item name="line_4">@drawable/line_4</item>
+        <item name="profile_dialog_bg">@color/profile_background_day</item>
+        <item name="push_notification_divider">@color/push_notification_divider_day</item>
+        <item name="privacy_negative_text_color">@color/privacy_negative_text_color</item>
+        <item name="tickers_and_tray_management_color">@color/tickers_and_tray_management_color_day</item>
+        <item name="notification_setting_subtext_color">@color/notification_setting_subtext_day</item>
+        <item name="notification_setting_radio_button_subtext_color">@color/notification_setting_radio_button_subtext_day</item>
+        <item name="notification_setting_radio_button_divider_color">@color/notification_setting_radio_button_divider_day</item>
+        <item name="home_loader_anim">@drawable/home_loader_anim_day</item>
+        <item name="home_loader_dh">@drawable/ic_dailyhunt_text_day</item>
+        <item name="live_carousel_tab_indicator_color">@color/color_black</item>
+        <item name="searchbar_textColor">@color/searchbar_text_color</item>
+        <item name="search_icon">@drawable/search_icon</item>
+        <item name="dailyhunt_logo">@drawable/dailyhunt_logo</item>
+        <item name="searchbar_bg_color">@color/searchbar_bg_color</item>
+        <item name="common_topbar_bg">@color/color_white</item>
+        <item name="create_post_fab_icon">@drawable/ic_fab_pencil_day</item>
+        <item name="reply_icon">@drawable/ic_reply_icon</item>
+    </style>
+
+    <style name="AppThemeNightV23" parent="AppTheme">
+        <!-- Will be customized in v23-->
+    </style>
+
+    <style name="AppThemeNight" parent="AppThemeNightV23">
+        <item name="state_info_layout_border">@color/black_color</item>
+        <item name="follow_text_color">@color/white_color</item>
+        <item name="search_bottom_color">@color/search_bar_highlight_night</item>
+        <item name="tv_detail_description_color">@color/darktv_detail_description_color</item>
+        <item name="tv_detail_divider_color">@color/darktv_detail_divider_color</item>
+        <item name="tv_detail_description_color">@color/daytv_detail_description_color</item>
+        <item name="tv_detail_divider_color">@color/daytv_detail_item_divider_color</item>
+        <item name="android:windowBackground">@color/theme_night_background</item>
+        <item name="android:actionModeBackground">@color/toolbar_color_night</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="recommended_background">@drawable/recommended_card_background_night</item>
+        <item name="actionModeBackground">@color/toolbar_color_night</item>
+        <item name="news_toolbar_bg">@color/toolbar_color_night</item>
+        <item name="source_title_tab_bg">@drawable/shadow_night</item>
+        <item name="default_text_color">@color/theme_night_text_color</item>
+        <item name="onboarding_title_text_color">@color/theme_hamburger_day_background</item>
+        <item name="onboarding_subtitle_text_color">@color/theme_day_divider_thin</item>
+        <item name="onboarding_popup_bg">@drawable/language_selection_popup_night_mode</item>
+        <item name="onboarding_shadow_bg">@color/onboarding_shadow_bg_color</item>
+        <item name="onboarding_terms_color">@color/onboarding_terms_text_color_night</item>
+        <item name="onboarding_terms_link_color">@color/white_color</item>
+        <item name="onboarding_bg">@drawable/onboarding_mid_night_bg</item>
+        <item name="onboarding_appbar_bg">@drawable/onboarding_night_apppbar</item>
+        <item name="onboarding_bottombar_bg">@drawable/onboarding_bottom_night</item>
+        <item name="onboarding_div_color">@color/toolbar_background_color_night</item>
+        <item name="onboarding_title_popup_color">@color/theme_hamburger_day_background</item>
+        <item name="onboarding_icon_color">@color/white_color</item>
+        <item name="onboarding_icon_selected_color">@color/black</item>
+        <item name="onboarding_text_color">@color/white_color</item>
+        <item name="onboarding_text_selected_color">@color/black</item>
+        <item name="onboarding_item_bg_color">@color/color_545454</item>
+        <item name="onboarding_item_selected_bg_color">@color/white_color</item>
+        <item name="onboarding_item_border_color">@color/onboarding_popup_item_border_color_night</item>
+        <item name="isometric_depth_color">@color/isometric_depth_color_night</item>
+        <item name="newspaper_group_info_text_color">
+            @color/newspaper_group_info_text_color_day_mode
+        </item>
+        <item name="action_back_arrow_color">@color/back_arrow_night</item>
+        <item name="entity_preview_background">@color/toolbar_color_night</item>
+        <item name="settings_text_color">@color/theme_night_text_color</item>
+        <item name="settings_notification_options_text_color">@color/settings_notification_options_text_color_night</item>
+        <item name="settings_notification_radio_button_highlighter_drawable">@drawable/settings_notifications_radio_button_selector_night</item>
+        <item name="push_notification_desc_text_color">@color/push_notification_desc_text_color_night</item>
+        <item name="notification_radio_button">@drawable/notification_radio_button_nightmode</item>
+        <item name="notification_expand_button_toggle">@drawable/live_tickers_management_toggle_night</item>
+        <item name="news_lang_desc_color_settings">@color/theme_night_lang_desc_color</item>
+        <item name="settings_line_divider">@color/theme_night_divider</item>
+        <item name="settings_line_divider_thin">@color/theme_night_divider</item>
+        <item name="detail_line_divider">@color/detail_night_divider</item>
+        <item name="share_app_divider">@color/theme_night_share_divider</item>
+        <item name="divider_color">@color/divider_color_night_mode</item>
+        <item name="newspaper_name_text_color">@color/newspaper_text_text_color_night_mode</item>
+        <item name="default_background">@color/theme_night_background</item>
+        <item name="story_error_page_background">@color/black_color</item>
+        <item name="hamburger_background">@color/theme_hamburger_night_background</item>
+        <item name="default_toolbar_background">@color/theme_night_background</item>
+        <item name="source_tab_background">@color/theme_night_source_tab_background</item>
+        <item name="material_bg">@color/primary_material_dark</item>
+        <item name="hamburger_menu">@drawable/hamburger_menu</item>
+        <item name="ad_background">@color/adview_background_color_dark</item>
+        <item name="ads_shadow_bg">@drawable/ads_shadow_dark</item>
+        <item name="brand_bottombar_fallback_bg">@color/black</item>
+        <item name="ads_top_title_color">@color/ads_top_sponsor_color</item>
+        <item name="ads_top_featured_title_color">@color/ads_header_text_color_dark</item>
+        <item name="hamburger_text_color">@color/theme_night_text_color</item>
+        <item name="hamburger_line_divider">@color/adview_background_color_dark</item>
+        <item name="ad_banner_background_color">@color/ad_banner_background_night_color</item>
+        <item name="hamburger_saved_articles_img">@drawable/hamburger_saved_articles_white</item>
+        <item name="toggle_selected_img">@drawable/ic_switch_on</item>
+        <item name="toggle_unselected_img">@drawable/ic_switch_off</item>
+        <item name="divider_gray">@color/divider_dark_gray</item>
+        <item name="forward_arrow">@drawable/arrow_forward_night</item>
+        <item name="drawerArrowStyle">@style/MyDrawerArrowToggle</item>
+        <item name="action_bar_bg">@color/button_material_dark</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="np_name_color">@color/np_title_text_color_night</item>
+        <item name="source_favorite_separator">@color/theme_night_text_color</item>
+        <item name="source_favorite_background">@color/source_favorite_background_night</item>
+        <item name="recycler_list_divider">@drawable/recycler_view_night_list_divider</item>
+        <item name="story_list_divider">@color/story_card_divider_color_night</item>
+        <item name="read_more_bg">@color/color_545454</item>
+        <item name="daily_hunt_logo">@drawable/daily_logo_white</item>
+
+        <item name="offline_toolbar_background">@drawable/offline_actionbar_shadow_night</item>
+        <item name="actionModeCloseDrawable">@mipmap/arrow_dark_gray</item>
+        <item name="onboarding_spinner_background">@color/onboarding_edition_container_night</item>
+        <item name="onboarding_spinner_arrow_down">@drawable/arrow_down</item>
+        <item name="onboarding_spinner_arrow_up">@drawable/arrow_up</item>
+        <item name="onboarding_language_spinner_open">
+            @color/onboarding_language_spinner_open_night
+        </item>
+        <item name="coachmark_toggle_button">@drawable/coachmark_night_mode</item>
+        <item name="coachmark_toggle_button_settings">
+            @drawable/card_toggle_selector_settings_night_mode
+        </item>
+        <item name="onboarding_language_text_color">@color/theme_night_text_color</item>
+        <item name="readmore_background">@drawable/readmore_night_shadow</item>
+        <item name="readmore_text_color">@color/readmore_text_night_rounded_color</item>
+        <item name="readmore_button_background">@drawable/readmore_night_shadow_rounded</item>
+        <item name="refresh_errormsg_text_color">@color/color_white</item>
+        <item name="notification_bg">@color/notification_bg</item>
+        <item name="notification_title">@color/notification_title</item>
+        <item name="notification_divider">@color/notification_divider_night</item>
+        <item name="date_background">@color/news_detail_branding_bar_color_night</item>
+        <item name="date_text_color">@color/theme_night_date_text_color</item>
+        <item name="follower_text_color">@color/theme_night_follower_text_color</item>
+        <item name="default_city_title_color">@color/city_text_color_night</item>
+        <item name="empty_notification_logo">@drawable/ic_empty_notification_night</item>
+        <item name="action_bar_delete_menu_icon">@drawable/ic_delete_nightmode</item>
+        <item name="action_bar_more_icon">@drawable/ic_more_nightmode</item>
+        <item name="morenews_up_arrow">@drawable/more_news_up_arrow_nightmode</item>
+        <item name="default_tab_text_color">@color/theme_night_text_color</item>
+        <item name="connection_error">@drawable/con_er_nm</item>
+        <item name="content_error">@drawable/cnt_er_nm</item>
+        <item name="bad_error">@drawable/srvr_er_nm</item>
+        <item name="connectivity_error">@drawable/no_connectivity_icon_night</item>
+        <item name="no_saved_artcles">@drawable/ic_saved_articles_empty_nm</item>
+        <item name="choosen_location_bg">@color/chosen_loaction_background_night_color</item>
+        <item name="choosen_location_headertext_color">
+            @color/chosen_loaction_header_text_night_color
+        </item>
+        <item name="choosen_location_yes_confirm_btn_bg_color">
+            @color/chosen_loaction_yes_confirm_bg_night_color
+        </item>
+        <item name="choosen_location_yes_confirm_text_color">@color/color_white</item>
+        <item name="chosen_location_button">@drawable/yes_confirm_btn_bg_night</item>
+        <item name="gallery_card_bg_color">@color/gallery_card_bg_color_night_mode</item>
+        <item name="app_rate_bg">@color/app_rate_background_night</item>
+        <item name="ic_rating_star">@drawable/ic_start_drawable_night</item>
+        <item name="app_rate_dialog_bg">@drawable/app_rate_dialog_night_background</item>
+        <item name="dialog_box_cross_btn">@drawable/ic_cross_night</item>
+        <item name="astro_icon">@drawable/ic_astro_icon_nm</item>
+        <item name="astro_submit_btn_bg">@drawable/astro_btn_bg_night</item>
+        <item name="astro_gender_selected_bg">@color/astro_gender_selected_bg_color</item>
+        <item name="astro_dropdown_arrow">@drawable/dropdown_arrow_nm</item>
+        <item name="app_rate_dialog_top_layout_bg">@color/app_rate_top_layout_night_bg_color</item>
+        <item name="app_rate_dialog_title_text_color">@color/app_rate_title_text_night_color</item>
+        <item name="app_rate_dialog_ratenow_bg">@drawable/app_rating_ratenow_night_bg</item>
+        <item name="app_rate_dialog_feedback_bg">@drawable/app_rating_feedback_night_bg</item>
+        <item name="app_rate_dialog_fb_btn_text_color">@color/color_white</item>
+        <item name="app_rate_dialog_nevershow_text_color">
+            @color/app_rate_nevershow_text_night_color
+        </item>
+        <item name="app_rate_submit_text_color">@color/black</item>
+        <item name="app_rate_submit_button_bg">@color/white_color</item>
+        <item name="app_rate_dialog_checkbox">@drawable/app_rating_checkbox_night_selector</item>
+        <item name="toolbar_background">@color/toolbar_background_color_night</item>
+        <item name="location_toolbar_background_color">@color/location_toolbar_background_color_night</item>
+        <item name="location_toolbar_background">@drawable/location_toolbar_background_night</item>
+        <item name="toolbar_bottom_line">@color/toolbar_bottom_line_color_night</item>
+        <item name="comment_toolbar_bottom_line">@color/white_color</item>
+        <item name="tab_shader">@drawable/tab_shader_night</item>
+        <item name="error_desc_text_color">@color/error_desc_txt_color_night_mode</item>
+        <item name="default_featured_background">@color/theme_featured_night_background</item>
+        <item name="location_list_divider">@color/location_list_divider_night_color</item>
+        <item name="reorder_cross">@color/reorder_cross_night</item>
+        <item name="pgi_ad_branding_bar_background">@color/pgi_ad_branding_bar_color_night</item>
+        <item name="like_dislike_bg">@color/like_dislike_background_night</item>
+
+        <item name="header_message_background">@color/list_header_message_background_night</item>
+        <item name="entity_tab_divider_background">@color/entity_tab_divider_background_night</item>
+        <item name="entity_profile_bg_color">@color/entity_profile_bg_color_night</item>
+        <item name="header_message_text_color">@color/list_header_message_text_night</item>
+        <item name="reorder_header_text_color">@color/reorder_header_color_night</item>
+        <item name="customizable_subtitle_color">@color/customizable_subtitle_color_night</item>
+        <item name="browse_categories_item_bg">@color/np_browse_categories_bg</item>
+        <item name="favourite_categories_grid_item_bg">@color/fav_grid_container_bg_night_mode
+        </item>
+        <item name="np_fav_grid_title_color">@color/np_fav_grid_color_nm</item>
+        <item name="story_supplement_section_title_text_color">
+            @color/story_supplement_section_title_text_color_night
+        </item>
+        <item name="story_supplement_item_text_color">
+            @color/story_supplement_item_text_color_night
+        </item>
+        <item name="story_supplement_item_desc_text_color">
+            @color/story_supplement_item_desc_text_color_night
+        </item>
+        <item name="story_supplement_carousel_item_bg_color">
+            @color/story_supplement_carousel_item_bg_color_night
+        </item>
+        <item name="story_supplement_grid_item_bg_color">
+            @color/story_supplement_grid_item_bg_color_night
+        </item>
+        <item name="story_supplement_carousel_bg_color">
+            @color/story_supplement_carousel_bg_color_night
+        </item>
+        <item name="story_supplement_grid_bg_color">@color/story_supplement_grid_bg_color_night
+        </item>
+        <item name="story_supplement_source_text_color">
+            @color/story_supplement_source_text_color_night
+        </item>
+        <item name="story_supplement_source_pub_time_stamp_text_color">
+            @color/story_supplement_source_pub_time_stamp_text_color_night
+        </item>
+        <item name="colorControlHighlight">@color/ripple_night</item>
+        <item name="hamburger_icon_news">@drawable/nav_news_nm</item>
+        <item name="hamburger_icon_buzz">@drawable/nav_buzz_nm</item>
+        <item name="hamburger_icon_follow">@drawable/nav_follow_nm</item>
+        <item name="astro_card_read_more_text_color">@color/astro_card_read_more_text_color_nm
+        </item>
+        <item name="astro_card_read_more_text_bg">@drawable/astro_read_more_text_bg_night</item>
+        <item name="astro_card_bg_color">@color/astro_card_bg_color_night</item>
+        <item name="astro_card_title_color">@color/astro_card_title_color_night</item>
+        <item name="astro_card_read_more_bg_color">@color/astro_read_more_bg_color_night</item>
+        <item name="astro_card_read_more_bg_inside_color">
+            @color/astro_read_more_bg_inside_border_color_night
+        </item>
+        <item name="carousel_video_item_background">@color/carousel_video_item_background</item>
+        <item name="story_card_title_text_color">@color/story_card_title_text_color_night</item>
+        <item name="post_collection_title_color">@color/color_white</item>
+        <item name="story_card_bold_title_text_color">@color/story_card_title_text_color_night
+        </item>
+        <item name="story_card_desc_text_color">@color/story_card_desc_text_color_night</item>
+        <item name="related_news_text_color">@color/related_news_text_color_night</item>
+        <item name="cta_text_color">@color/cta_text_color_night</item>
+        <item name="dislike_shader">@drawable/dislike_shader_night</item>
+        <item name="story_card_title_read_text_color">@color/story_card_title_read_text_color</item>
+        <item name="group_card_rating_bar_selector">@drawable/group_card_rating_bar_selector_night
+        </item>
+        <item name="vh_recommended_header_color">@color/darkvh_recommended_header_color</item>
+        <item name="vh_card_title_color">@color/darkvh_card_title_color</item>
+        <item name="vh_card_social_count_color">@color/darkvh_card_social_count_color</item>
+        <item name="vh_card_views_count_color">@color/darkvh_card_views_count_color</item>
+        <item name="social_comment_full_page_error_icon">
+            @drawable/social_comment_full_page_error_nm
+        </item>
+        <item name="onboarding_lang_select_item_bg_color">
+            @color/onboarding_lang_select_item_bg_color_night
+        </item>
+        <item name="inactive_tab_text_color">@color/inactive_text_color_night_mode</item>
+        <item name="featured_topic_background_color">@color/topic_featured_background_nightmode
+        </item>
+        <item name="onboarding_choose_lang_title_bg">@color/toolbar_color_night</item>
+        <item name="add_page_featured_topic_background_color">
+            @color/follow_button_background_night_mode
+        </item>
+        <item name="add_page_featured_topic_divider_color">
+            @color/follow_button_background_night_mode
+        </item>
+        <item name="recommended_np_divider_color">@color/recommended_np_divider_color_nm</item>
+        <item name="photo_gallery_text_color">@color/photo_gallery_text_color_nm</item>
+        <item name="ner_know_more_color">@color/ner_know_more_color_nm</item>
+        <item name="hide_content_title_color">@color/color_hide_content_bar_heading1_night</item>
+        <item name="hide_content_short_title_color">@color/color_hide_content_bar_heading2_night
+        </item>
+        <item name="hide_content_divider_color">@color/color_hide_content_bar_divider_night</item>
+        <item name="collection_landing_title_textColor">
+            @color/collection_landing_title_textColor_night
+        </item>
+        <item name="collection_landing_subtitle_textColor">
+            @color/collection_landing_subtitle_textColor_night
+        </item>
+        <item name="collection_landing_item_source_textColor">
+            @color/collection_landing_item_source_textColor_night
+        </item>
+        <item name="collection_landing_counts_textColor">
+            @color/collection_landing_counts_textColor_night
+        </item>
+        <item name="collection_landing_cardview_background">
+            @color/collection_landing_cardview_bg_color_night
+        </item>
+        <item name="source_share_title_color">@color/source_share_title_color_night</item>
+        <item name="source_share_timestamp_color">@color/source_share_timestamp_night</item>
+        <item name="related_title_color">@color/source_share_title_color_night</item>
+
+        <item name="cold_start_color_heading1">@color/cold_start_color_heading1_night</item>
+        <item name="cold_start_color_heading2">@color/cold_start_color_heading2_night</item>
+        <item name="cold_start_card_divider_color">@color/cold_start_card_divider_color_night</item>
+        <item name="cold_start_explore_divider_color">
+            @color/cold_start_explore_divider_color_night
+        </item>
+        <item name="cold_start_item_bg">@color/cold_start_item_bg_night</item>
+        <item name="cold_start_item_name">@color/cold_start_item_name_night</item>
+        <item name="cold_start_explore_text_color">@color/cold_start_explore_text_color_night</item>
+        <item name="cold_start_vh_bg_color">@color/cold_start_vh_bg_color_night</item>
+        <item name="cold_start_carousel_vh_bg_color">@color/cold_start_carousel_vh_bg_color_night
+        </item>
+        <item name="cold_start_carousel_divider_color">
+            @color/cold_start_carousel_divider_color_night
+        </item>
+        <item name="cold_start_list_item_name_color">@color/cold_start_list_item_name_color_night
+        </item>
+        <item name="carousel_card_title_color">
+            @color/carousel_card_title_color_night
+        </item>
+        <item name="carousel_card_bg_color">
+            @color/carousel_card_bg_color_night
+        </item>
+        <item name="collection_bg_color">@color/collection_bg_color_night</item>
+        <item name="carousel_card_progress_bar_color">
+            @color/carousel_card_progress_bar_color_night
+        </item>
+        <item name="carousel_source_share_bg">@color/carousel_source_share_bg_night</item>
+        <item name="carousel_ad_bg_color">@color/carousel_ad_bg_color_night</item>
+        <item name="ic_three_dots">@drawable/ic_three_dots_night</item>
+        <item name="astro_desc_text_color">@color/white_color</item>
+        <item name="ic_three_dots_detail">@drawable/ic_three_dots_detail_night</item>
+        <item name="ic_actionbar_back">@drawable/action_bar_back_button_night</item>
+        <item name="profile_toolbar_back_btn_icon">@drawable/profile_back_button</item>
+        <item name="ads_bottom_bg">@drawable/ads_border_background_bottom_rounded_night</item>
+        <item name="ads_cta_border_color">@color/cta_button_color_night</item>
+        <item name="ads_bottombar_cta_bg">@color/ads_cta_bg_color_night</item>
+        <item name="ads_divider_color">@color/ads_divider_color_night</item>
+        <item name="ads_forward_icon">@drawable/ic_cta_forward_icon_night</item>
+        <item name="comments_text_bg">@drawable/comment_rounded_rect_bg_night</item>
+        <item name="comment_user_name_text_color">@color/comment_user_name_text_color_night</item>
+        <item name="comment_body_text_color">@color/comment_body_text_color_night</item>
+        <item name="comment_section_bg_color">@color/comment_section_bg_color_night</item>
+        <item name="view_all_bg_color">@color/view_all_bg_color_night</item>
+        <item name="dhtv_comment_title_bg_color">@color/dhtv_comment_title_bg_color_night</item>
+        <item name="comment_bar_shadow_bg">@drawable/comment_bar_shadow_bg_night</item>
+        <item name="edit_comment_bg">@drawable/edit_comment_bg_night</item>
+        <item name="edit_comment_bg_dhtv">@drawable/edit_comment_bg_dhtv</item>
+        <item name="add_comment_bg">@drawable/ic_add_comment_bg</item>
+        <item name="comment_bar_top_divider_color">@color/comment_bar_top_divider_color_night</item>
+        <item name="comment_post_icon">@drawable/ic_post_comment_night</item>
+        <item name="comment_post_icon_dhtv">@drawable/ic_post_comment_white</item>
+        <item name="tv_item_falsepadding">@dimen/tv_topofeveryvideo_falsepadding</item>
+        <item name="toggle_image_coachmark_bg">@drawable/toggle_image_coachmark_bg_night</item>
+        <item name="explore_background">@drawable/explore_child_outer_bg_night</item>
+        <item name="explore_unselected_background">@drawable/unselected_subtitle_night</item>
+        <item name="follow_card_name_color">@color/follow_card_name_text_color_night</item>
+        <item name="followed_entities_background_color">@color/followed_fragment_bg_night</item>
+        <item name="no_follow_text_color">@color/no_follow_text_color_night</item>
+        <item name="followed_items_holder_bg">@color/followed_items_holder_bg_night</item>
+        <item name="followed_item_bg">@color/followed_item_bg_night</item>
+        <item name="follow_zero_state_bg">@color/follow_zero_state_bg_night</item>
+        <item name="feed_no_follow_layout_bg">@color/feed_no_follow_layout_bg_night</item>
+        <item name="follow_small_card_bg">@drawable/follow_small_card_bg_night</item>
+        <item name="no_saved_story_card_bg">@color/location_state_background_color_night</item>
+        <item name="see_all_entity_toolbar_bg">@color/see_all_entity_toolbar_bg_night</item>
+        <item name="background_bottom_tab">@drawable/bottom_bar_background_night</item>
+        <item name="ad_bottom_banner_fill_color">@color/ad_bottom_banner_color_night</item>
+        <item name="presearch_bg">@color/presearch_bg_night</item>
+        <item name="presearch_list_bg">@color/presearch_list_bg_night</item>
+        <item name="location_presearch_list_bg">@color/location_toolbar_background_color_night</item>
+        <item name="hashtag_suggestion_title_color">@color/hashtag_suggestion_title_color_night</item>
+        <item name="hashtag_suggestion_subtitle_color">@color/hashtag_suggestion_subtitle_color_night</item>
+        <item name="hashtag_new_highlight_color">@color/hashtag_new_hightlight_color_night</item>
+        <item name="search_suggestion_text_color">@color/suggestion_text_night</item>
+        <item name="search_divider">@color/search_divider_night</item>
+        <item name="location_suggestion_divider">@color/black_color</item>
+        <item name="search_edit_text_background">@drawable/background_edit_text_night</item>
+        <item name="search_recent_icon">@drawable/vector_recent_search_night</item>
+        <item name="search_trending_icon" >@drawable/vector_trending_search_night</item>
+        <item name="search_dustbin_icon">@drawable/clear_recent_vector</item>
+        <item name="search_noresult">@drawable/vector_search_noresult_night</item>
+        <item name="notification_badge_circle">@drawable/notification_badge_circle_nm</item>
+        <item name="notification_badge_squared">@drawable/notification_badge_squared_nm</item>
+        <item name="language_save_button_background">@color/language_save_button_background_night
+        </item>
+        <item name="language_save_button_textcolor">@color/language_save_button_textcolor_night
+        </item>
+        <item name="language_select_text_color">@color/language_select_text_color_night</item>
+        <item name="select_lang_text_color">@color/select_lang_text_color_night</item>
+        <item name="user_selected_language_text_color">@color/user_selected_lang_text_color_night
+        </item>
+        <item name="language_card_divider_color">@color/language_card_divider_color_night</item>
+        <item name="language_selection_card_view_background">
+            @color/language_card_view_selection_background_night
+        </item>
+        <item name="commentbar_background_color">@drawable/commentbar_rounded_corner_night</item>
+        <item name="snackbar_background_color">@drawable/snackbar_rounded_corner_night</item>
+        <item name="snackbar_text_color">@color/snackbar_backgroud_color_day</item>
+        <item name="followed_location_background">@drawable/location_list_shadow_bg_night</item>
+        <item name="perspective_card_background">@drawable/perspective_card_background_night</item>
+        <item name="story_card_list_background">@color/story_card_list_background_night</item>
+        <item name="comment_toolbar_title2_color">@color/title_2_color_n</item>
+        <item name="comment_toolbar_title3_color">@color/title1_color_d_n</item>
+        <item name="comment_toolbar_divider_color">@color/comment_toolbar_divider_night</item>
+        <item name="comment_edit_text_color">@color/comment_edit_text_color_night</item>
+        <item name="collection_list_title_color">@color/collection_list_title_color_night</item>
+        <item name="collection_list_separator_bgcolor">
+            @color/collection_list_separator_bgcolor_night
+        </item>
+        <item name="collection_list_card_bgcolor">@color/collection_list_card_bgcolor_night</item>
+        <item name="tag_list_container_bg">@drawable/tag_list_container_bg_night</item>
+        <item name="discovery_follow_button_bg">@drawable/follow_toggle_background_white</item>
+        <item name="follow_discovery_button_text_color">@color/color_white</item>
+        <item name="tv_detail_background_color">@color/daytv_detail_background_color</item>
+        <item name="tv_detail_actionbartitle_color">@color/daytv_detail_actionbartitle_color</item>
+        <item name="tv_card_detail_item_mask">@color/daytv_card_item_mask</item>
+        <item name="tv_emoji_bg_color">@color/daytv_emoji_bg_color</item>
+        <item name="tv_emoji_divider_color">@color/daytv_emoji_divider_color</item>
+        <item name="tv_tags_background">@drawable/tags_border_rounded_day</item>
+        <item name="explore_welcome_title_color">@color/explore_welcome_title_color_night</item>
+        <item name="explore_welcome_bg_color">@color/explore_welcome_bg_color_night</item>
+        <item name="explore_welcome_subtitle_color">@color/explore_welcome_subtitle_color_night
+        </item>
+        <item name="actionbar_bg_shadow">@drawable/actionbar_bg_shadow_night</item>
+        <item name="suggested_sources_border_bgcolor">
+            @color/suggested_sources_border_bgcolor_night
+        </item>
+        <item name="location_state_background">@color/location_state_background_color_night</item>
+        <item name="sign_in_toolbar_color">@color/sign_in_toolbar_color_night</item>
+        <item name="ic_leave_group">@drawable/ic_leave_group_night</item>
+        <item name="chevron_right">@drawable/ic_arrow_group_detail</item>
+        <item name="admin_owner_text_color">@color/edit_text_border_color_day</item>
+        <item name="admin_owner_badge_bg">@drawable/admin_owner_badge_bg_night</item>
+        <item name="no_activity">@drawable/ic_no_activity_nm</item>
+        <item name="no_history">@drawable/ic_no_content_history_nm</item>
+        <item name="no_saved_stories">@drawable/ic_no_saved_stories_nm</item>
+        <item name="no_followers">@drawable/ic_no_followers_nm</item>
+        <item name="not_following">@drawable/ic_not_following_nm</item>
+        <item name="no_blocked_items">@drawable/ic_not_following_nm</item>
+        <item name="tooltip_bg">@drawable/remove_tab_tool_tip_bg_nm</item>
+        <item name="reorder_tab_tooltip_bg">@drawable/reorder_tab_tool_tip_bg_nm</item>
+        <item name="story_tag_item_text_color">@color/story_tag_text_color_night_mode</item>
+        <item name="story_tag_item_bg">@drawable/story_item_tag_night</item>
+
+        <item name="follow_snackbar_star_icon">@drawable/follow_snackbar_star_icon_night</item>
+        <item name="other_perspective_with_date_bg">@drawable/other_perspective_label_background
+        </item>
+        <item name="sign_on_fragment_header_textColor">@color/color_white</item>
+
+        <item name="ic_logout_settings">@drawable/ic_logout_night</item>
+        <item name="ic_update_settings">@drawable/ic_update_blue</item>
+        <item name="settings_sign_out_color">@color/notification_title</item>
+        <item name="settings_app_version_color">@color/notification_title</item>
+        <item name="radio_button_text_color_settings">@drawable/radio_button_text_color_night</item>
+
+        <item name="history_divider_color">@color/history_divider_color_night</item>
+        <item name="history_title_color">@color/history_title_color_night</item>
+        <item name="history_clearAll_color">@color/history_clearAll_color_night</item>
+        <item name="popup_bg_color">@color/popup_bg_color_night</item>
+        <item name="common_dialog_negative_btn_border">@color/white_color</item>
+        <item name="common_dialog_positive_btn_text">@color/black</item>
+        <item name="filterText_color">@color/filterText_color_night</item>
+        <item name="history_clear_all_title_color">@color/history_clear_all_title_color_night</item>
+        <item name="list_signin_widget_bg">@color/list_signin_widget_bg_night</item>
+        <item name="list_signin_widget_border">@color/list_signin_widget_border_night</item>
+        <item name="list_signin_layer_bg">@color/list_signin_layer_bg_night</item>
+        <item name="user_fullname_color">@color/user_fullname_color_night</item>
+        <item name="ner_user_fullname_color">@color/color_white</item>
+        <item name="ner_user_subtitle_color">@color/ner_subtitle_color_night</item>
+        <item name="filter_option_item">@drawable/filter_icon_night</item>
+        <item name="ner_follow_color">@color/ner_follow_color_night</item>
+        <item name="ner_bio_color">@color/color_white</item>
+        <item name="ner_user_handle_color">@color/color_white</item>
+        <item name="ner_follow_button_text_color">@color/black_color</item>
+        <item name="ner_follow_button_bg">@color/white_color</item>
+        <item name="source_tab_selected_text_new">@color/source_tab_selected_text_new_night</item>
+        <item name="profile_filter_background">@drawable/white_filter_background</item>
+        <item name="ic_filter_delete">@drawable/ic_filter_delete_night</item>
+        <item name="profile_filter_down_arrow">@drawable/white_filter_down_arrow</item>
+        <item name="gender_radio_btn_selected_bg">@color/gender_radio_btn_select_state_night</item>
+        <item name="edit_text_bg_border">@color/white_color</item>
+        <item name="edit_icon">@drawable/ic_edit_icon_nm</item>
+        <item name="disclaimer_icon">@drawable/edit_profile_disclaimer_tooltip_nm</item>
+        <item name="shimmer_rgb">@integer/shimmer_rgb_night</item>
+        <item name="feed_divider_color">@color/card_list_divider_night_color</item>
+        <item name="stop_audio_icon">@drawable/ic_stop_night</item>
+        <item name="play_audio_icon">@drawable/ic_play_dark</item>
+        <item name="leftarrow_audio_icon">@drawable/ic_left_arrow_night</item>
+        <item name="rightarrow_audio_icon">@drawable/ic_right_arrow_night</item>
+        <item name="container_audio_arch">@drawable/ic_container_arch_night</item>
+        <item name="container_audio_rectangle">@drawable/ic_container_rectangle_night</item>
+        <item name="equalizer_audio_icon">@drawable/ic_audio_eualizer_playing_night</item>
+        <item name="cross_audio_icon">@drawable/ic_close_audio_night</item>
+        <item name="snackbar_msg_color">@color/snackbar_backgroud_color_day</item>
+        <item name="profile_count_background">@color/profile_count_background_night</item>
+        <item name="profile_title_text">@color/profile_title_color_night</item>
+        <item name="truecaller_verification_background">@color/truecaller_background_night</item>
+        <item name="truecaller_text_color">@color/truecaller_text_color_night</item>
+        <item name="truecaller_box_background_color">@color/truecaller_box_color_night</item>
+        <item name="truecaller_verify_button_background">
+            @color/truecaller_verify_button_bg_color_night
+        </item>
+        <item name="truecaller_otp_background">@color/truecaller_otp_box_bg_night</item>
+        <item name="truecaller_otp_verifying_textColor">@color/truecaller_otp_box_bg_day</item>
+        <item name="notification_list_bg">@color/notification_list_bg_night</item>
+        <item name="notification_right_icon_border_color">
+            @color/notification_right_icon_border_color_night
+        </item>
+        <item name="notification_social_text_color">@color/notification_social_text_color_night
+        </item>
+        <item name="red_dot_stroke_color">@color/theme_night_background</item>
+        <item name="source_alphabet_text_color">@color/source_alphabet_text_color_night</item>
+        <item name="source_alphabet_text_color_brand">@color/source_alphabet_text_color_night</item>
+        <item name="sponsored_text_color">@color/sponsored_text_color_night</item>
+        <item name="ads_container_background_color">@color/ad_container_background_night</item>
+        <item name="ads_container_border_color">@color/ad_container_border_night</item>
+        <item name="tv_vertical_divider_color">@color/tv_vertical_divider_color_night</item>
+        <item name="filter_background">@color/carousel_detail_title_color</item>
+        <item name="following_count_bg">@color/carousel_detail_title_color</item>
+        <item name="following_count_txt">@color/notification_divider_day</item>
+        <item name="create_group_btn_text_color">@drawable/create_group_btn_text_day</item>
+        <item name="group_settings_text_color">@color/group_settings_text_color_night</item>
+        <item name="group_settings_desc_text_color">@color/group_settings_desc_text_color_night</item>
+        <item name="create_group_text_color">@color/create_group_text_color_night</item>
+        <item name="edit_text_border_color">@color/edit_text_border_color_night</item>
+        <item name="news_text_border_color">@color/news_text_border_color_night</item>
+        <item name="edit_text_fill_color">@color/edit_text_fill_color_night</item>
+        <item name="group_settings_screen_divider_color">@color/group_settings_screen_divider_color_night</item>
+        <item name="member_handle_text_color">@color/member_handle_text_color_night</item>
+        <item name="approval_btn_border_color">@color/approval_btn_border_color_night</item>
+        <item name="invite_text_color">@color/carousel_card_text_color</item>
+        <item name="error_layout_text_color">@color/error_layout_text_color_night</item>
+        <item name="error_layout_desc_text_color">@color/error_layout_desc_text_color_night</item>
+        <item name="invite_card_text_color">@color/invite_card_text_color_night</item>
+
+        <item name="cp_tool_bar_color">@color/cp_tool_bar_color_night</item>
+        <item name="in_app_text_color">@color/notification_setting_subtext_night</item>
+        <item name="in_app_cta_color">@color/color_white</item>
+        <item name="in_app_text_bg">@color/theme_night_share_divider</item>
+        <item name="in_app_cta_bg">@color/in_app_dark_cta_color</item>
+        <item name="in_app_info_icon">@drawable/info_icon_dark</item>
+        <item name="cp_btn_text_color_enable">@color/cp_btn_text_color_day</item>
+        <item name="cp_btn_text_color_disable">@color/cp_btn_text_color_night</item>
+        <item name="cp_btn_bg_color_enable">@color/cp_btn_bg_color_night_enable</item>
+        <item name="cp_btn_bg_color_disable">@color/cp_btn_bg_color_night_disable</item>
+        <item name="cp_edit_text_hint_color">@color/cp_edit_text_hint_color_night</item>
+        <item name="cp_edit_text_color">@color/cp_edit_text_color_night</item>
+        <item name="cp_edit_text_bg_color">@color/cp_edit_text_bg_color_night</item>
+        <item name="cp_loc_toolbar_title_text_color">@color/cp_loc_toolbar_title_text_color_night</item>
+        <item name="cp_loc_title_text_color">@color/cp_loc_toolbar_title_text_color_night</item>
+        <item name="cp_places_powered_by_google">@drawable/places_powered_by_google_dark</item>
+        <item name="cp_loc_divider_color">@color/cp_loc_divider_color_night</item>
+        <item name="cp_loc_close_btn_color">@color/cp_loc_toolbar_title_text_color_night</item>
+        <item name="cp_loc_search_bg_color">@color/cp_loc_search_bg_color_night</item>
+        <item name="cp_bottom_bar_divider_color">@color/cp_bottom_bar_divider_color_night</item>
+        <item name="cp_loc_icon_color">@color/cp_loc_icon_color_night</item>
+        <item name="cp_action_item_bg_color">@color/cp_action_item_bg_color_night</item>
+        <item name="cp_action_item_border_color">@color/cp_action_item_border_color_night</item>
+        <item name="cp_repost_bg_color">@color/cp_repost_bg_color_night</item>
+        <item name="cp_repost_border_color">@color/cp_repost_border_color_night</item>
+        <item name="cp_og_name_color">@color/cp_og_name_color_night</item>
+        <item name="cp_og_title_color">@color/cp_og_title_color_night</item>
+        <item name="cp_og_desc_color">@color/cp_og_desc_color_night</item>
+        <item name="cp_discard_dialog_desc_text_color">@color/cp_discard_dialog_desc_text_color_night</item>
+        <item name="cp_bg_color">@color/cp_bg_color_night</item>
+        <item name="cp_hash_at_text_color">@color/cp_hash_at_text_color_night</item>
+        <item name="cp_privacy_bg_color">@color/cp_privacy_bg_color_night</item>
+        <item name="cp_privacy_header_text_color">@color/cp_privacy_header_text_color_night</item>
+        <item name="cp_privacy_sub_header_text_color">@color/cp_privacy_sun_header_text_color_night</item>
+        <item name="cp_privacy_setting_icons_color">@color/cp_privacy_setting_icons_color_night</item>
+        <item name="cp_privacy_line_divider">@color/cp_privacy_line_divider_night</item>
+        <item name="cp_poll_option_edittext_color">@color/cp_poll_option_edittext_normal_color_night</item>
+        <item name="cp_poll_text_color">@color/poll_text_color_night</item>
+        <item name="cp_poll_lenght_header_text_color">@color/cp_poll_lenght_header_text_color_night</item>
+        <item name="cp_poll_lenght_option_text_color">@color/cp_poll_lenght_option_text_color_night</item>
+        <item name="cp_poll_lenght_bs_bg_color">@color/cp_poll_lenght_bs_bg_color_night</item>
+        <item name="cp_poll_lenght_option_header_text_color">@color/cp_poll_lenght_option_header_text_color_night</item>
+        <item name="cp_repost_display_name_text_color">@color/cp_repost_display_name_text_color_night</item>
+        <item name="cp_repost_handle_text_color">@color/cp_repost_handle_text_color_night</item>
+        <item name="cp_repost_title_text_color">@color/cp_repost_title_text_color_night</item>
+        <item name="repost_title">@color/repost_title_night</item>
+        <item name="poll_bg_color">@color/poll_bg_night</item>
+        <item name="poll_selected_color">@color/poll_selected_night</item>
+
+        <item name="bottom_bar_menu_item_bg_color">@color/bottom_bar_menu_item_bg_color_night</item>
+        <item name="bottom_bar_menu_bg_drawable">@drawable/bottom_bar_menu_bg_drawable_night</item>
+
+        <item name="source_header_title_primary_color">
+            @color/source_header_title_primary_color_night
+        </item>
+        <item name="source_header_title_secondary_color">
+            @color/source_header_title_secondary_color_night
+        </item>
+        <item name="hashtag_text_color">@color/hashtag_text_color_night</item>
+        <item name="hashtag_text_background">@drawable/background_hashcode_nm</item>
+        <item name="location_text_color">@color/white_color</item>
+        <item name="location_text_background">@drawable/background_location_night</item>
+        <item name="bottom_bar_text_color">@color/bottom_bar_text_color_night</item>
+        <item name="nd_topbar_text_color">@color/nd_topbar_text_color_night</item>
+        <item name="display_name_text_color">@color/bottom_bar_text_color_night</item>
+        <item name="profile_ner_down_arrow">@drawable/profile_ner_down_arrow_night</item>
+        <item name="promoted_text_color">@color/promoted_text_color_night</item>
+        <item name="theme_screen_text_color">@color/theme_screen_text_color_night</item>
+        <item name="display_name_color_related_story">@color/display_name_color_related_story_night</item>
+        <item name="follow_button_text_color">@color/follow_button_text_color_night</item>
+        <item name="inbox_follow_button_text_color">@color/inbox_follow_button_text_color_night</item>
+        <item name="inbox_follow_button_bg">@drawable/follow_btn_notification_bg_night</item>
+        <item name="ic_see_all">@drawable/ic_see_all_night</item>
+        <item name="ic_see_all_bg">@drawable/see_all_bg_night</item>
+        <item name="new_default_text_color">@color/color_white</item>
+        <item name="following_button_text_color">@color/follow_button_text_color_night</item>
+        <item name="block_button_text_color">@color/block_button_text_color_night</item>
+        <item name="follow_button_border_color">@color/follow_button_border_color_night</item>
+        <item name="follow_button_fill_color">@color/follow_button_fill_color_night</item>
+        <item name="og_container_border_color">@color/og_container_border_color_night</item>
+        <item name="og_secondary_title_color">@color/og_secondary_title_color_night</item>
+        <item name="og_title_color">@color/og_title_color_night</item>
+        <item name="og_bg_color">@color/og_bg_color_night</item>
+        <item name="card_divider_color">@color/card_divider_color_night</item>
+        <item name="poll_opt_color_1">@color/poll_opt_color_1_night</item>
+        <item name="poll_opt_color_2">@color/poll_opt_color_2_night</item>
+        <item name="poll_opt_color_3">@color/poll_opt_color_3_night</item>
+        <item name="poll_opt_color_4">@color/poll_opt_color_4_night</item>
+        <item name="poll_opt_text_color">@color/poll_opt_text_color_night</item>
+        <item name="poll_opt_vote_color">@color/poll_opt_vote_color_night</item>
+        <item name="default_thumbnail_fill">@color/default_thumbnail_fill_night</item>
+        <item name="default_thumbnail_border">@color/default_thumbnail_border_night</item>
+        <item name="like_icon">@drawable/ic_likes_night</item>
+        <item name="repost_icon">@drawable/ic_repost_night</item>
+        <item name="repost_icon_2">@drawable/ic_repost_btn_night</item>
+        <item name="share_icon">@drawable/vector_whatsapp_night</item>
+        <item name="share_icon_detail">@drawable/vector_whatsapp_night_detail</item>
+        <item name="commment_icon">@drawable/ic_comments_night</item>
+        <item name="commment_icon_2">@drawable/ic_comments_night_2</item>
+        <item name="comment_repost_container_color">@drawable/comment_repost_container_night</item>
+        <item name="comment_repost_text_color">@color/white_color</item>
+        <item name="source_name_color">@color/white_color</item>
+        <item name="news_detail_actionbar_back_button">@drawable/ic_news_detail_comment_bar_back_arrow_night</item>
+        <item name="ic_news_detail_like_count_background">@drawable/ic_news_detail_like_count_bg_night</item>
+        <item name="ic_news_detail_like_emoji_background">@drawable/news_detail_likes_selector_night</item>
+        <item name="news_detail_no_comments">@drawable/no_comments_dark</item>
+        <item name="detail_emoji_count_text_color_ref">@color/detail_emoji_count_text_color_night</item>
+        <item name="view_all_comment_bg_ref">@drawable/view_all_comments_bg_night</item>
+        <item name="detail_emoji_all_unseleceted_text_color_ref">@color/detail_emoji_all_unseleceted_text_color_night</item>
+        <item name="edit_comment_bg_ref">@drawable/ic_edit_comment_bg_night</item>
+        <item name="pd_add_comment_bg_ref">@color/pd_add_comment_bg_night</item>
+        <item name="coc_elevation">@dimen/coc_elevation_night</item>
+        <item name="comments_delete_icon">@drawable/ic_delete_news_details_night</item>
+        <item name="see_all_repost_text_color_ref">@color/see_all_repost_text_color_night</item>
+        <item name="view_all_comment_text_color_ref">@color/see_all_repost_text_color</item>
+        <item name="pd_btn_repost_ref">@drawable/ic_pd_btn_repost_night</item>
+        <!--Post Detail -->
+        <item name="pd_header_title_color">@color/pd_header_title_color_night</item>
+        <item name="pd_discussion_name_color">@color/pd_discussion_name_color_night</item>
+        <item name="pd_discussion_handle_color">@color/pd_discussion_handle_color_night</item>
+        <item name="pd_discussion_post_color">@color/pd_discussion_post_color_night</item>
+        <item name="pd_discussion_timestamp_color">@color/pd_discussion_timestamp_color_night</item>
+        <item name="profile_popup_bg_color">@color/profile_popup_bg_color_night</item>
+        <item name="actionbar_follow_filter_option_icon">@drawable/actionbar_follow_filter_option_icon_night</item>
+        <item name="action_button_count_color">@color/action_button_count_color_night</item>
+        <item name="reply_button_border">@color/reply_button_border_night</item>
+        <item name="separator_line">@color/seprator_color_night</item>
+        <item name="collection_separator_line">@color/collection_bg_color_night</item>
+        <item name="more_perspective_separator_line">@color/more_perspective_seprator_color_night</item>
+        <item name="search_seperate_line">@color/search_seprator_color_night</item>
+        <item name="ic_disclaimer">@drawable/ic_info_night</item>
+
+        <!-- Video Detail Black bg mode-->
+        <item name="vd_title_color">@color/vd_title_color_night</item>
+        <item name="vd_time_stamp_color">@color/vd_time_stamp_color_night</item>
+        <item name="vd_duration_color">@color/vd_duration_color_night</item>
+        <item name="vd_bs_top_bar_color">@color/vd_bs_top_bar_color_night</item>
+        <item name="vd_bs_bottom_bar_color">@color/vd_bs_bottom_bar_color_night</item>
+        <item name="vd_unplayed_progress_color">@color/vd_unplayed_progress_color_night</item>
+        <item name="vd_mute_color">@color/vd_mute_color_night</item>
+        <item name="vd_src_header_primary_color">@color/src_header_primary_color_night</item>
+        <item name="vd_src_header_secondary_color">@color/src_header_secondary_color_night</item>
+        <item name="vd_ic_actionbar_back_color">@color/vd_ic_actionbar_back_color_night</item>
+        <item name="vd_bottom_bar_text_color">@color/bottom_bar_text_color_night</item>
+        <item name="vd_like_icon">@drawable/ic_likes_night</item>
+        <item name="vd_repost_icon">@drawable/ic_repost_night</item>
+        <item name="vd_share_icon">@drawable/ic_share_whatsapp</item>
+        <item name="vd_comment_icon">@drawable/ic_comments_night</item>
+        <item name="vd_3dots_icon_color">@color/vd_3dots_icon_color_night</item>
+
+        <item name="repost_bg_color">@color/repost_bg_night</item>
+        <item name="back_arrow">@drawable/ic_actionbar_back_night</item>
+        <item name="creator_badge">@drawable/ic_night_mode_badge</item>
+        <item name="notification_icon">@drawable/ic_bell_icon_night</item>
+        <item name="settings_icon">@drawable/ic_settings_night</item>
+        <item name="repost_border_color">@color/repost_border_color_night</item>
+        <item name="thumbnail_border_style">@color/thumbnail_border_color_night</item>
+        <item name="cold_start_source">@color/cold_start_item_name_night</item>
+        <item name="comment_time_text_color">@color/bottom_bar_text_color_day</item>
+        <item name="dislike_option_title_color">@color/dislike_option_title_color_night</item>
+        <item name="dislike_frag_background_color">@color/dislike_frag_background_color_night</item>
+        <item name="dislike_frag_title_color">@color/dislike_frag_title_color_night</item>
+        <item name="dislike_frag_sub_title_color">@color/dislike_frag_sub_title_color_night</item>
+        <item name="repost_hashtag_color">@color/color_white</item>
+        <item name="three_dots_post">@drawable/ic_3_dots_nm</item>
+        <item name="carousel_progress_bg">@drawable/carousel_progress2</item>
+        <item name="follow_star">@drawable/ic_follow_star_white</item>
+        <item name="follow_star_fill">@drawable/ic_follow_star_fill_white</item>
+        <item name="import_contacts_skip_color">@color/import_contacts_skip_night</item>
+        <item name="import_contacts_title_color">@color/white_color</item>
+        <item name="import_contacts_msg_color">@color/import_contacts_msg_night</item>
+        <item name="sign_on_header_textColor_onboarding">@color/sign_on_onboarding_color_night</item>
+        <item name="app_bar_color">@color/edit_text_fill_color_night</item>
+        <item name="add_icon">@drawable/ic_addmore_nm</item>
+        <item name="tab_title_color">@color/profile_tab_unselected_text_new_night</item>
+        <item name="tab_title_select_color">@color/white_color</item>
+        <item name="default_share_icon_detail">@drawable/default_share_detail_night</item>
+        <item name="finding_contact_text_color">@color/finding_contact_night</item>
+        <item name="collection_header_title">@color/collection_header_title_night</item>
+        <item name="collection_of_collection_card_bg">@color/collection_of_collection_card_bg_night</item>
+        <item name="collection_of_collection_square_icon_bg">@color/collection_of_collection_square_icon_bg_night</item>
+        <item name="collection_of_collection_header_text_color">@color/collection_of_collection_header_text_color_night</item>
+        <item name="collection_of_collection_divider_color">@color/collection_of_collection_divider_color_night</item>
+        <item name="import_contacts_illus">@drawable/ic_find_contacts_illus_night</item>
+        <item name="import_contacts_dh_logo">@drawable/ic_dh_logo_night</item>
+        <item name="import_contact_card_color">@color/import_contact_card_color_night</item>
+        <item name="import_contact_card_icon">@drawable/ic_import_contact_card_night</item>
+        <item name="profile_toolbar_setting_icon">@drawable/profile_settings_icon</item>
+        <item name="search_edit_text_bg_color">@color/search_edit_text_bg_color_night</item>
+        <item name="search_edit_text_color">@color/search_edit_text_color_night</item>
+        <item name="background_runtime_permission">@color/background_runtime_permission_night</item>
+        <item name="ic_logo_dh_runtime_permission">@drawable/ic_dh_logo_night</item>
+        <item name="runtime_permission_title_bg">@color/msg_header_txt_color_night</item>
+        <item name="runtime_permission_sub_title_bg">@color/msg_body_txt_color_night</item>
+        <item name="choose_primary_account_subtitle">@color/choose_primary_account_subtitle_night</item>
+        <item name="rv_container_bg">@color/rv_container_bg_night</item>
+        <item name="progress_overlay_bg_color">@color/progress_overlay_bg_color_night</item>
+        <item name="likers_count_color">@color/action_button_count_color_night</item>
+        <item name="add_location_header_color">@color/add_location_header_color_night</item>
+        <item name="suggested_location_unselected">@color/suggested_location_unselected_night</item>
+        <item name="add_entity_square_background">@drawable/add_entity_square_background_night</item>
+        <item name="suggested_location_text_color">@color/location_ghost_color</item>
+        <item name="suggested_location_item_background">@drawable/suggested_location_item_background_night</item>
+        <item name="location_bottom_line">@color/location_toolbar_background_color_night</item>
+        <item name="location_state_bottom_line">@color/color_black</item>
+        <item name="line_4">@drawable/line_4_night</item>
+        <item name="push_notification_divider">@color/push_notification_divider_night</item>
+        <item name="privacy_negative_text_color">@color/privacy_negative_text_color_night</item>
+        <item name="tickers_and_tray_management_color">@color/tickers_and_tray_management_color_night</item>
+        <item name="notification_setting_subtext_color">@color/notification_setting_subtext_night</item>
+        <item name="notification_setting_radio_button_subtext_color">@color/notification_setting_radio_button_subtext_night</item>
+        <item name="notification_setting_radio_button_divider_color">@color/notification_setting_radio_button_divider_night</item>
+        <item name="profile_dialog_delete_icon">@drawable/profile_dialog_delete_icon_night</item>
+        <item name="profile_dialog_bg">@color/profile_background_night</item>
+        <item name="home_loader_anim">@drawable/home_loader_anim_night</item>
+        <item name="home_loader_dh">@drawable/ic_dailyhunt_text_night</item>
+        <item name="live_carousel_tab_indicator_color">@color/color_white</item>
+        <item name="searchbar_textColor">@color/text_light_grey</item>
+        <item name="search_icon">@drawable/search_icon_night</item>
+        <item name="dailyhunt_logo">@drawable/dailyhunt_logo_night</item>
+        <item name="searchbar_bg_color">@color/searchbar_bg_color_night</item>
+        <item name="common_topbar_bg">@color/common_topbar_bg_night</item>
+        <item name="create_post_fab_icon">@drawable/ic_fab_pencil_night</item>
+        <item name="reply_icon">@drawable/ic_reply_icon_night_mode</item>
+    </style>
+
+    <style name="MyDrawerArrowToggle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/color_white</item>
+    </style>
+
+    <style name="NoActionBarDay" parent="AppThemeDay">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
+    <style name="NoActionBarNight" parent="AppThemeNight">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
+    <style name="TruecallerBackgroundDay" parent="AppThemeDay">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/truecaller_day_background</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
+    <style name="TruecallerBackgroundNight" parent="AppThemeNight">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/truecaller_night_background</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
+    <style name="privacy_title_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_black</item>
+    </style>
+
+    <style name="privacy_desc_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_15</item>
+        <item name="android:textColor">@color/grey_desc</item>
+    </style>
+
+    <style name="button_selected_style" parent="privacy_desc_style">
+        <item name="android:paddingLeft">@dimen/dialog_padding</item>
+        <item name="android:paddingRight">@dimen/dialog_padding</item>
+        <item name="android:background">@drawable/btn_background</item>
+        <item name="android:textColor">@color/default_dialog_button_text</item>
+    </style>
+
+    <style name="button_unselected_style" parent="privacy_desc_style">
+        <item name="android:paddingLeft">@dimen/dialog_padding</item>
+        <item name="android:paddingRight">@dimen/dialog_padding</item>
+        <item name="android:background">@drawable/btn_background</item>
+        <item name="android:textColor">@color/black_color</item>
+    </style>
+
+
+    <style name="dislikeOptionFullScreenItem">
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <style name="HeroCardImageStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/hero_card_image_height</item>
+    </style>
+
+    <style name="HeroCardTitleStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:textColor">?attr/story_card_title_text_color</item>
+        <item name="android:maxLines">2</item>
+        <item name="dh_custom_font_weight">six_hundred</item>
+    </style>
+
+    <style name="cardSectionTitleTextStyle">
+        <item name="android:textColor">?attr/new_default_text_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="cardSectionSubtitleTextStyle">
+        <item name="android:textColor">?attr/cold_start_color_heading2</item>
+        <item name="dh_custom_font_weight">four_hundred</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="HeroCardLabelTheme">
+        <item name="android:background">@drawable/card_label_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/breaking_news_text_size</item>
+    </style>
+
+    <style name="story_card_style">
+        <item name="android:paddingTop">@dimen/story_card_padding</item>
+    </style>
+
+    <style name="supplementSectionTitleStyleWithoutMargin">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">?attr/story_supplement_section_title_text_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/story_supplement_title_text_size</item>
+    </style>
+
+
+    <!--    search -->
+    <style name="searchErrorTitle" parent="TextAppearance.AppCompat.Large">
+        <item name="android:layout_marginTop">@dimen/search_error_title_top_margin</item>
+        <item name="android:textSize">@dimen/search_error_title_text_size</item>
+        <item name="android:textColor">?attr/default_text_color</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="searchErrorSubtitle" parent="TextAppearance.AppCompat.Large">
+        <item name="android:layout_marginTop">@dimen/search_error_subtitle_top_margin</item>
+        <item name="android:textSize">@dimen/search_error_subtitle_text_size</item>
+        <item name="android:color">@color/search_error_subtitle_text_color</item>
+        <item name="android:textColor">?attr/default_text_color</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="searchErrorIcon">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">70dp</item>
+    </style>
+
+    <style name="search_bar_edit_box">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/searchbar_padding</item>
+        <item name="android:background">?attr/searchbar_bg_color</item>
+        <item name="android:backgroundTint">@color/search_bar_highlight</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawablePadding">@dimen/search_icon_padding</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">top</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">?attr/searchbar_textColor</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <color name="repost_bg_night">#00000000</color>
+    <style name="detail_page_like_layout_title">
+        <item name="android:textSize">21sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/pd_header_title_color</item>
+    </style>
+    <style name="detail_page_like_layout_count">
+        <item name="android:textSize">12dp</item>
+        <item name="android:layout_marginStart">6dp</item>
+        <item name="android:textColor">?attr/detail_emoji_count_text_color_ref</item>
+        <item name="android:background">?attr/ic_news_detail_like_count_background</item>
+    </style>
+    <style name="detail_page_like_layout_percentage">
+        <item name="android:textSize">12dp</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingEnd">5dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">?attr/detail_emoji_all_unseleceted_text_color_ref</item>
+    </style>
+</resources>

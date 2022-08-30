@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+    <header status="Success"/>
+    <body
+        UAQueryLink="http://newshunt.net.in/openx/ads/getClickUA.php?clientId=735086408&amp;response_type=xml&amp;ccsf=1"
+        disable="0" responseType="showAds"
+        time="1800">
+        <ad aduid="notId=ad-2803" height="24" id="Z1752M0864081421917764" position="ticker"
+            span="30"
+            srcUrlExpiry="60" type="imgLink" width="40">
+            <type><![CDATA[imgLink]]></type>
+            <beaconUrl>
+                <![CDATA[http://newshunt.net.in/openx/ads/log.php?md5=-1&log_id=Z1752M0864081421917764&clientId=735086408&oxlg_cnt=7&oxlg_bannerid=2803&oxlg_campaignid=804&oxlg_zoneid=1752&oxlg_OXLIA=1&oxlg_loc=http%3A%2F%2Fnewshunt.net.in%2Fopenx%2Fads%2Findex.php%3Ft%3Dnads%26context%3Dcat%3Daajtak%3ANational%3BnpKey%3Daajtak%3BclientId%3D735086408%3Bclient%3Dandroid%3BappVer%3D4.32.75%3B%26zone%3Dticker%26client%3Dandroid%26resolution%3D250x320%26clientId%3D735086408%26appVer%3D4.32.75%26brand%3DNewsHunt%26long%3D77.6269418%26lat%3D12.971808%26cellid%3D3312-404-45-651----Gsm%26isReg%3DN%26imgFmt%3D7%26featureMask%3D16384%26langMask%3D2047%26udid%3D358302054441256%26conn%3Dw%26debug%3D1%26XDEBUG_SESSION_START%3Dnetbeans-xdebug&oxlg_cb=6603d3b4fe&oxlg_lgts=1421917764-50292000&ccsf=1]]></beaconUrl>
+            <landingUrl></landingUrl>
+            <content>
+                <imgLink>
+                    <![CDATA[http://newshunt.net.in/openx/resize_cache/0b/44/22/http:__newshunt.net.in_openx_www_images_0b44221315af93de35cb491196eb72f0.jpg__resize:40X24.png?images_updated_at=]]></imgLink>
+            </content>
+            <action>
+                <![CDATA[<a href="http://newshunt.net.in/openx/ads/click.php?md5=-1__click_id=NAZ1752MC0864081421914086__clientId=735086408__oaparams=2__bannerid=2803__zoneid=1752__OXLCA=1__cb=4645ad5302__ccsf=1__clkh=16cce09d5db8a1bf9ee9ac5048e59e3a__oadest=openbooklist%3AstaffPick-english">Click here to launch Browser</a>]]>
+            </action>
+        </ad>
+    </body>
+</response>

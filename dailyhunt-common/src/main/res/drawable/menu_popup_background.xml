@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle"> <!-- this shape is used as shadow -->
+            <padding
+                android:bottom="1dp"
+                android:left="0.75dp"
+                android:right="0.75dp"
+                android:top="1dp"/>
+            <solid android:color="@color/menu_pop_shadow"/>
+            <corners android:radius="5dp"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle"> <!-- this is for dialog frame -->
+            <solid android:color="@color/menu_pop_up_background"/>
+            <corners android:radius="5dp"/>
+        </shape>
+    </item>
+</layer-list>

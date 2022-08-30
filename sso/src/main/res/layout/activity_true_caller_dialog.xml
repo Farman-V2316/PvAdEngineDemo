@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/truecaller_verification_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/truecaller_dialog_box"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="@dimen/phone_dialog_w"
+        android:layout_height="@dimen/phone_dialog_w"
+        android:layout_gravity="center"
+        android:background="@drawable/verify_button_background"
+        android:backgroundTint="?attr/story_card_list_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/layout_enter_mobile_number"
+            layout="@layout/layout_enter_mobile_number" />
+
+        <include
+            android:id="@+id/phone_number_verification_in_progress"
+            layout="@layout/layout_phone_number_verification_in_progress" />
+
+        <include
+            android:id="@+id/layout_enter_otp"
+            layout="@layout/layout_enter_otp" />
+
+        <include
+            android:id="@+id/layout_enter_name"
+            layout="@layout/layout_enter_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.newshunt.common.view.customview.NHImageView
+        android:id="@+id/sign_in_cross_button"
+        android:layout_width="@dimen/truecaller_cross_button_w_h"
+        android:layout_height="@dimen/truecaller_cross_button_w_h"
+        android:layout_marginBottom="@dimen/truecaller_cross_marginBottom"
+        android:background="@drawable/truecaller_cross_button_background"
+        android:padding="@dimen/truecaller_cross_padding"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_cross"
+        android:tint="@color/white_color"
+        app:layout_constraintBottom_toTopOf="@+id/truecaller_dialog_box"
+        app:layout_constraintEnd_toEndOf="@+id/truecaller_dialog_box" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/tc_dialog_grp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="sign_in_cross_button, truecaller_dialog_box" />
+
+
+    <com.truecaller.android.sdk.TrueButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

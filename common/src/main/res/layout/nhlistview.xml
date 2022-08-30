@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (c) 2015 Newshunt. All rights reserved. -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/init_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@android:color/transparent"
+        android:indeterminate="true"
+        android:indeterminateBehavior="cycle"
+        android:indeterminateDuration="1000"
+        android:progressDrawable="@android:color/holo_red_light"
+        android:visibility="gone" />
+
+    <com.newshunt.common.view.customview.NHSwipeToRefresh
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.newshunt.common.view.customview.NHSwipeToRefresh>
+
+    <RelativeLayout
+        android:id="@+id/infinite_scroll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/infinite_scroll_layout_margin"
+        android:layout_marginTop="@dimen/infinite_scroll_layout_margin"
+        android:background="@color/color_white"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <ImageView
+                android:layout_width="@dimen/next_refresh_dimentions"
+                android:layout_height="@dimen/next_refresh_dimentions"
+                android:src="@drawable/refresh_page" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/error_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:text="@string/error_no_connection"
+                android:textColor="@color/theme_day_hamburger_color"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/footer_progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="@dimen/footer_progress_dimension"
+            android:layout_height="@dimen/footer_progress_dimension"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal" />
+
+    </RelativeLayout>
+</RelativeLayout>

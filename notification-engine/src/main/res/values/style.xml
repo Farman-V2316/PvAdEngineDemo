@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="NotificationTitle">
+        <item name="android:textColor">@color/color_black</item>
+    </style>
+
+    <style name="StickyNotificationFont">
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="StickyNotificationBoldFont">
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="NotificationBackground">
+        <item name="android:background">#FFFFFF</item>
+    </style>
+
+    <style name="NotificationTitleTextStyle">
+        <item name="android:textColor">@color/black_color</item>
+    </style>
+
+    <style name="NotificationTextStyle">
+        <item name="android:textColor">@color/black_color</item>
+    </style>
+
+    <style name="NotificationTextBitmapStyle">
+        <item name="android:textColor">@color/black_color</item>
+    </style>
+</resources>

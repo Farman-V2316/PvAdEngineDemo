@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1">
+
+
+    <ImageView
+        android:id="@+id/EntityImage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="14dp"
+        android:src="@drawable/ic_default_profile"
+        android:scaleType="centerCrop" />
+
+
+    <TextView
+        android:id="@+id/entityName"
+        style="@style/StickyNotificationFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/EntityImage"
+        android:layout_toEndOf="@id/EntityImage"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="#565868"
+        android:textSize="9dp"
+        tools:text="BJP" />
+
+
+    <TextView
+        android:id="@+id/collapseValue"
+        style="@style/StickyNotificationBoldFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/EntityImage"
+        android:layout_toEndOf="@id/EntityImage"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="#565868"
+        android:textSize="12dp"
+        tools:text="238" />
+
+
+</RelativeLayout>

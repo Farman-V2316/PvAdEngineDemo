@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/theme_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/swipe_icon"
+            android:layout_width="@dimen/theme_anim_size"
+            android:layout_height="@dimen/theme_anim_size"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/theme_anim_top_margin"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/theme_anim" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_16"
+                android:text="@string/theme_screen_text"
+                android:textColor="?attr/theme_screen_text_color"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+</layout>

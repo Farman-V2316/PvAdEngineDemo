@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.newshunt.dhutil.view.customview.IsometricView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/history_dialog_rootview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    app:depth="4dp"
+    app:depth_color="@color/onboarding_popup_item_border_color"
+    app:depth_orientation="topRight"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/popup_bg_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/clearall_dlg_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/history_clearall_title_marginLeft"
+        android:layout_marginTop="@dimen/history_clearall_title_marginTop"
+        android:layout_marginEnd="@dimen/history_clearall_title_marginLeft"
+        android:textAlignment="viewStart"
+        android:textColor="?attr/history_clear_all_title_color"
+        android:textSize="20dp"
+        app:dh_custom_font_weight="eight_hundred"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/clearall_dlg_msg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/history_clearall_title_marginLeft"
+        android:layout_marginTop="@dimen/history_clearall_msg_marginTop"
+        android:layout_marginEnd="@dimen/history_clearall_title_marginLeft"
+        android:textAlignment="viewStart"
+        android:textColor="?attr/history_title_color"
+        android:textSize="14dp"
+        app:dh_custom_font_weight="four_hundred"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clearall_dlg_title"
+        app:layout_goneMarginTop="80dp" />
+
+    <ImageView
+        android:id="@+id/error_icon"
+        android:layout_width="@dimen/info_icon_height_width"
+        android:layout_height="@dimen/info_icon_height_width"
+        android:layout_marginTop="@dimen/info_icon_height_width"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/clear_all_positive"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="@dimen/history_clearall_title_marginTop"
+        android:background="?attr/common_dialog_negative_btn_border"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="?attr/common_dialog_positive_btn_text"
+        android:textSize="14dp"
+        app:dh_custom_font_weight="five_hundred"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clearall_dlg_msg" />
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/clear_all_negative"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="@dimen/history_clearall_title_marginTop"
+        android:background="@drawable/common_dialog_negative_btn_bg"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="?attr/common_dialog_negative_btn_border"
+        android:textSize="14dp"
+        app:dh_custom_font_weight="five_hundred"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clear_all_positive" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.newshunt.dhutil.view.customview.IsometricView>

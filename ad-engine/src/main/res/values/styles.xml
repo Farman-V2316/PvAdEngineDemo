@@ -1,0 +1,45 @@
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<resources>
+    <style name="adclickHereTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">?attr/cta_text_color</item>
+    </style>
+
+    <style name="ad_report_style">
+        <item name="android:drawableEnd">@drawable/ic_report_ads_menu_icon_grey</item>
+        <item name="android:drawablePadding">@dimen/ad_report_i_icon_padding</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:tag">generic_click</item>
+        <item name="android:textColor">#999999</item>
+        <item name="android:textSize">10dp</item>
+    </style>
+
+    <style name="immersive_transition">
+        <item name="android:windowEnterAnimation">@anim/fade_in_dialog</item>
+        <item name="android:windowExitAnimation">@anim/fade_out_dialog</item>
+    </style>
+    <style name="adclickHereTextStyleOsv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">?attr/cta_text_color</item>
+    </style>
+</resources>

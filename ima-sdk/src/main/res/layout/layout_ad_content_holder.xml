@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dailyhunt.tv.ima.playerholder.ContentPlayerHolder
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black_color"
+    android:keepScreenOn="false">
+
+    <!-- Dummy Video Player View  -->
+    <com.dailyhunt.tv.ima.playerholder.DefaultVideoPlayerHolder
+        android:id="@+id/video_player_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.dailyhunt.tv.ima.playerholder.DefaultVideoPlayerHolder>
+
+    <!-- Ad Player View  -->
+    <com.dailyhunt.tv.ima.playerholder.AdPlayerHolder
+        android:id="@+id/ad_player_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black_color"
+        app:useCustomPlayerForIMA="true">
+
+        <com.dailyhunt.tv.ima.player.exo.VideoPlayerWithAdPlayback
+            android:id="@+id/videoPlayerWithAdPlayback"
+            android:layout_width="match_parent"
+            android:background="@color/black_color"
+            android:layout_height="wrap_content">
+
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/videoPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                app:controller_layout_id="@layout/exo_custom_controller"
+                app:surface_type="texture_view"/>
+
+            <FrameLayout
+                android:id="@+id/adUiContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/non_immersive_controls_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/muteButton"
+                    android:layout_width="@dimen/video_control_icon_size"
+                    android:layout_height="@dimen/video_control_icon_size"
+                    android:layout_marginEnd="@dimen/video_controls_side_margin"
+                    android:layout_marginStart="@dimen/video_controls_side_margin"
+                    android:padding="@dimen/video_controls_side_margin"
+                    android:scaleType="fitCenter"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/playBtn"
+                    android:layout_width="@dimen/video_control_icon_size"
+                    android:layout_height="@dimen/video_control_icon_size"
+                    android:layout_marginEnd="@dimen/video_controls_side_margin"
+                    android:layout_marginStart="@dimen/video_controls_side_margin"
+                    android:padding="2dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/exo_controls_play"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@id/muteButton"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/pauseBtn"
+                    android:layout_width="@dimen/video_control_icon_size"
+                    android:layout_height="@dimen/video_control_icon_size"
+                    android:layout_marginEnd="@dimen/video_controls_side_margin"
+                    android:layout_marginStart="@dimen/video_controls_side_margin"
+                    android:padding="2dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/exo_controls_pause"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@id/muteButton"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--immersive mode video controls-->
+           <include
+               layout="@layout/immersive_view_control" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/learn_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/video_controls_side_margin"
+                android:textColor="@color/learn_more_ima_text_color"
+                android:textSize="12dp"
+                android:visibility="gone"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true" />
+
+            <ImageView
+                android:id="@+id/video_thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+
+        </com.dailyhunt.tv.ima.player.exo.VideoPlayerWithAdPlayback>
+    </com.dailyhunt.tv.ima.playerholder.AdPlayerHolder>
+
+    <!-- Intermediate Progress -->
+    <ProgressBar
+        android:id="@+id/intermediate_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+</com.dailyhunt.tv.ima.playerholder.ContentPlayerHolder>

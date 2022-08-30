@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="adEntity"
+            type="com.newshunt.adengine.model.entity.BaseDisplayAdEntity" />
+
+        <variable
+            name="item"
+            type="com.newshunt.adengine.model.entity.NativeData" />
+    </data>
+
+    <com.facebook.ads.NativeAdLayout
+        android:id="@+id/sdk_custom_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp">
+
+        <include
+            layout="@layout/ads_native_high_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            bind:adEntity="@{adEntity}"
+            bind:item="@{item}" />
+    </com.facebook.ads.NativeAdLayout>
+</layout>

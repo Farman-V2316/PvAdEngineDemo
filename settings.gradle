@@ -14,3 +14,17 @@ dependencyResolutionManagement {
 }
 rootProject.name = "PvAdEngineDemo"
 include ':app'
+include ':exo-library'
+include ':notification-engine'
+include ':ad-engine'
+include ':news-common'
+include ':truesdk-0.8-releasePartner'
+include ':datastore'
+include ':permissionhelper'
+include ':sso'
+include ':omsdk'
+include ':common'
+include ':ima-sdk'
+include ':dataentity'
+include ':dailyhunt-common'
+include ':analytics'

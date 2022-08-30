@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/app_rate_bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/default_share_app_dialog_bg">
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/cross_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/linkedin_prompt_cross_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/sharable_app_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:textColor="@color/color_black"
+            app:layout_constraintTop_toBottomOf="@+id/cross_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/cancel_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="18dp"
+            android:layout_marginStart="24dp"
+            android:padding="16dp"
+            android:text="No"
+            android:textColor="@color/color_black"
+            android:gravity="center"
+            android:background="@drawable/default_share_app_cancel_bg"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/tick_btn"
+            app:layout_constraintTop_toBottomOf="@+id/sharable_app_text"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/tick_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="18dp"
+            android:layout_marginEnd="24dp"
+            android:padding="16dp"
+            android:gravity="center"
+            android:textColor="@color/color_white"
+            android:text="Yes"
+            android:background="@drawable/default_share_app_tick_bg"
+            app:layout_constraintStart_toEndOf="@+id/cancel_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sharable_app_text"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</layout>

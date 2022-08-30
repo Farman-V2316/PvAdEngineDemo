@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/Mode_box_width"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/notification_dialog_shadow_color">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/notification_title_text_size"
+        android:layout_marginTop="@dimen/notification_enable_text_margin_top"
+        android:layout_marginLeft="@dimen/notification_enable_text_margin_left"
+        android:layout_marginRight="@dimen/notification_enable_text_margin_right"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="left"
+        android:textColor="@color/notification_enable_dialog_titletext_color"
+        android:text="@string/notification_title_text"
+        android:id="@+id/notification_dialogTitletext"/>
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/notification_header_text_size"
+        android:layout_below="@+id/notification_dialogTitletext"
+        android:layout_marginLeft="@dimen/notification_enable_text_margin_left"
+        android:layout_marginRight="@dimen/notification_enable_text_margin_right"
+        android:layout_gravity="left"
+        android:textColor="@color/notification_enable_dialog_headertext_color"
+        android:layout_marginTop="-5dp"
+        android:text="@string/notification_header_text_pre_marshmallow"
+        android:id="@+id/notification_dialogHeaderText"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="@dimen/notification_button_layout_margin_bottom"
+        android:layout_below="@+id/notification_dialogHeaderText">
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/notification_button_text_size"
+            android:padding="@dimen/notification_button_text_padding"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/notification_enable_text_margin_right"
+            android:textColor="@color/notification_enable_dialog_titletext_color"
+            android:gravity="left"
+            android:text="@string/notification_button_enable"
+            android:id="@+id/notification_positive_button"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/notification_button_text_size"
+            android:padding="@dimen/notification_button_text_padding"
+            android:gravity="left"
+            android:layout_marginRight="@dimen/notification_button_text_margin_right"
+            android:layout_toLeftOf="@+id/notification_positive_button"
+            android:textColor="@color/notification_enable_dialog_headertext_color"
+            android:text="@string/dialog_cancel"
+            android:id="@+id/notification_negative_button"/>
+
+    </RelativeLayout>
+</RelativeLayout>

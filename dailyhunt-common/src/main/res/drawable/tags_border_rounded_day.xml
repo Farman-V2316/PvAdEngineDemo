@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item >
+        <shape
+            android:shape="rectangle"  >
+            <corners android:radius="15dp" />
+            <stroke android:width="1dp"
+                    android:color="@color/tv_detail_tag_color"/>
+            <solid  android:color="@color/tv_live_label"/>
+            <padding android:left="12dp" android:top="6dp"
+                     android:right="12dp" android:bottom="4dp" />
+        </shape>
+    </item>
+</selector>

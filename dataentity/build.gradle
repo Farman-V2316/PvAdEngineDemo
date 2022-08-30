@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+  compileSdkVersion  project.csv
+
+
+  defaultConfig {
+    minSdkVersion project.msv
+    targetSdkVersion project.tsv
+    versionCode 1
+    versionName "1.0"
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
+}
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  api 'com.squareup.retrofit2:converter-gson:2.1.0'
+  api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+  api "androidx.room:room-runtime:"+project.room_v
+  kapt "androidx.room:room-compiler:"+project.room_v
+  api 'com.google.code.findbugs:jsr305:2.0.1'
+
+  //RxAndroid
+  api 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
+  api 'io.reactivex.rxjava2:rxandroid:2.0.1'
+  api 'io.reactivex.rxjava2:rxjava:2.0.7'
+
+  // Network SDK
+  api 'com.newshunt.sdk.network:glide:' + project.nsv_aar
+  api 'com.newshunt.sdk.network:annotation:' + project.nsv_jar
+  api 'com.newshunt.sdk.network:disklrucache:' + project.nsv_aar
+  api 'com.newshunt.sdk.network:gif_decoder:' + project.nsv_aar
+  api 'com.newshunt.sdk.network:connectionclass:' + project.nsv_aar
+  api 'com.newshunt.sdk.network:network-sdk:' + project.nsv_aar
+  api 'com.linkedin.android.spyglass:spyglass:2.0.1'
+  api 'androidx.exifinterface:exifinterface:1.2.0'
+
+  //AdContext SDK
+  api 'in.dailyhunt.money:AdContextEvaluator:1.0.8.2'
+
+  annotationProcessor 'com.google.auto.factory:auto-factory:1.0-beta3'
+  kapt 'com.google.auto.factory:auto-factory:1.0-beta3'
+  kapt "androidx.room:room-compiler:" + project.room_v
+
+
+  implementation 'androidx.appcompat:appcompat:1.0.2'
+  testImplementation 'junit:junit:4.12'
+  androidTestImplementation 'androidx.test:runner:1.2.0'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

@@ -1,0 +1,38 @@
+{
+  "ad": [
+    {
+      "aduid": "0",
+      "srcUrlExpiry": "60",
+      "position": "storypage",
+      "adGroupId": "0",
+      "width": "1080",
+      "height": "540",
+      "sdk-order": "1",
+      "adTemplate": "L",
+      "id": "0",
+      "span": "60",
+      "type": "external-sdk",
+      "external": {
+        "adunitid": "131285656905938_1049719051729256",
+        "data": "FB-Native"
+      }
+    },
+    {
+      "aduid": "0",
+      "srcUrlExpiry": "60",
+      "position": "storypage",
+      "adGroupId": "0",
+      "width": "1080",
+      "height": "540",
+      "sdk-order": "2",
+      "adTemplate": "L",
+      "id": "0",
+      "span": "60",
+      "type": "external-sdk",
+      "external": {
+        "adunitid": "/83414793/Common_Storypage_Native",
+        "data": "DFP-Native-Content"
+      }
+    }
+  ]
+}

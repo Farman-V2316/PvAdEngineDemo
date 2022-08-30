@@ -1,0 +1,101 @@
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+  compileSdkVersion project.csv
+
+  defaultConfig {
+    minSdkVersion project.msv
+    targetSdkVersion project.tsv
+    versionCode 1
+    versionName "1.0"
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  buildFeatures {
+    dataBinding true
+  }
+
+}
+
+dependencies {
+  implementation platform('com.google.firebase:firebase-bom:'+project.bom_v)
+  api fileTree(dir: 'libs', include: ['*.jar'])
+
+  api project(':dataentity')
+
+  // Common Entities [Retrofit, OkHttp , LRU Cache
+  api 'com.squareup.retrofit2:retrofit:2.1.0'
+  api 'com.squareup:otto:' + project.bus_v
+  api 'com.jakewharton:disklrucache:2.0.2'
+  api 'com.facebook.device.yearclass:yearclass:1.0.1'
+  // Common Android Support Libraries
+  api 'androidx.legacy:legacy-support-v13:' + project.xlv
+  api 'androidx.appcompat:appcompat:' + project.xlv
+  api 'com.google.android.material:material:' + project.ml
+  api 'androidx.cardview:cardview:' + project.xlv
+  api 'androidx.constraintlayout:constraintlayout:' + project.clv
+  api("com.firebase:firebase-jobdispatcher:0.7.0") {
+    exclude group: 'com.google.android.gms', module: 'play-services-gcm'
+  }
+  api 'com.google.firebase:firebase-analytics'
+  api 'com.google.firebase:firebase-dynamic-links'
+  implementation('com.google.android.gms:play-services-location:' + project.gpv_location)
+  if (!project.featureGo) {
+    api('com.github.bumptech.glide:recyclerview-integration:' + project.glv) {
+      // Excludes the support library because it's already included by Glide.
+      transitive = false
+    }
+    api 'androidx.emoji:emoji:' + project.xlv
+  } else {
+    api project(':gomock')
+  }
+
+  //for dagger
+  api 'org.glassfish:javax.annotation:10.0-b28'
+  api "androidx.lifecycle:lifecycle-livedata:"+project.lifecycle_xv
+  api "androidx.lifecycle:lifecycle-extensions:"+project.lifecycle_xv
+  api "androidx.lifecycle:lifecycle-reactivestreams:"+project.lifecycle_xv
+  api "androidx.room:room-runtime:"+project.room_v
+  kapt "androidx.room:room-compiler:"+project.room_v
+  // RxJava support for Room
+  implementation "androidx.room:room-rxjava2:"+project.room_v
+  //for phone selector
+  implementation 'com.google.android.gms:play-services-auth:' + project.gpv_auth
+
+  api "androidx.paging:paging-runtime-ktx:$project.paging"
+
+  // for Dns
+  api 'dnsjava:dnsjava:3.4.2'
+
+  api 'com.newshunt.android:dh-lintrules:0.0.1'
+  api 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+
+  api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+  implementation 'androidx.appcompat:appcompat:1.0.2'
+  testImplementation 'junit:junit:4.12'
+  androidTestImplementation 'androidx.test:runner:1.2.0'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+
+
+repositories {
+  google()
+}

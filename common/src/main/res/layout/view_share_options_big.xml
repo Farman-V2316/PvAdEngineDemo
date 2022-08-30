@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+                android:layout_height="@dimen/share_fab_layout_height">
+
+    <ImageButton
+        android:id="@+id/more_share_options"
+        android:layout_width="41dp"
+        android:layout_height="24dp"
+        android:background="@color/share_transparent"
+        android:src="@drawable/share_big_story_selector"/>
+
+</RelativeLayout>

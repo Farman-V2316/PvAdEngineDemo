@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/logo_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="3dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_notification_ogo" />
+
+    <TextView
+        android:id="@+id/titleTv"
+        style="@style/StickyNotificationFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#565868"
+        android:textSize="8dp"
+        tools:text="Lok Sabha Elections Result" />
+
+    <ImageView
+        android:id="@+id/close_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/notification_refresh_button_bg"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="3dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_close_noti" />
+
+    <LinearLayout
+        android:id="@+id/counting_board"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTv"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:minHeight="30dp"
+        android:orientation="horizontal"
+        android:paddingLeft="22dp"
+        android:paddingRight="22dp">
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/matchStateTv"
+        style="@style/StickyNotificationFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/counting_board"
+        android:layout_centerHorizontal="true"
+        android:ellipsize="end"
+        android:gravity="center_horizontal|bottom"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="#565868"
+        android:textSize="9dp"
+        tools:text="BJP is currently leading by 34 Seats" />
+
+    <ImageView
+        android:id="@+id/refresh_btn"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/notification_refresh_button_bg"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="centerCrop" />
+</RelativeLayout>
