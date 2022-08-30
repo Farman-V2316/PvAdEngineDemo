@@ -1,10 +1,149 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-    id 'com.android.application' version '7.2.0' apply false
-    id 'com.android.library' version '7.2.0' apply false
-    id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
+
+buildscript {
+    ext.kotlin_version = '1.5.20'
+
+    System.properties['com.android.build.gradle.overrideVersionCheck'] = 'true'
+
+    repositories {
+        google()
+        maven { url "https://dl.google.com/dl/android/maven2" }
+        jcenter()
+        maven { url "https://maven.google.com" }
+        maven { url "https://jitpack.io" }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.3'
+        classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'com.google.firebase:perf-plugin:1.4.1'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+allprojects {
+    repositories {
+//    Use artifacts from local machine
+//    mavenLocal()
+        google()
+        maven {
+            url "https://dl.google.com/dl/android/maven2"
+        }
+        jcenter()
+        maven { url "https://maven.google.com" }
+        maven {
+            url "http://192.168.10.70/nexus/content/groups/public"
+        }
+        maven {
+            url "http://artifactory.newshunt.com/nexus/content/repositories/ads"
+        }
+        maven { url "https://jitpack.io" }
+    }
+
+    project.ext {
+        tsv = 30 // target sdk version
+        csv = 31 // compile sdk version
+        btv = "30.0.2"
+        xlv = '1.0.0' // AndroidX support library version
+        ml = '1.2.0' // Android material library version
+        exov = '2.11.8' // locally build exo-player version
+        clv = '1.1.3'
+        glv = '4.12.0' //glide library version
+        bus_v = '1.3.8' //otto bus library
+
+        gpv_ad = '20.4.0' // google play services ads lite version
+        gpv_basement = '16.2.0' // google play services basement version
+        gpv_location = '17.0.0' // google play services location version
+        gpv_analytics = '16.0.8' // google play service analytics
+        gpv_auth = '16.0.1' //google play services auth
+
+        amazon_ad = '9.5.1' // amazon publisher services ads sdk
+
+        fsv = '0.0.18' // feature sdk version
+        fsv_aar = fsv + '@aar'
+
+        nsv = '0.0.150' // network sdk version
+        nsv_aar = nsv + '@aar'
+        nsv_jar = nsv + '@jar'
+
+        lifecycle_xv = "2.0.0-rc01" //AndroidX life cycle version
+        lifecycle_ktxv = "2.5.0"  // AndroidX life cycle version Kotlin
+        room_v = "2.4.0-alpha03" //AndroidX life cycle version
+
+        coroutines_v = '1.3.1' // Android Coroutine  version
+
+        bom_v = '27.1.0'  //firebase BoM version
+        dagger_v = "2.12"
+        msv = 26 // min sdk version
+        msv_debug = 26 // min sdk version for improving build speed
+
+        appVersion = System.getenv("VERSION_NAME") ?: "20.0.0"
+
+        fb = '11.3.0' // FB Android SDKx
+        fb_stetho = '1.4.2' // FB Stetho
+
+        ad_fbv = '6.5.0' // fb audience n/w sdk version
+        ad_dfp_fbv = '6.5.0.0' // Facebook adapter for Google Mobile Ads mediation
+
+        play_core_v = '1.10.3'
+        play_core_ktx_v = '1.8.1'
+
+        test_jv = '4.12' // junit version
+        test_mv = '2.8.9' //mockito version
+        test_pmv = '2.0.2' //powermock version
+        test_dmv = '1.2' //dexmaker version
+        test_xrv = '1.1.0' //androidX testRunner version
+        test_exv = '3.1.0' //android X espresso version
+
+        lcv = '2.2' //leak canary version
+        paging = '2.1.2'
+
+        // work manager
+        work_version = "2.6.0"
+
+        lottie_v = '4.2.2' //lottie animation version
+
+        coroutine_v = '1.3.8' // Kotlinx-coroutines version
+
+        // testing related
+        androidXTestCoreVersion = '1.2.0-beta01'
+        fragmentVersion = '1.1.0-alpha07'
+        truthVersion = '0.44'
+        espressoVersion = '3.2.0-beta01'
+        robolectricVersion = '4.3-beta-1'
+        hamcrestVersion = '1.3'
+        archTestingVersion = '2.0.0'
+
+        version_prod = (System.getenv("VERSION_CODE") ?: "2830").toInteger()
+        version_others = version_prod + 1
+        isExtractNativeLibs = System.getenv("BUILD_extractNativeLibs") ?: true
+
+        enableNews = true
+        enableBooks = true
+        enableTV = true
+        featureSource = true
+        featureGo = false
+        generateSourceWithConditionalLog = false // Enable this only in Prod and stage branches
+    }
+}
+
+task generateSources {
+    afterEvaluate {
+        if (project.generateSourceWithConditionalLog) {
+            def script
+            if (project.featureGo) {
+                println("generating code with GO")
+                script = "python generate_go.py".execute()
+            } else {
+                println("generating code without GO")
+                script = "python generate.py".execute()
+            }
+            script.in.eachLine { line -> println line }
+            script.err.eachLine { line -> println "ERROR: " + line }
+            script.waitFor()
+        }
+    }
 }
