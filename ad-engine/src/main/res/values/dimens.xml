@@ -126,4 +126,7 @@
     <dimen name="ad_full_screen_top_icon_margin">50dp</dimen>
     <dimen name="ad_close_icon_size">24dp</dimen>
 
+    <dimen name="ad_margin_top">16dp</dimen>
+    <dimen name="ad_content_margin">20dp</dimen>
+    <dimen name="bottombar_margin">16dp</dimen>
 </resources>
