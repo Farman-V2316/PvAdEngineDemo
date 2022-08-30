@@ -71,7 +71,8 @@ class AmazonAdViewHelper(view: View, private var activity: Activity) {
         }
 
         adContainerLayout?.let { container ->
-            container.setPadding(CommonUtils.getDimension(R.dimen.ad_content_margin), 0, CommonUtils.getDimension(R.dimen.ad_content_margin), 0)
+            container.setPadding(CommonUtils.getDimension(com.dailyhunt.tv.ima.R.dimen.ad_content_margin), 0, CommonUtils.getDimension(
+                com.dailyhunt.tv.ima.R.dimen.ad_content_margin), 0)
 
             val width = externalSdkAd.width?: AdConstants.DEFAULT_AD_SIZE
             val height = externalSdkAd.height?: AdConstants.DEFAULT_AD_SIZE
@@ -80,9 +81,9 @@ class AmazonAdViewHelper(view: View, private var activity: Activity) {
             val set = ConstraintSet()
             set.clone(container)
             set.connect(dtbAdView.id, ConstraintSet.START, container.id,
-                ConstraintSet.START, CommonUtils.getDimension(R.dimen.ad_content_margin))
+                ConstraintSet.START, CommonUtils.getDimension(com.dailyhunt.tv.ima.R.dimen.ad_content_margin))
             set.connect(dtbAdView.id, ConstraintSet.END, container.id,
-                ConstraintSet.END, CommonUtils.getDimension(R.dimen.ad_content_margin))
+                ConstraintSet.END, CommonUtils.getDimension(com.dailyhunt.tv.ima.R.dimen.ad_content_margin))
             sponsoredText?.let { sponsoredText ->
                 set.connect(sponsoredText.id, ConstraintSet.TOP, dtbAdView.id,
                     ConstraintSet.BOTTOM, CommonUtils.getDimension(R.dimen.sponsored_text_margin_top))
@@ -98,7 +99,7 @@ class AmazonAdViewHelper(view: View, private var activity: Activity) {
             }
 
             view?.visibility = View.VISIBLE
-            container.setTag(R.id.omid_adview_tag_id, Constants.OM_WEBVIEW_TAG)
+            container.setTag(com.newshunt.common.util.R.id.omid_adview_tag_id, Constants.OM_WEBVIEW_TAG)
         }
 
     }

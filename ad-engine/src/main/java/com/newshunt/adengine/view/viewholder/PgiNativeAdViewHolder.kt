@@ -140,9 +140,9 @@ class PgiNativeAdViewHolder(private val viewBinding: ViewDataBinding, lifecycleO
             pgiNativeAdDetailImage.layoutParams.width = AdsUtil.getIntValue(itemImage.width, 0)
         }
         if (CommonUtils.isEmpty(itemImage.data)) {
-            pgiNativeAdDetailImage.setBackgroundResource(R.drawable.default_news_img)
+            pgiNativeAdDetailImage.setBackgroundResource(com.newshunt.dhutil.R.drawable.default_news_img)
         } else {
-            Image.load(itemImage.data).placeHolder(R.color.empty_image_color)
+            Image.load(itemImage.data).placeHolder(com.newshunt.common.util.R.color.empty_image_color)
                     .into(pgiNativeAdDetailImage, ImageView.ScaleType.CENTER_CROP)
         }
         pgiNativeAdDetailImage.visibility = View.VISIBLE

@@ -56,7 +56,7 @@ public class NotificationUpdateServiceImpl implements NotificationUpdateService 
     this.notificationServiceAPI = RestAdapterContainer.getInstance()
         .getRestAdapter(baseUrl, Priority.PRIORITY_HIGHEST, null, false)
         .create(NotificationServiceAPI.class);
-    String message = CommonUtils.getString(R.string.gcm_registration_info);
+    String message = CommonUtils.getString(com.newshunt.common.util.R.string.gcm_registration_info);
     Call<ApiResponse<Boolean>> call = notificationServiceAPI.notificationRegistration(
         clientId, gcmId, DEVICE_TYPE, enabled, cricketEnabled);
     call.enqueue(createStatusUpdateResponseCallback(message, StatusUpdateType.GCM_REGISTRATION));
@@ -67,7 +67,7 @@ public class NotificationUpdateServiceImpl implements NotificationUpdateService 
     this.notificationServiceAPI = RestAdapterContainer.getInstance()
         .getRestAdapter(baseUrl, Priority.PRIORITY_HIGH, null,false)
         .create(NotificationServiceAPI.class);
-    String message = CommonUtils.getString(R.string.notification_update_status);
+    String message = CommonUtils.getString(com.newshunt.common.util.R.string.notification_update_status);
     Call<ApiResponse<Boolean>> call = notificationServiceAPI.notificationEnabled(clientId, enabled);
     call.enqueue(createStatusUpdateResponseCallback(message, requestType));
   }

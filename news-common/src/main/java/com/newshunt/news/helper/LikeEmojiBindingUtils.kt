@@ -56,7 +56,7 @@ class LikeEmojiBindingUtils {
                 }
             }
             val layoutInflater = LayoutInflater.from(view.context)
-            val rootView = layoutInflater.inflate(R.layout.like_emoji_popup, view.parent as ViewGroup, false)
+            val rootView = layoutInflater.inflate(com.newshunt.dhutil.R.layout.like_emoji_popup, view.parent as ViewGroup, false)
             val popupWindow = LikeEmojiPopup(view.context, rootView, item, parentItem, vm, isComment, commentType)
             if (vm.isDetail()) {
                 popupWindow.showAsDropDown(view, 0,
@@ -127,26 +127,26 @@ class LikeEmojiBindingUtils {
         fun getEmojiIconResource(likeType: LikeType?, context: Context?, isInPopup: Boolean): Int {
             return when (likeType) {
                 LikeType.LIKE -> {
-                    if (isInPopup) R.drawable.ic_emoji_blue_like
+                    if (isInPopup) com.newshunt.dhutil.R.drawable.ic_emoji_blue_like
                     else
-                        R.drawable.ic_selected_blue_like
+                        com.newshunt.dhutil.R.drawable.ic_selected_blue_like
                 }
-                LikeType.LOVE -> R.drawable.ic_emoji_blue_like
-                LikeType.HAPPY -> R.drawable.ic_emoji_blue_like
-                LikeType.WOW -> R.drawable.ic_emoji_blue_like
+                LikeType.LOVE -> com.newshunt.dhutil.R.drawable.ic_emoji_blue_like
+                LikeType.HAPPY -> com.newshunt.dhutil.R.drawable.ic_emoji_blue_like
+                LikeType.WOW -> com.newshunt.dhutil.R.drawable.ic_emoji_blue_like
                 LikeType.SAD -> {
-                    if(isInPopup) R.drawable.ic_crying
-                    else R.drawable.ic_vector_emoji_sad
+                    if(isInPopup) com.newshunt.dhutil.R.drawable.ic_crying
+                    else com.newshunt.dhutil.R.drawable.ic_vector_emoji_sad
                 }
                 LikeType.ANGRY -> {
-                    if(isInPopup) R.drawable.ic_angry
-                    else R.drawable.ic_vector_emoji_angry
+                    if(isInPopup) com.newshunt.dhutil.R.drawable.ic_angry
+                    else com.newshunt.dhutil.R.drawable.ic_vector_emoji_angry
                 }
                 else -> {
                     if (context != null) {
-                        ThemeUtils.getThemeDrawableByAttribute(context, R.attr.like_icon, R.drawable.ic_like)
+                        ThemeUtils.getThemeDrawableByAttribute(context, com.newshunt.dhutil.R.attr.like_icon, com.newshunt.dhutil.R.drawable.ic_like)
                     } else {
-                        R.drawable.ic_like
+                        com.newshunt.dhutil.R.drawable.ic_like
                     }
                 }
             }
@@ -243,9 +243,9 @@ class LikeEmojiBindingUtils {
         @JvmStatic
         fun likeLayoutTitle(card: CommonAsset): String? {
             return if (likeLayoutSelectedLikeType(card) == null) {
-                CommonUtils.getString(R.string.detail_like_layout_title_default)
+                CommonUtils.getString(com.newshunt.common.util.R.string.detail_like_layout_title_default)
             } else {
-                CommonUtils.getString(R.string.detail_like_layout_title_responded)
+                CommonUtils.getString(com.newshunt.common.util.R.string.detail_like_layout_title_responded)
             }
         }
 
@@ -258,40 +258,40 @@ class LikeEmojiBindingUtils {
                 if(useDark) {
                     if (selected) {
                         when (likeType) {
-                            LikeType.LIKE -> R.drawable.ic_like_thumb_selected_night
+                            LikeType.LIKE -> com.newshunt.dhutil.R.drawable.ic_like_thumb_selected_night
 
-                            LikeType.ANGRY -> R.drawable.ic_dislike_thumb_selected_night
+                            LikeType.ANGRY -> com.newshunt.dhutil.R.drawable.ic_dislike_thumb_selected_night
                             else -> {
-                                R.drawable.ic_like_thumb_selected_night
+                                com.newshunt.dhutil.R.drawable.ic_like_thumb_selected_night
                             }
                         }
                     } else {
                         when (likeType) {
-                            LikeType.LIKE -> R.drawable.ic_like_thumb_night
+                            LikeType.LIKE -> com.newshunt.dhutil.R.drawable.ic_like_thumb_night
 
-                            LikeType.ANGRY -> R.drawable.ic_dislike_thumb_night
+                            LikeType.ANGRY -> com.newshunt.dhutil.R.drawable.ic_dislike_thumb_night
                             else -> {
-                                R.drawable.ic_like_thumb
+                                com.newshunt.dhutil.R.drawable.ic_like_thumb
                             }
                         }
                     }
                 }else{
                     if (selected) {
                         when (likeType) {
-                            LikeType.LIKE -> R.drawable.ic_like_thumb_selected
+                            LikeType.LIKE -> com.newshunt.dhutil.R.drawable.ic_like_thumb_selected
 
-                            LikeType.ANGRY -> R.drawable.ic_dislike_thumb_selected
+                            LikeType.ANGRY -> com.newshunt.dhutil.R.drawable.ic_dislike_thumb_selected
                             else -> {
-                                R.drawable.ic_like_thumb_selected
+                                com.newshunt.dhutil.R.drawable.ic_like_thumb_selected
                             }
                         }
                     } else {
                         when (likeType) {
-                            LikeType.LIKE -> R.drawable.ic_like_thumb
+                            LikeType.LIKE -> com.newshunt.dhutil.R.drawable.ic_like_thumb
 
-                            LikeType.ANGRY -> R.drawable.ic_dislike_thumb
+                            LikeType.ANGRY -> com.newshunt.dhutil.R.drawable.ic_dislike_thumb
                             else -> {
-                                R.drawable.ic_like_thumb
+                                com.newshunt.dhutil.R.drawable.ic_like_thumb
                             }
                         }
                     }
@@ -308,29 +308,29 @@ class LikeEmojiBindingUtils {
                 if(useDark) {
                     if (selected) {
                         when (likeIndex) {
-                            0 -> R.drawable.ic_emoji_smile_selected
-                            1 -> R.drawable.ic_emoji_sad_selected
-                            else -> R.drawable.ic_emoji_angry_selected
+                            0 -> com.newshunt.dhutil.R.drawable.ic_emoji_smile_selected
+                            1 -> com.newshunt.dhutil.R.drawable.ic_emoji_sad_selected
+                            else -> com.newshunt.dhutil.R.drawable.ic_emoji_angry_selected
                         }
                     } else {
                         when (likeIndex) {
-                            0 -> R.drawable.ic_emoji_smile_unselected_night
-                            1 -> R.drawable.ic_emoji_sad_unselected_night
-                            else -> R.drawable.ic_emoji_angry_unselected_night
+                            0 -> com.newshunt.dhutil.R.drawable.ic_emoji_smile_unselected_night
+                            1 -> com.newshunt.dhutil.R.drawable.ic_emoji_sad_unselected_night
+                            else -> com.newshunt.dhutil.R.drawable.ic_emoji_angry_unselected_night
                         }
                     }
                 }else{
                     if (selected) {
                         when (likeIndex) {
-                            0 -> R.drawable.ic_emoji_smile_selected
-                            1 -> R.drawable.ic_emoji_sad_selected
-                            else -> R.drawable.ic_emoji_angry_selected
+                            0 -> com.newshunt.dhutil.R.drawable.ic_emoji_smile_selected
+                            1 -> com.newshunt.dhutil.R.drawable.ic_emoji_sad_selected
+                            else -> com.newshunt.dhutil.R.drawable.ic_emoji_angry_selected
                         }
                     } else {
                         when (likeIndex) {
-                            0 -> R.drawable.ic_emoji_smile_unselected
-                            1 -> R.drawable.ic_emoji_sad_unselected
-                            else -> R.drawable.ic_emoji_angry_unselected
+                            0 -> com.newshunt.dhutil.R.drawable.ic_emoji_smile_unselected
+                            1 -> com.newshunt.dhutil.R.drawable.ic_emoji_sad_unselected
+                            else -> com.newshunt.dhutil.R.drawable.ic_emoji_angry_unselected
                         }
                     }
                 }
@@ -349,15 +349,15 @@ class LikeEmojiBindingUtils {
         }
 
         private val selectedColors = arrayOf(
-                ContextCompat.getColor(CommonUtils.getApplication(), R.color.detail_emoji_smile_seleceted_text_color),
-                ContextCompat.getColor(CommonUtils.getApplication(), R.color.detail_emoji_sad_seleceted_text_color),
-                ContextCompat.getColor(CommonUtils.getApplication(), R.color.detail_emoji_angry_seleceted_text_color)
+                ContextCompat.getColor(CommonUtils.getApplication(), com.newshunt.dhutil.R.color.detail_emoji_smile_seleceted_text_color),
+                ContextCompat.getColor(CommonUtils.getApplication(), com.newshunt.dhutil.R.color.detail_emoji_sad_seleceted_text_color),
+                ContextCompat.getColor(CommonUtils.getApplication(), com.newshunt.dhutil.R.color.detail_emoji_angry_seleceted_text_color)
         )
 
         private val selectedColorsNight = arrayOf(
-                ContextCompat.getColor(CommonUtils.getApplication(), R.color.detail_emoji_smile_seleceted_text_color),
-                ContextCompat.getColor(CommonUtils.getApplication(), R.color.detail_emoji_all_unseleceted_text_color_night),
-                ContextCompat.getColor(CommonUtils.getApplication(), R.color.detail_emoji_angry_seleceted_text_color)
+                ContextCompat.getColor(CommonUtils.getApplication(), com.newshunt.dhutil.R.color.detail_emoji_smile_seleceted_text_color),
+                ContextCompat.getColor(CommonUtils.getApplication(), com.newshunt.dhutil.R.color.detail_emoji_all_unseleceted_text_color_night),
+                ContextCompat.getColor(CommonUtils.getApplication(), com.newshunt.dhutil.R.color.detail_emoji_angry_seleceted_text_color)
         )
 
         @JvmStatic
@@ -365,14 +365,14 @@ class LikeEmojiBindingUtils {
             val useDark = ThemeUtils.isNightMode() || isInBottomSheet
             return if (likeLayoutIsCurrentLikeSelected(card, likeIndex)) {
                 if (useDark) {
-                    ContextCompat.getColor(CommonUtils.getApplication(), R.color.white)
+                    ContextCompat.getColor(CommonUtils.getApplication(), com.newshunt.common.util.R.color.white_color)
                 } else {
-                    ContextCompat.getColor(CommonUtils.getApplication(), R.color.black)
+                    ContextCompat.getColor(CommonUtils.getApplication(), com.newshunt.common.util.R.color.black)
                 }
             } else if (useDark) {
-                ContextCompat.getColor(CommonUtils.getApplication(), R.color.detail_emoji_all_unseleceted_text_color_night)
+                ContextCompat.getColor(CommonUtils.getApplication(), com.newshunt.dhutil.R.color.detail_emoji_all_unseleceted_text_color_night)
             } else {
-                ContextCompat.getColor(CommonUtils.getApplication(), R.color.detail_emoji_all_unseleceted_text_color)
+                ContextCompat.getColor(CommonUtils.getApplication(), com.newshunt.dhutil.R.color.detail_emoji_all_unseleceted_text_color)
             }
 
         }
@@ -385,16 +385,16 @@ class LikeEmojiBindingUtils {
             val i =
                 if(useDark) {
                     if (selected) {
-                        R.drawable.news_detail_like_selected_night
+                        com.newshunt.dhutil.R.drawable.news_detail_like_selected_night
 
                     } else {
-                        R.drawable.news_detail_like_night
+                        com.newshunt.dhutil.R.drawable.news_detail_like_night
                     }
                 }else{
                     if (selected) {
-                        R.drawable.news_detail_like_selected_day
+                        com.newshunt.dhutil.R.drawable.news_detail_like_selected_day
                     } else {
-                        R.drawable.news_detail_like_day
+                        com.newshunt.dhutil.R.drawable.news_detail_like_day
                     }
                 }
             return  CommonUtils.getDrawable(i)

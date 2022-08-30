@@ -214,9 +214,11 @@ class SlidingTabStrip extends LinearLayout {
     int childRight = 0;
 
     if (selectedTitle instanceof ViewGroup) {
-      childLeft = parentLeft + CommonUtils.getPixelFromDP(CommonUtils.getDimensionInDp(R.dimen.sliding_tab_strip_size), CommonUtils
+      childLeft = parentLeft + CommonUtils.getPixelFromDP(CommonUtils.getDimensionInDp(
+          com.newshunt.dhutil.R.dimen.sliding_tab_strip_size), CommonUtils
               .getApplication());
-      childRight = parentRight - CommonUtils.getPixelFromDP(CommonUtils.getDimensionInDp(R.dimen.sliding_tab_strip_size), CommonUtils
+      childRight = parentRight - CommonUtils.getPixelFromDP(CommonUtils.getDimensionInDp(
+          com.newshunt.dhutil.R.dimen.sliding_tab_strip_size), CommonUtils
               .getApplication());
     }
 

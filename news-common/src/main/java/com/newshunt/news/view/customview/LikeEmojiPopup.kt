@@ -31,12 +31,12 @@ class LikeEmojiPopup(private val context: Context,
                      private val vm: EmojiClickHandlingViewModel,
                      private val isComment: Boolean?,
                      private val commentType: String?) : PopupWindow(rootView) {
-    private val recyclerView: RecyclerView? = rootView.findViewById(R.id.emoticon_recycler_view)
+    private val recyclerView: RecyclerView? = rootView.findViewById(com.newshunt.dhutil.R.id.emoticon_recycler_view)
 
     init {
         isFocusable = true
         isOutsideTouchable = true
-        width = CommonUtils.getDimension(R.dimen.like_popup_width)
+        width = CommonUtils.getDimension(com.newshunt.dhutil.R.dimen.like_popup_width)
         height = ViewGroup.LayoutParams.WRAP_CONTENT
         setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         elevation = 5f
@@ -45,19 +45,19 @@ class LikeEmojiPopup(private val context: Context,
 
     private fun buildRecyclerView(context: Context) {
         recyclerView ?: return
-        val linearLayoutManager = SpanningLinearLayoutManager(context, CommonUtils.getDimension(R.dimen.like_popup_width))
+        val linearLayoutManager = SpanningLinearLayoutManager(context, CommonUtils.getDimension(com.newshunt.dhutil.R.dimen.like_popup_width))
         val tvEmojiAdapter = LikeEmojiAdapter(item, parentItem, vm, this, isComment, commentType)
         linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = tvEmojiAdapter
-        val animation = AnimationUtils.loadLayoutAnimation(context, R.anim.emoticon_layout_animation_enter)
+        val animation = AnimationUtils.loadLayoutAnimation(context, com.newshunt.dhutil.R.anim.emoticon_layout_animation_enter)
         recyclerView.layoutAnimation = animation
     }
 
     fun dismissPopup() {
         recyclerView ?: return
         recyclerView.layoutAnimation = AnimationUtils
-                .loadLayoutAnimation(context, R.anim.emoticon_layout_animation_exit)
+                .loadLayoutAnimation(context, com.newshunt.dhutil.R.anim.emoticon_layout_animation_exit)
         recyclerView.startLayoutAnimation()
         Handler().postDelayed({ dismiss() }, 125)
     }

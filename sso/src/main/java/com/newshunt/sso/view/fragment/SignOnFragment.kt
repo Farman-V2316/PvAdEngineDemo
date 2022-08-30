@@ -193,11 +193,11 @@ class SignOnFragment : BaseFragment(), View.OnClickListener, FetchUserProfilesVi
         facebookLogin.setOnClickListener(this)
         googleLogin.setOnClickListener(this)
         (phoneNumberLogin.background as? GradientDrawable)
-                ?.setColor(CommonUtils.getColor(R.color.follow_color))
+                ?.setColor(CommonUtils.getColor(com.newshunt.common.util.R.color.follow_color))
         (facebookLogin.background as? GradientDrawable)
-                ?.setColor(CommonUtils.getColor(R.color.button_fb_login_fgcolor))
+                ?.setColor(CommonUtils.getColor(com.newshunt.dhutil.R.color.button_fb_login_fgcolor))
         (googleLogin.background as? GradientDrawable)
-                ?.setColor(CommonUtils.getColor(R.color.google_login_bg_color))
+                ?.setColor(CommonUtils.getColor(com.newshunt.common.util.R.color.google_login_bg_color))
 
         userProfilesList = rootView.findViewById<RecyclerView>(R.id.user_profiles_list)
         userProfilesTotalCount = rootView.findViewById(R.id.user_profiles_total_count)
@@ -218,7 +218,7 @@ class SignOnFragment : BaseFragment(), View.OnClickListener, FetchUserProfilesVi
         userProfilesGroup = rootView.findViewById(R.id.user_profiles_group)
         termsView = rootView.findViewById(R.id.termsView)
         errorParent = rootView.findViewById(R.id.error_parent)
-        val originalHtmlString = CommonUtils.getString(R.string.login_terms_condition)
+        val originalHtmlString = CommonUtils.getString(com.newshunt.common.util.R.string.login_terms_condition)
         val htmlString = HtmlCompat.fromHtml(FontHelper.getFontConvertedString(originalHtmlString), HtmlCompat.FROM_HTML_MODE_LEGACY) as Spannable
         termsView.setSpannableText(htmlString, originalHtmlString)
         termsView.setMovementMethod(LinkMovementMethod.getInstance())
@@ -231,8 +231,8 @@ class SignOnFragment : BaseFragment(), View.OnClickListener, FetchUserProfilesVi
         }
 
         val drawable = userProfilesTotalCount.background as? GradientDrawable
-        drawable?.setStroke(CommonUtils.getDimension(R.dimen.divider_height), ThemeUtils
-                .getThemeColorByAttribute(rootView.context, R.attr.followed_entities_background_color))
+        drawable?.setStroke(CommonUtils.getDimension(com.newshunt.dhutil.R.dimen.divider_height), ThemeUtils
+                .getThemeColorByAttribute(rootView.context, com.newshunt.dhutil.R.attr.followed_entities_background_color))
 
         setUIAccordingToMode(uiMode)
         handleAutoLogin()
@@ -296,34 +296,34 @@ class SignOnFragment : BaseFragment(), View.OnClickListener, FetchUserProfilesVi
         val uiMode = if (mode == null) SignInUIModes.SIGN_IN else SignInUIModes.valueOf(mode)
         when (uiMode) {
             SignInUIModes.SIGN_IN -> {
-                signUpHeader.text = CommonUtils.getString(R.string.sign_up_header_text_default)
+                signUpHeader.text = CommonUtils.getString(com.newshunt.common.util.R.string.sign_up_header_text_default)
             }
             SignInUIModes.SIGN_IN_WITH_SKIP_BUTTON -> {
-                signUpHeader.text = CommonUtils.getString(R.string.sign_up_header_text_default)
+                signUpHeader.text = CommonUtils.getString(com.newshunt.common.util.R.string.sign_up_header_text_default)
                 skipButtonGroup.visibility = View.VISIBLE
             }
             SignInUIModes.SIGN_IN_WITH_CROSS_BUTTON -> {
                 signInCrossButton.visibility = View.VISIBLE
                 signUpHeaderIcon.visibility = View.VISIBLE
                 signUpHeader.text = customSignInHeader
-                        ?: CommonUtils.getString(R.string.sign_up_header_text_default)
+                        ?: CommonUtils.getString(com.newshunt.common.util.R.string.sign_up_header_text_default)
             }
             SignInUIModes.SIGN_IN_FOR_SOCIAL_ACTIVITIES -> {
-                signUpHeader.text = CommonUtils.getString(R.string.sign_up_header_text_social_context)
+                signUpHeader.text = CommonUtils.getString(com.newshunt.common.util.R.string.sign_up_header_text_social_context)
             }
             SignInUIModes.SIGN_IN_FOR_TPV -> {
-                signUpHeader.text = CommonUtils.getString(R.string.sign_up_header_text_tpv_view)
+                signUpHeader.text = CommonUtils.getString(com.newshunt.common.util.R.string.sign_up_header_text_tpv_view)
                 signUpSubHeader.visibility = View.VISIBLE
                 signUpHeaderIcon.visibility = View.VISIBLE
-                signUpSubHeader.text = CommonUtils.getString(R.string.sign_up_subheader, tpvName)
+                signUpSubHeader.text = CommonUtils.getString(com.newshunt.common.util.R.string.sign_up_subheader, tpvName)
                 (signUpHeader.layoutParams as? ConstraintLayout.LayoutParams?)?.let {
                     it.topMargin = 0
                 }
             }
             SignInUIModes.SIGN_IN_FOR_SOCIAL_ONBOARDING -> {
-                signUpHeader.text = CommonUtils.getString(R.string.signup_header_new_boarding)
+                signUpHeader.text = CommonUtils.getString(com.newshunt.common.util.R.string.signup_header_new_boarding)
                 signUpHeader.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20f)
-                val textColorId = CommonUtils.getResourceIdFromAttribute(activity, R.attr
+                val textColorId = CommonUtils.getResourceIdFromAttribute(activity, com.newshunt.dhutil.R.attr
                         .sign_on_header_textColor_onboarding)
                 signUpHeader.setTextColor(CommonUtils.getColor(textColorId))
                 skipButtonGroup.visibility = View.GONE
@@ -433,8 +433,9 @@ class SignOnFragment : BaseFragment(), View.OnClickListener, FetchUserProfilesVi
             }
 
         })
-         val resId = ThemeUtils.getThemeDrawableByAttribute(this.context, R.attr.connection_error, View.NO_ID)
-        errorMessageBuilder!!.showCustomError(BaseError(CommonUtils.getString(com.newshunt.dhutil.R.string
+         val resId = ThemeUtils.getThemeDrawableByAttribute(this.context, com.newshunt.dhutil.R.attr.connection_error, View.NO_ID)
+        errorMessageBuilder!!.showCustomError(BaseError(CommonUtils.getString(
+            com.newshunt.common.util.R.string
                 .error_syncing)), true,resId)
 
     }
@@ -508,12 +509,12 @@ class SignOnFragment : BaseFragment(), View.OnClickListener, FetchUserProfilesVi
 
         if (resultCode == Activity.RESULT_CANCELED || !isLoginSuccessful || loginPayload == null) {
             showLoginView()
-            showToast(CommonUtils.getString(R.string.sign_in_failed_message))
+            showToast(CommonUtils.getString(com.newshunt.common.util.R.string.sign_in_failed_message))
             signOnPresenter.onHelperLoginError(LoginType.MOBILE, SSOResult.UNEXPECTED_ERROR)
             (activity as? SignOnFlow?)?.onLoginFailed()
             return
         }
-        showLoadingProgress(true, CommonUtils.getString(R.string.please_wait))
+        showLoadingProgress(true, CommonUtils.getString(com.newshunt.common.util.R.string.please_wait))
         signOnPresenter.socialLogin(loginPayload, LoginType.MOBILE)
     }
 
@@ -553,7 +554,7 @@ class SignOnFragment : BaseFragment(), View.OnClickListener, FetchUserProfilesVi
         if (activity?.isFinishing == true) {
             return
         }
-        val success = getString(R.string.successfully_logged_in) + Constants.SPACE_STRING
+        val success = getString(com.newshunt.common.util.R.string.successfully_logged_in) + Constants.SPACE_STRING
         showToast(success + name)
         launchDeepLinkUrl()
     }
@@ -573,7 +574,7 @@ class SignOnFragment : BaseFragment(), View.OnClickListener, FetchUserProfilesVi
         if (activity?.isFinishing == true) {
             return
         }
-        val error = getString(R.string.unexpected_error_message)
+        val error = getString(com.newshunt.common.util.R.string.unexpected_error_message)
         showToast(error)
     }
 

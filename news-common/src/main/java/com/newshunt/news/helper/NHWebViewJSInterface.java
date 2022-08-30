@@ -94,6 +94,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.newshunt.common.util.R;
 
 /**
  * JS interface for WebView's to handle NHCommand
@@ -587,7 +588,7 @@ public class NHWebViewJSInterface {
         shareIntent.putExtra(Intent.EXTRA_STREAM, shareContent.getFileUri());
       }
       return Intent.createChooser(shareIntent,
-          CommonUtils.getString(com.newshunt.dhutil.R.string.share_source));
+          CommonUtils.getString(R.string.share_source));
     }
   };
 

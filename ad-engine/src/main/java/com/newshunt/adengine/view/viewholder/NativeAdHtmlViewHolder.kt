@@ -179,7 +179,7 @@ class NativeAdHtmlViewHolder(val viewBinding: ViewDataBinding,
             } else {
                 borderContainer?.fillColor(
                         ThemeUtils.getThemeColorByAttribute(borderContainer?.context,
-                                R.attr.ads_container_background_color))
+                                com.newshunt.dhutil.R.attr.ads_container_background_color))
             }
         } else {
             adContainer?.apply {
@@ -243,8 +243,8 @@ class NativeAdHtmlViewHolder(val viewBinding: ViewDataBinding,
             }
             mastAdView?.layoutParams = RelativeLayout.LayoutParams(CommonUtils.getDeviceScreenWidth(),
                     parentHeight ?: CommonUtils.getRealScreenHeight(parentActivity)).also {
-                    it.marginEnd = -1 * CommonUtils.getDimension(R.dimen.ad_content_margin)
-                    it.marginStart = -1 * CommonUtils.getDimension(R.dimen.ad_content_margin)
+                    it.marginEnd = -1 * CommonUtils.getDimension(com.dailyhunt.tv.ima.R.dimen.ad_content_margin)
+                    it.marginStart = -1 * CommonUtils.getDimension(com.dailyhunt.tv.ima.R.dimen.ad_content_margin)
                 }
         } else {
             mastAdView?.layoutParams = RelativeLayout.LayoutParams(width, height)
@@ -486,7 +486,7 @@ class NativeAdHtmlViewHolder(val viewBinding: ViewDataBinding,
 
             var containerWidth = adWidth
             val maxWidthWithPadding = CommonUtils.getDeviceScreenWidth() - 2 *
-                    CommonUtils.getDimension(R.dimen.ad_content_margin)
+                    CommonUtils.getDimension(com.dailyhunt.tv.ima.R.dimen.ad_content_margin)
             if (isFullWidthAd) {
                 containerWidth = CommonUtils.getDeviceScreenWidth()
             } else if (containerWidth > maxWidthWithPadding) {

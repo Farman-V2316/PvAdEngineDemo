@@ -425,7 +425,7 @@ public abstract class StickyNotificationService extends Service implements Stick
         NotificationDefaultChannelHelperKt.createCustomChannelIfNotExist(NotificationConstants.UPDATES_DEFAULT_CHANNEL_ID, NotificationManager.IMPORTANCE_LOW);
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(CommonUtils.getApplication(), NotificationConstants.UPDATES_DEFAULT_CHANNEL_ID)
-            .setContentText(CommonUtils.getString(R.string.default_foreground_noti_msg))
+            .setContentText(CommonUtils.getString(com.newshunt.common.util.R.string.default_foreground_noti_msg))
             .setSmallIcon(R.drawable.app_notification_icon)
             .setPriority(NotificationCompat.PRIORITY_LOW);
 

@@ -193,10 +193,10 @@ public class StickyNotificationLayoutBuilder {
       remoteViews.setViewVisibility(R.id.commentary_view, View.VISIBLE);
       if (cricketNotificationAsset.getState() == CommentaryState.PLAYING) {
         remoteViews.setOnClickPendingIntent(R.id.commentary_view, stopIntent);
-        remoteViews.setImageViewResource(R.id.commentary_view, R.drawable.ic_commentary_stop);
+        remoteViews.setImageViewResource(R.id.commentary_view, com.newshunt.dhutil.R.drawable.ic_commentary_stop);
       } else if (cricketNotificationAsset.getState() == CommentaryState.BUFFERING) {
         remoteViews.setOnClickPendingIntent(R.id.commentary_view, stopIntent);
-        remoteViews.setImageViewResource(R.id.commentary_view, R.drawable.ic_commentary_buffering);
+        remoteViews.setImageViewResource(R.id.commentary_view, com.newshunt.dhutil.R.drawable.ic_commentary_buffering);
       } else {
         remoteViews.setOnClickPendingIntent(R.id.commentary_view, playIntent);
         remoteViews.setImageViewResource(R.id.commentary_view, R.drawable.ic_commentry_play);

@@ -126,7 +126,7 @@ class AdsUtil {
          */
         @JvmStatic
         val defaultWidthForWideAds: Int
-            get() = CommonUtils.getDeviceScreenWidth() - 2 * CommonUtils.getDimension(R.dimen.ad_content_margin)
+            get() = CommonUtils.getDeviceScreenWidth() - 2 * CommonUtils.getDimension(com.dailyhunt.tv.ima.R.dimen.ad_content_margin)
 
         /**
          * default height of media view
@@ -281,7 +281,7 @@ class AdsUtil {
                 return 0
             }
             val typedValue = TypedValue()
-            activity.theme.resolveAttribute(R.attr.actionBarSize, typedValue, true)
+            activity.theme.resolveAttribute(androidx.appcompat.R.attr.actionBarSize, typedValue, true)
             return TypedValue.complexToDimensionPixelSize(
                     typedValue.data, activity.resources.displayMetrics)
         }
@@ -924,7 +924,7 @@ class AdsUtil {
                 } else {
                     container.fillColor(
                             ThemeUtils.getThemeColorByAttribute(container.context,
-                                    R.attr.ads_container_background_color))
+                                    com.newshunt.dhutil.R.attr.ads_container_background_color))
                 }
             }
 
@@ -941,7 +941,7 @@ class AdsUtil {
                     container.setStroke(borderSize, ViewUtils.getColor(containerBorder))
                 } else {
                     container.setStroke(borderSize, ThemeUtils.getThemeColorByAttribute(container.context,
-                            R.attr.ads_container_border_color))
+                            com.newshunt.dhutil.R.attr.ads_container_border_color))
                 }
             }
 
@@ -956,14 +956,14 @@ class AdsUtil {
             drawableBackground.shape = GradientDrawable.RECTANGLE
             if (containerBackgroundColor != null && containerBorderColor != null) {
                 drawableBackground.setColor(ViewUtils.getColor(containerBackgroundColor)!!.toInt())
-                drawableBackground.setStroke(CommonUtils.getDimension(R.dimen.readmore_btn_stroke_width),
+                drawableBackground.setStroke(CommonUtils.getDimension(com.newshunt.common.util.R.dimen.readmore_btn_stroke_width),
                         ViewUtils.getColor(containerBorderColor)!!)
             } else {
                 drawableBackground.setColor(ThemeUtils.getThemeColorByAttribute(container.context,
-                        R.attr.ads_container_background_color))
-                drawableBackground.setStroke(CommonUtils.getDimension(R.dimen.readmore_btn_stroke_width),
+                        com.newshunt.dhutil.R.attr.ads_container_background_color))
+                drawableBackground.setStroke(CommonUtils.getDimension(com.newshunt.common.util.R.dimen.readmore_btn_stroke_width),
                         ThemeUtils.getThemeColorByAttribute(container.context,
-                                R.attr.ads_container_border_color))
+                                com.newshunt.dhutil.R.attr.ads_container_border_color))
             }
             return drawableBackground
         }
@@ -995,8 +995,8 @@ class AdsUtil {
             bottomBanner ?: return
 
             val chooseStrokeColor: Int = borderColor ?: getAdBorderColor(null)
-            val cornerRadius = CommonUtils.getDimension(R.dimen.ad_image_corner_radius)
-            val fillColor = ThemeUtils.getThemeColorByAttribute(bottomBanner.context, R.attr
+            val cornerRadius = CommonUtils.getDimension(com.newshunt.dhutil.R.dimen.ad_image_corner_radius)
+            val fillColor = ThemeUtils.getThemeColorByAttribute(bottomBanner.context, com.newshunt.dhutil.R.attr
                     .ad_bottom_banner_fill_color)
             val strokeWidth = CommonUtils.getDimension(R.dimen.ad_border_width)
             //top-left, top-right, bottom-right, bottom-left

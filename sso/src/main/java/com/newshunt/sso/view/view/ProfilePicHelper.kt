@@ -41,7 +41,7 @@ class ProfilePicHelper(lifecycleOwner: LifecycleOwner,
     override fun onChanged(userDetails: SSO.UserDetails?) {
         userDetails?.userLoginResponse?.profileImage ?: return
         profilePicImgView.context?.let {
-            val size = CommonUtils.getDimension(R.dimen.profile_icon_height_width)
+            val size = CommonUtils.getDimension(com.newshunt.dhutil.R.dimen.profile_icon_height_width)
             Image.load(ImageUrlReplacer.getQualifiedImageUrl(userDetails.userLoginResponse?.profileImage, size, size))
                     .placeHolder(ContextCompat.getDrawable(it, R.drawable.vector_user_avatar))
                     .apply(RequestOptions.circleCropTransform())

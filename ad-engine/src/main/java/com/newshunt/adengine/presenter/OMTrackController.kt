@@ -53,7 +53,7 @@ class OMTrackController private constructor(private val trackType: OMTrackType?,
                     sessionState = OMSdkHelper.createAdSessionForWebAd(adView, contentUrl,
                             CreativeType.DEFINED_BY_JAVASCRIPT, ImpressionType.DEFINED_BY_JAVASCRIPT,
                             Owner.JAVASCRIPT, Owner.JAVASCRIPT)
-                    adView.setTag(R.id.omid_adview_tag_id, Constants.OM_WEBVIEW_TAG)
+                    adView.setTag(com.newshunt.common.util.R.id.omid_adview_tag_id, Constants.OM_WEBVIEW_TAG)
                 } else {
                     return null
                 }
@@ -62,7 +62,7 @@ class OMTrackController private constructor(private val trackType: OMTrackType?,
                 if (adView is WebView) {
                     sessionState = OMSdkHelper.createAdSessionForWebAd(adView, contentUrl,
                             CreativeType.HTML_DISPLAY, ImpressionType.ONE_PIXEL, Owner.NATIVE, Owner.NONE)
-                    adView.setTag(R.id.omid_adview_tag_id, Constants.OM_WEBVIEW_TAG)
+                    adView.setTag(com.newshunt.common.util.R.id.omid_adview_tag_id, Constants.OM_WEBVIEW_TAG)
                 } else {
                     return null
                 }

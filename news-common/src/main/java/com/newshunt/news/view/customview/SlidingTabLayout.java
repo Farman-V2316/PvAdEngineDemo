@@ -150,7 +150,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
     mTabStrip = new SlidingTabStrip(context);
     if (ThemeUtils.isNightMode()) {
-      mTabStrip.setBackgroundColor(CommonUtils.getColor(R.color.edit_text_fill_color_night));
+      mTabStrip.setBackgroundColor(CommonUtils.getColor(com.newshunt.dhutil.R.color.edit_text_fill_color_night));
     }
     addView(mTabStrip, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
   }
@@ -420,11 +420,11 @@ public class SlidingTabLayout extends HorizontalScrollView {
         tabImageView.setImageTintMode(PorterDuff.Mode.SRC_IN);
         if (i == mViewPager.getCurrentItem()) {
           tabImageView.setImageTintList(
-              ColorStateList.valueOf(getResources().getColor(R.color.white_color)));
+              ColorStateList.valueOf(getResources().getColor(com.newshunt.common.util.R.color.white_color)));
         } else {
           tabImageView.setImageTintList(
               ColorStateList.valueOf(
-                  getResources().getColor(R.color.explore_unselected_overlay)));
+                  getResources().getColor(com.newshunt.common.util.R.color.explore_unselected_overlay)));
         }
 
         slidingTabLayoutAdapter.applyCustomStyles(tabView, i);
@@ -470,8 +470,10 @@ public class SlidingTabLayout extends HorizontalScrollView {
           String iconUrl = item.getIconUrl();
           if (!CommonUtils.isEmpty(iconUrl) && tabIconView != null) {
             tabIconView.setVisibility(View.VISIBLE);
-            Image.load(iconUrl).placeHolder(R.drawable.ic_profile).into(tabIconView);
-            tabTitleView.setPadding(CommonUtils.getDimension(R.dimen.tab_text_padding_start), CommonUtils.getDimension(R.dimen.tab_vertical_padding), 0, CommonUtils.getDimension(R.dimen.tab_layout_top_padding));
+            Image.load(iconUrl).placeHolder(com.newshunt.dhutil.R.drawable.ic_profile).into(tabIconView);
+            tabTitleView.setPadding(CommonUtils.getDimension(com.newshunt.dhutil.R.dimen.tab_text_padding_start), CommonUtils.getDimension(
+                com.newshunt.dhutil.R.dimen.tab_vertical_padding), 0, CommonUtils.getDimension(
+                com.newshunt.dhutil.R.dimen.tab_layout_top_padding));
           }
 
         }
@@ -641,11 +643,11 @@ public class SlidingTabLayout extends HorizontalScrollView {
         tabImageView.setImageTintMode(PorterDuff.Mode.SRC_IN);
         if (i == mViewPager.getCurrentItem()) {
           tabImageView.setImageTintList(
-              ColorStateList.valueOf(getResources().getColor(R.color.white_color)));
+              ColorStateList.valueOf(getResources().getColor(com.newshunt.common.util.R.color.white_color)));
         } else {
           tabImageView.setImageTintList(
               ColorStateList.valueOf(
-                  getResources().getColor(R.color.explore_unselected_overlay)));
+                  getResources().getColor(com.newshunt.common.util.R.color.explore_unselected_overlay)));
         }
 
         slidingTabLayoutAdapter.applyCustomStyles(child, i);

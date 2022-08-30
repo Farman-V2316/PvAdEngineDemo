@@ -46,8 +46,8 @@ class DhProfileViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
     init {
         val drawable = profileImage.background as? GradientDrawable
-        drawable?.setStroke(CommonUtils.getDimension(R.dimen.divider_height), ThemeUtils
-                .getThemeColorByAttribute(view.context, R.attr.followed_entities_background_color))
+        drawable?.setStroke(CommonUtils.getDimension(com.newshunt.dhutil.R.dimen.divider_height), ThemeUtils
+                .getThemeColorByAttribute(view.context, com.newshunt.dhutil.R.attr.followed_entities_background_color))
 
     }
 

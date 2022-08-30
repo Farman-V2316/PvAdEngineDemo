@@ -131,12 +131,12 @@ class IMAImmersiveFragment(val impressionReporter: AsyncAdImpressionReporter, va
             val mediaView = view.findViewById<RelativeLayout>(R.id.media_view)
             arrayOf(mediaViewParent,mediaView).scale(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
-            val playerview = view.findViewById<PlayerView>(R.id.videoPlayer)
+            val playerview = view.findViewById<PlayerView>(com.dailyhunt.tv.ima.R.id.videoPlayer)
             if(adEntity?.width ?: 0 < adEntity?.height ?: 0) {
                 playerview.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FILL
             }
 
-            videoPlayerWithAdPlayback = view.findViewById(R.id.videoPlayerWithAdPlayback)
+            videoPlayerWithAdPlayback = view.findViewById(com.dailyhunt.tv.ima.R.id.videoPlayerWithAdPlayback)
             videoPlayerWithAdPlayback.showImmersiveView(true)
 
             decideToShowCTAorCompanion(view)
@@ -147,10 +147,10 @@ class IMAImmersiveFragment(val impressionReporter: AsyncAdImpressionReporter, va
 
     // decides to show CTA click or companion
     private fun decideToShowCTAorCompanion(view: View) {
-        companionContainer = view.findViewById<ViewFlipper>(R.id.companion_ad_container)
+        companionContainer = view.findViewById<ViewFlipper>(com.dailyhunt.tv.ima.R.id.companion_ad_container)
         val ctaBottomBar : View? = view.findViewById<ConstraintLayout>(R.id.ad_banner_bottombar)
                 ?: view.findViewById<ConstraintLayout>(R.id.ad_banner_brand_bottombar)
-        val ctaBottomBarImersive = view.findViewById<ConstraintLayout>(R.id.ad_banner_bottombar_immersive)
+        val ctaBottomBarImersive = view.findViewById<ConstraintLayout>(com.dailyhunt.tv.ima.R.id.ad_banner_bottombar_immersive)
         val state = companionContainer.childCount > 0
 
         companionContainer.visibility = if (state) View.VISIBLE else View.GONE

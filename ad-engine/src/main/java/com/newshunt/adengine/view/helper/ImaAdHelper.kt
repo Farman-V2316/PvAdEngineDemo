@@ -195,7 +195,7 @@ class ImaAdHelper(private val adPlayerCallBack: AdPlayerCallBack?, private var a
     }
 
     override fun getMediaViewIfApplicable(mediaViewLayout: RelativeLayout): View {
-        adPlayerHolder = LayoutInflater.from(activity).inflate(R.layout.layout_ad_content_holder, mediaViewLayout, false)
+        adPlayerHolder = LayoutInflater.from(activity).inflate(com.dailyhunt.tv.ima.R.layout.layout_ad_content_holder, mediaViewLayout, false)
         if (adPlayerHolder.parent != null) {
             val parent = adPlayerHolder.parent as ViewGroup
             parent.removeView(adPlayerHolder)
@@ -203,7 +203,7 @@ class ImaAdHelper(private val adPlayerCallBack: AdPlayerCallBack?, private var a
         // All videos that start muted, follow global mute logic. Unmuted videos like in buzz will
         // keep mute property local to each ad.
         videoPlayerWithAdPlayback =
-            adPlayerHolder.findViewById<VideoPlayerWithAdPlayback>(R.id.videoPlayerWithAdPlayback)
+            adPlayerHolder.findViewById<VideoPlayerWithAdPlayback>(com.dailyhunt.tv.ima.R.id.videoPlayerWithAdPlayback)
                 ?.apply {
                     setFollowGlobalMute(followsMute)
                     setStartMuted(followsMute && isListMuteMode)
@@ -503,7 +503,7 @@ class ImaAdHelper(private val adPlayerCallBack: AdPlayerCallBack?, private var a
     }
 
     private fun takeScreenshot(): Bitmap? {
-        adPlayerHolder.findViewById<PlayerView>(R.id.videoPlayer)?.let { playerView ->
+        adPlayerHolder.findViewById<PlayerView>(com.dailyhunt.tv.ima.R.id.videoPlayer)?.let { playerView ->
             val textureView = playerView.videoSurfaceView as TextureView
             return textureView.bitmap
         }

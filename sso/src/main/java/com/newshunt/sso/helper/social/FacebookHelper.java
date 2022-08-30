@@ -69,7 +69,7 @@ public class FacebookHelper {
             } else {
               Logger.e(LOG_TAG, "Login success but token is null!!");
               FontHelper.showCustomFontToast(fragment.getContext(),
-                  fragment.getString(R.string.unexpected_error_message), Toast.LENGTH_SHORT);
+                  fragment.getString(com.newshunt.common.util.R.string.unexpected_error_message), Toast.LENGTH_SHORT);
               callback.onFacebookLoginError();
               LoginManager.getInstance().registerCallback(CALLBACK_MANAGER, null);
             }
@@ -90,7 +90,7 @@ public class FacebookHelper {
                 LoginManager.getInstance().logOut();
                 login(fragment);
               } else {
-                callback.onFacebookLoginFailed(CommonUtils.getString(R.string.error_generic));
+                callback.onFacebookLoginFailed(CommonUtils.getString(com.newshunt.common.util.R.string.error_generic));
                 LoginManager.getInstance().registerCallback(CALLBACK_MANAGER, null);
               }
             } else {
@@ -116,7 +116,7 @@ public class FacebookHelper {
     } catch (Exception e) {
       Logger.caughtException(e);
       if (callback != null) {
-        callback.onFacebookLoginFailed(CommonUtils.getString(R.string.error_generic));
+        callback.onFacebookLoginFailed(CommonUtils.getString(com.newshunt.common.util.R.string.error_generic));
         LoginManager.getInstance().registerCallback(CALLBACK_MANAGER, null);
       }
     }

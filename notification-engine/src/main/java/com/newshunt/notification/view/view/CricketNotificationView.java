@@ -247,7 +247,7 @@ public class CricketNotificationView implements StickyNotificationView {
   private void handleRefreshClick() {
     if (NetworkSDKUtils.isLastKnownConnection()) {
       if (refresher != null && refresher.isManualRequestValid()) {
-        String state = CommonUtils.getString(R.string.sticky_notification_updating);
+        String state = CommonUtils.getString(com.newshunt.common.util.R.string.sticky_notification_updating);
         buildNotification(true, false, state);
         callback.setupRefresher(true);
         StickyNotificationsAnalyticsHelperKt.logStickyNotificationActionEvent(cricketStickyNavModel,
@@ -258,7 +258,7 @@ public class CricketNotificationView implements StickyNotificationView {
             "seconds from now");
       }
     } else {
-      String state = CommonUtils.getString(R.string.no_connection_error);
+      String state = CommonUtils.getString(com.newshunt.common.util.R.string.no_connection_error);
       buildNotification(true, false, state);
     }
   }

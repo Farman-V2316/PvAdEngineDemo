@@ -106,7 +106,7 @@ public class DataStreamServiceImpl implements DataStreamService {
     DataStreamResponse dataStreamResponse = new DataStreamResponse();
     if (apiResponse == null || apiResponse.getData() == null) {
       dataStreamResponse.setError(new BaseError(new DbgCode.DbgHttpCode(HttpURLConnection.HTTP_NO_CONTENT),
-          CommonUtils.getString(R.string.no_content_found)));
+          CommonUtils.getString(com.newshunt.common.util.R.string.no_content_found)));
     } else {
       dataStreamResponse.setBaseStreamAsset(apiResponse.getData());
     }
@@ -117,7 +117,7 @@ public class DataStreamServiceImpl implements DataStreamService {
     DataStreamResponse dataStreamResponse = new DataStreamResponse();
     if (apiResponse == null || apiResponse.getData() == null) {
       dataStreamResponse.setError(new BaseError(new DbgCode.DbgHttpCode(HttpURLConnection.HTTP_NO_CONTENT),
-          CommonUtils.getString(R.string.no_content_found)));
+          CommonUtils.getString(com.newshunt.common.util.R.string.no_content_found)));
     } else {
       dataStreamResponse.setBaseStreamAsset(apiResponse.getData());
     }
@@ -128,7 +128,7 @@ public class DataStreamServiceImpl implements DataStreamService {
     DataStreamResponse dataStreamResponse = new DataStreamResponse();
     if (apiResponse == null || apiResponse.getData() == null) {
       dataStreamResponse.setError(new BaseError(new DbgCode.DbgHttpCode(HttpURLConnection.HTTP_NO_CONTENT),
-          CommonUtils.getString(R.string.no_content_found)));
+          CommonUtils.getString(com.newshunt.common.util.R.string.no_content_found)));
     } else {
       dataStreamResponse.setBaseStreamAsset(apiResponse.getData());
     }

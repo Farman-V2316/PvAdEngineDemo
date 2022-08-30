@@ -42,7 +42,7 @@ class NativeAdImageLinkViewHolder(viewBinding: NewsItemTypeImageLinkAdBinding,
         val adWidth = adEntity.width?:AdConstants.DEFAULT_AD_SIZE
         val adHeight = adEntity.height?:AdConstants.DEFAULT_AD_SIZE
         val aspectRatio = adWidth.toFloat() / adHeight
-        val width = CommonUtils.getDeviceScreenWidth() - 2 * CommonUtils.getDimension(R.dimen.ad_content_margin)
+        val width = CommonUtils.getDeviceScreenWidth() - 2 * CommonUtils.getDimension(com.dailyhunt.tv.ima.R.dimen.ad_content_margin)
         imageView.layoutParams?.height =
             AdsUtil.getHeightWithAspectRatio(adWidth, adHeight, aspectRatio, width)
     }

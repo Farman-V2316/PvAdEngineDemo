@@ -235,7 +235,7 @@ class TrueCallerVerificationDialogActivity : NHBaseActivity(), EnterOtpDialogLis
     private fun phoneNumberVerificationInProgress() {
         val termsAndConditions = findViewById<NHTextView>(R.id
                 .number_verification_terms_and_conditions)
-        val originalString = getString(R.string.truecaller_number_verification_t_and_c)
+        val originalString = getString(com.newshunt.common.util.R.string.truecaller_number_verification_t_and_c)
         val fontConvertedString = Html.fromHtml(FontHelper.getFontConvertedString(originalString)) as
                 Spannable
         termsAndConditions.setSpannableText(fontConvertedString, originalString)

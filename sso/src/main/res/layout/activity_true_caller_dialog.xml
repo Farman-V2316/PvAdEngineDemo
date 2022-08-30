@@ -56,6 +56,7 @@
 
 
     <com.truecaller.android.sdk.TrueButton
+        android:id="@+id/com_truecaller_android_sdk_truebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"

@@ -78,7 +78,7 @@ class ImageShareHelper(private val imageShareHelperCallback: ImageShareHelperCal
             }
             if (!CommonUtils.isNetworkAvailable(imageShareHelperCallback.getActivity())) {
                 FontHelper.showCustomFontToast(imageShareHelperCallback.getActivity(),
-                        CommonUtils.getString(R.string.error_no_connection), Toast.LENGTH_SHORT)
+                        CommonUtils.getString(com.newshunt.common.util.R.string.error_no_connection), Toast.LENGTH_SHORT)
             }
             return
         }

@@ -95,8 +95,9 @@ object TruecallerLoginHelper {
     fun getPhoneNumber(phoneNumber: String?): String? {
         phoneNumber ?: return phoneNumber
 
-        return if (phoneNumber.startsWith(CommonUtils.getString(R.string.india_iso_code))) {
-            Constants.INDIA_ISO_CODE_PROTOCOL_FORMAT.plus(phoneNumber.removePrefix(CommonUtils.getString(R.string.india_iso_code)))
+        return if (phoneNumber.startsWith(CommonUtils.getString(com.newshunt.common.util.R.string.india_iso_code))) {
+            Constants.INDIA_ISO_CODE_PROTOCOL_FORMAT.plus(phoneNumber.removePrefix(CommonUtils.getString(
+                com.newshunt.common.util.R.string.india_iso_code)))
         } else if (phoneNumber.length == 12 && phoneNumber.startsWith(Constants.TRUECALLER_INDIA_ISO_CODE_FORMAT)) {
             Constants.INDIA_ISO_CODE_PROTOCOL_FORMAT.plus(phoneNumber.removePrefix(Constants
                     .TRUECALLER_INDIA_ISO_CODE_FORMAT))
@@ -107,8 +108,8 @@ object TruecallerLoginHelper {
 
     fun getPhoneNumberIn(phoneNumber: String?): String? {
         phoneNumber ?: return phoneNumber
-        return if (phoneNumber.startsWith(CommonUtils.getString(R.string.india_iso_code))) {
-            phoneNumber.removePrefix(CommonUtils.getString(R.string.india_iso_code))
+        return if (phoneNumber.startsWith(CommonUtils.getString(com.newshunt.common.util.R.string.india_iso_code))) {
+            phoneNumber.removePrefix(CommonUtils.getString(com.newshunt.common.util.R.string.india_iso_code))
         } else phoneNumber
     }
 

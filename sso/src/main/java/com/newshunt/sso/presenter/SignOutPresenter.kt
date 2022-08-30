@@ -70,7 +70,7 @@ class SignOutPresenter : BasePresenter(),
             return
         }
 
-        val ssolResult = if (CommonUtils.equals(CommonUtils.getString(R.string.error_no_connection), baseError
+        val ssolResult = if (CommonUtils.equals(CommonUtils.getString(com.newshunt.common.util.R.string.error_no_connection), baseError
                         .message)) {
             SSOResult.NETWORK_ERROR
         } else {
@@ -78,11 +78,11 @@ class SignOutPresenter : BasePresenter(),
         }
         publisher.postLogoutResult(ssolResult)
 
-        val toastMsg = if (CommonUtils.equals(CommonUtils.getString(R.string.error_no_connection), baseError
+        val toastMsg = if (CommonUtils.equals(CommonUtils.getString(com.newshunt.common.util.R.string.error_no_connection), baseError
                         .message)) {
-            CommonUtils.getString(R.string.error_no_connection)
+            CommonUtils.getString(com.newshunt.common.util.R.string.error_no_connection)
         } else {
-            CommonUtils.getString(R.string.unexpected_error_message)
+            CommonUtils.getString(com.newshunt.common.util.R.string.unexpected_error_message)
         }
         signOutView?.showToast(toastMsg)
     }

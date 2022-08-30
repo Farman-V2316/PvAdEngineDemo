@@ -283,7 +283,7 @@ public class GoogleSignInHelper implements GoogleApiClient.OnConnectionFailedLis
       return;
     }
     if (!CommonUtils.isNetworkAvailable(context)) {
-      FontHelper.showCustomFontToast(context, CommonUtils.getString(R.string.no_connection_error),
+      FontHelper.showCustomFontToast(context, CommonUtils.getString(com.newshunt.common.util.R.string.no_connection_error),
           Toast.LENGTH_LONG);
       return;
     }

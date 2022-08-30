@@ -172,13 +172,13 @@ public class VideoPlayerWithAdPlayback extends RelativeLayout implements View.On
     mMuteButton = parent.findViewById(R.id.muteButton);
     muteButtonClickList.add(mMuteButton);
     muteButtonClickList.add(immersiveMuteButton);
-    mMuteButton.setImageResource(isMute ? R.drawable.ic_mute : R.drawable.ic_unmute);
-    immersiveMuteButton.setImageResource(isMute ? R.drawable.ic_mute : R.drawable.ic_unmute);
+    mMuteButton.setImageResource(isMute ? com.dailyhunt.tv.exolibrary.R.drawable.ic_mute : com.dailyhunt.tv.exolibrary.R.drawable.ic_unmute);
+    immersiveMuteButton.setImageResource(isMute ? com.dailyhunt.tv.exolibrary.R.drawable.ic_mute : com.dailyhunt.tv.exolibrary.R.drawable.ic_unmute);
 
     OnClickListener muteClickListener = view -> {
       toggleMuteState(true);
-      mMuteButton.setImageResource(isMute ? R.drawable.ic_mute : R.drawable.ic_unmute);
-      immersiveMuteButton.setImageResource(isMute ? R.drawable.ic_mute : R.drawable.ic_unmute);
+      mMuteButton.setImageResource(isMute ? com.dailyhunt.tv.exolibrary.R.drawable.ic_mute : com.dailyhunt.tv.exolibrary.R.drawable.ic_unmute);
+      immersiveMuteButton.setImageResource(isMute ? com.dailyhunt.tv.exolibrary.R.drawable.ic_mute : com.dailyhunt.tv.exolibrary.R.drawable.ic_unmute);
     };
 
     for (ImageView button: muteButtonClickList) {
@@ -284,7 +284,7 @@ public class VideoPlayerWithAdPlayback extends RelativeLayout implements View.On
 
     final PlayerView playerView = parent.findViewById(R.id.videoPlayer);
     playerView.setUseController(false);
-    playerView.findViewById(R.id.exo_shutter).setBackgroundColor(Color.TRANSPARENT);
+    playerView.findViewById(com.google.android.exoplayer2.ui.R.id.exo_shutter).setBackgroundColor(Color.TRANSPARENT);
     mVideoPlayer = new AdsExoPlayer(playerView);
     mVideoPlayer.setMuteState(isMute);
 
@@ -516,7 +516,7 @@ public class VideoPlayerWithAdPlayback extends RelativeLayout implements View.On
   public void toggleForImmersiveMode(boolean state) {
     if(mVideoPlayer != null) mVideoPlayer.setMuteState(state);
     isMute = state;
-    immersiveMuteButton.setImageResource(state ? R.drawable.ic_mute : R.drawable.ic_unmute);
+    immersiveMuteButton.setImageResource(state ? com.dailyhunt.tv.exolibrary.R.drawable.ic_mute : com.dailyhunt.tv.exolibrary.R.drawable.ic_unmute);
   }
 
   private void toggleMuteState(boolean userAction) {
@@ -527,7 +527,7 @@ public class VideoPlayerWithAdPlayback extends RelativeLayout implements View.On
       isMute = !isMute;
     }
 
-    mMuteButton.setImageResource(isMute ? R.drawable.ic_mute : R.drawable.ic_unmute);
+    mMuteButton.setImageResource(isMute ? com.dailyhunt.tv.exolibrary.R.drawable.ic_mute : com.dailyhunt.tv.exolibrary.R.drawable.ic_unmute);
 
     if (mVideoPlayer != null) {
       mVideoPlayer.setMuteState(isMute);

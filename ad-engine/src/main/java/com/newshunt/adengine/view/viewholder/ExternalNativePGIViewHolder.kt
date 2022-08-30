@@ -132,7 +132,7 @@ open class ExternalNativePGIViewHolder(private val viewBinding: ViewDataBinding,
             mediaViewLayout?.visibility = View.GONE
             fullImageView.visibility = View.VISIBLE
             if (!DataUtil.isEmpty(nativeAssets.wideImageUrl)) {
-                Image.load(nativeAssets.wideImageUrl).placeHolder(R.drawable.default_news_img).into(fullImageView)
+                Image.load(nativeAssets.wideImageUrl).placeHolder(com.newshunt.dhutil.R.drawable.default_news_img).into(fullImageView)
             } else {
                 fullImageView.layoutParams.height = AdsUtil.getActionBarHeight(activity)
             }

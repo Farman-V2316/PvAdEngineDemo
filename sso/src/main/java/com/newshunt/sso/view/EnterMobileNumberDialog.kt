@@ -37,7 +37,7 @@ class EnterMobileNumberDialog(val view: View, val listener: EnterMobileNumberDia
                 verifyButton.isEnabled = isEnabled
                 setVerifyButtonBackgroundColor(verifyButton, isEnabled)
                 if (s?.length ?: 0 > 0) {
-                    mobileNumber.textSize = CommonUtils.getDimensionInDp(R.dimen.facebook_icon_padding).toFloat()
+                    mobileNumber.textSize = CommonUtils.getDimensionInDp(com.newshunt.dhutil.R.dimen.facebook_icon_padding).toFloat()
                 } else {
                     mobileNumber.textSize = CommonUtils.getDimensionInDp(R.dimen.enter_name_textSize).toFloat()
                 }
@@ -79,7 +79,7 @@ class EnterNameDialog(val view: View, val listener: EnterNameDialogListener) {
                 verifyName.isEnabled = isEnabled
                 setVerifyButtonBackgroundColor(verifyName, isEnabled)
                 if (isEnabled) {
-                    name.textSize = CommonUtils.getDimensionInDp(R.dimen.facebook_icon_padding).toFloat()
+                    name.textSize = CommonUtils.getDimensionInDp(com.newshunt.dhutil.R.dimen.facebook_icon_padding).toFloat()
                 } else {
                     name.textSize = CommonUtils.getDimensionInDp(R.dimen.enter_name_textSize).toFloat()
                 }
@@ -100,9 +100,9 @@ class EnterNameDialog(val view: View, val listener: EnterNameDialogListener) {
 
 fun setVerifyButtonBackgroundColor(view: View, isEnabled: Boolean) {
     if (isEnabled) {
-        ViewCompat.setBackgroundTintList(view, ColorStateList.valueOf(CommonUtils.getColor(R.color.follow_color)));
+        ViewCompat.setBackgroundTintList(view, ColorStateList.valueOf(CommonUtils.getColor(com.newshunt.common.util.R.color.follow_color)));
     } else {
         ViewCompat.setBackgroundTintList(view, ColorStateList.valueOf(
-                ThemeUtils.getThemeColorByAttribute(view.context, R.attr.truecaller_verify_button_background)))
+                ThemeUtils.getThemeColorByAttribute(view.context, com.newshunt.dhutil.R.attr.truecaller_verify_button_background)))
     }
 }

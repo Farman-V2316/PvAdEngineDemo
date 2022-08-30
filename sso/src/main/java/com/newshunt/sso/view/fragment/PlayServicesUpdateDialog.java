@@ -40,15 +40,15 @@ public class PlayServicesUpdateDialog extends DialogFragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    View rootView = inflater.inflate(R.layout.google_play_services_update, container, false);
+    View rootView = inflater.inflate(com.newshunt.common.util.R.layout.google_play_services_update, container, false);
 
-    TextView dialogTitle = (TextView) rootView.findViewById(R.id.play_services_dialog_text);
-    TextView dialogHeader = (TextView) rootView.findViewById(R.id.play_services_dialogHeadertext);
-    TextView positiveButton = (TextView) rootView.findViewById(R.id.positive_button);
+    TextView dialogTitle = (TextView) rootView.findViewById(com.newshunt.common.util.R.id.play_services_dialog_text);
+    TextView dialogHeader = (TextView) rootView.findViewById(com.newshunt.common.util.R.id.play_services_dialogHeadertext);
+    TextView positiveButton = (TextView) rootView.findViewById(com.newshunt.dhutil.R.id.positive_button);
 
-    positiveButton.setText(CommonUtils.getString(R.string.update));
-    dialogTitle.setText(CommonUtils.getString(R.string.sign_in));
-    dialogHeader.setText(CommonUtils.getString(R.string.play_services_dialog_message));
+    positiveButton.setText(CommonUtils.getString(com.newshunt.common.util.R.string.update));
+    dialogTitle.setText(CommonUtils.getString(com.newshunt.common.util.R.string.sign_in));
+    dialogHeader.setText(CommonUtils.getString(com.newshunt.common.util.R.string.play_services_dialog_message));
 
     getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
     positiveButton.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +77,7 @@ public class PlayServicesUpdateDialog extends DialogFragment {
     if (doesActivityExist) {
       activity.startActivity(intent);
     } else {
-      FontHelper.showCustomFontToast(activity, CommonUtils.getString(R.string.unexpected_error_message),
+      FontHelper.showCustomFontToast(activity, CommonUtils.getString(com.newshunt.common.util.R.string.unexpected_error_message),
           Toast.LENGTH_LONG);
     }
   }

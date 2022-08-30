@@ -65,7 +65,7 @@ class SignOnPresenter(private var signOnView: SignOnView? = null, loginType: Log
                 }
             }
         } else {
-            signOnView?.showToast(CommonUtils.getApplication().getString(R.string.no_connection_error))
+            signOnView?.showToast(CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.no_connection_error))
         }
     }
 
@@ -102,8 +102,8 @@ class SignOnPresenter(private var signOnView: SignOnView? = null, loginType: Log
     }
 
     private fun handleError(loginType: LoginType, baseError: BaseError) {
-        if (CommonUtils.equals(baseError.message, CommonUtils.getString(R.string.error_no_connection))) {
-            signOnView?.showToast(CommonUtils.getApplication().getString(R.string.no_connection_error))
+        if (CommonUtils.equals(baseError.message, CommonUtils.getString(com.newshunt.common.util.R.string.error_no_connection))) {
+            signOnView?.showToast(CommonUtils.getApplication().getString(com.newshunt.common.util.R.string.no_connection_error))
             signOnView?.showLoadingProgress(false, null)
             signOnView?.onLoginFailed(loginType, SSOResult.NETWORK_ERROR)
             postLoginResponse(SSOResult.NETWORK_ERROR, userLoginResponse = SSO.getLoginResponse())
@@ -157,10 +157,11 @@ class SignOnPresenter(private var signOnView: SignOnView? = null, loginType: Log
         var errorMessage = ""
         val res = signOnView?.viewContext?.resources ?: CommonUtils.getApplication().resources
         if (ssoResult == SSOResult.NETWORK_ERROR) {
-            errorMessage = res.getString(R.string
+            errorMessage = res.getString(
+                com.newshunt.common.util.R.string
                     .no_connection_error)
         } else if (ssoResult == SSOResult.UNEXPECTED_ERROR) {
-            errorMessage = res.getString(R.string.unexpected_error_message)
+            errorMessage = res.getString(com.newshunt.common.util.R.string.unexpected_error_message)
         } else {
             return
         }
@@ -173,7 +174,7 @@ class SignOnPresenter(private var signOnView: SignOnView? = null, loginType: Log
     private fun socialLogin(loginType: LoginType) {
         signOnView?.apply {
             showSignOnView(false)
-            showLoadingProgress(true, CommonUtils.getString(R.string.please_wait))
+            showLoadingProgress(true, CommonUtils.getString(com.newshunt.common.util.R.string.please_wait))
             when (loginType) {
                 LoginType.FACEBOOK -> facebookLogin()
                 LoginType.GOOGLE -> googleLogin()

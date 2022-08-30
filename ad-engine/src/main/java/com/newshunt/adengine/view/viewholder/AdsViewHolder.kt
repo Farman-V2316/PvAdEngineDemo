@@ -70,7 +70,7 @@ abstract class AdsViewHolder(private val viewBinding: ViewDataBinding, private v
 
     init {
         if (viewBinding.root is NativeAdView) {
-            viewBinding.root.setTag(R.id.omid_adview_tag_id, Constants.OM_WEBVIEW_TAG)
+            viewBinding.root.setTag(com.newshunt.common.util.R.id.omid_adview_tag_id, Constants.OM_WEBVIEW_TAG)
         }
         viewBinding.lifecycleOwner = viewLifeCycleOwner
         adsShareViewHelper = AdsShareViewHelper(viewBinding.root.context)

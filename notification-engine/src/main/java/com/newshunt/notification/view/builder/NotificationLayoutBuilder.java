@@ -396,7 +396,7 @@ public class NotificationLayoutBuilder {
     } else {
       switch (notificationCtaType) {
         case REPLY: {
-          String ctaString = CommonUtils.getString(R.string.notification_cta_reply);
+          String ctaString = CommonUtils.getString(com.newshunt.common.util.R.string.notification_cta_reply);
           Intent intent = new Intent();
           if (isSmallNotificaiton) {
             intent.setAction(NotificationConstants.INTENT_ACTION_NOTIFICATION_CTA_REPLY_SMALL);
@@ -413,7 +413,7 @@ public class NotificationLayoutBuilder {
           return new NotificationCtaUi(ctaString, R.drawable.ic_noti_action_reply, pendingContentIntent);
         }
         case SHARE: {
-          String ctaString = CommonUtils.getString(R.string.notification_cta_share);
+          String ctaString = CommonUtils.getString(com.newshunt.common.util.R.string.notification_cta_share);
           Intent intent = new Intent();
           if (isSmallNotificaiton) {
             intent.setAction(NotificationConstants.INTENT_ACTION_NOTIFICATION_CTA_SHARE_SMALL);
@@ -430,7 +430,7 @@ public class NotificationLayoutBuilder {
           return new NotificationCtaUi(ctaString, R.drawable.ic_noti_action_share, pendingContentIntent);
         }
         case FOLLOW: {
-          String ctaString = CommonUtils.getString(R.string.notification_cta_follow);
+          String ctaString = CommonUtils.getString(com.newshunt.common.util.R.string.notification_cta_follow);
           Intent intent = new Intent();
           if (isSmallNotificaiton) {
             intent.setAction(NotificationConstants.INTENT_ACTION_NOTIFICATION_CTA_FOLLOW_SMALL);
@@ -447,7 +447,7 @@ public class NotificationLayoutBuilder {
           return new NotificationCtaUi(ctaString, R.drawable.ic_follow_notif, pendingContentIntent);
         }
         case REPOST: {
-          String ctaString = CommonUtils.getString(R.string.notification_cta_repost);
+          String ctaString = CommonUtils.getString(com.newshunt.common.util.R.string.notification_cta_repost);
           Intent intent = new Intent();
           if (isSmallNotificaiton) {
             intent.setAction(NotificationConstants.INTENT_ACTION_NOTIFICATION_CTA_REPOST_SMALL);
@@ -464,7 +464,7 @@ public class NotificationLayoutBuilder {
           return new NotificationCtaUi(ctaString, R.drawable.ic_noti_action_repost, pendingContentIntent);
         }
         case COMMENT: {
-          String ctaString = CommonUtils.getString(R.string.notification_cta_comment);
+          String ctaString = CommonUtils.getString(com.newshunt.common.util.R.string.notification_cta_comment);
           Intent intent = new Intent();
           if (isSmallNotificaiton) {
             intent.setAction(NotificationConstants.INTENT_ACTION_NOTIFICATION_CTA_COMMENT_SMALL);
@@ -481,7 +481,7 @@ public class NotificationLayoutBuilder {
           return new NotificationCtaUi(ctaString, R.drawable.ic_noti_action_comment, pendingContentIntent);
         }
         case JOIN: {
-          String ctaString = CommonUtils.getString(R.string.notification_cta_join);
+          String ctaString = CommonUtils.getString(com.newshunt.common.util.R.string.notification_cta_join);
           Intent intent = new Intent(NotificationConstants.INTENT_ACTION_NOTIFICATION_CTA_JOIN);
           if (isSmallNotificaiton) {
             intent.setAction(NotificationConstants.INTENT_ACTION_NOTIFICATION_CTA_JOIN_SMALL);

@@ -100,7 +100,8 @@ class FacebookAdViewHelper : NativeViewHelper {
             val set = ConstraintSet()
             set.clone(adView)
             // views must have valid ids set in xml or code for constraint to work correctly.
-            set.connect(adOptionsView.id, ConstraintSet.END, adView.getId(), ConstraintSet.END, CommonUtils.getDimension(R.dimen.ad_content_margin))
+            set.connect(adOptionsView.id, ConstraintSet.END, adView.getId(), ConstraintSet.END, CommonUtils.getDimension(
+                com.dailyhunt.tv.ima.R.dimen.ad_content_margin))
             set.connect(adOptionsView.id, ConstraintSet.TOP, adView.getId(), ConstraintSet.TOP, 0)
             set.connect(R.id.border_container, ConstraintSet.TOP, adOptionsView.id, ConstraintSet.BOTTOM,
                     0)

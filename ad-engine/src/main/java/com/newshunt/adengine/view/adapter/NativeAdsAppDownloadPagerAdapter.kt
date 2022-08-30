@@ -43,10 +43,10 @@ class NativeAdsAppDownloadPagerAdapter(private var multipleAdEntity: MultipleAdE
 
         val vp = vb.borderContainer.layoutParams as ConstraintLayout.LayoutParams
         if (position == 0) {
-            vp.marginStart = CommonUtils.getDimension(R.dimen.carousel_ad_margin)
+            vp.marginStart = CommonUtils.getDimension(com.dailyhunt.tv.ima.R.dimen.carousel_ad_margin)
             vb.borderContainer.layoutParams = vp
         } else if (position == count - 1) {
-            vp.marginEnd = CommonUtils.getDimension(R.dimen.carousel_ad_margin)
+            vp.marginEnd = CommonUtils.getDimension(com.dailyhunt.tv.ima.R.dimen.carousel_ad_margin)
             vb.borderContainer.layoutParams = vp
         }
 
@@ -126,7 +126,7 @@ class NativeAdsAppDownloadPagerAdapter(private var multipleAdEntity: MultipleAdE
     override fun getPageWidth(position: Int): Float {
         return if (position == 0 || position == count - 1) {
             1.0f * CommonUtils.getDimension(R.dimen.carousel_card_width) / (CommonUtils.getDeviceScreenWidth() - CommonUtils.getDimension(
-                        R.dimen.ads_spaces))
+                        com.dailyhunt.tv.ima.R.dimen.ads_spaces))
         } else 1.0f * CommonUtils.getDimension(R.dimen.carousel_card_width) / CommonUtils.getDeviceScreenWidth()
     }
 }

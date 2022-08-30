@@ -73,15 +73,16 @@ class DfpViewHelper(view: View, private var activity: Activity) {
         val adSize = publisherAdView.adSize
         adSize?.let {
             val adsWidth = adSize.width
-            val availableWidth = CommonUtils.getDeviceScreenWidthInDp() - 2 * CommonUtils.getDimensionInDp(R.dimen
+            val availableWidth = CommonUtils.getDeviceScreenWidthInDp() - 2 * CommonUtils.getDimensionInDp(
+                com.dailyhunt.tv.ima.R.dimen
                     .ad_content_margin)
             canAddPadding = !adSize.isFullWidth && !adSize.isFluid && availableWidth >= adsWidth
         }
 
         adContainerLayout?.let {
             if (canAddPadding && externalSdkAd.bannerFill == BannerFill.CENTER) {
-                it.setPadding(CommonUtils.getDimension(R.dimen.ad_content_margin), 0,
-                        CommonUtils.getDimension(R.dimen.ad_content_margin), 0)
+                it.setPadding(CommonUtils.getDimension(com.dailyhunt.tv.ima.R.dimen.ad_content_margin), 0,
+                        CommonUtils.getDimension(com.dailyhunt.tv.ima.R.dimen.ad_content_margin), 0)
             } else {
                 it.setPadding(0, 0, 0, 0)
             }
@@ -106,7 +107,7 @@ class DfpViewHelper(view: View, private var activity: Activity) {
             }
 
             view?.visibility = View.VISIBLE
-            it.setTag(R.id.omid_adview_tag_id, Constants.OM_WEBVIEW_TAG)
+            it.setTag(com.newshunt.common.util.R.id.omid_adview_tag_id, Constants.OM_WEBVIEW_TAG)
         }
     }
 

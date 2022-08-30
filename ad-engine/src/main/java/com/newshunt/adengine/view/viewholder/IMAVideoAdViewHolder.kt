@@ -339,8 +339,8 @@ open class IMAVideoAdViewHolder(val viewBinding: LayoutImaVideoAdsBinding,
                 viewBinding.executePendingBindings()
             }
             AdState.AD_PLAY_STARTED -> {
-                val defaultBackground = ThemeUtils.getThemeColorByAttribute(view.context, R.attr.default_background)
-                view.findViewById<View>(R.id.ad_player_holder)?.setBackgroundColor(defaultBackground)
+                val defaultBackground = ThemeUtils.getThemeColorByAttribute(view.context, com.newshunt.dhutil.R.attr.default_background)
+                view.findViewById<View>(com.dailyhunt.tv.ima.R.id.ad_player_holder)?.setBackgroundColor(defaultBackground)
                 viewBinding.adTimer.visibility = View.VISIBLE
             }
             AdState.AD_ERROR, AdState.AD_UNKNOWN -> {
@@ -446,7 +446,7 @@ open class IMAVideoAdViewHolder(val viewBinding: LayoutImaVideoAdsBinding,
         viewBinding.borderContainer.addView(view, 0)
         //reset view dimensions
         arrayOf(viewBinding.mediaViewParent, viewBinding.mediaView).scale(ViewGroup.LayoutParams.MATCH_PARENT, height)
-        viewBinding.mediaView.findViewById<PlayerView>(R.id.videoPlayer)?.let {
+        viewBinding.mediaView.findViewById<PlayerView>(com.dailyhunt.tv.ima.R.id.videoPlayer)?.let {
             it.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FIT
         }
         if (nativeHelper?.isVideoPlayableInCurrentState == true) {

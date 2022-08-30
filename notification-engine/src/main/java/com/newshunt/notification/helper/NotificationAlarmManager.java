@@ -45,7 +45,7 @@ public class NotificationAlarmManager {
       return;
     }
 
-    String notificationText = CommonUtils.getString(R.string.default_notification_text);
+    String notificationText = CommonUtils.getString(com.newshunt.common.util.R.string.default_notification_text);
     //Notice the second argument PendingIntent.FLAG_NO_CREATE, which tells AlarmManager to not
     // create a pendingIntent if it already exists.
     PendingIntent pendingIntent =
@@ -144,7 +144,7 @@ public class NotificationAlarmManager {
 
   private PendingIntent getNotificationPendingIntent(String message, int flags) throws Exception {
     if (CommonUtils.isEmpty(message)) {
-      message = CommonUtils.getString(R.string.default_notification_text);
+      message = CommonUtils.getString(com.newshunt.common.util.R.string.default_notification_text);
     }
     Intent intent = new Intent(CommonUtils.getApplication(), NotificationAlarmReceiver.class);
     Bundle bundle = new Bundle();
