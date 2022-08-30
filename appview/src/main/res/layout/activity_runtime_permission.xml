@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020  Newshunt. All rights reserved.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/activity_horizontal_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/activity_horizontal_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="30dp" />
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="?attr/ic_logo_dh_runtime_permission"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_horizontal"
+            app:layout_constraintStart_toEndOf="@id/guideline_start"
+            app:layout_constraintTop_toTopOf="@id/guideline_horizontal" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/skipRuntimePermission"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/skip_button_height"
+            android:background="@drawable/ripple_bg"
+            android:includeFontPadding="false"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/import_contacts_skip_margin_top"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:text="@string/skip"
+            android:textColor="@color/text_dark_grey"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_horizontal"
+            app:layout_constraintEnd_toStartOf="@id/guideline_end"
+            app:layout_constraintTop_toTopOf="@id/guideline_horizontal" />
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/imgPermission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="88dp"
+            android:adjustViewBounds="true"
+            android:maxWidth="@dimen/image_permission_max_width"
+            android:maxHeight="@dimen/img_permission_max_height"
+            android:minWidth="@dimen/image_permission_max_width"
+            android:minHeight="@dimen/img_permission_max_height"
+            android:src="@drawable/ic_permission_default_image"
+            app:layout_constraintEnd_toStartOf="@id/guideline_end"
+            app:layout_constraintStart_toEndOf="@id/guideline_start"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/heading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:gravity="center"
+            android:minHeight="@dimen/runtime_permission_msg_header_min_height"
+            android:paddingStart="@dimen/dimen_40"
+            android:paddingEnd="@dimen/dimen_40"
+            android:textSize="26dp"
+            android:textStyle="bold"
+            android:textColor="?attr/runtime_permission_title_bg"
+            app:layout_constraintEnd_toStartOf="@id/guideline_end"
+            app:layout_constraintStart_toEndOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/imgPermission" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/subHeading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:lines="2"
+            android:minHeight="@dimen/runtime_msg_body_min_height"
+            android:paddingStart="@dimen/dimen_40"
+            android:paddingEnd="@dimen/dimen_40"
+            android:textColor="?attr/runtime_permission_sub_title_bg"
+            app:layout_constraintEnd_toStartOf="@id/guideline_end"
+            app:layout_constraintStart_toEndOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/heading" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/ctaButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@color/filter_type_blue"
+            android:gravity="center"
+            android:minHeight="@dimen/runtime_permission_button_min_height"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/guideline_end"
+            app:layout_constraintStart_toEndOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/subHeading" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="skipRuntimePermission,imgPermission,subHeading,heading,ctaButton,logo" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,160 @@
+<!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils"/>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel"/>
+
+        <variable
+            name="card"
+            type="com.newshunt.dataentity.common.asset.CommonAsset"/>
+
+        <variable
+            name="cardTypeIndex"
+            type="Integer"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="0dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="0dp"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/news_title"
+            style="@style/post_title"
+            bind:title="@{card}"
+            bind:vm="@{vm}"
+            bind:hide_on_empty="@{true}"
+            bind:cardType="@{cardTypeIndex}"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/poll_option_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/poll_option_background"
+            android:gravity="start"
+            android:onClick="@{(v)->vm.onViewClick(v,card)}"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            bind:textview_text="@{CardsBindUtils.getListItem(card.i_poll().options,0).title}"
+            bind:item="@{card}"
+            app:dh_custom_font_weight="four_hundred"
+            android:textColor="@color/poll_option_text_color"
+            android:textSize="14dp"
+            android:paddingStart="16dp"
+            android:visibility="@{(card.i_poll().options.size()&gt;=1) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/news_title"
+            />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/poll_option_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/poll_option_background"
+            android:gravity="start"
+            android:onClick="@{(v)->vm.onViewClick(v,card)}"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            bind:textview_text="@{CardsBindUtils.getListItem(card.i_poll().options,1).title}"
+            bind:item="@{card}"
+            app:dh_custom_font_weight="four_hundred"
+            android:textColor="@color/poll_option_text_color"
+            android:textSize="14dp"
+            android:paddingStart="16dp"
+            android:visibility="@{(card.i_poll().options.size()&gt;=2) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/poll_option_1"
+            />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/poll_option_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/poll_option_background"
+            android:gravity="start"
+            android:onClick="@{(v)->vm.onViewClick(v,card)}"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            bind:textview_text="@{CardsBindUtils.getListItem(card.i_poll().options,2).title}"
+            bind:item="@{card}"
+            app:dh_custom_font_weight="four_hundred"
+            android:textColor="@color/poll_option_text_color"
+            android:textSize="14dp"
+            android:paddingStart="16dp"
+            android:visibility="@{(card.i_poll().options.size()&gt;=3) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/poll_option_2"
+            />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/poll_option_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/poll_option_background"
+            android:gravity="start"
+            android:onClick="@{(v)->vm.onViewClick(v,card)}"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            bind:textview_text="@{CardsBindUtils.getListItem(card.i_poll().options,3).title}"
+            bind:item="@{card}"
+            app:dh_custom_font_weight="four_hundred"
+            android:textColor="@color/poll_option_text_color"
+            android:textSize="14dp"
+            android:paddingStart="16dp"
+            android:visibility="@{(card.i_poll().options.size()&gt;=4) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/poll_option_3"
+            />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/poll_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            bind:textview_text="@{CardsBindUtils.showPollTimeStamp(card)}"
+            bind:item="@{card}"
+            app:dh_custom_font_weight="four_hundred"
+            android:textColor="?attr/source_share_timestamp_color"
+            android:textSize="@dimen/text_x_small"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/poll_option_4"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

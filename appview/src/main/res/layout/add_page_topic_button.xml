@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/add_page_topic_header_container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/topic_featured_row_height"
+    android:background="?attr/selectableItemBackground"
+    android:paddingStart="@dimen/topic_featured_header1_paddingLeft"
+    android:paddingEnd="@dimen/topic_featured_header1_paddingLeft">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/topic_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="@font/noto_sans"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="@string/see_more"
+        android:textAlignment="viewStart"
+        android:textColor="@color/add_location_button_color"
+        android:textFontWeight="@integer/add_page_topic_button_font_weight"
+        android:textSize="@dimen/topic_item_button_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

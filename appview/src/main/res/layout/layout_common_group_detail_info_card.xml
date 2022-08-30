@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils"/>
+        <import type="com.newshunt.dataentity.model.entity.MemberRole" />
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+        <import type="com.newshunt.dataentity.model.entity.MembershipStatus" />
+        <import type="android.view.View"/>
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.model.entity.GroupInfo" />
+        <variable
+            name="approvalCounts"
+            type="com.newshunt.dataentity.common.asset.ApprovalCounts" />
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.group.viewmodel.GroupViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/group_detail_info_rootview"
+        android:visibility="@{item !=null ? View.VISIBLE : View.GONE}">
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/group_detail_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_group_image"
+            app:layout_constraintDimensionRatio="H,16:9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/card_image_foreground"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/image_gradient_bg"
+            app:layout_constraintBottom_toBottomOf="@id/group_detail_image"
+            app:layout_constraintTop_toTopOf="@+id/group_detail_image"
+            app:layout_constraintStart_toStartOf="@+id/group_detail_image"
+            app:layout_constraintEnd_toEndOf="@+id/group_detail_image"/>
+
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/group_detail_name"
+            app:layout_constraintTop_toBottomOf="@+id/group_detail_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:text="@{item.name}"
+            android:textStyle="bold"
+            android:textColor="?attr/group_settings_text_color"
+            android:textSize="@dimen/carousel_card_text_size"
+            android:gravity="center" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/group_detail_handle_name"
+            app:layout_constraintTop_toBottomOf="@+id/group_detail_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:textColor="@color/social_handle_text_color"
+            android:textSize="@dimen/create_group_btn_text_size"
+            android:text="@{CommonUtils.formatHandleForDisplay(item.handle)}"/>
+
+        <com.newshunt.dhutil.view.customview.ExpandableTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/group_detail_description"
+            app:layout_constraintTop_toBottomOf="@+id/group_detail_handle_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:textSize="@dimen/create_group_name_text_size"
+            app:more_text_color="?attr/create_group_text_color"
+            app:desc_collapsed_max_lines="2"
+            android:textColor="?attr/create_group_text_color"
+            android:layout_marginTop="7dp" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/group_detail_extra_info"
+            app:layout_constraintTop_toBottomOf="@+id/group_detail_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:visibility="visible"
+            android:textSize="@dimen/create_group_name_text_size"
+            bind:htmlText="@{item.additionalStats}"
+            android:textColor="@color/error_code_color" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/member_profiles_list"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginTop="@dimen/text_margin_top_small"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/group_detail_extra_info" />
+
+        <View
+            android:id="@+id/member_clickZone"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="@id/member_profiles_list"
+            app:layout_constraintBottom_toBottomOf="@+id/member_profiles_list"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chevron_right"
+            android:src="?attr/chevron_right"
+            app:layout_constraintStart_toEndOf="@+id/member_profiles_list"
+            app:layout_constraintTop_toTopOf="@+id/member_clickZone"
+            app:layout_constraintBottom_toBottomOf="@+id/member_clickZone" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/profile_creator_badge_height"
+            android:id="@+id/invite_people_btn"
+            app:layout_constraintTop_toTopOf="@+id/member_clickZone"
+            app:layout_constraintBottom_toBottomOf="@+id/member_clickZone"
+            app:layout_constraintStart_toEndOf="@+id/chevron_right"
+            android:textSize="@dimen/create_group_btn_text_size"
+            android:text="@string/invite_btn_text"
+            android:gravity="center_vertical|center_horizontal"
+            android:textColor="@color/carousel_card_text_color"
+            android:background="@drawable/group_detail_invite_btn_bg"
+            android:visibility="@{(item.userRole == MemberRole.NONE) ? View.GONE : View.VISIBLE}" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/member_profiles_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{CardsBindUtils.canShowGroupMembers(item) ? View.VISIBLE : View.GONE}"
+            app:constraint_referenced_ids="member_profiles_list,group_detail_extra_info,chevron_right" />
+
+        <View
+            android:id="@+id/grp_divider_1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/group_settings_screen_divider_color_day"
+            app:layout_constraintTop_toBottomOf="@+id/member_profiles_list"
+            android:layout_marginTop="@dimen/grp_join_btn_topMargin"
+            app:layout_goneMarginTop="@dimen/text_margin_top_small" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/joinGroup"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/grp_join_btn_height"
+            android:layout_marginStart="@dimen/story_card_padding_left"
+            android:layout_marginEnd="@dimen/story_card_padding_left"
+            app:layout_constraintTop_toBottomOf="@id/grp_divider_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/grp_join_btn_topMargin"
+            android:background="@drawable/group_join_btn_bg"
+            android:gravity="center"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:textColor="@color/join_grp_color_selector"
+            android:enabled="@{item.membership == MembershipStatus.AWAITED || item.membership == MembershipStatus.BLOCKED ? false : true}"
+            android:text="@{item.membership == MembershipStatus.AWAITED ? @string/join_grp_awaited : @string/join_grp}"
+            android:visibility="@{item.userRole == MemberRole.NONE ? View.VISIBLE : View.GONE}" />
+
+        <include
+            android:id="@+id/approval_card"
+            layout="@layout/layout_group_approval_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/grp_divider_1"
+            bind:approvalCounts="@{approvalCounts}"
+            bind:groupInfo="@{item}"
+            bind:vm="@{vm}" />
+
+        <View
+            android:id="@+id/grp_divider_2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/group_settings_screen_divider_color_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/joinGroup"
+            android:layout_marginTop="10dp"
+            app:layout_goneMarginTop="10dp"
+            android:visibility="@{item.userRole == MemberRole.NONE ? View.VISIBLE : View.GONE}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

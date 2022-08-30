@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="contact"
+            type="com.newshunt.dataentity.model.entity.Contact" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.group.viewmodel.PhoneBookViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="@{(v)->vm.onViewClick(v,contact)}">
+
+        <ImageView
+            android:id="@+id/img_profile_photo"
+            android:layout_width="@dimen/dimen_40"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_marginStart="16dp"
+            />
+
+        <LinearLayout
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_toStartOf="@+id/checkbox_selection"
+            android:layout_toEndOf="@id/img_profile_photo"
+            android:orientation="vertical">
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/tv_contact_name"
+                android:layout_width="match_parent"
+                android:layout_height="19dp"
+                android:fontFamily="@font/noto_sans"
+                android:text="@{contact.name}"
+                android:textColor="?attr/invite_card_text_color"
+                android:textSize="@dimen/text_14" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/tv_contact_number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@{contact.phoneNumber}"
+                android:textColor="@color/phonebook_number_text_color"
+                android:textSize="@dimen/text_14" />
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/checkbox_selection"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:button="@drawable/checkbox_selector"
+            android:checked="@={contact.selected}"
+            android:clickable="false" />
+
+    </RelativeLayout>
+</layout>

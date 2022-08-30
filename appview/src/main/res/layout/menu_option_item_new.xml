@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils"/>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.MenuViewModel"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.social.entity.MenuOption"/>
+
+        <variable
+            name="asset"
+            type="com.newshunt.dataentity.common.asset.CommonAsset"/>
+
+        <variable
+            name="pageEntity"
+            type="com.newshunt.dataentity.common.pages.PageEntity"/>
+
+        <variable
+            name="isNightMode"
+            type="Boolean"/>
+
+        <variable
+            name="activity"
+            type="android.app.Activity"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/dislikeOptionFullScreenItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(v)->vm.onMenuL1OptionClick(v,item,asset,pageEntity,activity)}"
+        android:paddingBottom="@dimen/dislike_l1_option_padding_vertical"
+        android:paddingTop="@dimen/dislike_l1_option_padding_vertical">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_item_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/dislike_option_horizontal_padding"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_item_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/dislike_option_horizontal_padding"/>
+
+        <ImageView
+            android:id="@+id/dislike_options_icon"
+            bind:isNightMode="@{isNightMode}"
+            bind:menuL1Icon="@{item}"
+            android:layout_width="@dimen/dislike_l1_opt_icon_size"
+            android:layout_height="@dimen/dislike_l1_opt_icon_size"
+            android:layout_marginEnd="@dimen/dislike_l1_option_icon_marginend"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/dislike_option_title"
+            app:layout_constraintStart_toEndOf="@id/guideline_item_1"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/dislike_option_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{CardsBindUtils.menuOptionTitle(item,asset,pageEntity)}"
+            android:textSize="@dimen/dislike_l1_option_text_size"
+            android:textColor="?attr/dislike_option_title_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline_item_2"
+            app:layout_constraintStart_toEndOf="@id/dislike_options_icon"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

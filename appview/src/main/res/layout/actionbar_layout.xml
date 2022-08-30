@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.AddPageViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionbar_height"
+        android:background="?attr/toolbar_background"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/add_page_back_margin_top">
+
+            <FrameLayout
+                android:id="@+id/toolbar_back_button"
+                android:layout_width="@dimen/actionbar_height"
+                android:layout_height="@dimen/actionbar_height"
+                android:background="?attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/back_button"
+                    app:srcCompat="?attr/ic_actionbar_back"/>
+            </FrameLayout>
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/toolbar_back_button"
+                android:includeFontPadding="false"
+                android:text="@string/location_topics"
+                android:textColor="?attr/default_text_color"
+                android:textSize="@dimen/add_page_toolbar_title_size"/>
+
+            <FrameLayout
+                android:id="@+id/toolbar_settings_button"
+                android:layout_width="@dimen/image_container_width"
+                android:layout_height="@dimen/image_container_height"
+                android:background="?attr/selectableItemBackground"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true">
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/edit_text"
+                    android:id="@+id/edit_topics"
+                    android:textColor="?attr/new_default_text_color"
+                    android:fontFamily="@font/noto_sans"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/search_locations_text_size"/>
+            </FrameLayout>
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+</layout>

@@ -1,0 +1,809 @@
+<!--
+  ~ Copyright (c) 2017 Newshunt. All rights reserved.
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="vh_side_padding">16dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="actionbar_title_size">20dp</dimen>
+    <dimen name="gallery_action_bar_width_height">55dp</dimen>
+    <dimen name="photo_gallery_text_size">14dp</dimen>
+    <dimen name="photo_gallery_blur_view_text_size">16dp</dimen>
+    <dimen name="photo_slide_description_layout_height">100dp</dimen>
+    <dimen name="photo_slide_description_text_marginBottom">15dp</dimen>
+    <dimen name="photo_slide_description_marginLeft">24dp</dimen>
+    <dimen name="photo_slide_description_marginRight">37dp</dimen>
+    <dimen name="news_detail_image_height">210dp</dimen>
+    <!-- News detail title to follow system font scaling -->
+    <dimen name="news_detail_title_text_size">19dp</dimen>
+    <dimen name="news_detail_content_text_size">16dp</dimen>
+    <dimen name="source_icon_width_height">30dp</dimen>
+    <dimen name="news_detail_category_text_size">10dp</dimen>
+    <dimen name="news_detail_title_margin_top">10dp</dimen>
+    <dimen name="news_detail_publish_date_text_size">11dp</dimen>
+    <dimen name="news_detail_promoted_text_size">8dp</dimen>
+    <dimen name="news_detail_publish_date_text_padding_top">12dp</dimen>
+    <dimen name="news_detail_image_empty_height">0dp</dimen>
+    <dimen name="news_detail_see_post_margin">8dp</dimen>
+    <dimen name="gallery_image_content_margin">5dp</dimen>
+    <dimen name="carousel_story_item_image_width">200dp</dimen>
+    <dimen name="carousel_action_bar_divider">1dp</dimen>
+    <dimen name="carousel_action_bar_margin">9dp</dimen>
+
+    <dimen name="post_img_width_normal_rec">328dp</dimen>
+    <dimen name="post_img_height_normal_rec">184dp</dimen>
+    <dimen name="repost_big_img_height">96dp</dimen>
+    <dimen name="repost_big_img_width">296dp</dimen>
+    <dimen name="topic_tile_height">160dp</dimen>
+    <dimen name="topic_more_tile_image_margin">16dp</dimen>
+
+    <dimen name="post_img_size_small_sq">96dp</dimen>
+    <dimen name="topic_slidingtablayout_height">48dp</dimen>
+
+    <dimen name="action_bar_text_margin">10dp</dimen>
+
+    <!-- Font dimention -->
+    <dimen name="font_view_width">280dp</dimen>
+    <dimen name="font_title_size">20dp</dimen>
+    <dimen name="font_title_left_margine">23dp</dimen>
+    <dimen name="font_title_top_margine">13dp</dimen>
+
+    <dimen name="font_divider_height">0.5dp</dimen>
+    <dimen name="font_divider_top_margine">21dp</dimen>
+
+    <dimen name="min_font_size">15dp</dimen>
+    <dimen name="max_font_size">21dp</dimen>
+    <dimen name="font_top_margine">40dp</dimen>
+    <dimen name="font_side_margine">22dp</dimen>
+
+    <dimen name="font_seekbar_width">237dp</dimen>
+    <dimen name="font_seekbar_height">2dp</dimen>
+    <dimen name="font_seekbar_top_margine">9dp</dimen>
+
+    <dimen name="font_slider_dimention">20dp</dimen>
+
+    <dimen name="font_ok_width">89dp</dimen>
+    <dimen name="font_ok_height">36dp</dimen>
+    <dimen name="font_ok_size">14dp</dimen>
+    <dimen name="font_ok_top_margine">62dp</dimen>
+    <dimen name="font_ok_right_margine">17dp</dimen>
+    <dimen name="font_ok_bottom_margine">20dp</dimen>
+
+    <dimen name="font_slot_height">10dp</dimen>
+    <dimen name="actionbar_top_bottom_padding">3dp</dimen>
+
+    <dimen name="footer_progress_dimension">30dp</dimen>
+
+
+    <!-- More news -->
+    <dimen name="more_news_font_size">14dp</dimen>
+
+    <dimen name="video_play_icon_size">25dp</dimen>
+    <dimen name="video_play_icon_margin">5dp</dimen>
+    <dimen name="download_icon_size">20dp</dimen>
+
+    <!-- Saved articles pop up -->
+    <dimen name="popup_text_size">15dp</dimen>
+    <dimen name="popup_text_paddingtop">10dp</dimen>
+    <dimen name="popup_text_paddingbottom">10dp</dimen>
+    <dimen name="popup_text_paddingright">50dp</dimen>
+    <dimen name="popup_text_paddingleft">10dp</dimen>
+
+    <!--- Show more news footer dimens -->
+    <dimen name="blur_view_side_padding">15dp</dimen>
+    <dimen name="blur_view_vertical_padding">12dp</dimen>
+
+
+    <!-- Dimensions for Add Page Activity -->
+    <dimen name="add_page_sliding_tab_layout">48dp</dimen>
+    <dimen name="add_page_toolbar">60dp</dimen>
+    <dimen name="add_page_toolbar_title_size">18dp</dimen>
+    <dimen name="add_page_back_margin_top">7dp</dimen>
+    <dimen name="topic_featured_header1_paddingLeft">20dp</dimen>
+
+    <dimen name="topic_featured_item_height">180dp</dimen>
+
+    <dimen name="topic_item_text_size">16dp</dimen>
+    <dimen name="topic_item_button_size">14dp</dimen>
+
+    <dimen name="news_home_tooltip_padding">5dp</dimen>
+    <dimen name="news_home_tooltip_side_padding">10dp</dimen>
+    <dimen name="news_home_tooltip_top_margin">106dp</dimen>
+    <dimen name="news_personalize_margin_bottom">10dp</dimen>
+    <dimen name="news_personalize_side_padding">8dp</dimen>
+    <dimen name="bg_corner_radius">3dp</dimen>
+    <dimen name="add_page_button_width">35dp</dimen>
+    <dimen name="more_news_view_min_width">100dp</dimen>
+    <dimen name="more_news_view_min_height">35dp</dimen>
+    <dimen name="more_news_icon_text_margin_left">5dp</dimen>
+
+    <dimen name="tab_vertical_padding">6dp</dimen>
+
+    <dimen name="empty_notification_title">16dp</dimen>
+    <dimen name="empty_notification_sub_title">12dp</dimen>
+    <dimen name="notification_action_button_size">32dp</dimen>
+    <dimen name="notification_action_button_margin_end">24dp</dimen>
+    <dimen name="notification_action_button_padding">4dp</dimen>
+
+    <dimen name="ticker_default_height">172dp</dimen>
+
+    <!-- Astro related dimensioins -->
+    <dimen name="astro_dialog_height">472dp</dimen>
+    <dimen name="astro_dialog_width">320dp</dimen>
+    <dimen name="astro_subscribe_button_height">48dp</dimen>
+    <dimen name="astro_progress_bar_height">50dp</dimen>
+    <dimen name="astro_gender_button_width">86dp</dimen>
+    <dimen name="astro_gender_button_height">48dp</dimen>
+    <dimen name="astro_dialog_title_textsize">18dp</dimen>
+    <dimen name="astro_dialog_subtitle_textsize">20dp</dimen>
+    <dimen name="astro_cross_container_width">48dp</dimen>
+    <dimen name="astro_cross_container_height">48dp</dimen>
+    <dimen name="astro_dialog_horoscope_icon_marginTop">8dp</dimen>
+    <dimen name="astro_subscribe_button_textSize">15dp</dimen>
+    <dimen name="astro_horoscope_image_width">64dp</dimen>
+    <dimen name="astro_horoscope_image_height">64dp</dimen>
+    <dimen name="astro_gender_male_text_padding">15dp</dimen>
+    <dimen name="astro_drawable_padding">10dp</dimen>
+    <dimen name="astro_gender_female_text_padding">10dp</dimen>
+    <dimen name="astro_gender_radius">5dp</dimen>
+    <dimen name="astro_gender_marginTop">16dp</dimen>
+    <dimen name="astro_dob_marginTop">32dp</dimen>
+    <dimen name="astro_header_marginLeft">10dp</dimen>
+    <dimen name="astro_subheader_marginLeft">12dp</dimen>
+    <dimen name="astro_gender_desc_textSize">14dp</dimen>
+    <dimen name="astro_dob_desc_textSize">12dp</dimen>
+    <dimen name="astro_date_text_size">14dp</dimen>
+    <dimen name="astro_gender_text_size">14dp</dimen>
+    <dimen name="astro_dob_width">210dp</dimen>
+    <dimen name="astro_dob_seperator_width">220dp</dimen>
+    <dimen name="astro_date_seperator_marginTop">16dp</dimen>
+    <dimen name="astro_date_value_marginTop">5dp</dimen>
+    <dimen name="astro_gender_text_marginTop">10dp</dimen>
+    <dimen name="astro_subtitle_marginTop">10dp</dimen>
+
+    // Tap to refresh separator dimensions.
+
+    //Opt In Out dialog dimens
+
+    <!-- Dislike button -->
+
+    <!-- Special cards -->
+    <dimen name="topic_card_height">125dp</dimen>
+
+
+    <!-- Rich Gallery -->
+    <dimen name="rich_gallery_image_height">288dp</dimen>
+    <dimen name="rich_gallery_thumb_gap">1dp</dimen>
+    <dimen name="rich_gallery_thumb_height">88dp</dimen>
+    <dimen name="rich_gallery_more_text_size">16dp</dimen>
+
+    <!-- Story Detail Error Page -->
+
+    <!-- Social Comments -->
+
+    <!-- Saved articles source_share_layout-->
+
+
+    <!--Native interactive ad dimens-->
+
+    <!--Local News Icon -->
+
+    <!--More stories video card dimens -->
+
+
+    <!-- News Details supplement buzz card dimens -->
+
+    <!-- News Details new dimens -->
+    <dimen name="group_card_rv_margin">8dp</dimen>
+    <dimen name="news_detail_back_arrow_container_width">24dp</dimen>
+
+    <dimen name="entity_preview_margin_bottom">10dp</dimen>
+    <dimen name="entity_preview_image_height">155dp</dimen>
+    <dimen name="entity_logo_w_h">90dp</dimen>
+    <dimen name="entity_follow_btn_margin">20dp</dimen>
+    <dimen name="entity_title_text_size">18dp</dimen>
+    <dimen name="entity_title_marginleft">16dp</dimen>
+    <dimen name="entity_title_marginRight">23.5dp</dimen>
+    <dimen name="entity_title_margintop">10dp</dimen>
+    <dimen name="entity_title_gonemarginTop">55dp</dimen>
+    <dimen name="actionbar_news_divider_height">1dp</dimen>
+    <dimen name="entity_follow_btn_margintop">11.5dp</dimen>
+    <dimen name="entity_name_marginTop">8dp</dimen>
+    <dimen name="entity_name_textSize">12dp</dimen>
+
+    <!-- Suggestion card -->
+    <dimen name="cold_start_heading1_textsize">14dp</dimen>
+    <!--total gap between two card is 8dp = 2x(3dp padding added by each card) + 2dp-->
+
+    <dimen name="grid_view_padding">16dp</dimen>
+    <dimen name="grid_view_padding_top">20dp</dimen>
+
+    <!--&lt;!&ndash;Dislike L2 card&ndash;&gt;-->
+    <!--<dimen name="dislike_l2_opt_pad_vertical">7dp</dimen>-->
+    <!--<dimen name="dislike_l2_opt_pad_horizontal">15dp</dimen>-->
+    <!--<dimen name="view_spacing_dislike_tag">12dp</dimen>-->
+    <!--<dimen name="radius_l1_dislike_tag">20dp</dimen>-->
+    <!--<dimen name="dislike_close_icon_size">24dp</dimen>-->
+    <!--<dimen name="dislike_close_icon_margin">15dp</dimen>-->
+    <!--<dimen name="dislike_close_icon_padding">5dp</dimen>-->
+    <!--<dimen name="dislike_l1_title_padding_horizontal">42dp</dimen>-->
+    <!--<dimen name="dislike_l1_title_text_size">22dp</dimen>-->
+    <!--<dimen name="dislike_l1_shorttitle_margintop">6dp</dimen>-->
+    <!--<dimen name="dislike_l1_shorttitle_marginbottom">16dp</dimen>-->
+    <!--<dimen name="dislike_l1_shorttitle_textsize">12dp</dimen>-->
+    <!--<dimen name="dislike_l1_option_list_padding_vertical">10dp</dimen>-->
+    <!--<dimen name="dislike_option_horizontal_padding">18dp</dimen>-->
+    <!--<dimen name="dislike_l1_opt_icon_size">20dp</dimen>-->
+    <!--<dimen name="dislike_l1_option_icon_marginend">20dp</dimen>-->
+    <!--<dimen name="dislike_l1_option_text_size">14dp</dimen>-->
+    <!--<dimen name="dislike_l1_option_padding_vertical">10dp</dimen>-->
+
+    <!--<dimen name="autoplay_mute_button_padding">8dp</dimen>-->
+    <!--<dimen name="autoplay_mute_button_margin">12dp</dimen>-->
+    <!--<dimen name="audio_is_muted_text_size">10dp</dimen>-->
+    <!--<dimen name="dislike_l2_card_icon_size">18dp</dimen>-->
+    <!--<dimen name="dislike_l2_card_title_margin_left">10dp</dimen>-->
+    <!--<dimen name="dislike_l2_card_title_size">14dp</dimen>-->
+    <!--<dimen name="dislike_l2_divider_margin_top">12dp</dimen>-->
+    <!--<dimen name="dislike_l2_subtitle_margin_top">12dp</dimen>-->
+    <!--<dimen name="dislike_l2_subtitle_size">12dp</dimen>-->
+    <!--<dimen name="dislike_l2_items_margintop">12dp</dimen>-->
+    <!--<dimen name="dislike_l2_send_btn_padding_v">8dp</dimen>-->
+    <!--<dimen name="dislike_l2_send_btn_marging_bottom">20dp</dimen>-->
+    <!--<dimen name="l2_card_divider_height">1dp</dimen>-->
+    <!--<dimen name="follow_button_padding_right">5dp</dimen>-->
+    <!--<dimen name="dislike_l2_send_btn_radius">4dp</dimen>-->
+    <!--<dimen name="dislike_l2_send_btn_border_width">1dp</dimen>-->
+    <!--<dimen name="padding_cross_icon_hidebar">2dp</dimen>-->
+
+    <!-- Astro card -->
+    <dimen name="astro_card_zodiac_sign_icon_width">64dp</dimen>
+    <dimen name="astro_card_title_text_size">14dp</dimen>
+    <dimen name="astro_card_label_text_size">10dp</dimen>
+    <dimen name="astro_card_description_text_size">18dp</dimen>
+    <dimen name="astro_card_read_more_text_size">12dp</dimen>
+    <dimen name="astro_card_title_marginLeft">10dp</dimen>
+    <dimen name="astro_card_label_marginTop">17dp</dimen>
+    <dimen name="astro_card_description_height">168dp</dimen>
+    <dimen name="astro_card_description_marginTop">20dp</dimen>
+    <dimen name="astro_card_description_line_spacing">4dp</dimen>
+    <dimen name="astro_card_description_padding">24dp</dimen>
+    <dimen name="astro_card_read_more_bg_height">47dp</dimen>
+    <dimen name="astro_card_read_more_marginRight">7dp</dimen>
+    <dimen name="astro_card_read_more_paddingLeft">7dp</dimen>
+    <dimen name="astro_card_read_more_paddingTop">5dp</dimen>
+    <dimen name="astro_card_read_more_paddingBottom">6dp</dimen>
+
+    <dimen name="tile_3_image_size">106dp</dimen>
+
+    <dimen name="grid_5_image_gap_horizontal">1dp</dimen>
+
+    <dimen name="live_video_tag_padding_vertical">6dp</dimen>
+    <dimen name="live_video_tag_padding_horizontal">8dp</dimen>
+
+    <dimen name="follow_small_card_width">112dp</dimen>
+    <dimen name="follow_card_image_size">64dp</dimen>
+    <dimen name="follow_card_image_size_marginTop">10dp</dimen>
+    <dimen name="follow_card_source_name_textSize">12dp</dimen>
+    <dimen name="follow_card_source_name_margin_l_r">7dp</dimen>
+    <dimen name="follow_card_source_name_marginTop">8.5dp</dimen>
+    <dimen name="follow_carousel_paddingTop">20dp</dimen>
+    <dimen name="follow_carousel_content_marginTop">16dp</dimen>
+    <dimen name="follow_carousel_subtitle_marginTop">4dp</dimen>
+    <dimen name="follow_see_all_text_size">12dp</dimen>
+    <dimen name="actionbar_search_icon_w_h">16dp</dimen>
+    <dimen name="actionbar_search_icon_marginRight">20dp</dimen>
+    <dimen name="follow_see_all_bottom_padding">8dp</dimen>
+    <dimen name="follow_see_all_top_padding">11dp</dimen>
+    <dimen name="language_view_holder_margin_right">6dp</dimen>
+    <dimen name="layout_language_selection_card_margin">16dp</dimen>
+    <dimen name="layout_language_selection_card_guideline_start">12dp</dimen>
+    <dimen name="layout_language_selection_card_guideline_end">16dp</dimen>
+    <dimen name="layout_language_selection_card_guideline1">64dp</dimen>
+    <dimen name="language_selected_text_margin_top">12dp</dimen>
+    <dimen name="language_selected_text_size">12dp</dimen>
+    <dimen name="user_language_selected_text_size">22dp</dimen>
+    <dimen name="user_location_selected_text_size">14dp</dimen>
+    <dimen name="user_selected_language_margin_top">11dp</dimen>
+    <dimen name="change_layout_text_size">12dp</dimen>
+    <dimen name="language_card_divider_height">1dp</dimen>
+    <dimen name="language_card_divider_margin_top">14dp</dimen>
+    <dimen name="more_languages_margin_top">10dp</dimen>
+    <dimen name="more_languages_text_size">12dp</dimen>
+    <dimen name="more_languages_list_margin_top">18dp</dimen>
+    <dimen name="save_language_button_height">48dp</dimen>
+    <dimen name="save_location_button_height">32dp</dimen>
+    <dimen name="layout_suggested_sources_card_marginLeft">2dp</dimen>
+    <dimen name="layout_suggested_sources_textSize">14dp</dimen>
+
+    <!--Adding 3 extra for shadow 8dp(required) + 3dp(extra for shadow effect)-->
+    <!--Card width : 104dp shadow padding left : 4dp shadow padding right 4dp-->
+    <dimen name="discovery_card_carousel4_item_bottom_margin">5dp</dimen>
+    <dimen name="discovery_card_carousel4_item_side_margin">6dp</dimen>
+
+
+    <dimen name="other_perspective_button_touch_area">48dp</dimen>
+    <dimen name="other_perspective_np_icon_size">14dp</dimen>
+    <dimen name="other_perspective_item_margin">8dp</dimen>
+    <dimen name="other_perspective_widget_padding">14dp</dimen>
+    <dimen name="other_perspective_title_min_height">28dp</dimen>
+    <dimen name="other_perspective_item_margin_bottom">6dp</dimen>
+    <dimen name="other_perspective_sliding_tab_width">168dp</dimen>
+    <dimen name="other_perspective_sliding_tab_height">84dp</dimen>
+    <dimen name="other_perspective_sliding_tab_padding">18dp</dimen>
+    <dimen name="other_perspective_sliding_tab_padding_bottom">12dp</dimen>
+    <dimen name="other_perspective_sliding_tab_padding_horizontal">8dp</dimen>
+
+    <dimen name="history_thumbnail_width">56dp</dimen>
+    <dimen name="history_src_img_width">16dp</dimen>
+    <dimen name="history_viewholder_height">72dp</dimen>
+    <dimen name="history_delete_width">24dp</dimen>
+    <dimen name="history_title_rightMargin">20dp</dimen>
+    <dimen name="history_title_rightMarginEdit">28dp</dimen>
+    <dimen name="history_time_marginLeft">12dp</dimen>
+    <dimen name="history_time_width">47dp</dimen>
+    <dimen name="history_vh_paddingVert">8dp</dimen>
+    <dimen name="history_title_leftMargin">12dp</dimen>
+    <dimen name="history_src_img_leftMargin">15dp</dimen>
+    <dimen name="history_srcName_leftMargin">6dp</dimen>
+    <dimen name="history_thumbnail_img_radius">6dp</dimen>
+    <dimen name="historyList_marginLeft">20dp</dimen>
+    <dimen name="history_video_icon_width">16dp</dimen>
+    <dimen name="history_video_icon_margin">4dp</dimen>
+    <dimen name="history_filter_height">36dp</dimen>
+    <dimen name="history_filter_drawable_padding">8dp</dimen>
+    <dimen name="history_filter_padding_left">16dp</dimen>
+    <dimen name="interactions_topPadding">16dp</dimen>
+    <dimen name="interactions_bottomPadding">4dp</dimen>
+    <dimen name="entity_item_card_name_margin_right">20dp</dimen>
+    <dimen name="entity_item_creator_profile_icon_w">14dp</dimen>
+    <dimen name="entity_item_creator_profile_icon_h">16dp</dimen>
+    <dimen name="entity_item_creator_profile_icon_marginLeft">5dp</dimen>
+
+    <dimen name="comment_repost_card_profile_icon_w_h">20dp</dimen>
+    <dimen name="comment_repost_container_h">56dp</dimen>
+    <dimen name="person_name_h">22dp</dimen>
+    <dimen name="person_name_max_width">270dp</dimen>
+    <dimen name="repost_comment_icon_h_w">18dp</dimen>
+
+    <dimen name="saved_video_margin">8dp</dimen>
+
+    <dimen name="profile_circle_x">54dp</dimen>
+    <dimen name="profile_tab_full_page_error_marginTop">20dp</dimen>
+
+
+    <dimen name="img_width_normal_rec">360dp</dimen>
+    <dimen name="img_height_normal_rec">202dp</dimen>
+
+    <!--Post image sq-->
+    <dimen name="post_img_sq_gallery_5_i0_height">91.5dp</dimen>
+    <dimen name="post_img_sq_gallery_5_i0_width">107dp</dimen>
+    <dimen name="post_img_rec_gallery_5_i2_height">184dp</dimen>
+    <dimen name="post_img_rec_gallery_5_i2_width">106dp</dimen>
+
+    <dimen name="post_img_rec_gallery_2_i0_height">184dp</dimen>
+    <dimen name="post_img_rec_gallery_2_i0_width">162dp</dimen>
+
+    <dimen name="post_img_rec_gallery_4_height">90dp</dimen>
+    <dimen name="post_img_rec_gallery_3_i0_height">184dp</dimen>
+    <dimen name="post_img_rec_gallery_3_i1_height">90dp</dimen>
+
+    <dimen name="post_source_circle_icon_size">40dp</dimen>
+    <dimen name="coc_source_square_icon_size">20dp</dimen>
+    <dimen name="post_source_square_icon_size">20dp</dimen>
+    <dimen name="nested_collection_source_icon_size">70dp</dimen>
+    <dimen name="live_source_circle_icon_size">30dp</dimen>
+    <dimen name="post_source_rectangle_img_bg">36dp</dimen>
+    <dimen name="post_source_rectangle_img_height">35dp</dimen>
+    <dimen name="post_source_rectangle_img_max_width">250dp</dimen>
+
+    <dimen name="img_width_perspective_rec">64dp</dimen>
+    <dimen name="img_height_perspective_rec">64dp</dimen>
+
+    <dimen name="simple_topic_title_marginleft">10dp</dimen>
+    <dimen name="alltopic_icon_w_h">40dp</dimen>
+    <dimen name="img_sq_gallery_5_i0_height">98dp</dimen>
+    <dimen name="img_sq_gallery_5_i0_width">117dp</dimen>
+    <dimen name="img_rec_gallery_5_i2_height">202dp</dimen>
+    <dimen name="img_rec_gallery_5_i2_width">117dp</dimen>
+
+    <dimen name="img_rec_gallery_2_i0_height">202dp</dimen>
+    <dimen name="img_rec_gallery_2_i0_width">178dp</dimen>
+
+    <dimen name="img_rec_gallery_4_height">98dp</dimen>
+    <dimen name="post_img_rec_gallery_4_width">178dp</dimen>
+
+    <dimen name="img_rec_gallery_3_i0_height">202dp</dimen>
+    <dimen name="img_rec_gallery_3_i1_height">98dp</dimen>
+    <dimen name="top_margin_attachment">16dp</dimen>
+
+    <dimen name="poll_grid_item_spacing">8dp</dimen>
+    <dimen name="grid_recycler_padding">4dp</dimen>
+    <dimen name="grid_item_layout_margin">4dp</dimen>
+    <dimen name="create_post_edit_text_search_padding">12dp</dimen>
+
+    <dimen name="link_post_image_dimension_height">189.72dp</dimen>
+    <dimen name="link_post_image_dimension_width">328dp</dimen>
+
+    <dimen name="reorder_tab_item_height">48dp</dimen>
+    <dimen name="reorder_tab_frame_size">48dp</dimen>
+    <dimen name="reorder_tab_item_left_margin">16dp</dimen>
+    <dimen name="reorder_header_text_size">13dp</dimen>
+    <dimen name="reorder_padding_side">16dp</dimen>
+    <dimen name="reorder_header_vertical_margin">16dp</dimen>
+
+    //Video Detail
+    <dimen name="toolbar_icon_width">40dp</dimen>
+
+    <dimen name="create_group_edit_btn_width">68dp</dimen>
+    <dimen name="create_group_edit_btn_height">30dp</dimen>
+    <dimen name="edit_btn_text_size">14dp</dimen>
+    <dimen name="create_group_name_text_size">12dp</dimen>
+    <dimen name="create_group_btn_text_size">14dp</dimen>
+    <dimen name="edit_text_box_height">40dp</dimen>
+    <dimen name="edit_text_start_margin">10dp</dimen>
+    <dimen name="group_text_vertical_margin">10dp</dimen>
+    <dimen name="edit_text_with_handle_start_margin">24dp</dimen>
+
+    <dimen name="card_approval_btn_height">30dp</dimen>
+    <dimen name="carousel_card_text_size">18dp</dimen>
+    <dimen name="group_card_invite_people_height">243dp</dimen>
+    <dimen name="group_card_invite_people_width">280dp</dimen>
+    <dimen name="text_margin_top_small">12dp</dimen>
+    <dimen name="invite_card_image_height">100dp</dimen>
+    <dimen name="delete_icon_height_width">20dp</dimen>
+    <dimen name="settings_option_margin_top">20dp</dimen>
+    <dimen name="grp_join_btn_height">34dp</dimen>
+    <dimen name="grp_invite_btn_height">30dp</dimen>
+    <dimen name="grp_join_btn_topMargin">10dp</dimen>
+    <dimen name="news_detail_subtitle_size">14dp</dimen>
+    <dimen name="approval_card_text_size">16dp</dimen>
+    <dimen name="approval_card_height">54dp</dimen>
+    <dimen name="approval_card_profile_height">40dp</dimen>
+
+    <dimen name="invite_divider_topMargin">23dp</dimen>
+    <dimen name="invite_option_item_width">40dp</dimen>
+    <dimen name="invite_option_text_topMargin">9dp</dimen>
+    <dimen name="invite_option_marginTop">20dp</dimen>
+    <dimen name="poll_bg_radius">4dp</dimen>
+    <dimen name="invite_apps_horzMargin">18dp</dimen>
+    <dimen name="follow_button_padding">24dp</dimen>
+    <dimen name="following_button_padding">16dp</dimen>
+    <dimen name="carousel_progress_height">4dp</dimen>
+    <dimen name="carousel_progress_side_margin">4dp</dimen>
+    <dimen name="carousel_progress_vertical_margin">12dp</dimen>
+
+    <dimen name="carousel_news_space_top">143dp</dimen>
+    <dimen name="carousel_news_space_bottom">64dp</dimen>
+    <dimen name="carousel_progress_margin_top_news">135dp</dimen>
+
+    <dimen name="carousel_news_img_width">328dp</dimen>
+    <dimen name="carousel_viral_img_width">328dp</dimen>
+    <dimen name="carousel_news_img_height">184dp</dimen>
+    <dimen name="carousel_viral_img_height">328dp</dimen>
+    <dimen name="entity_icon_img_size">50dp</dimen>
+    <dimen name="entity_item_vertical_spacing">4dp</dimen>
+    <dimen name="entity_banner_image_width">104dp</dimen>
+    <dimen name="entity_banner_image_height">144dp</dimen>
+    <dimen name="post_creation_dialog_start_margin">30dp</dimen>
+    <dimen name="contact_sugg_top_margin">14dp</dimen>
+    <dimen name="contact_sugg_start_margin">20dp</dimen>
+    <dimen name="contact_sugg_frag_marginTop">16dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_50">50dp</dimen>
+    <dimen name="phonebook_title_bar">48dp</dimen>
+    <dimen name="post_detail_divider">4dp</dimen>
+
+    <dimen name="source_image_width_height">100dp</dimen>
+    <dimen name="history_editLayout_height">60dp</dimen>
+    <dimen name="history_clearAll_height">74dp</dimen>
+    <dimen name="history_clearAll_rightMargin">28dp</dimen>
+    <dimen name="history_filter_topMargin">20dp</dimen>
+    <dimen name="history_footer_icon_marginTop">20dp</dimen>
+    <dimen name="history_footer_text_marginTop">32dp</dimen>
+    <dimen name="history_footer_text_marginLeft">24dp</dimen>
+    <dimen name="history_footer_text_marginBottom">41dp</dimen>
+    <dimen name="history_footer_divider_marginTop">21dp</dimen>
+    <dimen name="history_home_btn_width">106dp</dimen>
+    <dimen name="history_home_btn_height">26dp</dimen>
+    <dimen name="history_home_btn_marginTop">24dp</dimen>
+    <dimen name="list_signin_height">176dp</dimen>
+    <dimen name="list_signin_marginLeft">44dp</dimen>
+    <dimen name="list_signin_widget_height">106dp</dimen>
+    <dimen name="list_signin_widget_marginBottom">50dp</dimen>
+    <dimen name="list_signin_marginBottom">12dp</dimen>
+    <dimen name="list_signin_msg_marginBottom">8dp</dimen>
+    <dimen name="list_signin_options_width">32dp</dimen>
+    <dimen name="list_signin_fb_marginLeft">72dp</dimen>
+    <dimen name="list_signin_options_marginLeft">16dp</dimen>
+    <dimen name="list_signin_layer1_height">100dp</dimen>
+    <dimen name="list_signin_layer2_height">76dp</dimen>
+    <dimen name="profile_details_marginLeft">20dp</dimen>
+    <dimen name="profile_pic_width">97dp</dimen>
+    <dimen name="edit_profile_pic_height">200dp</dimen>
+    <dimen name="profile_pic_marginTop">20dp</dimen>
+    <dimen name="profile_user_handle_marginTop">4dp</dimen>
+    <dimen name="profile_details_bottom_divider_height">6dp</dimen>
+    <dimen name="profile_creator_badge_height">26dp</dimen>
+    <dimen name="profile_creator_badge_width">21dp</dimen>
+    <dimen name="private_profile_msg_marginTop">12dp</dimen>
+    <dimen name="profile_follow_divider_leftMargin">12dp</dimen>
+    <dimen name="profile_line_spacings">12dp</dimen>
+    <dimen name="profile_creator_desc_marginTop">11dp</dimen>
+    <dimen name="sign_in_fragment_card_radius">4dp</dimen>
+    <dimen name="sign_in_fragment_card_elevation">2dp</dimen>
+    <dimen name="clearAllLayout_bottomPadding">24dp</dimen>
+    <dimen name="profile_tabs_height">50dp</dimen>
+    <dimen name="profile_tab_padding">8dp</dimen>
+    <dimen name="profile_tabs_selection_indicator_height">2dp</dimen>
+    <dimen name="profile_follow_counts_padding">6dp</dimen>
+    <dimen name="profile_follow_counts_marginTop">6dp</dimen>
+    <dimen name="profile_followButton_width">112dp</dimen>
+    <dimen name="profile_location_text_marginStart">4dp</dimen>
+    <dimen name="bookmark_video_image_width">160dp</dimen>
+    <dimen name="bookmark_video_image_height">90dp</dimen>
+
+    <dimen name="search_left_margin">16dp</dimen>
+    <dimen name="search_top_margin">20dp</dimen>
+    <dimen name="search_box_height">34dp</dimen>
+
+    <dimen name="vd_masthead_view_min_height">48dp</dimen>
+    <dimen name="vd_carousel_header_ht">84dp</dimen>
+    <dimen name="vd_bottombar_peek_ht">80dp</dimen>
+    <dimen name="vd_margin_small">8dp</dimen>
+    <dimen name="vd_margin_medium">16dp</dimen>
+    <dimen name="vd_tags_view_max_height">76dp</dimen>
+
+    <!-- Create post privacy screen dimen   -->
+    <dimen name="cp_privacy_margin_16">16dp</dimen>
+    <dimen name="cp_privacy_margin_8">8dp</dimen>
+    <dimen name="cp_privacy_margin_or_padding_5">5dp</dimen>
+    <dimen name="cp_privacy_header_tv_size">16dp</dimen>
+    <dimen name="cp_privacy_sub_header_tv_size">14dp</dimen>
+    <dimen name="cp_privacy_desc_tv_size">12dp</dimen>
+    <dimen name="cp_privacy_view_thin_height">1dp</dimen>
+    <dimen name="cp_privacy_icon_width_and_height">28dp</dimen>
+
+    <dimen name="cp_poll_option_item_height">54dp</dimen>
+    <dimen name="cp_poll_margin_5">5dp</dimen>
+    <dimen name="cp_poll_margin_8">8dp</dimen>
+    <dimen name="cp_poll_margin_10">10dp</dimen>
+    <dimen name="cp_poll_margin_16">16dp</dimen>
+    <dimen name="cp_poll_option_etv_size">14dp</dimen>
+    <dimen name="cp_poll_remove_icon_size">32dp</dimen>
+    <dimen name="cp_poll_selected_lenght_text_size">12dp</dimen>
+    <dimen name="cp_poll_lenght_option_text_size">14dp</dimen>
+    <dimen name="cp_poll_lenght_header_text_size">14dp</dimen>
+
+    <dimen name="cp_image_height_n_width">104dp</dimen>
+    <dimen name="cp_image_remove_icon">32dp</dimen>
+    <dimen name="cp_image_remove_icon_padding">2dp</dimen>
+
+
+    <!-- Walk through dimens -->
+    <dimen name="text_guide_margin">10dp</dimen>
+    <dimen name="pager_bottom_margin">20dp</dimen>
+    <dimen name="skip_right_margin">16dp</dimen>
+    <dimen name="skip_top_margin">20dp</dimen>
+    <dimen name="header_top_margin">15dp</dimen>
+    <dimen name="wt_header_text_size">22dp</dimen>
+    <dimen name="desc_top_margin">10dp</dimen>
+    <dimen name="desc_text_size">15dp</dimen>
+    <dimen name="skip_text_size">14dp</dimen>
+    <dimen name="dot_dimension">6dp</dimen>
+    <dimen name="dot_dimension_width">12dp</dimen>
+    <dimen name="dot_dimension_height">8dp</dimen>
+    <dimen name="dot_corner_radius">4dp</dimen>
+    <dimen name="dot_spacing">3dp</dimen>
+    <dimen name="wt_explore_top_padding">12dp</dimen>
+    <dimen name="wt_explore_side_padding">30dp</dimen>
+    <dimen name="wt_signin_text_size">20dp</dimen>
+    <dimen name="signin_top_margin">20dp</dimen>
+    <dimen name="explore_bottom_margin">156dp</dimen>
+    <dimen name="header_bottom_margin">100dp</dimen>
+    <dimen name="image_top_margin">34dp</dimen>
+    <dimen name="next_btn_bottom_margin">13dp</dimen>
+
+    <!-- social coachmark dimens -->
+    <dimen name="social_cm_icon_size">45dp</dimen>
+    <dimen name="social_top_guideline_margin">30dp</dimen>
+    <dimen name="social_left_guideline_margin">10dp</dimen>
+    <dimen name="social_repost_guideline_margin">75dp</dimen>
+    <dimen name="social_star_guideline_margin">85dp</dimen>
+    <dimen name="profile_horizontal_line">120dp</dimen>
+    <dimen name="profile_vertical_line">18dp</dimen>
+    <dimen name="line_thickness">1dp</dimen>
+    <dimen name="cm_text_size">16dp</dimen>
+    <dimen name="text_margin_top_profile">4dp</dimen>
+    <dimen name="share_vertical">94dp</dimen>
+    <dimen name="share_horizontal">102dp</dimen>
+    <dimen name="topic_vertical">85dp</dimen>
+    <dimen name="topic_horizontal">82dp</dimen>
+    <dimen name="txt_paddingEnd">5dp</dimen>
+
+    <!--  Create post walkthrough dimen  -->
+    <dimen name="cp_wt_icon_size">45dp</dimen>
+    <dimen name="cp_wt_white_dot_size">6dp</dimen>
+    <dimen name="cp_wt_text_sizet_size">16dp</dimen>
+    <dimen name="cp_wt_privacy_guideline_top">32dp</dimen>
+    <dimen name="cp_wt_privacy_guideline_right">114dp</dimen>
+    <dimen name="cp_wt_verticle_widht">1dp</dimen>
+    <dimen name="cp_wt_privacy_verticle_height">28dp</dimen>
+    <dimen name="cp_wt_handle_guideline_right_or_left">8dp</dimen>
+    <dimen name="cp_wt_handle_horizontal_width">92.5dp</dimen>
+    <dimen name="cp_wt_text_margin">7.5dp</dimen>
+    <dimen name="cp_wt_hash_guideline_right">58dp</dimen>
+    <dimen name="cp_wt_hash_guideline_left">45.5dp</dimen>
+    <dimen name="cp_wt_hash_horizontal_widht">42.5dp</dimen>
+    <dimen name="cp_wt_poll_guideline_left">107dp</dimen>
+    <dimen name="cp_wt_poll_vertical_height">116dp</dimen>
+    <dimen name="design_fab_image_size" tools:override="true">56dp</dimen>
+    <dimen name="video_tag_view_height">40dp</dimen>
+
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="dimen_16">16dp</dimen>
+    <dimen name="dimen_40">40dp</dimen>
+    <dimen name="dimen_45">45dp</dimen>
+    <dimen name="viral_carousel_side_margin">16dp</dimen>
+    <dimen name="detail_title_text_size">16dp</dimen>
+    <dimen name="margin_top_no_comment_text">20dp</dimen>
+    <dimen name="no_discussion_vert_padding">51dp</dimen>
+    <dimen name="comment_bar_count_text_size">11dp</dimen>
+    <dimen name="edit_comment_marginTop">8dp</dimen>
+    <dimen name="edit_comment_minheight">40dp</dimen>
+    <dimen name="edit_comment_padding_vertical">11dp</dimen>
+    <dimen name="edit_comment_paddingStart">18dp</dimen>
+    <dimen name="text_size_comment_bar">13dp</dimen>
+    <dimen name="share_icon_gone_margin">12dp</dimen>
+
+    <dimen name="img_width_error_follow">180dp</dimen>
+    <dimen name="img_margin_top_error_follow">46dp</dimen>
+    <dimen name="follow_error_title_size">14dp</dimen>
+    <dimen name="follow_error_desc_size">12dp</dimen>
+    <dimen name="follow_error_title_margin_top">40dp</dimen>
+    <dimen name="follow_error_desc_margin_top">8dp</dimen>
+    <dimen name="img_width_error_following">203dp</dimen>
+    <dimen name="bottom_bar_margin_bottom">8dp</dimen>
+
+    <dimen name="bottom_bar_padding_top_empty">15dp</dimen>
+    <dimen name="bottom_bar_padding_bottom">8dp</dimen>
+    <dimen name="bottom_bar_padding_top">7dp</dimen>
+    <dimen name="edit_comment_bar_width">200dp</dimen>
+    <dimen name="history_activity_divider">0.5dp</dimen>
+    <dimen name="saved_story_small_height">76dp</dimen>
+    <dimen name="saved_story_small_verticalPadding">10dp</dimen>
+    <dimen name="history_duration_marginTop">4dp</dimen>
+    <dimen name="disclaimer_title_padding">16dp</dimen>
+
+    <dimen name="following_tab_header_paddingTop">29dp</dimen>
+    <dimen name="following_tab_header_title_text_size">14dp</dimen>
+    <dimen name="following_tab_header_title_marginLeft">21dp</dimen>
+    <dimen name="following_tab_header_subtitle_text_size">12dp</dimen>
+    <dimen name="following_tab_subtitle_marginTop">7dp</dimen>
+    <dimen name="following_cold_start_image_width">60dp</dimen>
+    <dimen name="following_cold_start_image_height">66dp</dimen>
+    <dimen name="source_icon_sizes">30dp</dimen>
+    <dimen name="new_details_np_source_name_text_size">12dp</dimen>
+    <dimen name="import_contacts_skip_margin_top">11dp</dimen>
+    <dimen name="import_contacts_allow_height">40dp</dimen>
+    <dimen name="import_contacts_allow_btn_margin_top">64dp</dimen>
+    <dimen name="import_contacts_title_margin_top">12dp</dimen>
+    <dimen name="import_contacts_msg_margin_top">14dp</dimen>
+    <dimen name="discover_title_margin_start">16dp</dimen>
+    <dimen name="contact_reco_title_padding">48dp</dimen>
+    <dimen name="width_import_contact_done">72dp</dimen>
+    <dimen name="height_import_contact_done">36dp</dimen>
+    <dimen name="import_contacts_logo_marginTop">22dp</dimen>
+    <dimen name="news_detail_location_divider_margin">20dp</dimen>
+    <dimen name="padding_privacy_normal">8dp</dimen>
+    <dimen name="padding_privacy_zero">0dp</dimen>
+    <dimen name="search_hint_divider_topMargin">16dp</dimen>
+    <dimen name="search_allow_cta_marginEnd">20dp</dimen>
+    <dimen name="search_cta_height">26dp</dimen>
+    <dimen name="search_cta_padding">10dp</dimen>
+    <dimen name="search_cta_icon_padding">6dp</dimen>
+    <dimen name="disclaimer_text_view_textsize">10sp</dimen>
+    <dimen name="video_disclaimer_margin_horizontal">10dp</dimen>
+    <dimen name="video_disclaimer_padding_vertical">13dp</dimen>
+    <dimen name="video_disclaimer_padding_horizontal">8dp</dimen>
+    <dimen name="video_disclaimer_close_button_size">20dp</dimen>
+    <dimen name="video_disclaimer_close_button_padding">5dp</dimen>
+    <dimen name="runtime_permission_msg_header_min_height">72dp</dimen>
+    <dimen name="runtime_msg_body_min_height">44dp</dimen>
+    <dimen name="runtime_permission_button_min_height">40dp</dimen>
+    <dimen name="image_permission_max_width">172dp</dimen>
+    <dimen name="img_permission_max_height">163dp</dimen>
+    <dimen name="link_account_textSize">13dp</dimen>
+    <dimen name="margin_StartEnd">16dp</dimen>
+    <dimen name="marginTopBottom">40dp</dimen>
+    <dimen name="tc_marginTop">22dp</dimen>
+    <dimen name="fb_marginTop">28dp</dimen>
+    <dimen name="googleMarginBottom">10dp</dimen>
+    <dimen name="accountIcon_widthHeight">24dp</dimen>
+    <dimen name="accountIdMarginStart">12dp</dimen>
+    <dimen name="accountId_marginTop">6dp</dimen>
+    <dimen name="accountId_textSize">15dp</dimen>
+    <dimen name="tickIcon_widthHeight">9dp</dimen>
+    <dimen name="tickIcon_marginStart">4dp</dimen>
+    <dimen name="tickIcon_marginTop">9dp</dimen>
+    <dimen name="connectText_marginTop">6dp</dimen>
+    <dimen name="connectTextSize">12dp</dimen>
+
+    <dimen name="cross_btn_widthHeight">30dp</dimen>
+    <dimen name="cross_button_marginEnd">30dp</dimen>
+    <dimen name="cross_button_marginBottom">10dp</dimen>
+    <dimen name="dialog_container_marginStartEnd">30dp</dimen>
+    <dimen name="title_marginStartEnd">19dp</dimen>
+    <dimen name="title_marginTop">28dp</dimen>
+    <dimen name="title_textSize">18dp</dimen>
+    <dimen name="marginStartEnd">18dp</dimen>
+    <dimen name="phone_marginTop">24dp</dimen>
+    <dimen name="fb_marginTopBottom">20dp</dimen>
+    <dimen name="google_marginBottom">28dp</dimen>
+
+    <dimen name="title_allowLinking_textSize">16dp</dimen>
+    <dimen name="title_marginEnd">16dp</dimen>
+    <dimen name="subtitle_allowLinking_textSize">12dp</dimen>
+    <dimen name="subtitle_marginTop">6dp</dimen>
+    <dimen name="subtitle_marginEnd">16dp</dimen>
+    <dimen name="rv_marginTop">18dp</dimen>
+    <dimen name="done_btn_height">40dp</dimen>
+    <dimen name="done_btn_textSize">16dp</dimen>
+    <dimen name="done_btn_marginBottom">24dp</dimen>
+    <dimen name="done_btn_marginStartEnd">16dp</dimen>
+    <dimen name="inner_container_marginStart">16dp</dimen>
+    <dimen name="inner_container_instance1_marginTop">22dp</dimen>
+    <dimen name="inner_container_instance2_marginTop">30dp</dimen>
+    <dimen name="acc_linking_spinner_width">62dp</dimen>
+    <dimen name="rb_widthHeight">17dp</dimen>
+    <dimen name="rb_marginStart">18dp</dimen>
+    <dimen name="rb_marginTop">23dp</dimen>
+    <dimen name="profileIcon_widthHeight">40dp</dimen>
+    <dimen name="profileIcon_marginStart">16dp</dimen>
+    <dimen name="profileIcon_marginTop">12dp</dimen>
+    <dimen name="profileName_marginTop">12dp</dimen>
+    <dimen name="profileName_marginStart">8dp</dimen>
+    <dimen name="profileName_textSize">14dp</dimen>
+    <dimen name="handleName_textSize">14dp</dimen>
+    <dimen name="handle_marginTop">2dp</dimen>
+    <dimen name="icons_widthHeight">16dp</dimen>
+    <dimen name="fb_startMargin">4dp</dimen>
+    <dimen name="icons_marginStartEnd">2dp</dimen>
+    <dimen name="rv_items_marginBottom">12dp</dimen>
+    <dimen name="account_cardView_margin">1dp</dimen>
+    <dimen name="account_cardView_radius">4dp</dimen>
+    <dimen name="overlay_progress_text_margintop">21dp</dimen>
+    <dimen name="disclaimer_text_view_padding">5dp</dimen>
+    <dimen name="video_detail_bottom_guidline_height">78dp</dimen>
+    <dimen name="video_detail_fade_height">100dp</dimen>
+    <dimen name="vid_detail_profile_name_width">200dp</dimen>
+    <dimen name="add_more_loc_txt_size">12dp</dimen>
+    <dimen name="loc_items_height">180dp</dimen>
+    <dimen name="vid_detail_bottom_menu_top_padding">30dp</dimen>
+
+    <dimen name="actionbar_back_image_w_h">24dp</dimen>
+    <dimen name="actionbar_search_margin_right">20dp</dimen>
+    <dimen name="location_search_edittext_margin_right">40dp</dimen>
+    <dimen name="detail_discussion_bottom_padding">30dp</dimen>
+    <dimen name="icon_1_and_2_size">24dp</dimen>
+    <dimen name="share_icon_min_width">30dp</dimen>
+    <dimen name="comment_icon_min_width">40dp</dimen>
+    <dimen name="share_comment_icon_padding_start">6dp</dimen>
+    <dimen name="share_comment_icon_coc_padding_start">0dp</dimen>
+    <dimen name="share_icons_drawable_padding">4dp</dimen>
+    <dimen name="timestamp_margin_right">12dp</dimen>
+
+    <dimen name="tick_endMargin">8dp</dimen>
+    <dimen name="cancel_endMargin">6dp</dimen>
+    <dimen name="text_topMargin">16dp</dimen>
+
+    <dimen name="in_app_margin">10dp</dimen>
+    <dimen name="in_app_marginTop">60dp</dimen>
+    <dimen name="in_app_marginBottom">90dp</dimen>
+    <dimen name="collection_margin">10dp</dimen>
+
+    <dimen name="dimen_2">2dp</dimen>
+    <dimen name="common_source_and_share_margin">20dp</dimen>
+
+</resources>

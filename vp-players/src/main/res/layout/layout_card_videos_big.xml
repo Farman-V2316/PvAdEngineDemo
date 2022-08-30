@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+~ Copyright (c) 2018 Newshunt. All rights reserved.
+-->
+<com.dailyhunt.tv.players.customviews.ExoPlayerWrapper2
+    android:id="@+id/exo_player_wrapper"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    app:layout_constraintDimensionRatio="H,16:9">
+
+    <!-- Video Player View -->
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/exo_player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        app:auto_show="true"
+        app:hide_during_ads="true"
+        app:resize_mode="fit"
+        app:surface_type="texture_view"
+        app:use_artwork="false"
+        app:use_controller="false"/>
+
+    <!-- Ad Player View  -->
+    <RelativeLayout
+        android:id="@+id/ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <com.dailyhunt.tv.players.customviews.CompanionAdView
+        android:id="@+id/companion_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:adTheme="night"/>
+
+</com.dailyhunt.tv.players.customviews.ExoPlayerWrapper2>

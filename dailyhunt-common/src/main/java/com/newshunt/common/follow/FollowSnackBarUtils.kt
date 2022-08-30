@@ -15,7 +15,7 @@ import com.newshunt.dhutil.R
 @JvmOverloads
 fun constructFollowSnackBarMetaData(title: String?, snackBarActionClickListener:
 SnackBarActionClickListener? = getDefaultSnackBarClickListener(),
-                                    actionMessage: String? = CommonUtils.getString(R.string.str_check_now),
+                                    actionMessage: String? = "Start check now",
                                     snackBarLayoutParams : SnackBarLayoutParams? = getDefaultSnackBarParams())
         : FollowSnackBarMetaData {
     return FollowSnackBarMetaData(title ?: Constants.EMPTY_STRING, actionMessage = actionMessage,

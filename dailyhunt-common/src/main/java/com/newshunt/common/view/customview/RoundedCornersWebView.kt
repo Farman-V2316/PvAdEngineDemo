@@ -28,9 +28,9 @@ open class RoundedCornersWebView : HorizontalSwipeWebView {
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        val typedArray = context!!.obtainStyledAttributes(attrs, R.styleable.RoundedCornerImageView)
+        val typedArray = context!!.obtainStyledAttributes(attrs, com.newshunt.common.util.R.styleable.RoundedCornerImageView)
         if (typedArray != null) {
-            radius = typedArray.getDimensionPixelSize(R.styleable.RoundedCornerImageView_cornerRadius, 0)
+            radius = typedArray.getDimensionPixelSize(com.newshunt.common.util.R.styleable.RoundedCornerImageView_cornerRadius, 0)
             typedArray.recycle()
         }
     }

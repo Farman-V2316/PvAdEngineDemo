@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.common.helper.common.Constants" />
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+
+        <import type="com.newshunt.news.util.NewsConstants" />
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel" />
+
+        <variable
+            name="cardPosition"
+            type="Integer" />
+
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="cardTypeIndex"
+            type="Integer" />
+
+        <variable
+            name="isDetailView"
+            type="Boolean" />
+
+        <variable
+            name="appSettingsProvider"
+            type="com.newshunt.dhutil.helper.AppSettingsProvider" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/story_card_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/story_card_bg"
+        android:minHeight="120dp"
+        android:onClick="@{(v)->vm.onViewClick(v,item, CardsBindUtils.bundle(NewsConstants.CARD_POSITION,cardPosition,Constants.BUNDLE_IN_DETAIL, isDetailView))}"
+        android:tag="simple_post_related">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/body"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/news_title"
+                style="@style/related_post_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/small_story_title_marginRight"
+                android:maxLines="3"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toStartOf="@+id/news_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:hide_on_empty="@{true}"
+                bind:cardType="@{cardTypeIndex}"
+                bind:title="@{item}"
+                bind:vm="@{vm}" />
+
+
+            <com.newshunt.common.view.customview.NHRoundedCornerImageView
+                android:id="@+id/news_image"
+                android:layout_width="@dimen/small_storycard_width"
+                android:layout_height="@dimen/small_storycard_width"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_thumbnail_bg"
+                android:visibility="@{(item.i_thumbnailUrls() == null || item.i_thumbnailUrls().size() == 0)? View.GONE : View.VISIBLE}"
+                app:borderColor="?attr/thumbnail_border_style"
+                app:borderSize="@dimen/ticker_border_width"
+                app:cornerRadius="@dimen/news_image_radius"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:roundedCorners="allCorners"
+                bind:cardtype="@{cardTypeIndex}"
+                bind:index="@{0}"
+                bind:thumbnail="@{item}" />
+
+            <com.newshunt.common.view.customview.NHImageView
+                android:id="@+id/video_play_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_video_play"
+                android:visibility="@{CardsBindUtils.canShowPlayIcon(item) ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/news_image"
+                app:layout_constraintEnd_toEndOf="@id/news_image"
+                app:layout_constraintStart_toStartOf="@id/news_image"
+                app:layout_constraintTop_toTopOf="@id/news_image" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/source_and_share_container"
+            layout="@layout/source_and_share_related"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/source_share_margintop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/body"
+            bind:appSettingsProvider="@{appSettingsProvider}"
+            bind:cvm="@{vm}"
+            bind:isDetailView="@{isDetailView}"
+            bind:item="@{item}" />
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="?attr/separator_line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/source_and_share_container"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

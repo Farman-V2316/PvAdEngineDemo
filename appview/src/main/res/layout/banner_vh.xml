@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2017 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils"/>
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils"/>
+
+        <import type="com.newshunt.news.util.NewsConstants"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset"/>
+
+        <variable
+            name="cardTypeIndex"
+            type="Integer"/>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel"/>
+
+        <variable
+            name="cardPosition"
+            type="Integer"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/story_card_style"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/story_card_padding"
+        android:paddingTop="@dimen/story_card_padding">
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/topic_card_image"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/topic_card_height"
+            android:layout_marginStart="@dimen/story_card_padding_left"
+            android:layout_marginEnd="@dimen/story_card_padding_left"
+            app:cornerRadius="@dimen/news_icon_radius"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:contentImage="@{item}"
+            bind:cardtype="@{cardTypeIndex}"
+            android:onClick="@{(v)->vm.onViewClick(v,item, CardsBindUtils.bundle(NewsConstants.CARD_POSITION,cardPosition))}"
+            bind:index="@{0}"
+            app:roundedCorners="allCorners"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

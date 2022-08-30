@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="@dimen/font_view_width"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:background="@color/font_view_background">
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/font_title"
+            android:textSize="@dimen/font_title_size"
+            android:layout_marginTop="@dimen/font_title_top_margine"
+            android:layout_marginStart="@dimen/font_title_left_margine"
+            android:layout_marginEnd="@dimen/font_title_left_margine"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="@dimen/font_view_width"
+            android:layout_height="@dimen/font_divider_height"
+            android:layout_marginTop="@dimen/font_divider_top_margine"
+            android:background="@color/font_divider"/>
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/font_top_margine"
+            android:layout_marginStart="@dimen/font_side_margine"
+            android:layout_marginEnd="@dimen/font_side_margine">
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/min_font_size"
+                android:text="@string/font_text"
+                android:textColor="@color/font_color"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/font_text"
+                android:textSize="@dimen/max_font_size"
+                android:textColor="@color/font_color"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/font_seekbar_width"
+            android:layout_marginStart="@dimen/font_side_margine"
+            android:layout_marginTop="@dimen/font_seekbar_top_margine"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:weightSum="1"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:layout_weight="0.13"
+                    android:src="@drawable/vr_bar_icn"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:layout_weight="0.39"
+                    android:src="@drawable/vr_bar_icn"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:layout_weight="0.25"
+                    android:src="@drawable/vr_bar_icn"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:layout_weight="0.33"
+                    android:src="@drawable/vr_bar_icn"/>
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/fond_size_slider"
+                android:layout_width="@dimen/font_seekbar_width"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/seekbar_slider"
+                android:progressDrawable="@drawable/font_progress"
+                android:max="3"
+                android:maxHeight="@dimen/font_seekbar_height"
+                />
+
+        </RelativeLayout>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/button_ok"
+            android:layout_width="@dimen/font_ok_width"
+            android:layout_height="@dimen/font_ok_height"
+            android:background="@color/font_slider"
+            android:text="@string/font_ok"
+            android:textColor="@color/white_color"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/font_ok_top_margine"
+            android:layout_marginEnd="@dimen/font_ok_right_margine"
+            android:layout_marginBottom="@dimen/font_ok_bottom_margine"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_ok_size"/>
+    </LinearLayout>
+
+</RelativeLayout>

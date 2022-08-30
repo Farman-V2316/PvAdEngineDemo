@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils"/>
+        <import type="com.newshunt.common.helper.common.Constants" />
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils"/>
+        <import type="com.newshunt.news.util.NewsConstants"/>
+        <import type="android.view.View"/>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset"/>
+
+        <variable
+            name="cardTypeIndex"
+            type="Integer"/>
+
+        <variable
+            name="cardPosition"
+            type="Integer"/>
+
+        <variable
+            name="isDetailView"
+            type="Boolean"/>
+
+        <variable
+            name="adDelegate"
+            type="com.newshunt.adengine.model.entity.ContentAdDelegate" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(v)->vm.onViewClick(v,item,CardsBindUtils.bundle(NewsConstants.CARD_POSITION,cardPosition,Constants.BUNDLE_IN_DETAIL,isDetailView), adDelegate)}"
+        android:tag="simple_post_vh">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="0dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="0dp"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/title"
+            style="@style/post_title"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:maxLines="4"
+            app:layout_constraintEnd_toStartOf="@+id/image"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:hide_on_empty="@{true}"
+            bind:vm="@{vm}"
+            bind:cardType="@{cardTypeIndex}"
+            bind:title="@{item}" />
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/default_thumbnail_bg"
+            app:cornerRadius="@dimen/news_image_radius"
+            app:borderColor="?attr/thumbnail_border_style"
+            app:borderSize="@dimen/ticker_border_width"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:roundedCorners="allCorners"
+            bind:cardtype="@{cardTypeIndex}"
+            bind:index="@{0}"
+            android:visibility="@{CardsBindUtils.canShowThumbnail(item,0) ? View.VISIBLE : View.GONE}"
+            bind:thumbnail="@{item}"/>
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/video_play_icon"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:src="@drawable/ic_video_play"
+            android:visibility="@{CardsBindUtils.canShowPlayIcon(item) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@id/image"
+            app:layout_constraintEnd_toEndOf="@id/image"
+            app:layout_constraintStart_toStartOf="@id/image"
+            app:layout_constraintTop_toTopOf="@id/image" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

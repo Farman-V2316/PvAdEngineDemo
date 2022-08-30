@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="next_btn_bottom_margin">27dp</dimen>
+    <dimen name="image_top_margin">90dp</dimen>
+    <dimen name="header_top_margin">70dp</dimen>
+    <dimen name="pager_bottom_margin">40dp</dimen>
+    <dimen name="wt_header_text_size">26dp</dimen>
+</resources>

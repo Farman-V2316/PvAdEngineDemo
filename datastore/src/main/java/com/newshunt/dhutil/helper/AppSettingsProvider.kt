@@ -12,6 +12,7 @@ import com.dailyhunt.datastore.R
 import com.newshunt.common.helper.common.*
 import com.newshunt.common.helper.preference.GenericAppStatePreference
 import com.newshunt.common.helper.preference.PreferenceManager
+import com.newshunt.common.util.R.dimen
 import com.newshunt.dataentity.common.helper.common.CommonUtils
 import com.newshunt.dataentity.common.model.entity.SettingsChangeEvent
 import com.newshunt.dhutil.helper.preference.AppStatePreference
@@ -65,7 +66,9 @@ object AppSettingsProvider {
                 val bitmap = CommonUtils.getBitmapFromDrawable(icon)
                 val iconDrawable: Drawable = BitmapDrawable(CommonUtils.getApplication().resources,
                     bitmap.let {
-                        Bitmap.createScaledBitmap(it, CommonUtils.getDimension(R.dimen.share_drawable_size), CommonUtils.getDimension(R.dimen.share_drawable_size), true)
+                        Bitmap.createScaledBitmap(it, CommonUtils.getDimension(dimen.share_drawable_size),
+                            CommonUtils.getDimension(
+                            dimen.share_drawable_size), true)
                     })
                 preferredSharableAppLiveData.postValue(InstalledAppInfo(packageName, iconDrawable, label))
             } catch (e: PackageManager.NameNotFoundException) {

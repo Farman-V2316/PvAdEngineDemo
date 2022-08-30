@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.dailyhunt.tv.players.customviews.CustomVideoTimeBar
+            android:id="@+id/dh_video_progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            app:played_ad_marker_color="@color/color_ad_played_marker"
+            app:ad_marker_color="@color/color_ad_marker"
+            app:bar_height="2dp"
+            app:buffered_color="@color/white_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/dh_is_live"
+            app:layout_constraintTop_toTopOf="parent"
+            app:played_color="@color/color_blue_1F9EE1"
+            app:scrubber_drawable="@drawable/default_scrubber"
+            app:tv_ad_marker_color="@color/white_color"
+            app:tv_played_color="@color/color_blue_1F9EE1"
+            app:tv_unplayed_color="?attr/vd_unplayed_progress_color"
+            app:unplayed_color="?attr/vd_unplayed_progress_color" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/dh_is_live"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="2dp"
+            app:layout_goneMarginStart="0dp"
+            android:drawableStart="@drawable/dhtv_live_red_dot"
+            android:drawablePadding="4dp"
+            android:text="@string/live_text"
+            android:textColor="@color/white_color"
+            android:textSize="10dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dh_video_progress"
+            app:layout_constraintEnd_toStartOf="@+id/dhtv_video_duration"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/dhtv_video_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:layout_marginEnd="12dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:text="@string/default_video_duration_text"
+            android:visibility="visible"
+            android:textColor="?attr/vd_duration_color"
+            android:textSize="@dimen/text_x_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dh_is_live"
+            app:layout_constraintEnd_toStartOf="@id/dh_video_mute"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/dh_video_mute"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:layout_marginEnd="10dp"
+            android:tint="?attr/vd_mute_color"
+            android:src="@drawable/dhtv_mute_umute_selector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>
+
+

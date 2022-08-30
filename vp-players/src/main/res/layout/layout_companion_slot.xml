@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ad_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/text_heading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingEnd="@dimen/ad_content_margin"
+            android:paddingStart="@dimen/ad_content_margin"
+            android:paddingTop="11dp"
+            android:textColor="@color/companion_ad_header_text_color"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="@+id/toggle_btn"
+            app:layout_constraintStart_toEndOf="@+id/ad_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Know more"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/ad_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/ad_content_margin"
+            android:background="@drawable/rounded_corner_yellow_bg"
+            android:paddingBottom="2dp"
+            android:paddingEnd="7dp"
+            android:paddingStart="7dp"
+            android:paddingTop="2dp"
+            android:text="Ad"
+            android:textStyle="bold"
+            android:textColor="@color/companion_ad_background_color"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@id/text_heading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/text_heading"/>
+
+        <ImageView
+            android:id="@+id/toggle_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="12dp"
+            android:src="@drawable/close"
+            app:layout_constraintBottom_toBottomOf="@id/text_heading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/text_heading"/>
+
+        <View
+            android:id="@+id/top_divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/story_card_divider_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_heading"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <FrameLayout
+        android:id="@+id/companion_slot"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ad_header"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+
+        <variable
+            name="showLoader"
+            type="Boolean" />
+
+        <variable
+            name="data"
+            type="com.newshunt.dataentity.common.asset.OEmbedResponse" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/oembed_parent_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cp_action_item_bg"
+        android:layout_marginLeft="@dimen/dimen_16"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="@dimen/dimen_16"
+        android:layout_marginBottom="8dp">
+
+        <RelativeLayout
+            android:id="@+id/oembed_loader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:visibility="@{showLoader ? View.VISIBLE : View.GONE}">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/oembed_image_iv_loader"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/oembed_image_iv_loader">
+
+                <com.newshunt.common.view.customview.NHShimmerView
+                    android:id="@+id/oembed_provider_name_tv_loader"
+                    android:layout_width="match_parent"
+                    android:layout_height="17dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="#aaabb3" />
+
+                <com.newshunt.common.view.customview.NHShimmerView
+                    android:id="@+id/oembed_title_tv_loader"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/oembed_provider_name_tv_loader"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="5dp"
+                    android:background="#aaabb3" />
+            </RelativeLayout>
+
+            <com.newshunt.common.view.customview.NHShimmerView
+                android:id="@+id/oembed_image_iv_loader"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:background="#aaabb3" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/oembed_sub_parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/oembed_image_iv">
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/oembed_provider_name_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="5dp"
+                    android:singleLine="true"
+                    android:text="@{data.providerName}"
+                    android:textColor="?attr/cp_og_name_color"
+                    android:textSize="13dp"/>
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/oembed_title_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/oembed_provider_name_tv"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="5dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{data.title}"
+                    android:textColor="?attr/cp_og_title_color"
+                    android:textSize="11dp"/>
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/oembed_description_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/oembed_title_tv"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="5dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{data.description}"
+                    android:textColor="?attr/cp_og_desc_color"
+                    android:textSize="11dp"/>
+            </RelativeLayout>
+
+            <com.newshunt.common.view.customview.NHRoundedCornerImageView
+                android:id="@+id/oembed_image_iv"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/dhtv_breaking_card_default_image"
+                bind:cornerRadius="4dp"
+                bind:imageUrl="@{data.thumbnailUrl}"
+                bind:roundedCorners="allCorners" />
+        </RelativeLayout>
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/oembed_remove_iv"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/cp_circle_icon_remove_bg"
+            android:padding="8dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/cp_ic_close_white" />
+    </RelativeLayout>
+
+</layout>
+
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parent_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(v)->vm.onViewClick(v, discussion, CardsBindUtils.bundle(Constants.BUNDLE_NEWS_DETAIL_NON_SWIPEABLE, true))}"
+        android:background="?attr/default_background">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/see_post_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/default_background"
+            android:visibility="@{vm.isDummyPost? View.GONE : View.VISIBLE}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+           >
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="@dimen/news_detail_see_post_margin"
+                android:paddingBottom="@dimen/news_detail_see_post_margin"
+                android:includeFontPadding="false"
+                android:background="?attr/read_more_bg"
+                android:text="@string/read_story"
+                android:selectAllOnFocus="false"
+                android:linksClickable="false"
+                android:autoLink="all"
+                android:textAlignment="center"
+                android:textColor="?attr/pd_discussion_timestamp_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+        <import type="android.graphics.Color" />
+        <import type="com.newshunt.common.helper.common.Constants" />
+        <import type="com.newshunt.news.view.fragment.DetailsBindUtils" />
+        <import type="com.newshunt.news.helper.LikeEmojiBindingUtils"/>
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+        <import type="com.newshunt.dataentity.common.asset.CreatePostUiMode" />
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.ViewAllCommentsViewModel" />
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="subtitle"
+            type="String" />
+
+        <variable
+            name="cvm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel" />
+
+        <variable
+            name="discussion"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="isAllFilter"
+            type="Boolean" />
+
+        <variable
+            name="isCommentsFilter"
+            type="Boolean" />
+
+        <variable
+            name="isRepostFilter"
+            type="Boolean" />
+    </data>
+</layout>

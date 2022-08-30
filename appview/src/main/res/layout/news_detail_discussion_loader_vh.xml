@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/history_shimmer_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <com.newshunt.common.view.customview.NHShimmerView
+            android:id="@+id/progress_source_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="@dimen/news_detail_content_margin_dimen"
+            android:layout_marginTop="@dimen/shimmer_top_margin"
+            android:layout_marginEnd="@dimen/news_detail_content_margin_dimen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rounded_radius="24dp" />
+
+        <com.newshunt.common.view.customview.NHShimmerView
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="@dimen/news_detail_content_margin_dimen"
+            app:layout_constraintStart_toEndOf="@id/progress_source_icon"
+            app:layout_constraintEnd_toEndOf="@+id/guideline5"
+            app:layout_constraintTop_toTopOf="@id/progress_source_icon"
+            app:rounded_radius="9dp" />
+
+        <com.newshunt.common.view.customview.NHShimmerView
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="@dimen/news_detail_content_margin_dimen"
+            android:layout_marginEnd="@dimen/news_detail_content_margin_dimen"
+            app:layout_constraintBottom_toBottomOf="@id/progress_source_icon"
+            app:layout_constraintStart_toEndOf="@id/progress_source_icon"
+            app:layout_constraintEnd_toEndOf="@+id/guideline5"
+            app:rounded_radius="9dp" />
+
+        <com.newshunt.common.view.customview.NHShimmerView
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="@dimen/news_detail_content_margin_dimen"
+            android:layout_marginEnd="@dimen/news_detail_content_margin_dimen"
+            app:layout_constraintStart_toStartOf="@id/guideline3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/progress_source_icon"
+            app:rounded_radius="9dp" />
+
+        <com.newshunt.common.view.customview.NHShimmerView
+            android:id="@+id/shimmer_title_1"
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="@dimen/news_detail_content_margin_dimen"
+            android:layout_marginTop="@dimen/shimmer_top_margin"
+            android:layout_marginEnd="@dimen/news_detail_content_margin_dimen"
+            app:layout_constraintStart_toEndOf="@id/progress_source_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_source_icon"
+            app:rounded_radius="9dp" />
+
+        <com.newshunt.common.view.customview.NHShimmerView
+            android:id="@+id/shimmer_title_2"
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="@dimen/shimmer_top_margin"
+            android:layout_marginEnd="@dimen/news_detail_content_margin_dimen"
+            app:layout_constraintStart_toStartOf="@+id/shimmer_title_1"
+            app:layout_constraintEnd_toEndOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/shimmer_title_1"
+            app:rounded_radius="9dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

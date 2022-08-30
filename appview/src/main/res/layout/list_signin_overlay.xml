@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/signinView"
+    android:layout_width="0dp"
+    android:layout_height="@dimen/list_signin_height"
+    android:visibility="gone"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/list_signin_layer1_height"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="?attr/list_signin_layer_bg"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/list_signin_layer2_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/list_signin_layer2_bg"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/signinWidget"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/list_signin_widget_height"
+        android:layout_marginStart="@dimen/list_signin_marginLeft"
+        android:layout_marginEnd="@dimen/list_signin_marginLeft"
+        android:layout_marginBottom="@dimen/list_signin_widget_marginBottom"
+        android:background="@drawable/list_signin_widget_bg"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/list_signin_marginBottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/signin_fb_icon"
+                android:layout_width="@dimen/list_signin_options_width"
+                android:layout_height="@dimen/list_signin_options_width"
+                android:src="@drawable/vector_fb"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/signin_google_icon"
+                android:layout_width="@dimen/list_signin_options_width"
+                android:layout_height="@dimen/list_signin_options_width"
+                android:layout_marginStart="@dimen/list_signin_options_marginLeft"
+                android:src="@drawable/vector_google"
+                app:layout_constraintStart_toEndOf="@+id/signin_fb_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="@dimen/list_signin_options_width"
+                android:layout_height="@dimen/list_signin_options_width"
+                android:layout_marginStart="@dimen/list_signin_options_marginLeft"
+                android:src="@drawable/vector_tc"
+                app:layout_constraintStart_toEndOf="@+id/signin_google_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/list_signin_msg_marginBottom"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@string/history_signin_hint"
+            android:includeFontPadding="false"
+            android:textColor="?attr/history_title_color"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/signin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/signin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/list_signin_marginBottom"
+            android:gravity="center"
+            android:text="@string/sign_in"
+            android:textColor="@color/history_delete_done_color"
+            android:includeFontPadding="false"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.ClickHandlingViewModel" />
+
+        <variable
+            name="approvalCounts"
+            type="com.newshunt.dataentity.common.asset.ApprovalCounts" />
+
+        <variable
+            name="groupInfo"
+            type="com.newshunt.dataentity.model.entity.GroupInfo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/approval_card_rootview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="@{CardsBindUtils.getApprovalCardVisibility(groupInfo, approvalCounts)}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/approval_main_card"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/approval_card_height"
+            android:layout_margin="@dimen/vh_side_padding"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/approval_card_bg"
+            android:onClick="@{(v)->vm.onViewClick(v,approvalCounts)}"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/vh_side_padding"
+                android:text="@string/approval_title"
+                android:textColor="@color/carousel_card_text_color"
+                android:textSize="@dimen/approval_card_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:layout_width="@dimen/settings_option_margin_top"
+                android:layout_height="@dimen/settings_option_margin_top"
+                android:layout_marginEnd="@dimen/text_margin_top_small"
+                android:background="@drawable/approval_count_bg"
+                android:gravity="center"
+                android:textColor="@color/approval_card_text_color"
+                android:textSize="@dimen/edit_btn_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/arrow"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:approvalCounts="@{approvalCounts}" />
+
+            <ImageView
+                android:id="@+id/arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/group_card_rv_margin"
+                android:src="@drawable/ic_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/group_settings_screen_divider_color_day"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/approval_main_card" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

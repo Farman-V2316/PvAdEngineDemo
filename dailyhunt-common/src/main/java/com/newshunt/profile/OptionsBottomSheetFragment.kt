@@ -210,7 +210,7 @@ class OptionsViewHolder(view: View,
             if (!CommonUtils.isEmpty(imageUrl)) {
                 imgView.visibility = View.VISIBLE
                 Image.load(imageUrl).priority(Priority.PRIORITY_NORMAL)
-                    .placeHolder(R.color.empty_image_color)
+                    .placeHolder(com.newshunt.common.util.R.color.empty_image_color)
                     .into(imgView)
             } else {
                 simpleOption.drawableId?.let {

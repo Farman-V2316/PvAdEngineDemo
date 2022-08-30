@@ -43,13 +43,13 @@ class BaseErrorUtils {
                 val t = exceptions[0]
                 messageForUser = t.message
             }
-            return messageForUser ?: CommonUtils.getString(R.string.error_generic)
+            return messageForUser ?: CommonUtils.getString(com.newshunt.common.util.R.string.error_generic)
         }
 
         @JvmStatic
         fun getCommonErrorMessage(throwable: Throwable) : String{
             val error: BaseError = throwable as? BaseError ?: ApiResponseOperator.getError(throwable)
-            return error.message ?: CommonUtils.getString(R.string.error_generic)
+            return error.message ?: CommonUtils.getString(com.newshunt.common.util.R.string.error_generic)
         }
 
         /**

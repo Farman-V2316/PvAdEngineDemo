@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by Rahul Ravindran at 25/9/19 10:36 PM
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/add_page_sliding_tab_layout"
+            android:id="@+id/tabsRL"
+            android:background="?attr/default_background"
+            android:elevation="@dimen/tool_bar_shadow">
+
+
+            <com.newshunt.news.view.customview.SlidingTabLayout
+                android:id="@+id/search_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/add_page_sliding_tab_layout"
+                android:contentDescription="@string/news_modules_tabs"
+                android:fillViewport="false"
+                android:layoutDirection="ltr"
+                android:overScrollMode="never"
+                app:tabMode="scrollable" />
+
+        </RelativeLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/shimmer_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/story_card_padding_left" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/story_card_padding_left" />
+
+            <com.newshunt.common.view.customview.NHShimmerView
+                android:id="@+id/shimmer_title_1"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/shimmer_text_height"
+                android:layout_marginTop="@dimen/shimmer_title_one_top_margin"
+                android:layout_marginEnd="@dimen/shimmer_title_one_right_margin"
+                app:layout_constraintStart_toEndOf="@id/guideline1"
+                app:layout_constraintEnd_toStartOf="@id/guideline2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rounded_radius="@dimen/shimmer_text_radius" />
+
+            <com.newshunt.common.view.customview.NHShimmerView
+                android:id="@+id/shimmer_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/shimmer_top_margin"
+                app:layout_constraintDimensionRatio="H,1:.75"
+                app:layout_constraintStart_toEndOf="@id/guideline1"
+                app:layout_constraintEnd_toStartOf="@id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/shimmer_title_1"
+                app:rounded_radius="@dimen/shimmer_image_radius" />
+
+            <com.newshunt.common.view.customview.NHShimmerView
+                android:id="@+id/shimmer_title_2"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/shimmer_text_height"
+                android:layout_marginTop="@dimen/shimmer_top_margin"
+                android:layout_marginEnd="@dimen/shimmer_title_two_right_margin"
+                app:layout_constraintStart_toEndOf="@id/guideline1"
+                app:layout_constraintEnd_toStartOf="@id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/shimmer_image"
+                app:rounded_radius="@dimen/shimmer_text_radius" />
+
+            <com.newshunt.common.view.customview.NHShimmerView
+                android:id="@+id/shimmer_title_3"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/shimmer_text_height"
+                android:layout_marginTop="@dimen/shimmer_text_views_margin"
+                android:layout_marginEnd="@dimen/shimmer_title_two_right_margin"
+                app:layout_constraintStart_toEndOf="@id/guideline1"
+                app:layout_constraintEnd_toStartOf="@id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/shimmer_title_2"
+                app:rounded_radius="@dimen/shimmer_text_radius" />
+
+            <com.newshunt.common.view.customview.NHShimmerView
+                android:id="@+id/shimmer_title_4"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/shimmer_text_height"
+                android:layout_marginTop="@dimen/shimmer_text_views_margin"
+                android:layout_marginEnd="@dimen/shimmer_title_three_right_margin"
+                app:layout_constraintStart_toEndOf="@id/guideline1"
+                app:layout_constraintEnd_toStartOf="@id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/shimmer_title_3"
+                app:rounded_radius="@dimen/shimmer_text_radius" />
+
+            <include
+                android:id="@+id/shimmer_video_1"
+                layout="@layout/shimmer_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/shimmer_video_top_margin"
+                app:layout_constraintTop_toBottomOf="@+id/shimmer_title_4" />
+
+            <include
+                android:id="@+id/shimmer_video_2"
+                layout="@layout/shimmer_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/shimmer_video_top_margin"
+                app:layout_constraintTop_toBottomOf="@+id/shimmer_video_1" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.newshunt.dhutil.view.customview.CustomViewPager
+            android:id="@+id/search_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            android:contentDescription="@string/source_group_pager" />
+
+        <com.newshunt.common.view.customview.CustomNestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.newshunt.common.view.customview.NHImageView
+                    android:id="@+id/error_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="?attr/search_noresult"
+                    style="@style/searchErrorIcon"/>
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/error_title"
+                    style="@style/searchErrorTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/error_subtitle"
+                    style="@style/searchErrorSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/search_error_subtitle_top_margin"
+                    android:gravity="center"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.newshunt.common.view.customview.CustomNestedScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/vp_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        app:layout_behavior="android.support.design.widget.NewshuntAppBarLayoutBehavior">
+
+        <include layout="@layout/layout_search_toolbar" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="?attr/search_seperate_line" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

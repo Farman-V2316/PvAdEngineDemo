@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/other_perspective_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/story_card_padding_left"/>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/story_card_padding_left"/>
+
+        <LinearLayout
+            android:id="@+id/other_perspective_icons_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:visibility="@{state.collapsed ? View.GONE : View.VISIBLE}"
+            app:layout_constraintTop_toBottomOf="@+id/perspective_header_separator">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/perspective_items_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                bind:otherPerspectiveCard="@{item}"
+                bind:vm="@{vm}"
+                bind:state="@{state}"
+                />
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/perspective_header_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="?attr/separator_line"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel" />
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="state"
+            type="com.newshunt.appview.common.ui.viewholder.PerspectiveState" />
+
+    </data>
+
+
+</layout>

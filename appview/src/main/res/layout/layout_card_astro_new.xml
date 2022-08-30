@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils"/>
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils"/>
+
+        <import type="com.newshunt.dataentity.model.entity.ReviewItem"/>
+
+        <import type="android.view.View"/>
+
+        <import type="com.newshunt.news.util.NewsConstants"/>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel"/>
+
+        <variable
+            name="cardPosition"
+            type="Integer"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset"/>
+
+        <variable
+            name="cardTypeIndex"
+            type="Integer"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/astro_card_bg_color"
+        android:onClick="@{(v)->vm.onViewClick(v,item, CardsBindUtils.bundle(NewsConstants.CARD_POSITION,cardPosition))}"
+        android:paddingBottom="@dimen/story_card_padding"
+        android:paddingTop="@dimen/story_card_padding">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/story_card_padding_left"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/story_card_padding_left"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/astro_card_zodiac_sign_icon_width"/>
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/zodiac_sign"
+            bind:cardtype="@{cardTypeIndex}"
+            bind:contentImage="@{item}"
+            bind:index="@{0}"
+            android:layout_width="@dimen/astro_card_zodiac_sign_icon_width"
+            android:layout_height="@dimen/astro_card_zodiac_sign_icon_width"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/astro_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/astro_card_title_marginLeft"
+            android:includeFontPadding="false"
+            bind:textview_text="@{item.i_title()}"
+            bind:item="@{item}"
+            app:dh_custom_font_weight="four_hundred"
+            android:textColor="?attr/astro_card_title_color"
+            android:textSize="@dimen/astro_card_title_text_size"
+            app:layout_constraintStart_toEndOf="@+id/zodiac_sign"
+            app:layout_constraintTop_toTopOf="@+id/zodiac_sign"
+            app:layout_goneMarginStart="0dp"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/news_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/astro_card_label_marginTop"
+            android:includeFontPadding="false"
+            bind:textview_text="@{item.i_cardLabel().text}"
+            bind:item="@{item}"
+            app:dh_custom_font_weight="four_hundred"
+            android:textColor="@color/astro_card_title_label_color"
+            android:textSize="@dimen/astro_card_label_text_size"
+            app:layout_constraintStart_toStartOf="@+id/astro_name"
+            app:layout_constraintTop_toBottomOf="@+id/astro_name"/>
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/dislike_icon"
+            android:layout_width="@dimen/story_dislike_icon_height"
+            android:layout_height="@dimen/story_dislike_icon_height"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:onClick="@{(v)->vm.onThreeDotMenuClick(v,item)}"
+            android:src="?attr/ic_three_dots"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/news_desc"
+            bind:astro_description="@{item}"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/astro_card_description_height"
+            android:layout_marginTop="@dimen/astro_card_description_marginTop"
+            android:background="@drawable/astro_card_desc_bg"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="@dimen/astro_card_description_line_spacing"
+            android:maxLines="4"
+            android:padding="@dimen/astro_card_description_padding"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/astro_card_description_text_size"
+            app:dh_custom_font_weight="four_hundred"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/horizontal_guideline"/>
+
+        <View
+            android:id="@+id/read_more_bg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/astro_card_read_more_bg_height"
+            android:background="@drawable/astro_read_more_bg"
+            app:layout_constraintEnd_toEndOf="@+id/guideline2"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/news_desc"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/read_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/astro_card_read_more_marginRight"
+            android:background="?attr/astro_card_read_more_text_bg"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingBottom="@dimen/astro_card_read_more_paddingBottom"
+            android:paddingEnd="@dimen/astro_card_read_more_paddingLeft"
+            android:paddingStart="@dimen/astro_card_read_more_paddingLeft"
+            android:paddingTop="@dimen/astro_card_read_more_paddingTop"
+            bind:textview_text="@{@string/read_more_botton}"
+            bind:item="@{item}"
+            android:textColor="?attr/astro_card_read_more_text_color"
+            android:textSize="@dimen/astro_card_read_more_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/read_more_bg"
+            app:layout_constraintEnd_toEndOf="@+id/read_more_bg"
+            app:layout_constraintTop_toTopOf="@+id/read_more_bg"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

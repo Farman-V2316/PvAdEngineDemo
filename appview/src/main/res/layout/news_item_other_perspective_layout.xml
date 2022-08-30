@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/other_perspective_widget_padding"
+        android:paddingStart="@dimen/news_detail_content_margin_dimen"
+        android:paddingEnd="@dimen/news_detail_content_margin_dimen"
+        android:paddingTop="@dimen/other_perspective_widget_padding">
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/perspective_fav_icon_1"
+            android:layout_width="@dimen/story_card_padding_left"
+            android:layout_height="@dimen/story_card_padding_left"
+            android:layout_marginEnd="@dimen/perspective_icon_margin_right"
+            app:layout_constraintBottom_toBottomOf="@+id/related_coverage_text"
+            app:layout_constraintEnd_toStartOf="@+id/perspective_fav_icon_2"
+            app:layout_constraintTop_toTopOf="@+id/related_coverage_text"
+            app:layout_goneMarginRight="0dp"
+            bind:iheight="@{32}"
+            bind:imageUrl="@{CardsBindUtils.showSeeOtherPerspectiveitemURL(item,1)}"
+            bind:iwidth="@{32}" />
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/perspective_fav_icon_2"
+            android:layout_width="@dimen/story_card_padding_left"
+            android:layout_height="@dimen/story_card_padding_left"
+            android:layout_marginEnd="@dimen/perspective_icon_margin_right"
+            app:layout_constraintBottom_toBottomOf="@+id/related_coverage_text"
+            app:layout_constraintEnd_toStartOf="@+id/perspective_fav_icon_3"
+            app:layout_constraintTop_toTopOf="@+id/related_coverage_text"
+            app:layout_goneMarginRight="0dp"
+            bind:iheight="@{32}"
+            bind:imageUrl="@{CardsBindUtils.showSeeOtherPerspectiveitemURL(item,2)}"
+            bind:iwidth="@{32}" />
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/perspective_fav_icon_3"
+            android:layout_width="@dimen/story_card_padding_left"
+            android:layout_height="@dimen/story_card_padding_left"
+            android:layout_marginEnd="@dimen/perspective_icon_margin_right"
+            app:layout_constraintBottom_toBottomOf="@+id/related_coverage_text"
+            app:layout_constraintEnd_toStartOf="@+id/perspective_fav_icon_4"
+            app:layout_constraintTop_toTopOf="@+id/related_coverage_text"
+            app:layout_goneMarginRight="0dp"
+            bind:iheight="@{32}"
+            bind:imageUrl="@{CardsBindUtils.showSeeOtherPerspectiveitemURL(item,3)}"
+            bind:iwidth="@{32}" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/related_coverage_text"
+            style="@style/supplementSectionTitleStyleWithoutMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:text="@{item.i_npCoverageText()?? @string/relatedCoverageText}"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/perspective_fav_icon_4"
+            android:layout_width="@dimen/story_card_padding_left"
+            android:layout_height="@dimen/story_card_padding_left"
+            android:background="@drawable/perspective_icon_count_background"
+            android:paddingStart="@dimen/perspective_card_margin"
+            android:paddingTop="@dimen/news_detail_perspective_icon_padding_top"
+            android:text="@{CardsBindUtils.otherPerspectivetext(item,3)}"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/source_share_margintop"
+            android:textStyle="bold"
+            android:visibility="@{CardsBindUtils.showotherPerspectivetext(item,3)? View.VISIBLE :View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/related_coverage_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/related_coverage_text"
+            app:layout_goneMarginRight="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="state"
+            type="com.newshunt.appview.common.ui.viewholder.PerspectiveState" />
+
+    </data>
+
+
+</layout>

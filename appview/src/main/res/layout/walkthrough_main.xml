@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.ui.fragment.WalkThroughFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/default_background">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/pager_bottom_margin"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/wt_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/next_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/indicator_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/next"
+            android:textStyle="bold"
+            android:textColor="@color/wt_action_text_color"
+            android:textSize="@dimen/wt_signin_text_size"
+            android:onClick="@{(v)-> vm.onViewClick(v)}"
+            android:paddingEnd="@dimen/wt_explore_side_padding"
+            android:paddingStart="@dimen/wt_explore_side_padding"
+            android:layout_marginBottom="@dimen/next_btn_bottom_margin"/>
+
+        <LinearLayout
+            android:id="@+id/indicator_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_guideline">
+
+            <View
+                android:id="@+id/indicator_1"
+                android:layout_width="@dimen/dot_dimension_width"
+                android:layout_height="@dimen/dot_dimension_height"/>
+
+            <View
+                android:id="@+id/indicator_2"
+                android:layout_width="@dimen/dot_dimension_width"
+                android:layout_height="@dimen/dot_dimension_height"
+                android:layout_marginStart="@dimen/dot_spacing"
+                android:layout_marginEnd="@dimen/dot_spacing"/>
+
+        </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.model.entity.Extra" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/follow_item_height">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/entity_list_guideline" />
+
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/guest_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        android:textColor="?attr/cold_start_list_item_name_color"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="@dimen/follow_card_name_text_size"
+        android:textStyle="bold"
+        android:text="@{item.extraTitle}"
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

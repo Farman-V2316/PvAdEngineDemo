@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="dvm"
+            type="com.newshunt.news.viewmodel.DetailsViewModel" />
+
+    </data>
+
+    <!-- Needs background for Interactive ads case -->
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/supplement_ads_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:paddingStart="@dimen/news_detail_content_margin_dimen"
+        android:paddingTop="16dp"
+        android:paddingEnd="@dimen/news_detail_content_margin_dimen"
+        android:text="@{dvm.supplementAdsTitle}"
+        android:textColor="?attr/pd_header_title_color"
+        android:textSize="@dimen/news_detail_subtitle_size"
+        android:textStyle="bold" />
+
+</layout>

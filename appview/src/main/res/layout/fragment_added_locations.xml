@@ -1,0 +1,42 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".common.video.ui.view.AddedLocationsFragment"
+    android:gravity="center"
+    android:background="@drawable/rounded_top_corner_black_bg"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/dimen_16"
+    android:layout_marginRight="@dimen/dimen_16">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_16"
+        android:text="@string/your_added_locations"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/your_added_locations_color"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/local_zone_location_menu"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="@dimen/dimen_10"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/loc_items_height" />
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/add_more_loc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/add_more_loc_txt_size"
+        android:text="@string/add_more_locations"
+        android:drawablePadding="5dp"
+        android:textStyle="bold"
+        android:drawableStart="@drawable/ic_plus_add_more_loc"
+        android:textColor="#1F9EE1"
+        android:layout_marginBottom="@dimen/dp_20"
+        />
+
+</LinearLayout>
+

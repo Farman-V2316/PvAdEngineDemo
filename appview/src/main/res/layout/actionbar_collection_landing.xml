@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+<androidx.appcompat.widget.Toolbar android:id="@+id/actionbar"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical">
+
+    <RelativeLayout
+        android:id="@+id/actionbar_back_button_layout"
+        android:layout_width="@dimen/image_container_width"
+        android:layout_height="@dimen/image_container_height"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/actionbar_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            app:srcCompat="@drawable/news_detail_arrow_back" />
+    </RelativeLayout>
+</androidx.appcompat.widget.Toolbar>

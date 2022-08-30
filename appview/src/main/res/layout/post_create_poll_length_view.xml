@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/cp_poll_lenght_bs_bg_color"
+    android:orientation="vertical"
+    app:behavior_peekHeight="0dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/cp_poll_margin_16"
+        android:text="@string/cp_poll_lenght_option_header_text"
+        android:textColor="?attr/cp_poll_lenght_option_header_text_color"
+        android:textSize="@dimen/cp_poll_lenght_header_text_size"
+        android:textStyle="bold"/>
+
+    <ListView
+        android:id="@+id/poll_length_option_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:choiceMode="singleChoice"
+        android:clickable="true"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:focusable="true">
+    </ListView>
+</LinearLayout>

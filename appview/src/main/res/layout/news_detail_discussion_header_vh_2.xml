@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /*
+  ~  * Copyright (c) 2021 Newshunt. All rights reserved.
+  ~  */
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/discussion_header_list_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/news_detail_content_end_margin_dimen"
+        android:layoutDirection="ltr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/discussion_title"
+            style="@style/news_detail_sub_section_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/news_detail_content_margin_dimen"
+            android:layout_marginEnd="@dimen/news_detail_content_margin_dimen"
+            android:orientation="vertical"
+            android:text="@{DetailsBindUtils.getCommentsTitle(card, discussionPojo, false, dvm)}"
+            android:textAlignment="viewStart"
+            android:visibility="@{!DetailsBindUtils.hasDiscussions(card, discussionPojo, false, dvm) ? View.GONE : View.VISIBLE}"
+            android:textColor="?attr/pd_header_title_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            style="@style/detail_page_like_layout_count"
+            android:layout_marginStart="10dp"
+            android:id="@+id/pd_layout_comment_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            app:layout_constraintStart_toEndOf="@+id/discussion_title"
+            app:layout_constraintTop_toTopOf="@id/discussion_title"
+            app:layout_constraintBottom_toBottomOf="@id/discussion_title"
+            android:gravity="center"
+            android:text="@{DetailsBindUtils.getCommentsTitleCount(card)}"
+            android:visibility="@{!DetailsBindUtils.hasDiscussions(card, discussionPojo, false, dvm) ? View.GONE : View.VISIBLE}"
+            />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/disclaimer_text_view"
+            style="@style/news_detail_sub_section_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:text="@string/disclaimer_text_view_text"
+            android:textAlignment="viewStart"
+            android:textColor="?attr/pd_header_title_color"
+            android:alpha="0.4"
+            android:textSize="@dimen/disclaimer_text_view_textsize"
+            android:padding="@dimen/disclaimer_text_view_padding"
+            android:drawableEnd="@drawable/ic_disclaimer_info"
+            android:layout_marginRight="@dimen/dp_20"
+            android:onClick="@{(v)->dvm.showDisclaimerOnVideo(v, card.i_disclaimer())}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/discussion_title"
+            app:layout_constraintBottom_toBottomOf="@id/discussion_title"
+            android:visibility="@{(card.i_format() == format.VIDEO &amp; card.i_disclaimer() != null)? View.VISIBLE : View.GONE}" />
+
+        <LinearLayout
+            android:id="@+id/add_comment_container"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/discussion_title"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp"
+            android:visibility="@{DetailsBindUtils.hasDiscussionsAllowcomment(card, discussionPojo, false, dvm) ? View.VISIBLE : View.GONE}"
+            android:gravity="center_vertical"
+            >
+
+            <com.newshunt.common.view.customview.NHImageView
+                android:id="@+id/profile_image"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:userIcon1="@{card}" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/comment_edit_text"
+                android:enabled="@{CardsBindUtils.canAllowComment(card)}"
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/edit_comment_hint"
+                android:background="?attr/pd_add_comment_bg_ref"
+                android:padding="10dp"
+                android:textColorHint="@color/pd_add_comment_text_color"
+                android:onClick="@{(v)-> dvm.newComment(v, card)}"
+                />
+
+        </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/no_comment_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/add_comment_container"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_marginTop="30dp"
+            android:visibility="@{DetailsBindUtils.hasDiscussionsAllowcomment(card, discussionPojo, false, dvm) ? View.GONE : View.VISIBLE}"
+            >
+            <com.newshunt.common.view.customview.NHImageView
+                android:id="@+id/no_comment_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:src="?attr/news_detail_no_comments"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/empty_discussion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_no_comment_text"
+                android:orientation="vertical"
+                android:text="@{dvm.getEmptyDiscussionText(card)}"
+                android:textAlignment="center"
+                android:textColor="?attr/default_text_color"
+                app:layout_constraintStart_toEndOf="@id/no_comment_image"
+                android:lines="2"
+                android:padding="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_goneMarginTop="0dp"
+                app:layout_goneMarginBottom="0dp"
+                android:gravity="center"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/news_detail_content_margin_dimen"
+                android:background="?attr/separator_line"
+                android:visibility="@{CardsBindUtils.canAllowComment(card)?View.GONE:View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/no_comment_image"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout> />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="com.newshunt.news.view.fragment.DetailsBindUtils" />
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+
+        <import type="com.newshunt.dataentity.common.asset.CreatePostUiMode" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dvm"
+            type="com.newshunt.news.viewmodel.DetailsViewModel" />
+
+
+        <variable
+            name="card"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+       <variable
+            name="format"
+            type="com.newshunt.dataentity.common.asset.Format" />
+
+        <variable
+            name="discussionPojo"
+            type="com.newshunt.dataentity.common.asset.DiscussionPojo" />
+    </data>
+
+</layout>

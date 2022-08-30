@@ -75,7 +75,7 @@ class FPFetchUseCase
                             val nlResp = nlRespWrapper.nlResp
                             if (nlResp.rows.isNullOrEmpty() && nlResp.isFromNetwork) {
                                 // 200 ok with empty response
-                                val error = BaseError(DbgCode.DbgHttpCode(HttpURLConnection.HTTP_NO_CONTENT), message = CommonUtils.getString(R.string.no_content_found))
+                                val error = BaseError(DbgCode.DbgHttpCode(HttpURLConnection.HTTP_NO_CONTENT), message = "No content found")
                                 throw ListNoContentException(error)
                             }
                             nlRespWrapper

@@ -68,13 +68,13 @@ class NHBlockButton : ConstraintLayout, View.OnClickListener {
     private fun updateBackgroundAndText(isSelected: Boolean) {
         if (state) {
             background = CommonUtils.getDrawable(R.drawable.follow_toggle_background)
-            val toggleOnTextColor = CommonUtils.getColor(R.color.white_color)
+            val toggleOnTextColor = CommonUtils.getColor(com.newshunt.common.util.R.color.white_color)
             toggleOnText.setTextColor(toggleOnTextColor)
         } else {
             background = if (ThemeUtils.isNightMode()) CommonUtils.getDrawable(R.drawable
                     .follow_toggle_background_night) else CommonUtils.getDrawable(R.drawable.follow_toggle_background)
-            val toggleOnTextColor = if (ThemeUtils.isNightMode()) CommonUtils.getColor(R.color
-                    .white_color) else CommonUtils.getColor(R.color.follow_color)
+            val toggleOnTextColor = if (ThemeUtils.isNightMode()) CommonUtils.getColor(com.newshunt.common.util.R.color
+                    .white_color) else CommonUtils.getColor(com.newshunt.common.util.R.color.white_color)
             toggleOffText.setTextColor(toggleOnTextColor)
         }
     }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils"/>
+        <import type="android.view.View"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.PostCurrentPlace" />
+
+        <variable
+            name="callback"
+            type="com.newshunt.appview.common.postcreation.view.adapter.PostCurrentPlaceClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="?cp_tool_bar_color">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="?attr/cp_loc_divider_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/subTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{item.address}"
+            android:visibility="@{CommonUtils.isEmpty(item.address) ? View.GONE : View.VISIBLE}"
+            android:textColor="@color/cp_loc_sub_title_text_color"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/leftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="Kormangala " />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{item.name}"
+            android:textColor="?attr/cp_loc_title_text_color"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/subTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/leftGuideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Hotel Mangla" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

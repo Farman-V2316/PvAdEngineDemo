@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/post_detail_divider"
+            android:layout_marginTop="@dimen/news_detail_divider_spacing"
+            android:background="?attr/detail_line_divider"
+            android:visibility="@{DetailsBindUtils.canShowHashTag(card) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/story_card_padding_left" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/story_card_padding_left" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:visibility="@{DetailsBindUtils.canShowHashTag(card) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/hashtag"
+            bind:hashtags="@{card}" />
+
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/hashtag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/hash_tags"
+            style="@style/news_detail_sub_section_title"
+            android:visibility="@{DetailsBindUtils.canShowHashTag(card) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <data>
+
+        <import type="com.newshunt.news.view.fragment.DetailsBindUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dvm"
+            type="com.newshunt.news.viewmodel.DetailsViewModel" />
+
+        <variable
+            name="card"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+
+    </data>
+
+</layout>

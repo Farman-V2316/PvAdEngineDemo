@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.Ticker2"/>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/story_card_padding_left">
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/ticker_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cornerRadius="@dimen/news_icon_radius"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:roundedCorners="allCorners"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

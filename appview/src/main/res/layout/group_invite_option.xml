@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.model.entity.InvitationMedium" />
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.group.viewmodel.GroupInvitationViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/grp_invite_option_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{(v)->vm.onViewClick(v,item)}">
+
+        <ImageView
+            android:id="@+id/invite_option_icon"
+            android:layout_width="@dimen/invite_option_item_width"
+            android:layout_height="@dimen/invite_option_item_width"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/invite_option_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/invite_option_text_topMargin"
+            android:text="@{item.invitationAppData.name}"
+            android:textColor="?attr/history_clear_all_title_color"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/invite_option_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

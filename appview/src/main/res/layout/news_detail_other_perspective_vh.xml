@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/other_perspective_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/other_perspective_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/news_detail_16dp_spacing"
+            android:layout_marginBottom="@dimen/news_detail_content_end_margin_dimen"
+            android:visibility="@{DetailsBindUtils.canShowOtherperspective(card) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/perspective_items_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                bind:otherPerspective="@{card}"
+                bind:vm="@{vm}"/>
+
+        </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="com.newshunt.news.view.fragment.DetailsBindUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dvm"
+            type="com.newshunt.news.viewmodel.DetailsViewModel" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel" />
+
+        <variable
+            name="card"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+    </data>
+
+
+</layout>

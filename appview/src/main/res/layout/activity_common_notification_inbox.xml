@@ -1,0 +1,96 @@
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<androidx.drawerlayout.widget.DrawerLayout android:id="@+id/notification_drawer_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/notification_coordinator"
+        android:layout_width="match_parent"
+        android:background="?attr/notification_bg"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/notification_app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="android.support.design.widget.NewshuntAppBarLayoutBehavior">
+
+            <include
+                android:id="@+id/notification_action_bar"
+                layout="@layout/actionbar_notification_inbox" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_news_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/notification_list"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.0"
+                android:background="?attr/notification_list_bg"
+                android:orientation="vertical" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateBehavior="cycle"
+            android:indeterminateDuration="1000"
+            android:indeterminateOnly="true"
+            android:visibility="gone">
+        </ProgressBar>
+
+        <RelativeLayout
+            android:id="@+id/notification_info_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:paddingBottom="@dimen/action_bar_height"
+            android:visibility="gone">
+
+            <com.newshunt.common.view.customview.NHImageView
+                android:id="@+id/empty_notification_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="?attr/empty_notification_logo" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/tv_no_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/empty_notification_img"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="@string/list_empty_message"
+                android:textColor="?attr/notification_title"
+                android:textSize="@dimen/empty_notification_title" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/tv_no_notification_sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_no_notification"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/notification_list_empty_subtitle"
+                android:textColor="@color/empty_notification_sub_title"
+                android:textSize="@dimen/empty_notification_sub_title" />
+        </RelativeLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

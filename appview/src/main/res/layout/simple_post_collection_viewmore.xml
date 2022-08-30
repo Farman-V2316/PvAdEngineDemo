@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (c) 2018 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel" />
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CollectionProperties" />
+
+        <variable
+            name="parentItem"
+            type="com.newshunt.dataentity.common.asset.CommonAsset"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/carousel_view_more_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Space
+            android:id="@+id/space_1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/carousel_news_space_top"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/carousel_view_more"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/carousel_view_more_bg"
+            app:layout_constraintBottom_toTopOf="@+id/space_2"
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{(v)->vm.onViewClick(v,parentItem)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/space_1">
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/viewmore_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.i_viewMoreText() ?? @string/carousel_view_more}"
+                android:textColor="@color/white_color"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/viewmore_iv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/viewmore_iv"
+                android:layout_width="8dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="7dp"
+                android:background="@drawable/arrow_forward_night"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/viewmore_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Space
+            android:id="@+id/space_2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/carousel_news_space_bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

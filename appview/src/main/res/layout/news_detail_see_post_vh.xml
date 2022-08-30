@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils"/>
+        <import type="com.newshunt.news.view.fragment.DetailsBindUtils" />
+        <import type="com.newshunt.common.helper.common.Constants" />
+        <import type="android.view.View" />
+
+        <variable
+            name="dvm"
+            type="com.newshunt.news.viewmodel.DetailsViewModel" />
+
+        <variable
+            name="parent_card"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.ClickHandlingViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(v)-> parent_card == null ? void : vm.onViewClick(v, parent_card, CardsBindUtils.bundle(Constants.BUNDLE_IN_DETAIL, true, Constants.SINGLE_PAGE, true))}"
+       >
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="@string/see_post"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:paddingTop="@dimen/news_detail_see_post_margin"
+            android:paddingBottom="@dimen/news_detail_see_post_margin"
+            android:background="?attr/story_list_divider"
+            android:textColor="?attr/pd_discussion_timestamp_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

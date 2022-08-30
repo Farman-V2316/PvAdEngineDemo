@@ -39,8 +39,8 @@ class NHRoundedFrameLayout
         strokePaint.color = 0
         strokePaint.isAntiAlias = true
 
-        val a = context.obtainStyledAttributes(attrs, R.styleable.RoundedCornerImageView)
-        cornerRadius = a.getDimensionPixelSize(R.styleable.RoundedCornerImageView_cornerRadius, 0)
+        val a = context.obtainStyledAttributes(attrs, com.newshunt.common.util.R.styleable.RoundedCornerImageView)
+        cornerRadius = a.getDimensionPixelSize(com.newshunt.common.util.R.styleable.RoundedCornerImageView_cornerRadius, 0)
         setRoundedBackground()
         a.recycle()
     }

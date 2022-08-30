@@ -295,14 +295,14 @@ object ThemeUtils {
 
     fun showThemeSnackbar(view: View, duration: Int, referrer:PageReferrer) {
         if(isAppFollowingSystemTheme()) {
-            val text = CommonUtils.getString(R.string.theme_snackbar_on_enable)
-            val actionText = CommonUtils.getString(R.string.theme_disable)
+            val text = CommonUtils.getString(com.newshunt.common.util.R.string.theme_snackbar_on_enable)
+            val actionText = CommonUtils.getString(com.newshunt.common.util.R.string.theme_disable)
             GenericCustomSnackBar.showSnackBar(view,view.context,text,duration,null,null,actionText,customActionClickListener = View.OnClickListener {
                 themeSnackbarActionClicked(false,referrer)
             }, isThemeSnackbar = true).show()
         } else {
-            val text = CommonUtils.getString(R.string.theme_snackbar_on_disable)
-            val actionText = CommonUtils.getString(R.string.theme_enable)
+            val text = CommonUtils.getString(com.newshunt.common.util.R.string.theme_snackbar_on_disable)
+            val actionText = CommonUtils.getString(com.newshunt.common.util.R.string.theme_enable)
             GenericCustomSnackBar.showSnackBar(view,view.context,text,10000,null,null,actionText,customActionClickListener = View.OnClickListener {
                 themeSnackbarActionClicked(true, PageReferrer(NhGenericReferrer.DISABLE_SNACKBAR))
                 showThemeToast()
@@ -314,7 +314,7 @@ object ThemeUtils {
     }
 
     fun showThemeToast(){
-        FontHelper.showCustomFontToast(CommonUtils.getApplication(), CommonUtils.getString(R.string.theme_enable_toast), Toast.LENGTH_LONG)
+        FontHelper.showCustomFontToast(CommonUtils.getApplication(), CommonUtils.getString(com.newshunt.common.util.R.string.theme_enable_toast), Toast.LENGTH_LONG)
     }
 
     fun readUserPreferredTheme(): ThemeType {

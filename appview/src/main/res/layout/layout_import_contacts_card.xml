@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.ClickHandlingViewModel"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.EntityItem"/>
+
+        <variable
+            name="parentItem"
+            type="com.newshunt.dataentity.common.asset.CommonAsset"/>
+
+        <variable
+            name="position"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="104dp"
+        android:layout_height="144dp"
+        android:background="?attr/follow_small_card_bg"
+        android:id="@+id/import_contact_card"
+        android:onClick="@{(v)->vm.onFollowEntityClick(v,parentItem,item, position)}">
+
+        <ImageView
+            android:id="@+id/import_contacts_img_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:src="?attr/import_contact_card_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/import_contacts_card_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/contacts_title"
+            android:textColor="?attr/import_contact_card_color"
+            android:textSize="11dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/import_contacts_img_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

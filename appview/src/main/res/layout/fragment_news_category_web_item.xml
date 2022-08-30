@@ -1,0 +1,29 @@
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/category_webitem_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/default_background">
+
+    <RelativeLayout
+        android:id="@+id/rl_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.newshunt.common.view.customview.NestedScrollWebView
+            android:id="@+id/web_item_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/error_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="?attr/default_background"
+            android:orientation="vertical"
+            android:visibility="gone" />
+    </RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

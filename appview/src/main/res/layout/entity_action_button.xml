@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <import type="com.newshunt.dhutil.helper.theme.ThemeUtils"/>
+
+        <import type="com.newshunt.appview.R"/>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.ClickHandlingViewModel"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.EntityItem"/>
+
+        <variable
+            name="parentItem"
+            type="com.newshunt.dataentity.common.asset.CommonAsset"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/entity_action"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/follow_btn_height"
+        android:onClick="@{(v)->vm.onFollowEntityClick(v,parentItem,item, 0)}"
+        android:paddingBottom="7dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:paddingTop="7dp"
+        bind:entity_bg_item="@{item}"
+        bind:parent_bg_item="@{parentItem}">
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_goneMarginStart="0dp"
+            android:includeFontPadding="false"
+            android:textSize="10dp"
+            android:maxLines="1"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:text_entity_item ="@{item}"
+            bind:text_parent_item ="@{parentItem}"
+            bind:entity_item="@{item}"
+            bind:parent_item="@{parentItem}"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

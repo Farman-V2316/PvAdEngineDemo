@@ -24,7 +24,7 @@ private const val LOG_TAG = "ScrollAwareFABBehavior"
 class ScrollAwareFABBehavior(context: Context, attrs: AttributeSet) :
     CoordinatorLayout.Behavior<View>(context, attrs) {
     private var bottomBarHeight = 0
-    private val bottomBarMargin = CommonUtils.getDimension(R.dimen.bottom_bar_height)
+    private val bottomBarMargin = CommonUtils.getDimension(com.newshunt.common.util.R.dimen.bottom_bar_height)
 
     override fun onStartNestedScroll(
         coordinatorLayout: CoordinatorLayout,

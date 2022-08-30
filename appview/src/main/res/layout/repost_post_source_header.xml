@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Rahul Ravindran at 8/10/19 6:04 PM
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils"/>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--<com.newshunt.common.view.customview.NHImageView-->
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/circle_source_icon"
+            bind:sourceIcon="@{item}"
+            android:layout_width="@dimen/post_source_circle_icon_size"
+            android:layout_height="@dimen/post_source_circle_icon_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.newshunt.common.view.customview.NHImageView
+            bind:sourceBigImg="@{item}"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/post_source_rectangle_img_height"
+            android:scaleType="fitStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/creator_badge"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/ic_badge"
+            android:visibility="@{CardsBindUtils.canShowCreatorBadge(item.i_source()) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@id/display_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/display_name"
+            app:layout_constraintTop_toTopOf="@id/display_name"
+            app:layout_goneMarginStart="0dp"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/display_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textColor="?attr/cp_repost_display_name_text_color"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toTopOf="@+id/handle"
+            app:layout_constraintEnd_toStartOf="@+id/creator_badge"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/circle_source_icon"
+            app:layout_constraintTop_toTopOf="@id/circle_source_icon"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintWidth_default="wrap"
+            app:layout_goneMarginStart="0dp"
+            bind:forcehide="@{CardsBindUtils.showBigSourceImage(item)}"
+            bind:text_hideIfEmpty="@{CardsBindUtils.getDisplayName(item)}"
+            bind:item="@{item}"/>
+
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/handle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textColor="?attr/cp_repost_handle_text_color"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/circle_source_icon"
+            app:layout_constraintTop_toBottomOf="@id/display_name"
+            app:layout_goneMarginStart="0dp"
+            bind:forcehide="@{CardsBindUtils.showBigSourceImage(item)}"
+            bind:text_hideIfEmpty="@{CardsBindUtils.getHandle(item)}"
+            bind:item="@{item}"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

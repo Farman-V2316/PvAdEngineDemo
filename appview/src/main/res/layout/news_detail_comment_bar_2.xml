@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /*
+  ~  * Copyright (c) 2021 Newshunt. All rights reserved.
+  ~  */
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_bottom_line_height"
+            android:background="?attr/toolbar_bottom_line" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/actionbar_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/news_toolbar_bg"
+            android:drawableTop="?attr/toolbar_bottom_line"
+            android:elevation="1dp"
+            android:visibility="visible"
+            android:gravity="center_vertical"
+            app:contentInsetStart="0dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableTop="@color/black_color"
+                android:gravity="center"
+                >
+
+                <RelativeLayout
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/actionbar_back_button_layout"
+                    android:layout_width="@dimen/image_container_width"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:id="@+id/actionbar_back_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:scaleType="center"
+                        android:gravity="center_vertical"
+                        app:srcCompat="?attr/news_detail_actionbar_back_button"/>
+
+                </RelativeLayout>
+
+
+                <include
+                    android:id="@+id/social_icons"
+                    layout="@layout/news_detail_social_icons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    bind:card="@{card}"
+                    bind:isComment="@{isComment}"
+                    bind:v="@{v}"
+                    bind:vm="@{vm}"
+                    bind:isTransparent="@{isTransparent}"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </LinearLayout>
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+        <import type="com.newshunt.news.helper.LikeEmojiBindingUtils"/>
+        <import type="android.view.View"/>
+        <import type="com.newshunt.socialfeatures.util.SocialFeaturesConstants" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel" />
+
+        <variable
+            name="card"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="isComment"
+            type="Boolean"/>
+
+        <variable
+            name="v"
+            type="Boolean"/>
+
+        <variable
+            name="isTransparent"
+            type="Boolean"/>
+
+    </data>
+</layout>

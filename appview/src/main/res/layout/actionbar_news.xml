@@ -1,0 +1,77 @@
+<!--
+  ~ Copyright (c) 2016 Newshunt. All rights reserved.
+  -->
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/actionbar_height"
+    app:contentInsetEnd="0dp"
+    app:contentInsetStart="0dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/actionbar_back_button_layout"
+            android:layout_width="@dimen/image_container_width"
+            android:layout_height="@dimen/image_container_height"
+            android:layout_centerVertical="true"
+            android:gravity="left"
+            android:orientation="horizontal">
+
+            <FrameLayout android:id="@+id/toolbar_back_button_container"
+                         android:layout_width="@dimen/image_container_width"
+                         android:layout_height="@dimen/image_container_height">
+                <ImageView
+                    android:id="@+id/actionbar_back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/back_button_description"
+                    app:srcCompat="@drawable/action_bar_back_button"/>
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/dot_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/coachmark_dot"
+                android:visibility="gone"/>
+    </LinearLayout>
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/actionbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/action_bar_text_margin"
+        android:layout_toEndOf="@id/actionbar_back_button_layout"
+        android:textColor="@color/black_color"
+        android:textSize="@dimen/actionbar_title_size"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/favourite_button"
+        android:paddingEnd="@dimen/actionbar_back_button_height"
+        android:paddingStart="@dimen/actionbar_back_button_height"
+        android:src="@mipmap/topics_star_grey_line"
+        android:visibility="gone"/>
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/actionbar_news_divider_height"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+            android:background="@color/actionbar_divider_color"
+            android:id="@+id/actionbar_divider"/>
+
+</RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>

@@ -24,15 +24,15 @@ class NHMenuViewItem(context: Context, val nightModeNotSupported: Boolean) : Lin
     private var tvNotificationBadge: NHTextView
     private var buttonBackground: View?
     private var ivIcon: ImageView
-    private var view: View = LayoutInflater.from(getContext()).inflate(R.layout.view_items_navigation_bar, this, true)
-    private val tintColor = if (isNightMode()) R.color.navbar_icon_color_night_unselected else R.color.black
+    private var view: View = LayoutInflater.from(getContext()).inflate(com.newshunt.common.util.R.layout.view_items_navigation_bar, this, true)
+    private val tintColor = if (isNightMode()) com.newshunt.common.util.R.color.navbar_icon_color_night_unselected else com.newshunt.common.util.R.color.black
 
     init {
-        ivIcon = view.findViewById(R.id.navbar_appsection_icon)
-        tvNotificationBadge = view.findViewById(R.id.navbar_notification_count_tv)
-        highlightIcon = findViewById(R.id.navbar_highlight)
-        buttonBackground = findViewById(R.id.navbar_item_container)
-        ivIcon.setImageDrawable(CommonUtils.getTintedDrawable(R.drawable.vector_more_tab, tintColor))
+        ivIcon = view.findViewById(com.newshunt.common.util.R.id.navbar_appsection_icon)
+        tvNotificationBadge = view.findViewById(com.newshunt.common.util.R.id.navbar_notification_count_tv)
+        highlightIcon = findViewById(com.newshunt.common.util.R.id.navbar_highlight)
+        buttonBackground = findViewById(com.newshunt.common.util.R.id.navbar_item_container)
+        ivIcon.setImageDrawable(CommonUtils.getTintedDrawable(com.newshunt.common.util.R.drawable.vector_more_tab, tintColor))
     }
 
     fun isNightMode(): Boolean {
@@ -41,7 +41,7 @@ class NHMenuViewItem(context: Context, val nightModeNotSupported: Boolean) : Lin
 
     fun setSelectedColor(isSelected: Boolean) {
         if (isSelected) {
-            ivIcon.setImageDrawable(CommonUtils.getTintedDrawable(R.drawable.vector_more_selected, tintColor))
+            ivIcon.setImageDrawable(CommonUtils.getTintedDrawable(com.newshunt.common.util.R.drawable.vector_more_selected, tintColor))
         }
         else {
             ivIcon.imageTintList = null

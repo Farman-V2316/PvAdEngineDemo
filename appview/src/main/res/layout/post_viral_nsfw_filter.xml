@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel" />
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/meme_nsfw_filter"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="match_parent"
+        android:background="#80000000">
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textSize="@dimen/text_16"
+            android:text="@string/nsfw_description"
+            android:textColor="@color/white" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/nsfw_filter_text_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nsfw_bg"
+            android:layout_marginTop="16dp"
+            android:textSize="12dp"
+            android:includeFontPadding="false"
+            android:onClick="@{(v)->vm.onViewClick(v,item)}"
+            android:paddingStart="16dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="5dp"
+            android:text="@string/nsfw_display"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

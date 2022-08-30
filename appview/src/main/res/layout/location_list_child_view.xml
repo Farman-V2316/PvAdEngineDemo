@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2016 Newshunt. All rights reserved.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/location_list_child_view_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/topic_featured_row_height"
+    android:background="?attr/selectableItemBackground">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/location_city_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="viewStart"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_toggle_color"
+        android:layout_marginStart="@dimen/header_margin_left"
+        android:textSize="@dimen/location_list_child_title_size"
+        android:fontFamily="@font/noto_sans"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/location_isfavorite_container"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    <FrameLayout
+        android:id="@+id/location_isfavorite_container"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="@dimen/bottom_text_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/location_isfavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/add_entity_square_background" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

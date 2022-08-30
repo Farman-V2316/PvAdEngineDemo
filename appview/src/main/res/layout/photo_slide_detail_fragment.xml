@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2016 Newshunt. All rights reserved.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <com.newshunt.news.view.customview.SlowNetworkImageView
+        android:id="@+id/slow_network_touch_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:enablePinchZoom="true" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/error_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+    <include layout="@layout/actionbar_photo" />
+
+    <LinearLayout
+        android:id="@+id/photo_bottom_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/text_scroller"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/photo_slide_description_layout_height"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/photo_slide_description_text_marginBottom"
+            android:layout_marginEnd="@dimen/photo_slide_description_marginRight"
+            android:layout_marginLeft="@dimen/photo_slide_description_marginLeft"
+            android:layout_marginRight="@dimen/photo_slide_description_marginRight"
+            android:layout_marginStart="@dimen/photo_slide_description_marginLeft"
+            android:scrollbars="none">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/photo_description_parent"
+                android:layout_width="match_parent"
+                android:padding="4dp"
+                android:background="@color/news_detail_image_overlay"
+                android:layout_height="wrap_content">
+
+                <com.newshunt.common.view.customview.NHImageView
+                    android:id="@+id/news_source_image"
+                    android:layout_width="@dimen/source_icon_sizes"
+                    android:layout_height="@dimen/source_icon_sizes"
+                    android:layout_marginStart="@dimen/topic_more_tile_image_margin"
+                    android:layout_marginTop="5dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/np_source_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/theme_night_text_color"
+                    android:textSize="@dimen/new_details_np_source_name_text_size"
+                    app:layout_constraintBottom_toBottomOf="@+id/news_source_image"
+                    app:layout_constraintStart_toEndOf="@+id/news_source_image"
+                    app:layout_constraintTop_toTopOf="@+id/news_source_image" />
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/photo_desc_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/photo_gallery_description_more"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/photo_gallery_text_size"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <com.newshunt.dhutil.view.customview.SelectCopyNhTextView
+                    android:id="@+id/photo_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/photo_gallery_text_size"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/news_source_image"
+                    app:layout_constraintRight_toLeftOf="@+id/photo_desc_more" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <com.newshunt.common.helper.share.NHShareView
+            android:id="@+id/nh_share_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

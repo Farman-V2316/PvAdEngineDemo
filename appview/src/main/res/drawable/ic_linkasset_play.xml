@@ -1,0 +1,30 @@
+<!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+  <path
+      android:pathData="M20,1C9.5067,1 1,9.5066 1,20C1,30.4934 9.5067,39 20,39C30.4933,39 39,30.4934 39,20C39,9.5066 30.4933,1 20,1Z"
+      android:strokeAlpha="0.6"
+      android:strokeWidth="2"
+      android:fillColor="#000000"
+      android:strokeColor="#FFFFFF"
+      android:fillType="evenOdd"
+      android:fillAlpha="0.6"/>
+  <path
+      android:pathData="M20,1C9.5067,1 1,9.5066 1,20C1,30.4934 9.5067,39 20,39C30.4933,39 39,30.4934 39,20C39,9.5066 30.4933,1 20,1Z"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#FFFFFF"
+      android:fillType="evenOdd"/>
+  <path
+      android:pathData="M26.9125,21.0602L16.9125,27.3102C16.7102,27.4365 16.4801,27.5 16.25,27.5C16.0416,27.5 15.8328,27.4481 15.6439,27.3431C15.2466,27.1228 15,26.7047 15,26.25L15,13.75C15,13.2953 15.2466,12.8772 15.6439,12.6569C16.0413,12.4353 16.5271,12.4487 16.9125,12.6898L26.9125,18.9398C27.2778,19.1688 27.5,19.5691 27.5,20C27.5,20.4309 27.2778,20.8313 26.9125,21.0602Z"
+      android:strokeWidth="1"
+      android:fillColor="#FFFFFF"
+      android:fillType="evenOdd"
+      android:strokeColor="#00000000"/>
+</vector>

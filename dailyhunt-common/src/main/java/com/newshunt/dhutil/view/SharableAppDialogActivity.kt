@@ -64,11 +64,11 @@ class SharableAppDialogActivity: NHBaseActivity(), View.OnClickListener {
                         val bitmap = CommonUtils.getBitmapFromDrawable(icon)
                         val iconDrawable: Drawable = BitmapDrawable(CommonUtils.getApplication().resources,
                             bitmap.let {
-                                Bitmap.createScaledBitmap(it, CommonUtils.getDimension(com.dailyhunt.datastore.R.dimen.share_drawable_size), CommonUtils.getDimension(
-                                    com.dailyhunt.datastore.R.dimen.share_drawable_size), true)
+                                Bitmap.createScaledBitmap(it, CommonUtils.getDimension(com.newshunt.common.util.R.dimen.share_drawable_size), CommonUtils.getDimension(
+                                    com.newshunt.common.util.R.dimen.share_drawable_size), true)
                             })
                         AppSettingsProvider.preferredSharableAppLiveData.postValue(InstalledAppInfo(pkgName, iconDrawable, label))
-                        Toast.makeText(this,CommonUtils.getString(R.string.default_share_app_toast,label), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,CommonUtils.getString(com.newshunt.common.util.R.string.default_share_app_toast,label), Toast.LENGTH_SHORT).show()
                     } catch (e: PackageManager.NameNotFoundException) {
                         Logger.caughtException(e)
                     }

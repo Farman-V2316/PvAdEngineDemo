@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="myProfile"
+            type="com.newshunt.dataentity.model.entity.MyProfile" />
+        <import type="com.newshunt.dataentity.model.entity.LoginType" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/link_accounts_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/linkAccounts"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_StartEnd"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="@dimen/margin_StartEnd"
+        android:gravity="start"
+        android:text="@string/link_accounts"
+        android:textStyle="bold"
+        android:textColor="?attr/user_fullname_color"
+        android:textSize="@dimen/link_account_textSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/tc"
+        layout="@layout/accounts_type_row"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_StartEnd"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/margin_StartEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linkAccounts"
+        app:accountType="@{LoginType.MOBILE}"
+        app:account="@{@string/phone_number}"
+        app:myProfile="@{myProfile}"/>
+
+    <include
+        android:id="@+id/fb"
+        layout="@layout/accounts_type_row"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_StartEnd"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/margin_StartEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tc"
+        app:accountType="@{LoginType.FACEBOOK}"
+        app:account="@{@string/facebook}"
+        app:myProfile="@{myProfile}"/>
+
+    <include
+        android:id="@+id/google"
+        layout="@layout/accounts_type_row"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_StartEnd"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/margin_StartEnd"
+        android:layout_marginBottom="@dimen/googleMarginBottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fb"
+        app:accountType="@{LoginType.GOOGLE}"
+        app:account="@{@string/google}"
+        app:myProfile="@{myProfile}"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.news.view.fragment.DetailsBindUtils" />
+        <import type="android.view.View" />
+
+        <variable
+            name="promotedTag"
+            type="String" />
+
+        <variable
+            name="dvm"
+            type="com.newshunt.news.viewmodel.DetailsViewModel" />
+
+        <variable
+            name="card"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.ClickHandlingViewModel"/>
+
+        <variable
+            name="bootstrap_card"
+            type="com.newshunt.dataentity.common.asset.DetailListCard" />
+
+        <variable
+            name="listener"
+            type="com.newshunt.news.view.fragment.PostActions" />
+
+        <variable
+            name="cardTypeIndex"
+            type="Integer"/>
+
+        <variable
+            name="screen_width"
+            type="Integer"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/news_detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/news_detail_image"
+            android:onClick="@{v->dvm.onPostClick(v, 0)}"
+            android:scaleType="centerCrop"
+            android:visibility="@{DetailsBindUtils.canShowImageLayout(card, bootstrap_card) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:roundedCorners="allCorners"
+            bind:card="@{card}"
+            bind:hideViewOnEmpty="@{true}"
+            bind:cardDisplayTypeIndex="@{cardTypeIndex}"
+            bind:extraCard="@{bootstrap_card}" />
+
+        <FrameLayout
+            android:id="@+id/card_image_foreground"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:visibility="@{DetailsBindUtils.canShowImageBg(card, bootstrap_card) ? View.VISIBLE : View.GONE}"
+            android:background="@drawable/nd_image_gradient_bg"
+            app:layout_constraintTop_toTopOf="@+id/news_detail_image"
+            app:layout_constraintStart_toStartOf="@+id/news_detail_image"
+            app:layout_constraintEnd_toEndOf="@+id/news_detail_image"/>
+
+
+        <View
+            android:id="@+id/bgSpacer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="32dp"
+            android:visibility="@{DetailsBindUtils.canShowImageTitle(card, bootstrap_card, dvm.titleLength) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@id/news_detail_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <include
+            android:id="@+id/news_title"
+            layout="@layout/news_detail_tilte_date_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/bgSpacer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="@{DetailsBindUtils.canShowImageTitle(card, bootstrap_card, dvm.titleLength) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            bind:vm="@{vm}"
+            bind:dvm="@{dvm}"
+            bind:card="@{card}"
+            bind:promotedTag="@{promotedTag}"
+            bind:extraCard="@{bootstrap_card}"
+
+            tools:layout_editor_absoluteY="117dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

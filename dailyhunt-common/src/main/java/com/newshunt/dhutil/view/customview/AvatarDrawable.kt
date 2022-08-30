@@ -27,7 +27,7 @@ class AvatarDrawable(val backgroundColor: String? = null, val text: String? = nu
         val paint = Paint()
         try {
             if (CommonUtils.isEmpty(backgroundColor)) {
-                paint.color = CommonUtils.getColor(R.color.empty_image_color)
+                paint.color = CommonUtils.getColor(com.newshunt.common.util.R.color.empty_image_color)
             } else {
                 paint.color = Color.parseColor(backgroundColor)
             }

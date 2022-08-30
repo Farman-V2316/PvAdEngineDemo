@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.group.viewmodel.PhoneBookViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.newshunt.common.view.customview.fontview.NHEditText
+            android:id="@+id/et_search_contact"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/phonebook_seach_edittext_bg"
+            android:drawableStart="@drawable/search_icon"
+            android:drawablePadding="@dimen/dimen_10"
+            android:fontFamily="@font/noto_sans"
+            android:hint="@string/search_people"
+            android:textColor="?attr/search_edit_text_color"
+            android:textColorHint="?attr/search_edit_text_color"
+            android:inputType="textAutoComplete"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/action_bar" >
+            <requestFocus/>
+        </com.newshunt.common.view.customview.fontview.NHEditText>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_phonebook"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/dp_50"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/dp_20"
+            android:paddingBottom="@dimen/dimen_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_search_contact"
+            tools:listitem="@layout/item_phonebook_view" />
+
+        <RelativeLayout
+            android:id="@+id/empty_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/dp_50"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_search_contact">
+
+            <ImageView
+                android:id="@+id/img_no_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_no_contacts" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_no_contact"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="12sp"
+                android:gravity="center"
+                android:textColor="?attr/invite_card_text_color"
+                android:text="@string/no_contacts_found" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/button_invite"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/invite_btn_bg"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/tv_invite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans"
+                android:text="@string/send_invitation"
+                android:textColor="@drawable/invite_btn_txt_color"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/img_invite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:background="@drawable/send_invitation_btn_image_bg"
+                android:enabled="false" />
+
+        </LinearLayout>
+        <include
+            android:id="@+id/action_bar"
+            layout="@layout/actionbar_phonebook" />
+
+        <include layout="@layout/profile_shimmer"
+            android:id="@+id/contactShimmer"
+            android:visibility="gone"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

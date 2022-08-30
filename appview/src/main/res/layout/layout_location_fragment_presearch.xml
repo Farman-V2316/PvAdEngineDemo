@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/presearch_bg"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/toolbar_background"
+        android:theme="@style/AppTheme"
+        app:layout_behavior="android.support.design.widget.NewshuntAppBarLayoutBehavior">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/location_toolbar_background"
+            android:focusableInTouchMode="true"
+            android:title=""
+            android:layout_marginTop="-10dp"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/toolbar_back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/story_card_padding_left"
+                    android:paddingBottom="@dimen/presearch_back_padding"
+                    app:layout_constraintBottom_toBottomOf="@id/search_box_container"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="?attr/ic_actionbar_back" />
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingStart="@dimen/story_card_padding_left"
+                    android:paddingBottom="@dimen/presearch_back_padding"
+
+                    app:layout_constraintBottom_toBottomOf="@id/search_box_container"
+                    app:layout_constraintStart_toEndOf="@id/toolbar_back_button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:includeFontPadding="false"
+                    android:text="@string/select_locations"
+                    android:textColor="?attr/default_text_color"
+                    android:textSize="@dimen/add_page_toolbar_title_size"/>
+
+
+                <FrameLayout
+                    android:id="@+id/search_box_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_default="wrap"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar_back_button"
+                    android:layout_marginTop="@dimen/location_margin_top_small"
+                    android:layout_marginBottom="@dimen/location_margin_top_small"
+                    android:layout_marginRight="@dimen/story_card_padding_left"
+                    android:layout_marginLeft="@dimen/story_card_padding_left"
+                    android:background="@drawable/search_container_background">
+
+                    <com.newshunt.common.view.customview.fontview.NHEditText
+                        android:id="@+id/search_box"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:drawablePadding="5dp"
+                        android:paddingEnd="@dimen/story_card_padding_left"
+                        android:paddingStart="@dimen/story_card_padding_left"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:imeOptions="actionSearch"
+                        android:includeFontPadding="false"
+                        android:paddingBottom="@dimen/search_bar_padding_bottom"
+                        android:paddingTop="@dimen/search_bar_padding_bottom"
+                        android:textColor="?attr/default_text_color"
+                        android:textColorHint="@color/text_light_grey"
+                        android:background="@android:color/transparent"
+                        android:textSize="@dimen/search_edit_text_size"/>
+                </FrameLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/suggestion_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/location_presearch_list_bg" />
+
+</LinearLayout>

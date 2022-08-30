@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager_2"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils" />
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel" />
+
+        <variable
+            name="isFullScreen"
+            type="Boolean" />
+
+        <variable
+            name="isExoPlayer"
+            type="Boolean" />
+
+        <variable
+            name="isHideControl"
+            type="Boolean" />
+
+        <variable
+            name="isAdPlaying"
+            type="Boolean" />
+
+        <variable
+            name="adDelegate"
+            type="com.newshunt.adengine.model.entity.ContentAdDelegate" />
+
+        <variable
+            name="adsMenuListener"
+            type="com.newshunt.adengine.listeners.ReportAdsMenuListener" />
+    </data>
+</layout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cp_action_item_bg"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:layout_marginBottom="8dp">
+
+    <RelativeLayout
+        android:id="@+id/polls_sub_parent_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_list_polls_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/cp_poll_margin_8"
+            android:layout_toStartOf="@+id/remove_polls_view_iv">
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/remove_polls_view_iv"
+            android:layout_width="@dimen/cp_poll_remove_icon_size"
+            android:layout_height="@dimen/cp_poll_remove_icon_size"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="@dimen/cp_poll_margin_8"
+            android:layout_marginTop="@dimen/cp_poll_margin_8"
+            android:padding="@dimen/cp_poll_margin_10"
+            android:scaleType="fitXY"
+            android:background="@drawable/cp_circle_icon_remove_bg"
+            android:src="@drawable/cp_ic_close_white"/>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/create_post_bottom_bar_divider_1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_below="@+id/polls_sub_parent_layout"
+        android:background="?attr/settings_line_divider_thin"/>
+
+    <com.newshunt.common.view.customview.NHImageView
+        android:id="@+id/add_poll_option_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/create_post_bottom_bar_divider_1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/cp_poll_margin_16"
+        android:layout_marginEnd="@dimen/cp_poll_margin_8"
+        android:padding="@dimen/cp_poll_margin_10"
+        android:scaleType="fitXY"
+        android:src="@drawable/cp_ic_plus_blue"/>
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/poll_length_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/create_post_bottom_bar_divider_1"
+        android:layout_marginBottom="@dimen/cp_poll_margin_10"
+        android:layout_marginStart="@dimen/cp_poll_margin_10"
+        android:layout_marginTop="@dimen/cp_poll_margin_10"
+        android:gravity="start"
+        android:text="@string/cp_poll_lenght_header_text"
+        android:textColor="?attr/cp_poll_lenght_header_text_color"
+        android:textSize="@dimen/cp_poll_selected_lenght_text_size"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:id="@+id/poll_lenght_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/create_post_bottom_bar_divider_1"
+        android:layout_toEndOf="@+id/poll_length_tv"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="horizontal">
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/poll_lenght_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/cp_poll_margin_10"
+            android:layout_marginStart="@dimen/cp_poll_margin_10"
+            android:layout_marginTop="@dimen/cp_poll_margin_10"
+            android:layout_marginEnd="@dimen/cp_poll_margin_5"
+            android:textColor="@color/cp_privacy_setting_checkbox_tint_color"
+            android:textSize="@dimen/cp_poll_selected_lenght_text_size"/>
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/privacy_btn_dropdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/cp_poll_margin_10"
+            android:layout_marginTop="@dimen/cp_poll_margin_10"
+            android:layout_gravity="center"
+            android:src="@drawable/post_create_privacy_drop_down"
+            android:tint="@color/cp_privacy_setting_checkbox_tint_color"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

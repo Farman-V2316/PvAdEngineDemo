@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils"/>
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils"/>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.ClickHandlingViewModel"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.EntityItem"/>
+
+        <variable
+            name="parentItem"
+            type="com.newshunt.dataentity.common.asset.CommonAsset"/>
+
+        <variable
+            name="cardTypeIndex"
+            type="Integer"/>
+
+        <variable
+            name="position"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/entity_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@{item.i_selected() ? @drawable/coldstart_tag_selected_bg_day : @drawable/coldstart_tag_deselected_bg_day}"
+        android:onClick="@{(v)->vm.onFollowEntityClick(v,parentItem,item,position)}"
+        android:paddingBottom="10dp"
+        android:paddingEnd="4dp"
+        android:paddingStart="4dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/star_icon"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@{item.i_selected() ? @drawable/vector_filled_star : @drawable/vector_unfilled_star}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{item.i_displayName()}"
+            android:textColor="@{item.i_selected() ? @color/choice_selected_textcolor : @color/choice_textcolor}"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/star_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="wrap"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

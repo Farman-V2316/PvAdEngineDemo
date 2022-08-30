@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/member_card_rootview"
+        android:layout_width="match_parent"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:layout_height="wrap_content">
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/referral_string"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/create_group_text_color"
+            android:textColorLink ="@color/follow_button_text_color"
+            android:textSize="@dimen/create_group_btn_text_size"
+            android:visibility="@{(item.membership == MembershipStatus.AWAITED &amp; item.uiType == UiType2.GRP_MEMBER) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:htmlText="@{item.referralString}"
+            bind:vm="@{vm}"/>
+
+        <include
+            android:id="@+id/member_info_card"
+            layout="@layout/layout_common_member_info_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/group_text_vertical_margin"
+            app:layout_goneMarginTop="0dp"
+            app:layout_constraintEnd_toStartOf="@+id/icon_barrier"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/referral_string"
+            bind:item="@{item}"
+            bind:vm="@{vm}" />
+
+        <ImageView
+            android:id="@+id/member_card_three_dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/menu_manage"
+            android:onClick="@{(v)->vm.onViewClick(v,item,args)}"
+            android:visibility="@{CardsBindUtils.displayMember3dots(item)? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/member_info_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/member_info_card"
+            app:srcCompat="?attr/three_dots_post"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/invite_member_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:background="@drawable/invite_member_btn_bg"
+            android:enabled="@{item.membership == MembershipStatus.NONE &amp;&amp; item.role == MemberRole.NONE}"
+            android:minWidth="0dp"
+            android:textColor="?attr/create_group_btn_text_color"
+            android:textSize="@dimen/create_group_btn_text_size"
+            android:visibility="@{(item.uiType == UiType2.GRP_MEMBER_SUGGESTION) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/member_info_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/member_info_card"
+            android:onClick="@{(v)->vm.onViewClick(v,item,args)}"
+            android:text="@{CardsBindUtils.getInviteButtonText(item)}" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/icon_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="start"
+            app:constraint_referenced_ids="member_card_three_dots,invite_member_btn" />
+
+        <include
+            android:id="@+id/approval_bottom_btn"
+            layout="@layout/layout_card_bottom_approval_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin_top_small"
+            android:visibility="@{(item.membership == MembershipStatus.AWAITED &amp; item.uiType == UiType2.GRP_MEMBER)? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/member_info_card"
+            bind:item="@{CardsBindUtils.getReviewBody(item, ReviewItem.GROUP_MEMBER)}"
+            bind:vm="@{vm}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+        <import type="com.newshunt.dataentity.common.asset.UiType2" />
+        <import type="com.newshunt.dataentity.model.entity.MembershipStatus" />
+        <import type="com.newshunt.dataentity.model.entity.ReviewItem"/>
+        <import type="com.newshunt.dataentity.model.entity.MemberRole" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel" />
+
+        <variable
+            name="args"
+            type="android.os.Bundle" />
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.model.entity.Member" />
+
+        <variable
+            name="cardTypeIndex"
+            type="Integer" />
+
+        <variable
+            name="cardPosition"
+            type="Integer" />
+    </data>
+</layout>

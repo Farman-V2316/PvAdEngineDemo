@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2021  Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+
+        <import type="com.newshunt.common.helper.common.Constants" />
+        <import type="com.newshunt.dataentity.social.entity.MenuLocation" />
+
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="isDetailView"
+            type="Boolean" />
+
+        <variable
+            name="cvm"
+            type="com.newshunt.appview.common.viewmodel.ClickHandlingViewModel"/>
+
+        <variable
+            name="adDelegate"
+            type="com.newshunt.adengine.model.entity.ContentAdDelegate" />
+
+        <variable
+            name="adsMenuListener"
+            type="com.newshunt.adengine.listeners.ReportAdsMenuListener" />
+
+        <variable
+            name="isInCollection"
+            type="Boolean"/>
+
+        <variable
+            name="isNestedCollection"
+            type="Boolean"/>
+
+        <variable
+            name="isLive"
+            type="Boolean" />
+
+        <variable
+            name="showViewCounts"
+            type="Boolean" />
+
+        <variable
+            name="isTopStoriesCarousel"
+            type="Boolean"/>
+
+        <variable
+            name="appSettingsProvider"
+            type="com.newshunt.dhutil.helper.AppSettingsProvider" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/common_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            bind:sourceIconVisibility="@{isNestedCollection}"
+            bind:isTopStoryCarousel="@{isTopStoriesCarousel}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/circle_source_icon">
+
+            <com.newshunt.common.view.customview.NHImageView
+                android:id="@+id/source_icon"
+                android:layout_width="@dimen/source_icon_list_width_height"
+                android:layout_height="@dimen/source_icon_list_width_height"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                bind:sourceIcon="@{item}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/display_container"
+            android:layout_marginStart="8dp"
+            bind:setCommonSourceAndShareMarginIfTopStoryCarousel="@{isTopStoriesCarousel}"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/circle_source_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/display_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textColor="?attr/display_name_text_color"
+                android:textSize="@dimen/follow_btn_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/promoted"
+                android:visibility="@{CommonUtils.isEmpty(CardsBindUtils.getDisplayName(item)) ? View.GONE : View.VISIBLE}"
+                bind:textview_text="@{CardsBindUtils.getDisplayName(item)}"
+                bind:item="@{item}"
+                app:dh_custom_font_weight="four_hundred"/>
+
+            <ImageView
+                android:id="@+id/creator_badge"
+                android:layout_width="@dimen/creator_badge_width_height"
+                android:layout_height="@dimen/creator_badge_width_height"
+                android:src="?attr/creator_badge"
+                android:layout_marginStart="2dp"
+                android:visibility="@{CardsBindUtils.canShowCreatorBadgeInFeed(item.i_source()) ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toEndOf="@+id/display_name"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/promoted" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/promoted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:textAlignment="viewStart"
+                app:layout_constraintHorizontal_bias="0"
+                bind:textview_text="@{CardsBindUtils.getPromotedTag(adDelegate.promotedTag)}"
+                bind:item="@{item}"
+                app:dh_custom_font_weight="four_hundred"
+                android:textColor="?attr/promoted_text_color"
+                android:textSize="8dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/display_name"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/timestamp_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@string/middle_dot"
+                app:dh_custom_font_weight="four_hundred"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                android:visibility="@{(CardsBindUtils.showTimestampDot(showViewCounts,item,isNestedCollection, isTopStoriesCarousel)) ? View.VISIBLE : View.GONE}"
+                android:textColor="@color/time_stamp_text_color"
+                android:textSize="@dimen/follow_btn_text_size"
+                app:layout_constraintStart_toEndOf="@+id/creator_badge"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/promoted"
+                />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/timestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:layout_marginEnd="@dimen/timestamp_margin_right"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:layout_marginStart="5dp"
+                app:layout_constraintHorizontal_bias="0"
+                bind:textview_text="@{(showViewCounts == true) ? CardsBindUtils.showTimeStamp(item) : CardsBindUtils.showTimeStampWithoutCount(item)}"
+                bind:item="@{item}"
+                app:dh_custom_font_weight="four_hundred"
+                android:textColor="@color/time_stamp_text_color"
+                android:textSize="@dimen/follow_btn_text_size"
+                android:gravity="start"
+                android:visibility="@{(isNestedCollection == true) ? View.GONE : View.VISIBLE }"
+                app:layout_constraintStart_toEndOf="@+id/timestamp_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/promoted"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/icon_2"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_1_and_2_size"
+            android:background="@drawable/ripple_bg"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/share_comment_icon_padding_start"
+            android:minWidth="@dimen/comment_icon_min_width"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            bind:icon="@{item}"
+            bind:defaultShareChange="@{appSettingsProvider.preferredSharableAppLiveData}"
+            bind:rank="@{1}"
+            bind:isLive="@{isLive}"
+            android:onClick="@{(v)->cvm.onViewClick(v,item)}"
+            android:visibility="@{(isNestedCollection == true || isTopStoriesCarousel == true) ? View.GONE : View.VISIBLE }"
+            android:textColor="?attr/bottom_bar_text_color"
+            android:textSize="@dimen/comment_bar_count_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/icon_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginBottom="0dp"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/icon_1"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_1_and_2_size"
+            android:background="@drawable/ripple_bg"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/share_comment_icon_padding_start"
+            bind:setCommonSourceAndShareIcon1MarginIfTopStoryCarousel="@{isTopStoriesCarousel}"
+            android:minWidth="@dimen/share_icon_min_width"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            bind:icon="@{item}"
+            bind:defaultShareChange="@{appSettingsProvider.preferredSharableAppLiveData}"
+            bind:rank="@{0}"
+            bind:isLive="@{isLive}"
+            android:onClick="@{(v)->cvm.onViewClick(v,item)}"
+            android:textColor="?attr/bottom_bar_text_color"
+            android:textSize="@dimen/comment_bar_count_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/dislike_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginBottom="0dp"/>
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/dislike_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_1_and_2_size"
+            android:background="@drawable/ripple_bg"
+            android:layout_marginEnd="20dp"
+            android:onClick="@{(v)->cvm.onThreeDotMenuClick(v,item,MenuLocation.LIST)}"
+            android:src="?attr/ic_three_dots"
+            android:visibility="@{CardsBindUtils.hideThreeDotsMenu(adDelegate, isInCollection, isTopStoriesCarousel) ? View.GONE : View.VISIBLE}"
+            bind:isTopStoryCarousel="@{isTopStoriesCarousel}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_goneMarginBottom="0dp"
+            app:layout_goneMarginEnd="0dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

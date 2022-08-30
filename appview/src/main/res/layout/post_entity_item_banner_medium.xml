@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils"/>
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils"/>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.ClickHandlingViewModel"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.EntityItem"/>
+
+        <variable
+            name="parentItem"
+            type="com.newshunt.dataentity.common.asset.CommonAsset"/>
+
+        <variable
+            name="cardTypeIndex"
+            type="Integer"/>
+
+        <variable
+            name="position"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/entity_item"
+        android:layout_width="224dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/follow_small_card_bg"
+        android:clipToPadding="false"
+        android:onClick="@{(v)->vm.onFollowEntityClick(v,parentItem,item, position)}">
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/card_image"
+            android:layout_width="0dp"
+            android:layout_height="144dp"
+            app:cornerRadius="@dimen/news_icon_radius"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_goneMarginBottom="0dp"
+            app:roundedCorners="topLeft|topRight"
+            bind:cardtype="@{cardTypeIndex}"
+            bind:entity_banner_image="@{item}"
+            bind:entity_parent_item="@{parentItem}"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/card_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:text="@{item.i_displayName()}"
+            android:textColor="@color/carousel_card_banner_medium_text_color"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/entity_action"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_image"/>
+
+        <include
+            android:id="@+id/entity_action"
+            layout="@layout/entity_action_button"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="10dp"
+            android:visibility="@{CardsBindUtils.canShowEntityActionButton(item,parentItem) ? View.VISIBLE : View.GONE}"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_image"
+            bind:item="@{item}"
+            bind:parentItem="@{parentItem}"
+            bind:vm="@{vm}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="availableAccounts"
+            type="com.newshunt.dataentity.sso.model.entity.AvailableAccounts" />
+
+        <import type="com.newshunt.appview.common.accounts.view.helper.SSOViewBindingUtils" />
+    </data>
+
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:id="@+id/link_accounts_scroll_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parent_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/default_background">
+
+            <include
+                android:id="@+id/inner_container_instance1"
+                layout="@layout/account_linking_item_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/inner_container_marginStart"
+                android:layout_marginTop="@dimen/inner_container_instance1_marginTop"
+                android:layout_marginEnd="@dimen/inner_container_marginStart"
+                android:visibility="@{SSOViewBindingUtils.getSocialAccountsLinkUIVisibility(availableAccounts)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="@{@string/choose_primary_account_title}"
+                app:subTitle="@{@string/choose_primary_account_subtitle}"/>
+
+            <include
+                android:id="@+id/inner_container_instance2"
+                layout="@layout/account_linking_item_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/inner_container_marginStart"
+                android:layout_marginTop="@dimen/inner_container_instance2_marginTop"
+                android:layout_marginEnd="@dimen/inner_container_marginStart"
+                android:visibility="@{SSOViewBindingUtils.getMobileAccountLinkUIVisibility(availableAccounts)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inner_container_instance1"
+                app:title="@{@string/choose_primary_number_title}"
+                app:subTitle="@{@string/choose_primary_number_subtitle}" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/done_btn"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/done_btn_height"
+                android:layout_marginStart="@dimen/done_btn_marginStartEnd"
+                android:layout_marginEnd="@dimen/done_btn_marginStartEnd"
+                android:layout_marginBottom="@dimen/done_btn_marginBottom"
+                android:background="@drawable/done_btn_bg"
+                android:gravity="center"
+                android:text="@string/clear_history_done"
+                android:textColor="@color/white"
+                android:textSize="@dimen/done_btn_textSize"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    </androidx.core.widget.NestedScrollView>-->
+</layout>

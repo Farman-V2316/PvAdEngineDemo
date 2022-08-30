@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils"/>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.EntityInfoViewModel"/>
+
+        <variable
+            name="entity"
+            type="com.newshunt.dataentity.common.pages.EntityInfoList"/>
+    </data>
+
+
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/cordinator_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/error_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/actionbar_height"/>
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:elevation="0dp"
+                android:background="?attr/entity_preview_background">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll|enterAlways">
+
+                    <include
+                        android:id="@+id/entity_header_banner"
+                        layout="@layout/layout_header_banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{entity.parent.isHeaderBanner()? View.VISIBLE: View.GONE}"
+                        bind:vm="@{vm}"
+                        bind:entity="@{entity}"/>
+
+                    <include
+                        android:id="@+id/entity_header_view"
+                        layout="@layout/layout_header_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        bind:vm="@{vm}"
+                        bind:entity="@{entity}"/>
+
+                    <include
+                        android:id="@+id/entity_ner_header_view"
+                        layout="@layout/layout_ner_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{(entity.parent.isHeaderProfileBanner() || entity.parent.isHeaderProfile())? View.VISIBLE: View.GONE}"
+                        bind:vm="@{vm}"
+                        bind:isProfileBanner="@{true}"
+                        bind:entity="@{entity}"/>
+
+                    <include android:id="@+id/toolbar"
+                        layout="@layout/actionbar_entity_preview"
+                        android:visibility="@{entity.parent.isHeaderBanner()? View.VISIBLE: View.GONE}"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/actionbar_height"
+                        bind:vm="@{vm}"
+                        bind:entity="@{entity}"/>
+                </FrameLayout>
+
+                <com.newshunt.news.view.customview.SlidingTabLayout
+                    android:id="@+id/sliding_tabs_topic_categories"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/topic_slidingtablayout_height"
+                    android:layoutDirection="ltr"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/newspaper_category_tabs"
+                    android:visibility="@{CommonUtils.isEmptyOrSingle(entity.kids) ? View.GONE : View.VISIBLE}"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?attr/entity_tab_divider_background"/>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:gravity="center"
+                android:orientation="vertical" />
+
+            <com.newshunt.dhutil.view.customview.CustomViewPager
+                android:id="@+id/categories_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/categories_pager"
+                android:scrollbars="none"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/act_back_to_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginBottom="@dimen/share_fab_margin"
+                    android:layout_marginEnd="@dimen/share_fab_margin"
+                    android:src="@drawable/back_to_top"
+                    android:onClick="@{v->vm.onViewClick(v,entity)}"
+                    android:visibility="gone" />
+
+                <com.newshunt.common.helper.share.NHShareView
+                    android:id="@+id/topic_nh_share_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:show_share_type="floating_icon" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/entity_create_post_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    app:fabSize="normal"
+                    android:src="?attr/create_post_fab_icon"
+                    android:onClick="@{v->vm.onViewClick(v, entity.parent)}"
+                    android:layout_margin="20dp"/>
+
+            </LinearLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <LinearLayout
+            android:id="@+id/vp_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+</layout>

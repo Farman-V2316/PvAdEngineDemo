@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 . All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils" />
+
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.dataentity.common.asset.AssetType2" />
+
+        <import type="com.newshunt.appview.R" />
+
+        <import type="com.newshunt.dhutil.helper.theme.ThemeUtils"/>
+
+        <import type="com.newshunt.common.helper.common.Constants"/>
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel" />
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/profile_picture"
+            android:layout_width="@dimen/comment_repost_card_profile_icon_w_h"
+            android:layout_height="@dimen/comment_repost_card_profile_icon_w_h"
+            android:layout_marginTop="@dimen/following_button_padding"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{v->vm.onViewClick(v,item)}"
+            bind:commentRepostSourceImage="@{item}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/comment_repost_container_h"
+            app:layout_constraintStart_toEndOf="@+id/profile_picture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/following_button_padding"
+            android:onClick="@{v->vm.onViewClick(v,item,CardsBindUtils.bundle(Constants.BUNDLE_IN_DETAIL, true, Constants.SINGLE_PAGE, true))}"
+            android:background="?attr/comment_repost_container_color">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/person_name_container"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/person_name_h"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="@dimen/simple_topic_title_marginleft"
+                android:layout_marginTop="@dimen/following_button_padding"
+                android:background="@{CardsBindUtils.canShowCreatorBadge(item.i_source()) ? CommonUtils.getDrawable(R.drawable.source_name_container) : null}"
+                android:paddingEnd="@{CardsBindUtils.canShowCreatorBadge(item.i_source()) ? CommonUtils.getDimension(R.dimen.profile_follow_counts_padding) : CommonUtils.getDimension(R.dimen.padding_privacy_zero)}"
+                android:paddingStart="@{CardsBindUtils.canShowCreatorBadge(item.i_source()) ? CommonUtils.getDimension(R.dimen.following_button_padding) : CommonUtils.getDimension(R.dimen.padding_privacy_zero)}">
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/person_name"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/person_name_h"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="@dimen/create_group_btn_text_size"
+                    android:maxWidth="@dimen/person_name_max_width"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    app:dh_custom_font_weight="seven_hundred"
+                    android:text="@{item.i_source().displayName}"
+                    android:textColor="@{CardsBindUtils.canShowCreatorBadge(item.i_source()) ? CommonUtils.getColor(R.color.social_handle_text_color) : ThemeUtils.getThemeColorByAttribute(context, R.attr.source_name_color)}" />
+
+                <com.newshunt.common.view.customview.NHImageView
+                    android:id="@+id/creator_badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@+id/person_name"
+                    app:layout_constraintTop_toTopOf="@+id/person_name"
+                    app:layout_constraintBottom_toBottomOf="@+id/person_name"
+                    android:layout_marginStart="6dp"
+                    android:visibility="@{CardsBindUtils.canShowCreatorBadge(item.i_source()) ? View.VISIBLE : View.GONE}"
+                    android:src="?attr/creator_badge" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.newshunt.common.view.customview.NHImageView
+                android:id="@+id/repost_icon"
+                android:layout_width="@dimen/repost_comment_icon_h_w"
+                android:layout_height="@dimen/repost_comment_icon_h_w"
+                app:layout_constraintStart_toEndOf="@+id/person_name_container"
+                app:layout_constraintTop_toTopOf="@+id/person_name_container"
+                app:layout_constraintBottom_toBottomOf="@+id/person_name_container"
+                android:layout_marginStart="@dimen/bottom_bar_padding_bottom"
+                android:visibility="@{CardsBindUtils.showRepostIcon(item) ? View.VISIBLE : View.GONE}"
+                android:src="@drawable/repost_vector" />
+
+            <com.newshunt.common.view.customview.NHImageView
+                android:id="@+id/comment_icon"
+                android:layout_width="@dimen/repost_comment_icon_h_w"
+                android:layout_height="@dimen/repost_comment_icon_h_w"
+                app:layout_constraintStart_toEndOf="@+id/person_name_container"
+                app:layout_constraintTop_toTopOf="@+id/person_name_container"
+                app:layout_constraintBottom_toBottomOf="@+id/person_name_container"
+                android:layout_marginStart="@dimen/bottom_bar_padding_bottom"
+                android:visibility="@{CardsBindUtils.showCommentIcon(item) ? View.VISIBLE : View.GONE}"
+                android:src="@drawable/comment_vector" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/comment_repost_text"
+                android:layout_width="0dp"
+                android:layout_height="19dp"
+                app:layout_constraintStart_toStartOf="@+id/person_name_container"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/person_name_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/following_button_padding"
+                android:layout_marginTop="8dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textAlignment="viewStart"
+                android:textColor="?attr/comment_repost_text_color"
+                android:text="@{item.i_content()}"
+                android:layout_marginBottom="@dimen/bottom_bar_padding_bottom"
+                app:dh_custom_font_weight="four_hundred"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

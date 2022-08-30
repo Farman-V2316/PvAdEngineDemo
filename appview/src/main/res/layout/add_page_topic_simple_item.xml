@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2016 Newshunt. All rights reserved.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/add_page_topic_list_item_container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/topic_featured_row_height"
+    android:background="?attr/selectableItemBackground"
+    android:paddingStart="@dimen/topic_featured_header1_paddingLeft"
+    android:paddingEnd="@dimen/topic_featured_header1_paddingLeft">
+
+    <com.newshunt.common.view.customview.NHImageView
+        android:id="@+id/alltopic_icon"
+        android:layout_width="@dimen/alltopic_icon_w_h"
+        android:layout_height="@dimen/alltopic_icon_w_h"
+        android:src="@drawable/default_group_thumbnail"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/topic_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/simple_topic_title_marginleft"
+        android:layout_marginEnd="@dimen/simple_topic_title_marginleft"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textAlignment="viewStart"
+        android:textColor="?attr/default_text_color"
+        android:textSize="@dimen/topic_item_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/alltopic_icon"
+        app:layout_constraintEnd_toStartOf="@+id/topic_isfavorite_container"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/topic_isfavorite_container"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:paddingStart="@dimen/follow_button_padding_right"
+        android:paddingEnd="@dimen/follow_button_padding_right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/topic_isfavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/add_entity_background" />
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

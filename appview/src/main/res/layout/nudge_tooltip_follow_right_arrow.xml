@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_profile_tooltip_bg"
+                android:paddingBottom="@dimen/tool_tip_padding_bottom">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="14dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:includeFontPadding="false"
+            android:text="@string/tooltip_follow_text"
+            android:textStyle="bold"
+            android:textColor="@color/tooltip_comment_text_color"
+            android:textSize="@dimen/tool_tip_nudge_text_size"
+    />
+
+</RelativeLayout>

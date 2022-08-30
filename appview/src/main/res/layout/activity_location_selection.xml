@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/location_toolbar_background">
+    <include
+        android:id="@+id/actionbar_location_selection_activity"
+        layout="@layout/actionbar_location_search_activity" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/search_container"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/location_fragment_search_container_height"
+        android:background="@drawable/search_container_background"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/location_margin_top"
+        android:layout_marginRight="@dimen/location_margin_right"
+        android:layout_marginLeft="@dimen/location_margin_right"
+        app:layout_constraintTop_toBottomOf="@id/actionbar_location_selection_activity">
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/search_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/search_icon_margin_left"
+            android:src="@drawable/search_icon"
+            app:layout_constraintBottom_toBottomOf="@id/search_container"
+            app:layout_constraintLeft_toLeftOf="@id/search_container"
+            app:layout_constraintTop_toTopOf="@id/search_container" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/search_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/search_locations"
+            android:textColor="@color/search_location_text_color"
+            android:textSize="@dimen/search_locations_text_size"
+            android:fontFamily="@font/noto_sans"
+            app:layout_constraintBottom_toBottomOf="@id/search_container"
+            app:layout_constraintLeft_toRightOf="@+id/search_icon"
+            app:layout_constraintTop_toTopOf="@id/search_container" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/horizontal_view"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="?attr/location_bottom_line"
+        android:layout_marginTop="@dimen/location_margin_top_small"
+        app:layout_constraintTop_toBottomOf="@id/search_container"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+    <FrameLayout
+        android:id="@+id/search_dismiss_container"
+        android:layout_width="27dp"
+        android:layout_height="34dp"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/actionbar_location_selection_activity"
+        app:layout_constraintRight_toRightOf="@id/search_container"
+        tools:layout_editor_absoluteY="-2dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_dismiss"
+            android:tint="?attr/reorder_cross" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/search_reload_container"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/actionbar_location_selection_activity"
+        app:layout_constraintRight_toRightOf="@id/search_container">
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_gravity="center"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_reload_icon"
+            android:tint="?attr/reorder_cross" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:id = "@+id/progress_layout"
+        app:layout_constraintTop_toBottomOf="@id/actionbar_location_selection_activity"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/progress_drawable"
+            android:padding="0dp"
+            android:progressDrawable="@drawable/progress_drawable"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/actionbar_location_selection_activity"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/location_list"
+        android:layout_marginTop="2dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_view"/>
+
+    <FrameLayout
+        android:id="@+id/frag_location_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

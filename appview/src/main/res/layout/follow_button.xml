@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils"/>
+
+        <import type="com.newshunt.dhutil.helper.theme.ThemeUtils"/>
+
+        <import type="com.newshunt.appview.R"/>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils"/>
+
+        <variable
+            name="inList"
+            type="Boolean"
+            android:value="false"/>
+
+        <variable
+            name="inVideoDetail"
+            type="Boolean"
+            android:value="false"/>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.ClickHandlingViewModel"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/follow_button"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/follow_btn_height"
+        android:background="@{(item.i_isFollowin() &amp; !inList &amp; !inVideoDetail) ? @drawable/following_btn_bg : @drawable/follow_btn_bg}"
+        android:onClick="@{(v)->vm.onViewClick(v,item)}"
+        android:visibility="@{CardsBindUtils.setFollowVisibility(item)? View.VISIBLE:View.GONE}"
+        android:paddingBottom="7dp"
+        android:paddingStart="@{item.i_isFollowin() ? @dimen/following_button_padding : @dimen/follow_button_padding}"
+        android:paddingEnd="@{item.i_isFollowin() ? @dimen/following_button_padding : @dimen/follow_button_padding}"
+        android:paddingTop="7dp">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/follow_btn_icon_w_h"
+            android:layout_height="@dimen/follow_btn_icon_w_h"
+            android:scaleType="centerInside"
+            bind:srcFollow="@{item.i_isFollowin()}"
+            android:visibility="@{(item.i_isFollowin() &amp; !inList &amp; !inVideoDetail) ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textSize="10dp"
+            bind:textview_text="@{item.i_isFollowin() ? @string/following : @string/follow}"
+            bind:item="@{item}"
+            android:textColor="@{(item.i_isFollowin() &amp; !inList) ? CommonUtils.getColor(R.color.following_button_text_color) : ThemeUtils.getThemeColorByAttribute(context,R.attr.follow_button_text_color)}"
+            android:visibility="@{((inVideoDetail || (item.i_isFollowin() &amp; inList)) ? View.GONE : View.VISIBLE)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

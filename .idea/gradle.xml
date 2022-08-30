@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -9,7 +10,25 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/MASTAdView" />
+            <option value="$PROJECT_DIR$/ad-engine" />
+            <option value="$PROJECT_DIR$/analytics" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/appview" />
+            <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/dailyhunt-common" />
+            <option value="$PROJECT_DIR$/dataentity" />
+            <option value="$PROJECT_DIR$/datastore" />
+            <option value="$PROJECT_DIR$/exo-library" />
+            <option value="$PROJECT_DIR$/ima-sdk" />
+            <option value="$PROJECT_DIR$/news-common" />
+            <option value="$PROJECT_DIR$/news-model" />
+            <option value="$PROJECT_DIR$/notification-engine" />
+            <option value="$PROJECT_DIR$/omsdk" />
+            <option value="$PROJECT_DIR$/permissionhelper" />
+            <option value="$PROJECT_DIR$/sso" />
+            <option value="$PROJECT_DIR$/truesdk-0.8-releasePartner" />
+            <option value="$PROJECT_DIR$/vp-players" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by Rahul Ravindran at 19/9/19 5:44 PM
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/create_post_bottom_bar_action_items_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/create_post_bottom_bar_divider_2"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp">
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/create_post_action_camera"
+            android:layout_width="@dimen/action_bar_height"
+            android:layout_height="@dimen/action_bar_height"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:enabled="@{config.enableCamera}"
+            android:onClick="@{(view) -> vm.onViewClick(view)}"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/post_creation_camera_selector" />
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/create_post_action_gallery"
+            android:layout_width="@dimen/action_bar_height"
+            android:layout_height="@dimen/action_bar_height"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/create_post_action_camera"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:enabled="@{config.enableGallery}"
+            android:onClick="@{(view) -> vm.onViewClick(view)}"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/post_creation_gallery_selector" />
+
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/create_post_action_location"
+            android:layout_width="@dimen/action_bar_height"
+            android:layout_height="@dimen/action_bar_height"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/create_post_action_gallery"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="@{(view) -> vm.onViewClick(view)}"
+            android:clickable="true"
+            android:focusable="true"
+            android:enabled="@{config.enableLocation}"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/post_creation_location_selector" />
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/create_post_action_at"
+            android:layout_width="@dimen/action_bar_height"
+            android:layout_height="@dimen/action_bar_height"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="@{(view) -> vm.onViewClick(view)}"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/vector_post_at_the_rate" />
+
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/create_post_action_hash"
+            android:layout_width="@dimen/action_bar_height"
+            android:layout_height="@dimen/action_bar_height"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/create_post_action_at"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="@{(view) -> vm.onViewClick(view)}"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/vector_post_hash" />
+    </RelativeLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vi"
+            type="com.newshunt.appview.common.postcreation.view.activity.CreatePostView" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.postcreation.viewmodel.CreatePostViewModel" />
+
+        <variable
+            name="config"
+            type="com.newshunt.appview.common.postcreation.view.activity.CreatePostUiConfig" />
+    </data>
+
+</layout>

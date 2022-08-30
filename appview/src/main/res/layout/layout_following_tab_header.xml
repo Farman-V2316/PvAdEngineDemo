@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils" />
+
+        <import type="com.newshunt.dataentity.model.entity.ReviewItem" />
+
+        <import type="com.newshunt.news.util.NewsConstants" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel" />
+
+        <variable
+            name="cardPosition"
+            type="Integer" />
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="cardTypeIndex"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/explore_welcome_bg_color"
+        android:paddingTop="@dimen/following_tab_header_paddingTop"
+        android:paddingBottom="@dimen/following_tab_header_paddingTop">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/story_card_padding_left" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/story_card_padding_left" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/explore_welcome_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/following_tab_header_title_marginLeft"
+            android:textColor="?attr/explore_welcome_title_color"
+            android:textSize="@dimen/following_tab_header_title_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/explore_star_image"
+            app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:hide_on_empty="@{true}"
+            bind:text_title="@{item.i_title()}" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/explore_welcome_subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/following_tab_header_title_marginLeft"
+            android:layout_marginTop="@dimen/following_tab_subtitle_marginTop"
+            android:textColor="?attr/explore_welcome_subtitle_color"
+            android:textSize="@dimen/following_tab_header_subtitle_text_size"
+            app:layout_constraintStart_toEndOf="@+id/explore_star_image"
+            app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/explore_welcome_title"
+            bind:hide_on_empty="@{true}"
+            bind:text_title="@{item.i_subText()}" />
+
+        <ImageView
+            android:id="@+id/explore_star_image"
+            android:layout_width="@dimen/following_cold_start_image_width"
+            android:layout_height="@dimen/following_cold_start_image_height"
+            android:scaleType="centerInside"
+            android:src="@drawable/explore_star"
+            app:layout_constraintStart_toEndOf="@+id/left_guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

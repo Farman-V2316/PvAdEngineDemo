@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">appview</string>
+    <string name="dot">.</string>
+    <string name="handle_symbol_1">＠</string>
+    <string name="save_button">Save</string>
+    <string name="middle_dot">\u00B7</string>
+</resources>

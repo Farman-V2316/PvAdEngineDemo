@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Rahul Ravindran at 2/4/20 7:11 PM
+  ~ Copyright (c) 2020 Newshunt. All rights reserved.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="42dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/hashtag_symbol"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:textSize="@dimen/text_medium"
+        android:text="#"
+        android:layout_marginStart="9dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#1f9ee1"
+        android:includeFontPadding="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/title"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/search_suggestion_text_color"
+        android:gravity="left"
+        android:textSize="@dimen/suggestion_text_size"
+        android:singleLine="true"
+        app:layout_constraintLeft_toRightOf="@+id/hashtag_symbol"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

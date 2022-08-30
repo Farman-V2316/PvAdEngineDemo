@@ -79,8 +79,8 @@ class RateUsDialogActivity : NHBaseActivity() {
     }
 
     private fun setUpDialog() {
-        binding.dialogTitleTextInApp.text = CommonUtils.getString(R.string.app_rate_dialog_title_text)
-        binding.dialogTitleTextPlayStore.text = CommonUtils.getString(R.string.app_rate_dialog_title_text)
+        binding.dialogTitleTextInApp.text = CommonUtils.getString(com.newshunt.common.util.R.string.app_rate_dialog_title_text)
+        binding.dialogTitleTextPlayStore.text = CommonUtils.getString(com.newshunt.common.util.R.string.app_rate_dialog_title_text)
         binding.appRateBackground.setOnClickListener { finish() }
         binding.appRateDialog.setOnClickListener {
             // Do nothing, kept here to avoid dialogBackground.onClick action
@@ -181,12 +181,12 @@ class RateUsDialogActivity : NHBaseActivity() {
     }
 
     private fun setUpFeedBackUI() {
-        binding.submitText.text = CommonUtils.getString(R.string.help_us_improve)
+        binding.submitText.text = CommonUtils.getString(com.newshunt.common.util.R.string.help_us_improve)
         setUpPlaystoreOrFeedbackUI()
     }
 
     private fun setUpGooglePlayUI() {
-        binding.submitText.text = CommonUtils.getString(R.string.rate_us_playstore_string)
+        binding.submitText.text = CommonUtils.getString(com.newshunt.common.util.R.string.rate_us_playstore_string)
         setUpPlaystoreOrFeedbackUI()
     }
 
@@ -218,7 +218,7 @@ class RateUsDialogActivity : NHBaseActivity() {
     }
 
     private fun openGooglePlayRating() {
-        FontHelper.showCustomFontToast(this,CommonUtils.getString(R.string.playstore_toast_text),Toast.LENGTH_LONG)
+        FontHelper.showCustomFontToast(this,CommonUtils.getString(com.newshunt.common.util.R.string.playstore_toast_text),Toast.LENGTH_LONG)
         AndroidUtils.openPlayStoreForApp(this@RateUsDialogActivity, Constants.APP_PLAY_STORE_LINK,
                 Constants.APP_MARKET_LINK)
         updateRateNowClicked()

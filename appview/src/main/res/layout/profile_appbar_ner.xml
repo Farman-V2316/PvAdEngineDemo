@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.newshunt.appview.common.profile.view.activity.ProfileActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/profile_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:elevation="0dp"
+        android:background="@null"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:title=""
+        app:theme="@style/Theme.AppCompat.NoActionBar"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <ImageView
+                    android:id="@+id/actionbar_back_button"
+                    android:layout_width="@dimen/topbar_icons_height_width"
+                    android:layout_height="@dimen/topbar_icons_height_width"
+                    android:background="?attr/selectableItemBackground"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/profile_back_button" />
+
+                <ImageView
+                    android:id="@+id/settings_icon"
+                    android:layout_width="@dimen/topbar_icons_height_width"
+                    android:layout_height="@dimen/topbar_icons_height_width"
+                    android:layout_marginEnd="@dimen/topbar_icons_margin"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/profile_settings_icon"
+                    android:layout_marginVertical="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/nh_notification_icon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.newshunt.common.view.customview.ProfileNotificationIcon
+                    android:id="@+id/nh_notification_icon"
+                    android:layout_width="@dimen/topbar_icons_height_width"
+                    android:layout_height="@dimen/topbar_icons_height_width"
+                    android:layout_marginEnd="@dimen/topbar_icons_margin"
+                    android:layout_marginVertical="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/profile_three_dots"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/profile_three_dots"
+                    android:layout_width="@dimen/topbar_icons_height_width"
+                    android:layout_height="@dimen/topbar_icons_height_width"
+                    android:layout_marginEnd="@dimen/profile_details_marginLeft"
+                    android:layout_marginVertical="10dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:src="@drawable/profile_see_more_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+</layout>

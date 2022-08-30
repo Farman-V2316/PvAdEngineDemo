@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/add_page_topic_header_container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/topic_featured_row_height"
+    android:background="?attr/selectableItemBackground"
+    android:paddingStart="@dimen/topic_featured_header1_paddingLeft"
+    android:paddingEnd="@dimen/topic_featured_header1_paddingLeft">
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/topic_header_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/simple_topic_title_marginleft"
+        android:layout_marginEnd="@dimen/simple_topic_title_marginleft"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textAlignment="viewStart"
+        android:textColor="?attr/add_location_header_color"
+        android:textSize="@dimen/topic_item_text_size"
+        android:textFontWeight = "@integer/add_page_topic_header_font_weight"
+        android:fontFamily="@font/topic_page_header_font"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

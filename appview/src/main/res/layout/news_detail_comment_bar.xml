@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- view all comments icon and count -->
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/profile_image"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            bind:userIcon1="@{card}" />
+
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/edit_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/story_card_padding_left"
+            android:background="?attr/pd_add_comment_bg_ref"
+            android:layout_marginEnd="20dp"
+            android:gravity="start|center_vertical"
+            android:hint="@string/edit_comment_hint"
+            android:includeFontPadding="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:longClickable="false"
+            android:minHeight="@dimen/edit_comment_minheight"
+            android:paddingBottom="@dimen/edit_comment_padding_vertical"
+            android:paddingEnd="@dimen/edit_comment_paddingStart"
+            android:paddingStart="@dimen/edit_comment_paddingStart"
+            android:enabled="@{CardsBindUtils.canAllowComment(card)}"
+            android:paddingTop="@dimen/edit_comment_padding_vertical"
+            android:textColor="?attr/comment_edit_text_color"
+            android:textColorHint="@color/pd_add_comment_text_color"
+            android:textSize="@dimen/text_size_comment_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_default="wrap"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/profile_image"
+            app:layout_constraintEnd_toStartOf="@+id/like_count_tv"/>
+
+        <!-- Like icon and count-->
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/like_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="0dp"
+            android:paddingTop="@{CardsBindUtils.commentBarPaddingTop(card.i_counts().REPOST.value, card.i_counts().TOTAL_LIKE.value, card.i_counts().SHARE.value, card.i_counts().COMMENTS.value)}"            android:paddingEnd="@dimen/story_card_padding_left"
+            android:paddingStart="@dimen/story_card_padding_left"
+            android:gravity="center"
+            android:enabled="@{CardsBindUtils.isLikeEnabled(card)}"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:background="@drawable/ripple_bg_detail"
+            android:onClick="@{(v)->LikeEmojiBindingUtils.showLikePopup(v, card, null, vm, isComment, SocialFeaturesConstants.COMMENT_TYPE_MAIN)}"
+            bind:textview_text="@{CardsBindUtils.commentBarCountsText(card.i_counts().TOTAL_LIKE.value, card.i_counts().SHARE.value, card.i_counts().REPOST.value, card.i_counts().COMMENTS.value)}"
+            bind:item="@{card}"
+            android:textColor="?attr/comment_time_text_color"
+            android:textSize="@dimen/comment_bar_count_text_size"
+            android:visibility="@{CardsBindUtils.privacyVisibilty(card, v)? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toEndOf="@+id/edit_comment"
+            app:layout_constraintEnd_toStartOf="@+id/comment_count_tv"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_divider"
+            bind:drawableTop="@{LikeEmojiBindingUtils.getEmojiIconResource(card.i_selectedLikeType(),context, false)}" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/comment_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="?attr/commment_icon"
+            android:drawablePadding="0dp"
+            android:paddingTop="@{CardsBindUtils.commentBarPaddingTop(card.i_counts().REPOST.value, card.i_counts().TOTAL_LIKE.value, card.i_counts().SHARE.value, card.i_counts().COMMENTS.value)}"            android:paddingEnd="@dimen/story_card_padding_left"
+            android:paddingStart="@dimen/story_card_padding_left"
+            android:gravity="center"
+            android:enabled="@{CardsBindUtils.isLikeEnabled(card)}"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:onClick="@{(v)->vm.onViewClick(v,card)}"
+            android:background="@drawable/ripple_bg_detail"
+            bind:textview_text="@{CardsBindUtils.commentBarCountsText(card.i_counts().COMMENTS.value,card.i_counts().TOTAL_LIKE.value, card.i_counts().SHARE.value, card.i_counts().REPOST.value)}"
+            bind:item="@{card}"
+            android:textColor="?attr/comment_time_text_color"
+            android:textSize="@dimen/comment_bar_count_text_size"
+            android:visibility="@{CardsBindUtils.privacyVisibilty(card, v)? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toEndOf="@+id/like_count_tv"
+            app:layout_constraintEnd_toStartOf="@+id/share_count_tv"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_divider"/>
+
+
+        <!-- share icon and count -->
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/share_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@{CardsBindUtils.commentBarPaddingTop(card.i_counts().REPOST.value, card.i_counts().TOTAL_LIKE.value, card.i_counts().SHARE.value, card.i_counts().COMMENTS.value)}"            android:drawablePadding="0dp"
+            android:drawableTop="?attr/share_icon"
+            android:paddingEnd="@dimen/story_card_padding_left"
+            android:paddingStart="@dimen/story_card_padding_left"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            bind:shareIcon="@{true}"
+            bind:defaultShareChange="@{appSettingsProvider.preferredSharableAppLiveData}"
+            android:visibility="@{CardsBindUtils.privacyVisibilty(card, v)? View.VISIBLE : View.GONE}"
+            bind:top="@{true}"
+            android:background="@drawable/ripple_bg_detail"
+            android:enabled="@{CardsBindUtils.isViewEnabledPrivacyOrDeleted(card)}"
+            android:onClick="@{(v)->vm.onViewClick(v,card)}"
+            bind:textview_text="@{CardsBindUtils.commentBarCountsText(card.i_counts().SHARE.value, card.i_counts().TOTAL_LIKE.value, card.i_counts().REPOST.value, card.i_counts().COMMENTS.value)}"
+            bind:item="@{card}"
+            android:textColor="?attr/comment_time_text_color"
+            android:textSize="@dimen/comment_bar_count_text_size"
+            app:layout_constraintStart_toEndOf="@+id/comment_count_tv"
+            app:layout_constraintEnd_toStartOf="@+id/repost_icon_tv"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_divider" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/repost_icon_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@{CardsBindUtils.commentBarPaddingTop(card.i_counts().REPOST.value, card.i_counts().TOTAL_LIKE.value, card.i_counts().SHARE.value, card.i_counts().COMMENTS.value)}"            android:drawablePadding="0dp"
+            android:paddingEnd="@dimen/story_card_padding_left"
+            android:paddingStart="@dimen/story_card_padding_left"
+            android:drawableTop="?attr/repost_icon"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:visibility="@{CardsBindUtils.privacyVisibilty(card, v)? View.VISIBLE : View.GONE}"
+            android:background="@drawable/ripple_bg_detail"
+            android:enabled="@{CardsBindUtils.isViewEnabledPrivacyOrDeleted(card)}"
+            android:onClick="@{(v)->vm.onViewClick(v,card)}"
+            bind:textview_text="@{CardsBindUtils.commentBarCountsText(card.i_counts().REPOST.value, card.i_counts().TOTAL_LIKE.value, card.i_counts().SHARE.value, card.i_counts().COMMENTS.value)}"
+            bind:item="@{card}"
+            android:textColor="?attr/comment_time_text_color"
+            android:textSize="@dimen/comment_bar_count_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_divider" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+        <import type="com.newshunt.news.helper.LikeEmojiBindingUtils"/>
+        <import type="android.view.View"/>
+        <import type="com.newshunt.socialfeatures.util.SocialFeaturesConstants" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel" />
+
+        <variable
+            name="card"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="isComment"
+            type="Boolean"/>
+        <variable
+            name="appSettingsProvider"
+            type="com.newshunt.dhutil.helper.AppSettingsProvider" />
+        <variable
+            name="v"
+            type="Boolean"/>
+
+    </data>
+</layout>

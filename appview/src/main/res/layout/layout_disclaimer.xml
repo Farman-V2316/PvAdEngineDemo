@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020 Newshunt. All rights reserved.
+  -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_cross"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/disclaimer_title_padding"
+        android:layout_marginTop="@dimen/disclaimer_title_padding"
+        android:layout_marginBottom="@dimen/disclaimer_title_padding"/>
+
+    <com.newshunt.common.view.customview.NhWebView
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/news_detail_component_spacing"
+        android:layout_marginEnd="@dimen/news_detail_component_spacing"
+        android:layout_height="wrap_content"
+        android:id="@+id/webview"
+        android:layout_below="@id/imageView" />
+</RelativeLayout>

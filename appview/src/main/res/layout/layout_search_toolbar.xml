@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by Rahul Ravindran at 25/9/19 10:36 PM
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/search_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/default_background"
+    android:focusableInTouchMode="true"
+    android:gravity="center_vertical"
+    android:title=""
+    app:contentInsetEnd="0dp"
+    app:contentInsetStart="0dp"
+    app:contentInsetStartWithNavigation="0dp"
+    app:elevation="0dp"
+    app:layout_scrollFlags="scroll|enterAlways"
+    android:paddingTop="20dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/search_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_bar_toolbar_new_height">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/toolbar_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/story_card_padding_left"
+            android:layout_marginTop="@dimen/presearch_back_padding"
+            android:layout_marginBottom="@dimen/presearch_back_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/search_box"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="?attr/news_detail_actionbar_back_button" />
+
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/search_box"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/search_back_left_margin"
+            android:layout_marginEnd="20dp"
+            android:background="?attr/default_background"
+            android:drawableEnd="@drawable/close_selector"
+            android:textColor="?attr/default_text_color"
+            android:textSize="16dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/toolbar_back_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.appcompat.widget.Toolbar>

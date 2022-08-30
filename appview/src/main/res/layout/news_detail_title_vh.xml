@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/news_detail_component_spacing"
+       >
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/story_card_padding_left"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/story_card_padding_left"/>
+
+        <com.newshunt.common.view.customview.fontview.CapTextView
+            android:id="@+id/news_details_news_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/news_detail_content_text_size"
+            android:visibility="@{DetailsBindUtils.canShowRichTextChunk1(card) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:titleDetailCard="@{card}"
+            bind:titleDetailParent="@{parent_card}"
+            bind:user_font_setting="@{dvm.userFontSizeConfigProgress}"
+            bind:vm="@{vm}"
+            app:lineDropNo="2"
+            app:capTextColor="?attr/story_supplement_source_text_color"
+            app:bodyTextColor="?attr/story_supplement_source_text_color"
+            app:bodyTextSize="@dimen/news_detail_content_text_size"
+            app:capTextSize="@dimen/cap_text_size"
+           />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dvm"
+            type="com.newshunt.news.viewmodel.DetailsViewModel" />
+
+        <variable
+            name="card"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="parent_card"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="bootstrap_card"
+            type="com.newshunt.dataentity.common.asset.DetailListCard" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.ClickHandlingViewModel" />
+
+        <variable
+            name="listener"
+            type="com.newshunt.news.view.fragment.PostActions" />
+
+        <import type="com.newshunt.news.view.fragment.DetailsBindUtils" />
+    </data>
+
+</layout>

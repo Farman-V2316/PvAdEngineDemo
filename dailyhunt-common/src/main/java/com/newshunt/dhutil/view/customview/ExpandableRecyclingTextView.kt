@@ -63,7 +63,7 @@ class ExpandableRecyclingTextView : NHTextView {
                 collapsedMaxLines = array.getInt(index, DEFAULT_MAX_LINES)
             } else if (index == com.newshunt.dhutil.R.styleable.ExpandableText_more_text_color) {
                 readMoreTextColor = CommonUtils.getColor(array.getResourceId(index, com.newshunt.dhutil.R.color
-                        .white_color))
+                        .color_white))
             } else if (index == R.styleable.ExpandableText_more_text_style) {
                 readMoreTextStyle = array.getInt(index, Typeface.NORMAL)
             }

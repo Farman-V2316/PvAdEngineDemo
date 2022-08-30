@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.news.view.fragment.DetailsBindUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dvm"
+            type="com.newshunt.news.viewmodel.DetailsViewModel" />
+
+        <variable
+            name="card"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="cardTypeIndex"
+            type="Integer"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/news_detail_component_spacing">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="0dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="0dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/grid_photo_1"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:roundedCorners="allCorners"
+            android:onClick="@{v->dvm.onPostClick(v, card, 0)}"
+            bind:cardDisplayTypeIndex="@{cardTypeIndex}"
+            bind:hideViewOnEmpty="@{true}"
+            bind:imageIndex="@{0}"
+            bind:imageUrl="@{card.i_thumbnailUrls().get(0)}"/>
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/grid_photo_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/grid_photo_1"
+            app:layout_constraintStart_toEndOf="@id/guideline3"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/grid_photo_1"
+            app:roundedCorners="allCorners"
+            android:onClick="@{v->dvm.onPostClick(v, card, 1)}"
+            bind:cardDisplayTypeIndex="@{cardTypeIndex}"
+            bind:hideViewOnEmpty="@{true}"
+            bind:imageIndex="@{1}"
+            bind:imageUrl="@{card.i_thumbnailUrls().get(1)}"/>
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/grid_photo_3"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginTop="1dp"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@id/grid_photo_1"
+            app:roundedCorners="allCorners"
+            android:onClick="@{v->dvm.onPostClick(v, card, 2)}"
+            bind:cardDisplayTypeIndex="@{cardTypeIndex}"
+            bind:hideViewOnEmpty="@{true}"
+            bind:imageIndex="@{2}"
+            bind:imageUrl="@{card.i_thumbnailUrls().get(2)}"/>
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/grid_photo_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="1dp"
+            app:cornerRadius="@dimen/story_card_corner_radius"
+            app:layout_constraintBottom_toBottomOf="@+id/grid_photo_3"
+            app:layout_constraintStart_toEndOf="@id/guideline3"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/grid_photo_3"
+            app:roundedCorners="allCorners"
+            android:onClick="@{v->dvm.onPostClick(v, card, 3)}"
+            bind:cardDisplayTypeIndex="@{cardTypeIndex}"
+            bind:hideViewOnEmpty="@{true}"
+            bind:imageIndex="@{3}"
+            bind:imageUrl="@{card.i_thumbnailUrls().get(3)}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.ClickHandlingViewModel" />
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="cardTypeIndex"
+            type="Integer" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/story_card_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/saved_story_small_height"
+        android:paddingBottom="@dimen/saved_story_small_verticalPadding"
+        android:paddingTop="@dimen/saved_story_small_verticalPadding"
+        android:id="@+id/saved_story_small_view"
+        android:onClick="@{(v)->vm.onViewClick(v,item)}"
+        android:background="?attr/selectableItemBackground">
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/story_item_thumbnail"
+            android:layout_width="@dimen/history_thumbnail_width"
+            android:layout_height="@dimen/history_thumbnail_width"
+            android:layout_marginStart="16dp"
+            app:cornerRadius="@dimen/history_thumbnail_img_radius"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:roundedCorners="allCorners"
+            bind:cardtype="@{cardTypeIndex}"
+            bind:index="@{0}"
+            bind:thumbnail="@{item}" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/story_item_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="12dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="?attr/story_card_title_text_color"
+            android:textSize="12dp"
+            bind:htmlText="@{item.i_title() ?? item.i_content()}"
+            bind:item="@{item}"
+            app:dh_custom_font_weight="four_hundred"
+            app:layout_constraintEnd_toStartOf="@+id/story_delete"
+            app:layout_constraintStart_toEndOf="@+id/story_item_thumbnail"
+            app:layout_constraintTop_toTopOf="@id/story_item_thumbnail" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/story_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/history_time_marginLeft"
+            android:maxLines="1"
+            android:textColor="@color/history_time_color"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/story_item_thumbnail" />
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/storySrcImg"
+            android:layout_width="@dimen/history_src_img_width"
+            android:layout_height="@dimen/history_src_img_width"
+            android:layout_marginStart="@dimen/history_src_img_leftMargin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/story_time"
+            app:layout_constraintTop_toTopOf="@id/story_time"
+            bind:sourceIcon="@{item}"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/story_srcName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/history_srcName_leftMargin"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/history_srcName_color"
+            android:textSize="11dp"
+            android:textAlignment="viewStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/storySrcImg"
+            app:layout_constraintEnd_toEndOf="@id/story_item_title"
+            app:layout_constraintTop_toTopOf="@id/story_time"
+            bind:textview_text="@{item.i_source().displayName}"
+            bind:item="@{item}"
+            app:dh_custom_font_weight="four_hundred"/>
+
+        <ImageView
+            android:id="@+id/story_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/shadow_save_button"
+            android:padding="2dp"
+            android:src="@drawable/save_unsave_circle_drawable"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:elevation="2dp"
+            android:onClick="@{(v)->vm.onViewClick(v,item)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

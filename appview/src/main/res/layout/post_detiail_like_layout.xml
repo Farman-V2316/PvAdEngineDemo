@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ /*
+  ~  * Copyright (c) 2021 Newshunt. All rights reserved.
+  ~  */
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel" />
+
+        <variable
+            name="card"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="isComment"
+            type="Boolean" />
+
+        <variable
+            name="v"
+            type="Boolean" />
+
+        <variable
+            name="isInBottomSheet"
+            type="Boolean" />
+
+        <import type="com.newshunt.news.helper.LikeEmojiBindingUtils" />
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+
+        <import type="com.newshunt.socialfeatures.util.SocialFeaturesConstants" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <View
+            android:id="@+id/dividerTop"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/post_detail_divider"
+            android:background="?attr/detail_line_divider"
+            android:layout_marginTop="@dimen/news_detail_content_end_margin_dimen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/pd_layout_like_title"
+            style="@style/detail_page_like_layout_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/news_detail_content_end_margin_dimen"
+            android:text="@{LikeEmojiBindingUtils.likeLayoutTitle(card)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dividerTop" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/pd_layout_like_total_count"
+            style="@style/detail_page_like_layout_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="5dp"
+            android:text="@{LikeEmojiBindingUtils.likeLayoutCalculatedTotalLikeCount(card)}"
+            android:visibility="@{LikeEmojiBindingUtils.likeLayoutCalculatedTotalLikeVisibility(card)}"
+            app:layout_constraintBottom_toBottomOf="@+id/pd_layout_like_title"
+            app:layout_constraintStart_toEndOf="@+id/pd_layout_like_title"
+            app:layout_constraintTop_toTopOf="@+id/pd_layout_like_title" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_layout_like_smile"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="11dp"
+            android:paddingBottom="11dp"
+            android:background="@{LikeEmojiBindingUtils.likeLayoutEmojiBgDrawable(card, 0,isInBottomSheet)}"
+            android:onClick="@{(v)->LikeEmojiBindingUtils.toggleLike(v, card, null, vm, isComment, SocialFeaturesConstants.COMMENT_TYPE_MAIN, 0)}"
+            android:layout_marginTop="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cl_layout_like_sad"
+            app:layout_constraintTop_toBottomOf="@+id/pd_layout_like_title">
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/pd_layout_like_smile"
+                style="@style/detail_page_like_layout_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/text_x_small"
+                app:textColor="@{LikeEmojiBindingUtils.likeLayoutEmojiTextColor(card, 0, isInBottomSheet)}"
+                android:enabled="@{CardsBindUtils.isLikeEnabled(card)}"
+                android:text="@{LikeEmojiBindingUtils.likeLayoutEmojiText(card, 0)}"
+                app:drawableStart="@{LikeEmojiBindingUtils.likeLayoutEmojiIcon(card, 0,isInBottomSheet)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_layout_like_sad"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@{LikeEmojiBindingUtils.likeLayoutEmojiBgDrawable(card, 1,isInBottomSheet)}"
+            android:onClick="@{(v)->LikeEmojiBindingUtils.toggleLike(v, card, null, vm, isComment, SocialFeaturesConstants.COMMENT_TYPE_MAIN, 1)}"
+            android:paddingTop="11dp"
+            android:paddingBottom="11dp"
+            app:layout_constraintEnd_toStartOf="@+id/cl_layout_like_angry"
+            app:layout_constraintStart_toEndOf="@+id/cl_layout_like_smile"
+            app:layout_constraintTop_toTopOf="@+id/cl_layout_like_smile">
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/pd_layout_like_sad"
+                style="@style/detail_page_like_layout_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/text_x_small"
+                app:textColor="@{LikeEmojiBindingUtils.likeLayoutEmojiTextColor(card, 1, isInBottomSheet)}"
+                android:enabled="@{CardsBindUtils.isLikeEnabled(card)}"
+                android:text="@{LikeEmojiBindingUtils.likeLayoutEmojiText(card, 1)}"
+                app:drawableStart="@{LikeEmojiBindingUtils.likeLayoutEmojiIcon(card, 1,isInBottomSheet)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_layout_like_angry"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@{LikeEmojiBindingUtils.likeLayoutEmojiBgDrawable(card, 2,isInBottomSheet)}"
+            android:onClick="@{(v)->LikeEmojiBindingUtils.toggleLike(v, card, null, vm, isComment, SocialFeaturesConstants.COMMENT_TYPE_MAIN, 2)}"
+            android:paddingTop="11dp"
+            android:paddingBottom="11dp"
+            app:layout_constraintStart_toEndOf="@+id/cl_layout_like_sad"
+            app:layout_constraintTop_toTopOf="@+id/cl_layout_like_smile"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/pd_layout_like_angry"
+                style="@style/detail_page_like_layout_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/text_x_small"
+                app:textColor="@{LikeEmojiBindingUtils.likeLayoutEmojiTextColor(card, 2, isInBottomSheet)}"
+                android:enabled="@{CardsBindUtils.isLikeEnabled(card)}"
+                android:text="@{LikeEmojiBindingUtils.likeLayoutEmojiText(card, 2)}"
+                app:drawableStart="@{LikeEmojiBindingUtils.likeLayoutEmojiIcon(card, 2,isInBottomSheet)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/post_detail_divider"
+            android:layout_marginTop="@dimen/news_detail_content_end_margin_dimen"
+            android:background="?attr/detail_line_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_layout_like_smile" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

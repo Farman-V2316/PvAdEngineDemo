@@ -1,43 +1,529 @@
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://maven.google.com" }
+        maven { url "https://dl.google.com/dl/android/maven2" }
+    }
+
+    dependencies {
+        classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.1'
+    }
 }
 
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.firebase.firebase-perf'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+repositories {
+    google()
+    mavenCentral()
+    maven { url "https://maven.google.com" }
+}
+
+def minSdkVer = project.msv
+
 android {
-    compileSdk 32
+    compileSdkVersion project.csv
 
-    defaultConfig {
-        applicationId "com.newsdistill.pvadenginedemo"
-        minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    dexOptions {
+        //disables use of runtime annotations from the main DEX file
+        keepRuntimeAnnotatedClasses false
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    dataBinding{
+        enabled = true
+    }
+
+    bundle {
+        language {
+            enableSplit = false // Do not enable this as we use locale based on app language
+        }
+        density {
+            enableSplit = true
+        }
+        abi {
+            enableSplit = true
         }
     }
+
+    configurations {
+        all*.exclude group: 'com.google.guava', module: 'listenablefuture'
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("eterno_androidks")
+            storePassword System.getenv("KSTOREPWD")
+            keyAlias "eterno_androidks"
+            keyPassword System.getenv("KSTOREPWD")
+        }
+
+        debugRelease {
+            storeFile file('eterno_androidks')
+            storePassword 'eterno123'
+            keyAlias "eterno_androidks"
+            keyPassword 'eterno123'
+        }
+    }
+
+
+    //to prevent build  failure of including both rx1 and rx2
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+        exclude '**/*.java'
+        exclude 'LICENSE_OFL'
+        exclude 'LICENSE_UNICODE'
+        exclude 'error_prone/Annotations.gwt.xml'
+        exclude 'third_party/java_src/error_prone/project/annotations/Annotations.gwt.xml'
+        exclude 'third_party/java_src/error_prone/project/annotations/Google_internal.gwt.xml'
+        exclude 'META-INF/android.arch.lifecycle_runtime.version'
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "1.8"
     }
+
+    defaultConfig {
+        targetSdkVersion project.tsv
+        applicationId "com.eterno"
+
+        def default_utm_source = System.getenv("DEFAULT_UTM_SOURCE") ?: "DailyhuntHome^$appVersion^PLAYSTORE"
+        def default_campaign_params = System.getenv("DEFAULT_CAMPAIGN_PARAMS") ?: ""
+        def monkey_restricted = System.getenv("MONKEY_RESTRICTED") ?: false
+        def appsflyer_enabled = System.getenv("APPSFLYER_ENABLED") ?: true
+        def multiple_process_enabled = System.getenv("MULTIPLE_PROCESS_ENABLED") ?: false
+        def onboarding_design_version = System.getenv("ONBOARDING_DESIGN_V") ?: 2
+        buildConfigField "String", "DEFAULT_UTM_SOURCE", '"' + default_utm_source + '"'
+        buildConfigField "String", "DEFAULT_CAMPAIGN_PARAMS", '"' + default_campaign_params + '"'
+        buildConfigField "boolean", "MONKEY_RESTRICTED", monkey_restricted.toString()
+        buildConfigField "boolean", "APPSFLYER_ENABLED", appsflyer_enabled.toString()
+        buildConfigField "Integer", "ONBOARDING_DESIGN_V", onboarding_design_version.toString()
+        buildConfigField "boolean", "MULTIPLE_PROCESS_ENABLED", multiple_process_enabled.toString()
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [isExtractNativeLibs:project.isExtractNativeLibs]
+
+        //Keep Only required language - this will avoid google lang file dump
+        //From source: http://stackoverflow.com/questions/20280872/android-studio-exports-strings-from-support-library-to-apk
+        resConfigs "en", "as", "bh", "bn", "gu", "hi", "kn", "ml", "mr", "ne", "or", "pa", "sd", "ta", "te", "ur"
+
+        vectorDrawables.useSupportLibrary = true
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+    }
+
+    sourceSets {
+        debug {
+        }
+
+        test {
+        }
+
+        release {
+            java.srcDirs = ['src/release/java']
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            multiDexEnabled true
+            minSdkVer = project.msv_debug
+            signingConfig signingConfigs.debugRelease
+        }
+    }
+
+    flavorDimensions "log", "package", "config", "memory"
+
+    /* Separate assets directory because they contain separate databases for each environment */
+    sourceSets {
+
+
+        qa {
+            assets.srcDirs = ['src/qa/assets']
+            java.srcDirs = ['src/qa/java']
+            res.srcDirs += ['src/qa/res']
+        }
+
+
+
+        perf {
+            assets.srcDirs = ['src/prod/assets']
+            java.srcDirs = ['src/prod/java', 'src/perf/java']
+            res.srcDirs += ['src/prod/res', 'src/perf/res']
+        }
+
+
+        go {
+            res.srcDirs += new File('src/main/res')
+            res.srcDirs += new File('src/go/res')
+        }
+
+        regular {
+            res.srcDirs += new File('src/main/res')
+            res.srcDirs += new File('src/regular/res')
+        }
+    }
+
+    productFlavors {
+        def BOOKS_API_ENDPOINT = "BOOKS_API_ENDPOINT"
+        def AUTHORIZATION_ENDPOINT = "AUTHORIZATION_ENDPOINT"
+        def ORDER_ENDPOINT = "ORDER_ENDPOINT"
+        def BOOKS_LIBRARY_ENDPOINT = "BOOKS_LIBRARY_ENDPOINT"
+        def CART_ENDPOINT = "CART_ENDPOINT"
+        def PAYMENT_ENDPOINT = "PAYMENT_ENDPOINT"
+        def BOOKS_REVIEW_ENDPOINT = "BOOKS_REVIEW_ENDPOINT"
+        def BOOKS_IMAGE_ENDPOINT = "BOOKS_IMAGE_ENDPOINT"
+        def APPEND_ID_TO_BOOK_DESC = "APPEND_ID_TO_BOOK_DESC"
+        def NEWS_API_ENDPOINT = "NEWS_API_ENDPOINT"
+        def NEWS_API_SECURE_ENDPOINT = "NEWS_API_SECURE_ENDPOINT"
+        def NEWS_API_RELATIVE_ENDPOINT = "NEWS_API_RELATIVE_ENDPOINT"
+        def ANALYTICS_BEACON_ENDPOINT = "ANALYTICS_BEACON_ENDPOINT"
+        def AD_SERVER_ENDPOINT = "AD_SERVER_ENDPOINT"
+        def ADS_HANDSHAKE_ENDPOINT = "ADS_HANDSHAKE_ENDPOINT"
+        def SOURCE_POST_URL = "SOURCE_POST_URL"
+        def REFERRER_POST_URL = "REFERRER_POST_URL"
+        def FIREBASE_POST_URL = "FIREBASE_POST_URL"
+        def APPSFLYER_POST_URL = "APPSFLYER_POST_URL"
+        def CLIENT_INFO_POST_URL = "CLIENT_INFO_POST_URL"
+        def FIRST_PAGE_VIEW_POST_URL = "FIRST_PAGE_VIEW_POST_URL"
+        def PREMIUM_AD_ENDPOINT = "PREMIUM_AD_ENDPOINT"
+        def TV_API_ENDPOINT = "TV_API_ENDPOINT"
+        def VH_API_ENDPOINT = "VH_API_ENDPOINT"
+        def SEARCH_API_ENDPOINT = "SEARCH_API_ENDPOINT"
+        def AUTOCOMPLETE_API_ENDPOINT = "AUTOCOMPLETE_API_ENDPOINT"
+        def LIVETV_API_ENDPOINT = "LIVETV_API_ENDPOINT"
+        def PULL_NOTI_ENDPOINT = "PULL_NOTI_ENDPOINT"
+        def USER_BASE_SERVICE_ENDPOINT = "USER_BASE_SERVICE_ENDPOINT"
+        def USER_BASE_SECURED_SERVICE_ENDPOINT = "USER_BASE_SECURED_SERVICE_ENDPOINT"
+        def APP_IMAGE_ENDPOINT = "APP_IMAGE_ENDPOINT"
+        def GROUPS_API_ENDPOINT = "GROUPS_API_ENDPOINT"
+        def SOCIAL_FEATURES_URL = "SOCIAL_FEATURES_URL"
+        def SECURE_SOCIAL_FEATURES_URL = "SECURE_SOCIAL_FEATURES_URL"
+        def LIKE_FEATURES_URL = "LIKE_FEATURES_URL"
+        def DHTV_API_ENDPOINT = "DHTV_API_ENDPOINT"
+        def DHTV_SEARCH_API_ENDPOINT = "DHTV_SEARCH_API_ENDPOINT"
+        def DHTV_AUTOCOMPLETE_API_ENDPOINT = "DHTV_AUTOCOMPLETE_API_ENDPOINT"
+        def LOGGER_ENABLED = "LOGGER_ENABLED"
+        def VARIANT_BUILD = "VARIANT_BUILD"
+        def large_heap_enabled = "large_heap_enabled"
+        def MIN_DURATION_FOR_PULL_JOB = "MIN_DURATION_FOR_PULL_JOB"
+        def ENABLE_APP_INDEXING = "ENABLE_APP_INDEXING"
+        def GO_BUILD = "GO_BUILD"
+        def launcher_disp_name = "launcher_disp_name"
+        def facebook_app_id = "facebook_app_id"
+        def fb_login_protocol_scheme = "fb_login_protocol_scheme"
+        def BUILD_ENV = "BUILD_ENV"
+        def NOTIFICATION_CHANNEL_URL = "NOTIFICATION_CHANNEL_URL"
+        def DHLOCO_API_ENDPOINT = "DHLOCO_API_ENDPOINT"
+        def CONTACT_SYNC_ENDPOINT = "CONTACT_SYNC_ENDPOINT"
+        def POST_CREATION_ENDPOINT = "POST_CREATION_ENDPOINT"
+        def POST_DELETION_ENDPOINT = "POST_DELETION_ENDPOINT"
+        def POST_REPORT_ENDPOINT = "POST_REPORT_ENDPOINT"
+        def OG_SERVICE_ENDPOINT = "OG_SERVICE_ENDPOINT"
+        def REPORT_GROUP_URL = "REPORT_GROUP_URL"
+        def REPORT_MEMBER_URL = "REPORT_MEMBER_URL"
+        def REPORT_PROFILE_URL = "REPORT_PROFILE_URL"
+        def FULL_SYNC_URL = "FULL_SYNC_URL"
+        def LOCAL_ZONE_URL = "LOCAL_ZONE_URL"
+        def IS_PROFILEABLE = "is_profileable"
+
+        logged {
+            buildConfigField "boolean", LOGGER_ENABLED, 'true'
+            dimension "log"
+            resValue "bool", IS_PROFILEABLE, 'true'
+        }
+
+        nolog {
+            buildConfigField "boolean", LOGGER_ENABLED, 'false'
+            dimension "log"
+            resValue "bool", IS_PROFILEABLE, 'false'
+        }
+
+        variant {
+            dimension "package"
+            buildConfigField "boolean", VARIANT_BUILD, 'true'
+        }
+
+        eterno {
+            dimension "package"
+            buildConfigField "boolean", VARIANT_BUILD, 'false'
+        }
+
+        go {
+            buildConfigField "boolean", GO_BUILD, 'true'
+            resValue "string", facebook_app_id, "408176739739864"
+            dimension "memory"
+        }
+
+        regular {
+            buildConfigField "boolean", GO_BUILD, 'false'
+            resValue "string", facebook_app_id, "131285656905938"
+            dimension "memory"
+        }
+
+        go {
+            buildConfigField "boolean", GO_BUILD, 'true'
+            resValue "string", fb_login_protocol_scheme, "fb408176739739864"
+            dimension "memory"
+        }
+
+        regular {
+            buildConfigField "boolean", GO_BUILD, 'false'
+            resValue "string", fb_login_protocol_scheme, "fb131285656905938"
+            dimension "memory"
+        }
+
+        qa {
+            versionName project.ext.appVersion + ".2"
+            versionCode project.ext.version_others
+            minSdkVersion minSdkVer
+            buildConfigField "String", BOOKS_API_ENDPOINT, '"http://qa-api-books.newshunt.com/api/v1"'
+            buildConfigField "String", AUTHORIZATION_ENDPOINT, '"http://qa-library.newshunt.com/api/v1"'
+            buildConfigField "String", ORDER_ENDPOINT, '"http://qa-order.newshunt.com/api/v1"'
+            buildConfigField "String", BOOKS_LIBRARY_ENDPOINT, '"http://qa-library.newshunt.com/api/v1"'
+            buildConfigField "String", CART_ENDPOINT, '"http://qa-order.newshunt.com/api/v1"'
+            buildConfigField "String", PAYMENT_ENDPOINT, '"http://qa-order.newshunt.com/api/v1"'
+            buildConfigField "String", BOOKS_REVIEW_ENDPOINT, '"http://qa-api-books.newshunt.com/api/v1"'
+            buildConfigField "String", BOOKS_IMAGE_ENDPOINT, '"http://qa-api-books.newshunt.com"'
+            buildConfigField "String", NEWS_API_ENDPOINT, '"http://qa-news.newshunt.com/"'
+            buildConfigField "String", NEWS_API_SECURE_ENDPOINT, '"https://qa-news.newshunt.com/"'
+            buildConfigField "String", NEWS_API_RELATIVE_ENDPOINT, '"http://qa-news.newshunt.com/api/v2"'
+            buildConfigField "String", ANALYTICS_BEACON_ENDPOINT, '"http://beacon-qa.rtp.dailyhunt.in/topics/analytics-events"'
+            buildConfigField "String", AD_SERVER_ENDPOINT, '"http://ads.newshunt.in/openx/ads/index.php?"'
+            buildConfigField "String", ADS_HANDSHAKE_ENDPOINT, '"http://ads.newshunt.in"'
+            buildConfigField "String", SOURCE_POST_URL, '"http://qa-acq.news.newshunt.com/promotion/v1/acquisition/install/source"'
+            buildConfigField "String", REFERRER_POST_URL, '"http://qa-acq.news.newshunt.com/promotion/v1/acquisition/install/referrer"'
+            buildConfigField "String", FIREBASE_POST_URL, '"http://qa-acq.news.newshunt.com/promotion/v1/acquisition/install/firebase"'
+            buildConfigField "String", APPSFLYER_POST_URL, '"http://qa-acq.news.newshunt.com/promotion/v1/acquisition/install/appsflyer"'
+            buildConfigField "String", CLIENT_INFO_POST_URL, '"http://qa-acq.news.newshunt.com/promotion/v1/acquisition/clientinfo/notify"'
+            buildConfigField "String", FIRST_PAGE_VIEW_POST_URL, '"http://qa-acq.news.newshunt.com/promotion/v1/acquisition/content/view"'
+            buildConfigField "String", PREMIUM_AD_ENDPOINT, '"http://ads.newshunt.in/openx/ads/index.php?"'
+            buildConfigField "String", TV_API_ENDPOINT, '"http://dhtv1-qa.newshunt.com/tvapi/v3"'
+            buildConfigField "String", VH_API_ENDPOINT, '"http://vh-qa.dailyhunt.in/api/v1"'
+            buildConfigField "String", SEARCH_API_ENDPOINT, '"http://qa-news.newshunt.com/"'
+            buildConfigField "String", AUTOCOMPLETE_API_ENDPOINT, '"http://qa-news.newshunt.com/"'
+            buildConfigField "String", LIVETV_API_ENDPOINT, '"http://dhtv1-qa.newshunt.com/tvapi/v3/livetv"'
+            buildConfigField "String", PULL_NOTI_ENDPOINT, '"http://qa-pullnotification.dailyhunt.in/notification-pull/v2/pull"'
+            buildConfigField "String", USER_BASE_SERVICE_ENDPOINT, '"http://ugc-qa-users.newshunt.com/api"'
+            buildConfigField "String", USER_BASE_SECURED_SERVICE_ENDPOINT, '"https://ugc-qa-users.newshunt.com/api"'
+            buildConfigField "String", APP_IMAGE_ENDPOINT, '"http://qa-img-cluster.dailyhunt.in/"'
+            buildConfigField "String", POST_CREATION_ENDPOINT, '"https://qa-news.newshunt.com/api/v2/"'
+            buildConfigField "String", POST_DELETION_ENDPOINT, '"https://dhcreator-qa.newshunt.com/dh-creator/api/v1/"'
+            buildConfigField "String", POST_REPORT_ENDPOINT, '"https://dhcreator-qa.newshunt.com/dh-creator/api/v1/"'
+            buildConfigField "String", OG_SERVICE_ENDPOINT, '"http://qa-ogservice.dailyhunt.in/"'
+            buildConfigField "String", GROUPS_API_ENDPOINT, '"https://qa-groups.newshunt.com/api/v1/"'
+            buildConfigField "String", SOCIAL_FEATURES_URL, '"http://qa-social.newshunt.com/sc/v1/"'
+            buildConfigField "String", SECURE_SOCIAL_FEATURES_URL, '"https://qa-social.newshunt.com/sc/v1/"'
+            buildConfigField "String", LIKE_FEATURES_URL, '"http://qa-social.newshunt.com/sc/v1/"'
+            buildConfigField "String", DHTV_API_ENDPOINT, '"http://qa-dailytv.newshunt.com"'
+            buildConfigField "String", DHTV_SEARCH_API_ENDPOINT, '"http://qa-news.newshunt.com/"'
+            buildConfigField "String", DHLOCO_API_ENDPOINT, '"http://qa-news.newshunt.com/api/v2/"'
+            buildConfigField "String", DHTV_AUTOCOMPLETE_API_ENDPOINT, '"http://qa-news.newshunt.com/"'
+            buildConfigField "String", NOTIFICATION_CHANNEL_URL, '"http://qa-pullnotification.dailyhunt.in/notification-pull/v2/pull"'
+            buildConfigField "String", CONTACT_SYNC_ENDPOINT, '"https://qa-groups.newshunt.com/api/v1/"'
+            buildConfigField "String", REPORT_GROUP_URL, '"https://web.dailyhunt.in/reports/group?mode=wap"'
+            buildConfigField "String", REPORT_MEMBER_URL, '"https://web.dailyhunt.in/reports/profile?mode=wap&lang=en"'
+            buildConfigField "String", REPORT_PROFILE_URL, '"https://web.dailyhunt.in/reports/profile?mode=wap&lang=en"'
+            buildConfigField "String", FULL_SYNC_URL, '"http://obelix-sync-pull-notification-qa.dailyhunt.in/api/obelix/fallback/sync"'
+            buildConfigField "String", LOCAL_ZONE_URL, '"http://qa-news.newshunt.com/api/v2/section/local/zone"'
+            buildConfigField "boolean", APPEND_ID_TO_BOOK_DESC, 'true'
+            buildConfigField "int", MIN_DURATION_FOR_PULL_JOB, "10"
+            buildConfigField "boolean", ENABLE_APP_INDEXING, 'false'
+            buildConfigField "String", BUILD_ENV, '"qa"'
+            resValue "bool", large_heap_enabled, 'false'
+            resValue "string", launcher_disp_name, "DH Qa"
+            dimension "config"
+        }
+
+        perf {
+            versionName project.ext.appVersion + ".0"
+            versionCode project.ext.version_prod
+            minSdkVersion minSdkVer
+            buildConfigField "String", BOOKS_API_ENDPOINT, '"http://api-books.dailyhunt.in/api/v1"'
+            buildConfigField "String", AUTHORIZATION_ENDPOINT, '"https://library.dailyhunt.in/api/v1"'
+            buildConfigField "String", ORDER_ENDPOINT, '"https://orders.dailyhunt.in/api/v1"'
+            buildConfigField "String", BOOKS_LIBRARY_ENDPOINT, '"https://library.dailyhunt.in/api/v1"'
+            buildConfigField "String", CART_ENDPOINT, '"https://orders.dailyhunt.in/api/v1"'
+            buildConfigField "String", PAYMENT_ENDPOINT, '"https://orders.dailyhunt.in/api/v1"'
+            buildConfigField "String", BOOKS_REVIEW_ENDPOINT, '"http://api-books.dailyhunt.in/api/v1"'
+            buildConfigField "String", BOOKS_IMAGE_ENDPOINT, '"http://img-books.dailyhunt.in"'
+            buildConfigField "String", NEWS_API_ENDPOINT, '"http://perf-news.dailyhunt.in/"'
+            buildConfigField "String", NEWS_API_SECURE_ENDPOINT, '"https://perf-news.dailyhunt.in/"'
+            buildConfigField "String", NEWS_API_RELATIVE_ENDPOINT, '"http://perf-news.dailyhunt.in/api/v2"'
+            buildConfigField "String", ANALYTICS_BEACON_ENDPOINT, '"http://beacon.rtp.dailyhunt.in/topics/analytics-events"'
+            buildConfigField "String", AD_SERVER_ENDPOINT, '"http://money.dailyhunt.in/openx/ads/index.php?"'
+            buildConfigField "String", ADS_HANDSHAKE_ENDPOINT, '"http://money.dailyhunt.in"'
+            buildConfigField "String", SOURCE_POST_URL, '"http://acq-news.dailyhunt.in/promotion/v1/acquisition/install/source"'
+            buildConfigField "String", REFERRER_POST_URL, '"http://acq-news.dailyhunt.in/promotion/v1/acquisition/install/referrer"'
+            buildConfigField "String", FIREBASE_POST_URL, '"http://acq-news.dailyhunt.in/promotion/v1/acquisition/install/firebase"'
+            buildConfigField "String", APPSFLYER_POST_URL, '"http://acq-news.dailyhunt.in/promotion/v1/acquisition/install/appsflyer"'
+            buildConfigField "String", CLIENT_INFO_POST_URL, '"http://acq-news.dailyhunt.in/promotion/v1/acquisition/clientinfo/notify"'
+            buildConfigField "String", FIRST_PAGE_VIEW_POST_URL, '"http://acq-news.dailyhunt.in/promotion/v1/acquisition/content/view"'
+            buildConfigField "String", PREMIUM_AD_ENDPOINT, '"http://money.dailyhunt.in/openx/ads/index.php?"'
+            buildConfigField "String", TV_API_ENDPOINT, '"http://origin-api-dhtv.dailyhunt.in/v3"'
+            buildConfigField "String", VH_API_ENDPOINT, '"http://vh-dev.dailyhunt.in/api/v1"'
+            buildConfigField "String", SEARCH_API_ENDPOINT, '"http://perf-news.dailyhunt.in/"'
+            buildConfigField "String", AUTOCOMPLETE_API_ENDPOINT, '"http://perf-news.dailyhunt.in/"'
+            buildConfigField "String", LIVETV_API_ENDPOINT, '"http://origin-api-dhtv.dailyhunt.in/v3/livetv"'
+            buildConfigField "String", PULL_NOTI_ENDPOINT, '"http://prod-pullnotification.dailyhunt.in/notification-pull/v2/pull"'
+            buildConfigField "String", USER_BASE_SERVICE_ENDPOINT, '"http://users.dailyhunt.in/api"'
+            buildConfigField "String", USER_BASE_SECURED_SERVICE_ENDPOINT, '"https://users.dailyhunt.in/api"'
+            buildConfigField "String", APP_IMAGE_ENDPOINT, '"http://stage-img-cluster.dailyhunt.in/"'
+            buildConfigField "String", POST_CREATION_ENDPOINT, '"https://qa-news.newshunt.com/api/v2/"'
+            buildConfigField "String", POST_DELETION_ENDPOINT, '"http://dhme-dev.dailyhunt.in/"'
+            buildConfigField "String", POST_REPORT_ENDPOINT, '"http://dhme-dev.dailyhunt.in/"'
+            buildConfigField "String", OG_SERVICE_ENDPOINT, '"http://stage-ogservice.dailyhunt.in/"'
+            buildConfigField "String", GROUPS_API_ENDPOINT, '"https://prod-groups.dailyhunt.in/api/v1/"'
+            buildConfigField "String", SOCIAL_FEATURES_URL, '"http://stage-social.dailyhunt.in/sc/v1/"'
+            buildConfigField "String", SECURE_SOCIAL_FEATURES_URL, '"https://stage-social.dailyhunt.in/sc/v1/"'
+            buildConfigField "String", LIKE_FEATURES_URL, '"http://stage-social.dailyhunt.in/sc/v1/"'
+            buildConfigField "String", DHTV_API_ENDPOINT, '"http://dev-api-dhtv.dailyhunt.in/"'
+            buildConfigField "String", DHTV_SEARCH_API_ENDPOINT, '"http://stage-api-news.dailyhunt.in/"'
+            buildConfigField "String", DHLOCO_API_ENDPOINT, '"http://stage-api-news.dailyhunt.in/api/v2/"'
+            buildConfigField "String", DHTV_AUTOCOMPLETE_API_ENDPOINT, '"http://stage-api-news.dailyhunt.in/"'
+            buildConfigField "String", NOTIFICATION_CHANNEL_URL, '"http://prod-pullnotification.dailyhunt.in/notification-pull/v2/pull"'
+            buildConfigField "String", CONTACT_SYNC_ENDPOINT, '"https://prod-groups.dailyhunt.in/api/v1/"'
+            buildConfigField "String", REPORT_GROUP_URL, '"https://web.dailyhunt.in/reports/group?mode=wap"'
+            buildConfigField "String", REPORT_MEMBER_URL, '"https://web.dailyhunt.in/reports/profile?mode=wap&lang=en"'
+            buildConfigField "String", REPORT_PROFILE_URL, '"https://web.dailyhunt.in/reports/profile?mode=wap&lang=en"'
+            buildConfigField "String", FULL_SYNC_URL, '"http://dh-obelix-sync-pull-notification-qa.dailyhunt.in"'
+            buildConfigField "String", LOCAL_ZONE_URL, '"http://api-books.dailyhunt.in/api/v2/section/local/zone"'
+            buildConfigField "boolean", APPEND_ID_TO_BOOK_DESC, 'false'
+            buildConfigField "int", MIN_DURATION_FOR_PULL_JOB, "3600"
+            buildConfigField "boolean", ENABLE_APP_INDEXING, 'false'
+            buildConfigField "String", BUILD_ENV, '"perf"'
+            resValue "bool", large_heap_enabled, 'true'
+            resValue "string", launcher_disp_name, "DH Perf"
+            dimension "config"
+        }
+    }
+
+
+
 }
 
 dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.5.0'
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation project(':ad-engine')
+    api project(':appview')
+    //panda
+   // api project.enableNews ? project(':notification-inbox') : project.featureSource ? project(':empty') : 'com.newshunt.sdk.feature:empty:' + project.fsv_aar
+   // implementation project(':web-app')
+
+    implementation platform('com.google.firebase:firebase-bom:'+project.bom_v)
+
+    implementation('com.google.android.gms:play-services-analytics:' + project.gpv_analytics) {
+        exclude group: 'com.google.android.gms', module: 'play-services-basement'
+    }
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'androidx.work:work-runtime-ktx:' + project.work_version
+    implementation 'androidx.work:work-rxjava2:' + project.work_version
+
+    implementation 'com.google.firebase:firebase-perf'
+    // Add the Firebase Crashlytics SDK.
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.android.play:core:' + project.play_core_v
+    implementation 'com.google.android.play:core-ktx:' + project.play_core_ktx_v
+
+    //Test dependencies
+    testImplementation 'org.mockito:mockito-core:' + project.test_mv
+    testImplementation 'org.powermock:powermock-api-mockito2:' + project.test_pmv
+    testImplementation 'org.powermock:powermock-module-junit4:' + project.test_pmv
+    testImplementation 'junit:junit:' + project.test_jv
+    testImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    testImplementation "androidx.arch.core:core-testing:"+project.archTestingVersion
+    testImplementation "org.robolectric:robolectric:"+project.robolectricVersion
+    testImplementation 'androidx.test.ext:junit:1.1.0'
+    testImplementation("com.google.guava:guava:26.0-jre") {
+        force = true
+    }
+    //Android Test Dependencies.
+    androidTestImplementation 'junit:junit:' + project.test_jv
+    androidTestImplementation 'org.mockito:mockito-core:' + project.test_mv
+    androidTestImplementation 'com.google.dexmaker:dexmaker:' + project.test_dmv
+    androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:' + project.test_dmv
+    androidTestImplementation 'androidx.test:runner:' + project.test_xrv
+    androidTestImplementation 'androidx.test.espresso:espresso-core:' + project.test_exv
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:' + project.test_exv
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:' + project.test_exv
+    androidTestImplementation 'androidx.annotation:annotation:' + project.xlv
+    androidTestImplementation 'androidx.appcompat:appcompat:' + project.xlv
+    androidTestImplementation 'com.google.android.material:material:' + project.ml
+    androidTestImplementation 'androidx.legacy:legacy-support-v4:' + project.xlv
+    //This version will be changed in the future releases.
+    androidTestImplementation 'com.squareup:javawriter:2.5.1'
+    implementation 'com.squareup.leakcanary:leakcanary-android:' + project.lcv
+    implementation 'com.facebook.stetho:stetho:' + project.fb_stetho
+    implementation 'com.facebook.stetho:stetho:' + project.fb_stetho
+    implementation 'com.facebook.stetho:stetho:' + project.fb_stetho
+    implementation 'com.facebook.stetho:stetho:' + project.fb_stetho
+    implementation 'com.facebook.stetho:stetho:' + project.fb_stetho
+    implementation 'com.facebook.stetho:stetho:' + project.fb_stetho
+    implementation 'com.facebook.stetho:stetho:' + project.fb_stetho
+
+    implementation 'com.facebook.stetho:stetho-okhttp3:' + project.fb_stetho
+    implementation 'com.facebook.stetho:stetho-okhttp3:' + project.fb_stetho
+    implementation 'com.facebook.stetho:stetho-okhttp3:' + project.fb_stetho
+    implementation 'com.facebook.stetho:stetho-okhttp3:' + project.fb_stetho
+    implementation 'com.facebook.stetho:stetho-okhttp3:' + project.fb_stetho
+    implementation 'com.facebook.stetho:stetho-okhttp3:' + project.fb_stetho
+    implementation 'com.facebook.stetho:stetho-okhttp3:' + project.fb_stetho
+    implementation 'com.squareup:otto:' + project.bus_v
+    api 'com.google.dagger:dagger:' + project.dagger_v
+    annotationProcessor "com.google.dagger:dagger-compiler:" + project.dagger_v
+    annotationProcessor 'com.google.auto.factory:auto-factory:1.0-beta3'
+    kapt "com.google.dagger:dagger-compiler:" + project.dagger_v
 }
+
+gradle.taskGraph.whenReady { graph ->
+    graph.allTasks.findAll { it.name ==~ /.*Test.*/ }*.enabled = true
+    graph.allTasks.findAll { it.name ==~ /.*DevGo.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*QaGo.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*StageGo.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*ProdGo.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*PerfGo.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*VariantDevGo.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*VariantQaGo.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*VariantStageGo.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*VariantProdGo.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*VariantQcGo.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*VariantPerfGo.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*NologVariant.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*NologEternoQa.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*EternoPerf.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*Dev.*/ }*.enabled = false
+    graph.allTasks.findAll { it.name ==~ /.*Qc.*/ }*.enabled = false
+}
+
+gradle.buildFinished {
+
+    if (project.generateSourceWithConditionalLog) {
+        def scriptDegen
+        if (project.featureGo) {
+            println("degenerating code with GO")
+            scriptDegen = "python degenerate_go.py".execute()
+        } else {
+            println("degenerating code without GO")
+            scriptDegen = "python degenerate.py".execute()
+        }
+        scriptDegen.in.eachLine { line -> println line }
+        scriptDegen.err.eachLine { line -> println "ERROR: " + line }
+        scriptDegen.waitFor()
+    }
+}
+
+apply plugin: 'com.google.gms.google-services'

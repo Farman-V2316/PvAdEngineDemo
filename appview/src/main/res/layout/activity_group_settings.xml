@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.newshunt.appview.common.group.ui.activity.GroupSettingsActivity">
+
+    <data>
+
+        <import type="com.newshunt.dataentity.model.entity.SettingState" />
+
+        <import type="com.newshunt.dataentity.model.entity.MemberRole" />
+
+        <import type="com.newshunt.dataentity.model.entity.SocialPrivacy" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.model.entity.GroupInfo" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/group_settings_view">
+
+        <include
+            android:id="@+id/actionbar"
+            layout="@layout/layout_actionbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:heading="@{@string/group_settings}" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_below="@+id/actionbar"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edit_group_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/actionbar"
+                    android:padding="@dimen/settings_option_margin_top"
+                    android:background="?attr/selectableItemBackground">
+
+                    <com.newshunt.common.view.customview.fontview.NHTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edit_group_info_tv"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginEnd="64dp"
+                        android:textSize="@dimen/create_group_btn_text_size"
+                        android:textColor="?attr/group_settings_text_color"
+                        android:text="@string/edit_group_info" />
+
+                    <com.newshunt.common.view.customview.fontview.NHTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edit_group_info_description_tv"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/edit_group_info_tv"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="64dp"
+                        android:textSize="@dimen/create_group_name_text_size"
+                        android:textColor="?attr/group_settings_desc_text_color"
+                        android:text="@string/edit_group_info_desc" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        app:srcCompat="@drawable/ic_next_page_arrow"
+                        android:padding="6dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="?attr/group_settings_screen_divider_color"
+                    android:layout_marginTop="2dp" />
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/group_settings_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/settings_option_margin_top"
+                    android:layout_marginTop="@dimen/settings_option_margin_top"
+                    android:text="@string/group_settings"
+                    android:textAllCaps="true"
+                    android:textColor="@color/error_code_color"
+                    android:textSize="@dimen/create_group_name_text_size"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/can_join_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:padding="@dimen/settings_option_margin_top"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackground">
+
+                    <com.newshunt.common.view.customview.fontview.NHTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/can_join_text"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="@string/anyone_can_join"
+                        android:textColor="?attr/group_settings_text_color"
+                        android:textSize="@dimen/create_group_btn_text_size" />
+
+                    <com.newshunt.common.view.customview.fontview.NHTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/anyone_can_join_desc"
+                        android:textSize="@dimen/create_group_name_text_size"
+                        android:id="@+id/can_join_description"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/can_join_text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:maxLines="2"
+                        android:textColor="?attr/group_settings_desc_text_color"
+                        android:layout_marginEnd="64dp" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:id="@+id/can_join_checkbox"
+                        android:theme="@style/CheckBoxTheme"
+                        android:checked="@{item.memberApproval == SettingState.NOT_REQUIRED}"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="?attr/group_settings_screen_divider_color"
+                    android:layout_marginTop="2dp"
+                    android:visibility="gone"
+                    android:layout_marginStart="@dimen/settings_option_margin_top"
+                    android:layout_marginEnd="@dimen/settings_option_margin_top" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/can_post_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:padding="@dimen/settings_option_margin_top"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackground">
+
+                    <com.newshunt.common.view.customview.fontview.NHTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/can_post_text"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="@string/anyone_can_post"
+                        android:textColor="?attr/group_settings_text_color"
+                        android:textSize="@dimen/create_group_btn_text_size" />
+
+                    <com.newshunt.common.view.customview.fontview.NHTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/anyone_can_post_desc"
+                        android:textSize="@dimen/create_group_name_text_size"
+                        android:id="@+id/can_post_description"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/can_post_text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:maxLines="2"
+                        android:textColor="?attr/group_settings_desc_text_color"
+                        android:layout_marginEnd="64dp" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@{item.postApproval == SettingState.NOT_REQUIRED}"
+                        android:id="@+id/can_post_checkbox"
+                        android:theme="@style/CheckBoxTheme"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="?attr/group_settings_screen_divider_color"
+                    android:layout_marginTop="2dp"
+                    android:visibility="gone"
+                    android:layout_marginStart="@dimen/settings_option_margin_top"
+                    android:layout_marginEnd="@dimen/settings_option_margin_top" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/can_discover_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:padding="@dimen/settings_option_margin_top"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackground">
+
+                    <com.newshunt.common.view.customview.fontview.NHTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/can_discover_text"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="@string/anyone_can_discover"
+                        android:textColor="?attr/group_settings_text_color"
+                        android:textSize="@dimen/create_group_btn_text_size" />
+
+                    <com.newshunt.common.view.customview.fontview.NHTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/anyone_can_discover_desc"
+                        android:textSize="@dimen/create_group_name_text_size"
+                        android:id="@+id/can_discover_description"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/can_discover_text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:maxLines="2"
+                        android:textColor="?attr/group_settings_desc_text_color"
+                        android:layout_marginEnd="64dp" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@{item.privacy == SocialPrivacy.PUBLIC}"
+                        android:id="@+id/can_discover_checkbox"
+                        android:theme="@style/CheckBoxTheme"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="?attr/group_settings_screen_divider_color"
+                    android:layout_marginTop="2dp"
+                    android:visibility="gone"
+                    android:layout_marginStart="@dimen/settings_option_margin_top"
+                    android:layout_marginEnd="@dimen/settings_option_margin_top" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/leave_group_option"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:padding="@dimen/settings_option_margin_top"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="?attr/ic_leave_group"
+                        android:id="@+id/leave_group_icon"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <com.newshunt.common.view.customview.fontview.NHTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/delete_icon_height_width"
+                        android:id="@+id/leave_group_tv"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/leave_group"
+                        android:textColor="?attr/group_settings_text_color"
+                        android:textSize="@dimen/create_group_btn_text_size"
+                        app:layout_constraintStart_toEndOf="@+id/leave_group_icon"
+                        android:layout_marginStart="@dimen/text_margin_top_small" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="?attr/group_settings_screen_divider_color"
+                    android:layout_marginTop="2dp"
+                    android:id="@+id/delete_group_divider"
+                    android:layout_marginStart="@dimen/settings_option_margin_top"
+                    android:layout_marginEnd="@dimen/settings_option_margin_top"
+                    android:visibility="@{(item.canDelete == true) ? View.VISIBLE : View.GONE}"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/delete_group_option"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:padding="@dimen/settings_option_margin_top"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="@dimen/delete_icon_height_width"
+                        android:layout_height="@dimen/delete_icon_height_width"
+                        app:srcCompat="@drawable/ic_delete"
+                        android:id="@+id/delete_group_icon"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <com.newshunt.common.view.customview.fontview.NHTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/delete_icon_height_width"
+                        android:id="@+id/delete_group_tv"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/delete_group"
+                        android:textSize="@dimen/create_group_btn_text_size"
+                        app:layout_constraintStart_toEndOf="@+id/delete_group_icon"
+                        android:layout_marginStart="@dimen/text_margin_top_small"
+                        android:textColor="@color/delete_group_text_color" />
+
+                    <androidx.constraintlayout.widget.Group
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/delete_group"
+                        app:constraint_referenced_ids="delete_group_icon,delete_group_tv"
+                        android:visibility="@{(item.canDelete == true) ? View.VISIBLE : View.GONE}" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>

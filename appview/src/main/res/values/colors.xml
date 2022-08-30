@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<resources>
+    <color name="link_color">#62BBEA</color>
+    <color name="actionbar_divider_color">#c8c8c8</color>
+    <color name="change_layout_text_color">#4A90E2</color>
+    <color name="language_see_all_text_color">#4A90E2</color>
+    <color name="language_see_all_button_background">#1F9EE1</color>
+    <color name="layout_suggested_sources_card_heading_text_color">#999999</color>
+    <color name="join_grp_border_color_disabled">#cfcfcf</color>
+    <color name="join_grp_text_color_disabled">#9698a3</color>
+    <color name="follow_button_text_color">#1f9ee1</color>
+    <color name="block_button_text_color">#202020</color>
+    <color name="following_button_text_color">#999999</color>
+    <color name="block_bg_color">#757575</color>
+    <color name="grp_feed_overlay_color">#CCFFFFFF</color>
+    <color name="wt_header_color">#647388</color>
+    <color name="wt_desc_color">#575757</color>
+    <color name="wt_action_text_color">#1f9ee1</color>
+    <color name="wt_skip_text_color">#656565</color>
+    <color name="wt_unselected_color">#eaeaea</color>
+    <color name="new_hashtag_hightlight">#1f9ee1</color>
+    <color name="new_hastag_subtitle_color">#647388</color>
+    <color name="video_disclaimer_text_color">#D6D6D6</color>
+    <color name="your_added_loc_color">#A7A7AB</color>
+    <color name="your_added_locations_color">#A7A7AB</color>
+    <color name="add_location_button_color">#1F9EE1</color>
+    <color name="search_location_text_color">#8e8e93</color>
+    <color name="video_detail_bg_grey">#4F4F57</color>
+</resources>

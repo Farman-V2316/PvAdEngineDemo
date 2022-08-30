@@ -19,6 +19,7 @@ import com.newshunt.common.helper.common.BusProvider
 import com.newshunt.dataentity.common.helper.common.CommonUtils
 import com.newshunt.common.helper.common.Constants
 import com.newshunt.common.helper.font.FontHelper
+import com.newshunt.common.util.R.string
 import com.newshunt.common.view.customview.fontview.NHTextView
 import com.newshunt.dataentity.common.pages.FollowActionType
 import com.newshunt.dhutil.R
@@ -54,7 +55,7 @@ class CustomSnackBar {
             FollowSnackBarMetaData?
         ): Snackbar? {
             snackBarMetaData ?: return null
-            val snackBarMessage = CommonUtils.getString(R.string
+            val snackBarMessage = CommonUtils.getString(string
                     .follow_item_added_snackbar_text, snackBarMetaData.title)
             val htmlString = HtmlCompat.fromHtml(FontHelper.getFontConvertedString(snackBarMessage), HtmlCompat
                     .FROM_HTML_MODE_LEGACY) as Spannable
@@ -64,7 +65,7 @@ class CustomSnackBar {
                     .displayDuration.toInt()
 
             val actionMessageTxt = snackBarMetaData.actionMessage
-                    ?: CommonUtils.getString(R.string.read_now)
+                    ?: CommonUtils.getString(string.read_now)
 
             val snackBar = Snackbar.make(view, Constants.EMPTY_STRING, duration)
             snackBar.addCallback(SnackBarCallback)
@@ -100,7 +101,7 @@ class CustomSnackBar {
             message.setSpannableText(htmlString,snackBarMessage)
 
             val actionMessage = customView.findViewById<NHTextView>(R.id.snackbar_action_message)
-            actionMessage.text = actionMessageTxt ?: CommonUtils.getString(R.string.read_now)
+            actionMessage.text = actionMessageTxt ?: CommonUtils.getString(string.read_now)
 
             snackBarMetaData.snackBarActionClickListener?.let { listener ->
                 actionMessage.setOnClickListener {
@@ -122,7 +123,7 @@ class CustomSnackBar {
             NHFollowBlockButton.FollowSnackBarMetaData?
         ): Snackbar? {
             snackBarMetaData ?: return null
-            val snackBarMessage = CommonUtils.getString(R.string
+            val snackBarMessage = CommonUtils.getString(string
                 .follow_item_added_snackbar_text, snackBarMetaData.title)
             val htmlString = HtmlCompat.fromHtml(FontHelper.getFontConvertedString(snackBarMessage), HtmlCompat
                 .FROM_HTML_MODE_LEGACY) as Spannable
@@ -132,7 +133,7 @@ class CustomSnackBar {
                 .displayDuration.toInt()
 
             val actionMessageTxt = snackBarMetaData.actionMessage
-                ?: CommonUtils.getString(R.string.read_now)
+                ?: CommonUtils.getString(string.read_now)
 
             val snackBar = Snackbar.make(view, Constants.EMPTY_STRING, duration)
             snackBar.addCallback(SnackBarCallback)
@@ -168,7 +169,7 @@ class CustomSnackBar {
             message.setSpannableText(htmlString,snackBarMessage)
 
             val actionMessage = customView.findViewById<NHTextView>(R.id.snackbar_action_message)
-            actionMessage.text = actionMessageTxt ?: CommonUtils.getString(R.string.read_now)
+            actionMessage.text = actionMessageTxt ?: CommonUtils.getString(string.read_now)
 
             snackBarMetaData.snackBarActionClickListener?.let { listener ->
                 actionMessage.setOnClickListener {
@@ -192,7 +193,7 @@ class CustomSnackBar {
         ): Snackbar? {
             snackBarMetaData ?: return null
 
-            val snackBarMessage: String = CommonUtils.getString(R.string.np_unfollowing_text,
+            val snackBarMessage: String = CommonUtils.getString(com.newshunt.common.util.R.string.np_unfollowing_text,
                     snackBarMetaData.title)
             val duration: Int = if (snackBarMetaData.displayDuration.toInt() <= 0) {
                 NHFollowButton.DEFAULT_SNACKBAR_DISPLAY_DURATION.toInt()
@@ -248,7 +249,7 @@ class CustomSnackBar {
         ): Snackbar? {
             snackBarMetaData ?: return null
 
-            val snackBarMessage: String = CommonUtils.getString(R.string.np_unblock_text,
+            val snackBarMessage: String = CommonUtils.getString(com.newshunt.common.util.R.string.np_unblock_text,
                 snackBarMetaData.title)
             val duration: Int = if (snackBarMetaData.displayDuration.toInt() <= 0) {
                 NHFollowButton.DEFAULT_SNACKBAR_DISPLAY_DURATION.toInt()
@@ -288,7 +289,7 @@ class CustomSnackBar {
             message.text = snackBarMessage
 
             val actionMessage = customView.findViewById<NHTextView>(R.id.snackbar_action_message)
-            actionMessage.text = snackBarMetaData.actionMessage ?: CommonUtils.getString(R.string.read_now)
+            actionMessage.text = snackBarMetaData.actionMessage ?: CommonUtils.getString(com.newshunt.common.util.R.string.read_now)
 
             snackBarMetaData.snackBarActionClickListener?.let { listener ->
                 actionMessage.setOnClickListener {

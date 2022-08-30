@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/story_detail_padding_left" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/story_detail_padding_left" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_news_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.newshunt.common.view.customview.fontview.LengthNotifyingSelectCopyTextView
+                android:id="@+id/news_details_news_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/story_detail_padding_left"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="@dimen/story_detail_padding_left"
+                android:gravity="center_vertical"
+                android:textColor="?attr/story_supplement_source_text_color"
+                android:textColorLink="@color/link_color"
+                android:textSize="@dimen/news_detail_title_text_size"
+                app:dh_custom_font_weight="six_hundred"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:enable_font_setting="@{true}"
+                bind:extraCard="@{extraCard}"
+                bind:titleDetailCard="@{card}"
+                bind:titleDetailParent="@{parent_card}"
+                bind:user_font_setting="@{dvm.userFontSizeConfigProgress}"
+                bind:is_title="@{true}"
+                bind:vm="@{vm}" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:clickable="true"
+                android:onClick="@{v-> card == null ? void : vm.onViewClick(v, card, CardsBindUtils.bundle(Constants.BUNDLE_IN_DETAIL, true))}"
+                app:layout_constraintTop_toBottomOf="@+id/news_details_news_title">
+
+                <com.newshunt.common.view.customview.NHImageView
+                    android:id="@+id/source_icon"
+                    android:layout_width="@dimen/post_source_square_icon_size"
+                    android:layout_height="@dimen/post_source_square_icon_size"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="@dimen/story_detail_padding_left"
+                    android:layout_marginBottom="@dimen/story_detail_padding_left"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    bind:sourceIcon="@{card}" />
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/display_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textColor="?attr/source_header_title_primary_color"
+                    android:textSize="12dp"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintStart_toEndOf="@+id/source_icon"
+                    app:layout_constraintBottom_toTopOf="@+id/promoted"
+                    app:layout_constraintTop_toTopOf="@+id/source_icon"
+                    bind:forcehide="@{CardsBindUtils.showBigSourceImage(card)}"
+                    bind:text_hideIfEmpty="@{CardsBindUtils.getDisplayName(card)}"
+                    bind:item="@{card}"
+                    app:dh_custom_font_weight="four_hundred"/>
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/promoted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:layout_marginStart="4dp"
+                    bind:textview_text="@{promotedTag}"
+                    bind:item="@{card}"
+                    android:visibility="@{promotedTag == null ? View.GONE : View.VISIBLE}"
+                    android:textColor="?attr/date_text_color"
+                    android:textSize="@dimen/news_detail_promoted_text_size"
+                    app:dh_custom_font_weight="four_hundred"
+                    app:layout_constraintBottom_toTopOf="@+id/location"
+                    app:layout_constraintStart_toEndOf="@+id/source_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/display_name"
+                    />
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:baselineAligned="false"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:layout_marginStart="4dp"
+                    bind:textview_text="@{card.i_postLocation()}"
+                    bind:item="@{card}"
+                    app:dh_custom_font_weight="four_hundred"
+                    android:textColor="?attr/date_text_color"
+                    android:textSize="@dimen/news_detail_promoted_text_size"
+                    android:visibility="@{card.i_postLocation()==null ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/source_icon"
+                    app:layout_constraintStart_toEndOf="@+id/source_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/promoted"
+                    app:layout_constraintWidth_default="wrap" />
+
+                <ImageView
+                    android:id="@+id/creator_badge"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginStart="4dp"
+                    android:src="?attr/creator_badge"
+                    android:visibility="@{CardsBindUtils.canShowCreatorBadge(card.i_source()) ? View.VISIBLE : View.GONE}"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintBottom_toBottomOf="@id/display_name"
+                    app:layout_constraintStart_toEndOf="@id/display_name"
+                    app:layout_constraintTop_toTopOf="@id/display_name" />
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/publish_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:gravity="start"
+                    bind:textview_text="@{DetailsBindUtils.getDisplayTimeTextAsStoryWithDotCard(card)}"
+                    bind:item="@{card}"
+                    android:textColor="?attr/date_text_color"
+                    android:textSize="@dimen/news_detail_publish_date_text_size"
+                    app:dh_custom_font_weight="four_hundred"
+                    android:visibility="@{DetailsBindUtils.canShowTimeText(card) ? View.VISIBLE : View.GONE}"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintStart_toEndOf="@+id/creator_badge"
+                    app:layout_constraintTop_toTopOf="@+id/source_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/source_icon"
+                    app:layout_goneMarginStart="0dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+        <import type="com.newshunt.news.view.fragment.DetailsBindUtils" />
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+
+        <import type="com.newshunt.common.helper.common.Constants" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="card"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="parent_card"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="extraCard"
+            type="com.newshunt.dataentity.common.asset.DetailListCard" />
+
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.ClickHandlingViewModel"/>
+
+        <variable
+            name="dvm"
+            type="com.newshunt.news.viewmodel.DetailsViewModel" />
+
+        <variable
+            name="promotedTag"
+            type="String" />
+
+    </data>
+
+</layout>

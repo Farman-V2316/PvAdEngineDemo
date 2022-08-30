@@ -128,7 +128,7 @@ class ErrorMessageBuilder @JvmOverloads constructor(private val errorParentLayou
 
     private fun setUpCustomErrorScreen(error: BaseError?, hideButtons: Boolean, dhTv: Boolean,
                                        resId :Int) {
-        errorMsg?.text = error?.message ?: CommonUtils.getString(R.string.error_no_content_msg)
+        errorMsg?.text = error?.message ?: CommonUtils.getString(com.newshunt.common.util.R.string.error_no_content_msg)
         errorMsgIcon?.run {
             val drawableResId = resId
             visibility = View.VISIBLE
@@ -257,8 +257,8 @@ class ErrorMessageBuilder @JvmOverloads constructor(private val errorParentLayou
 
         errorMsg?.text = errorNoContent
         errorCode?.text = errorNoContentsub
-        errorMsg?.setTextColor(context.resources.getColor(R.color.white_color))
-        errorCode?.setTextColor(context.resources.getColor(R.color.white_color))
+        errorMsg?.setTextColor(context.resources.getColor(com.newshunt.common.util.R.color.white_color))
+        errorCode?.setTextColor(context.resources.getColor(com.newshunt.common.util.R.color.white_color))
         errorMsg?.setTypeface(null, Typeface.BOLD)
         errorMsgIcon?.run {
             val drawableResId = if (dhTv) {
@@ -273,10 +273,10 @@ class ErrorMessageBuilder @JvmOverloads constructor(private val errorParentLayou
         errorMsgAction?.run {
             text = errorNoContentAction
             if(isLocalZone) {
-                setTextColor(context.resources.getColor(R.color.black))
-                this.setBackgroundColor(CommonUtils.getColor(R.color.white_color))
+                setTextColor(context.resources.getColor(com.newshunt.common.util.R.color.black))
+                this.setBackgroundColor(CommonUtils.getColor(com.newshunt.common.util.R.color.white_color))
             } else {
-                setTextColor(context.resources.getColor(R.color.black))
+                setTextColor(context.resources.getColor(com.newshunt.common.util.R.color.black))
             }
             setOnClickListener(actionListener)
             setTypeface(null, Typeface.BOLD)
@@ -286,7 +286,7 @@ class ErrorMessageBuilder @JvmOverloads constructor(private val errorParentLayou
     }
 
     private fun setUpGenericErrorScreen(error: BaseError?, hideButtons: Boolean, dhTv: Boolean) {
-        errorMsg?.text = error?.message ?: CommonUtils.getString(R.string.error_no_content_msg)
+        errorMsg?.text = error?.message ?: CommonUtils.getString(com.newshunt.common.util.R.string.error_no_content_msg)
         errorMsgIcon?.run {
             val drawableResId = if (dhTv) {
                 R.drawable.error_generic_dhtv_night
@@ -332,7 +332,8 @@ class ErrorMessageBuilder @JvmOverloads constructor(private val errorParentLayou
             setOnClickListener(actionListener)
             if (hideButtons) visibility = View.GONE
         }
-        errorMsg?.text = fullPageErrorMessage?.message ?: (error?.message ?: CommonUtils.getString(R
+        errorMsg?.text = fullPageErrorMessage?.message ?: (error?.message ?: CommonUtils.getString(
+            com.newshunt.common.util.R
                 .string.error_no_content_msg))
     }
 
@@ -359,39 +360,39 @@ class ErrorMessageBuilder @JvmOverloads constructor(private val errorParentLayou
 
         val nwSettingIntent = Intent(Settings.ACTION_WIRELESS_SETTINGS)
         internal val errorConnectivity: String
-            get() = CommonUtils.getString(R.string.error_connectivity)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.error_connectivity)
         internal val errorNoConnection: String
-            get() = CommonUtils.getString(R.string.error_no_connection)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.error_no_connection)
         internal val errorNoConnectionSnackbar: String
-            get() = CommonUtils.getString(R.string.error_no_connection_snackbar)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.error_no_connection_snackbar)
         internal val errorServerIssue: String
-            get() = CommonUtils.getString(R.string.error_server_issue)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.error_server_issue)
         internal val savedArticleEmptyList: String
-            get() = CommonUtils.getString(R.string.saved_article_empty_list)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.saved_article_empty_list)
         internal val noContentFound: String
-            get() = CommonUtils.getString(R.string.no_content_found)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.no_content_found)
         internal val errorGeneric: String
-            get() = CommonUtils.getString(R.string.error_generic)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.error_generic)
         internal val noConnectionError: String
-            get() = CommonUtils.getString(R.string.no_connection_error)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.no_connection_error)
         internal val errorNoContentMsg: String
-            get() = CommonUtils.getString(R.string.error_no_content_msg)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.error_no_content_msg)
         internal val errorNoContentMsgSnackbar: String
-            get() = CommonUtils.getString(R.string.error_no_content_msg_snackbar)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.error_no_content_msg_snackbar)
         internal val offlineSavingFailed: String
-            get() = CommonUtils.getString(R.string.offline_saving_failed)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.offline_saving_failed)
         internal val dialogButtonRetry: String
-            get() = CommonUtils.getString(R.string.dialog_button_retry)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.dialog_button_retry)
         internal val btnHome: String
-            get() = CommonUtils.getString(R.string.btn_home)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.btn_home)
         internal val actionSettings: String
-            get() = CommonUtils.getString(R.string.action_settings)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.action_settings)
         internal val errorNoContent: String
-            get() = CommonUtils.getString(R.string.no_content_error_title)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.no_content_error_title)
         internal val errorNoContentsub: String
-            get() = CommonUtils.getString(R.string.no_content_error_sub_title)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.no_content_error_sub_title)
         internal val errorNoContentAction: String
-            get() = CommonUtils.getString(R.string.no_content_error_action)
+            get() = CommonUtils.getString(com.newshunt.common.util.R.string.no_content_error_action)
 
         /**
          *
@@ -441,7 +442,7 @@ class ErrorMessageBuilder @JvmOverloads constructor(private val errorParentLayou
                         spannableMessage = SpannableString("$convertedString $dbgcode")
                         spannableMessage.setSpan(RelativeSizeSpan(0.7f), convertedString.length + 1,
                                 spannableMessage.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-                        spannableMessage.setSpan(ForegroundColorSpan(CommonUtils.getColor(R.color.white_color)),
+                        spannableMessage.setSpan(ForegroundColorSpan(CommonUtils.getColor(com.newshunt.common.util.R.color.white_color)),
                                 convertedString.length + 1, spannableMessage.length, Spannable
                                 .SPAN_EXCLUSIVE_EXCLUSIVE)
                     }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+    </data>
+
+    <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/news_toolbar_bg"
+        android:elevation="1dp"
+        android:gravity="center_vertical"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp">
+
+        <RelativeLayout
+            android:id="@+id/actionbar_back_button_layout"
+            android:layout_width="@dimen/image_container_width"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/actionbar_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/back_button_description"
+                app:srcCompat="@drawable/news_detail_arrow_back" />
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+</layout>

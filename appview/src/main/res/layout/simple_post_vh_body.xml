@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils"/>
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils"/>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset"/>
+
+        <variable
+            name="cardTypeIndex"
+            type="Integer"/>
+
+        <variable
+            name="isDetailView"
+            type="Boolean"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(v)->vm.onViewClick(v,item)}"
+        android:clickable="@{isDetailView}"
+        android:tag="simple_post_vh">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="0dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="0dp"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/news_tag"
+            style="@style/HeroCardLabelTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            bind:textview_text="@{item.i_cardLabel().text}"
+            bind:item="@{item}"
+            bind:cardLabel="@{item.i_cardLabel()}"
+            android:translationZ="0.5dp"
+            android:visibility="@{CardsBindUtils.canShowBreakingNewsTag(item) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="@+id/news_image"
+            app:layout_constraintTop_toTopOf="@+id/news_image"
+            bind:textColor="@{CardsBindUtils.getCardLabelTextColor(item)}"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/news_title"
+            style="@style/post_title"
+            app:layout_constraintEnd_toEndOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/news_image"
+            android:layout_marginTop="8dp"
+            bind:hide_on_empty="@{true}"
+            bind:vm="@{vm}"
+            bind:cardType="@{cardTypeIndex}"
+            bind:title="@{item}" />
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/news_image"
+            style="@style/HeroCardImageStyle"
+            android:layout_marginTop="12dp"
+            app:cornerRadius="@dimen/news_image_radius"
+            app:borderColor="?attr/thumbnail_border_style"
+            app:borderSize="@dimen/ticker_border_width"
+            app:layout_constraintDimensionRatio="H,2:1"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:roundedCorners="allCorners"
+            bind:cardtype="@{cardTypeIndex}"
+            bind:index="@{0}"
+            bind:contentImage="@{item}"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/video_live_tag"
+            style="@style/live_video_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/breaking_news_simple_live_tag_margin_bottom"
+            android:layout_marginStart="@dimen/breaking_news_live_tag_margin_start"
+            android:visibility="@{CardsBindUtils.canShowLiveTag(item) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@id/news_image"
+            app:layout_constraintStart_toStartOf="@id/news_image"/>
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/video_play_icon"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:src="@drawable/ic_video_play"
+            android:visibility="@{CardsBindUtils.canShowPlayIcon(item) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/news_image"
+            app:layout_constraintStart_toStartOf="@+id/news_image"
+            app:layout_constraintTop_toTopOf="@+id/news_image"
+            app:layout_constraintEnd_toEndOf="@+id/news_image"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/video_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/breaking_news_image_tags_margin"
+            android:layout_marginStart="@dimen/breaking_news_image_tags_margin"
+            android:background="@drawable/story_card_video_duration_bg"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:paddingStart="@dimen/hero_card_video_duration_paddingLeft"
+            android:paddingTop="@dimen/hero_card_video_duration_paddingTop"
+            android:paddingEnd="@dimen/hero_card_video_duration_paddingLeft"
+            android:paddingBottom="@dimen/hero_card_video_duration_paddingTop"
+            bind:textview_text="@{item.i_videoAsset().duration}"
+            bind:item="@{item}"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/hero_card_video_duration_textSize"
+            app:dh_custom_font_weight="five_hundred"
+            android:visibility="@{CardsBindUtils.canShowVideoDuration(item) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/news_image"
+            app:layout_constraintStart_toStartOf="@id/news_image"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/video_views"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/story_card_video_duration_bg"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:paddingStart="@dimen/hero_card_video_duration_paddingLeft"
+            android:paddingTop="@dimen/hero_card_video_duration_paddingTop"
+            android:paddingEnd="@dimen/hero_card_video_duration_paddingLeft"
+            android:paddingBottom="@dimen/hero_card_video_duration_paddingTop"
+            android:drawableLeft="@drawable/ic_video_views"
+            android:drawablePadding="6dp"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/hero_card_video_duration_textSize"
+            app:dh_custom_font_weight="five_hundred"
+            bind:videoViewCount="@{item}"
+            android:visibility="@{CardsBindUtils.canShowVideoView(item) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/news_image"
+            app:layout_constraintStart_toEndOf="@+id/video_duration" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

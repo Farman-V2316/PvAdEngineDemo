@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils" />
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+        <import type="com.newshunt.common.helper.common.Constants" />
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.dhutil.helper.theme.ThemeUtils" />
+
+        <import type="com.newshunt.appview.R" />
+
+        <variable
+            name="profile"
+            type="com.newshunt.dataentity.model.entity.UserProfile" />
+
+        <variable
+            name="profileViewState"
+            type="com.newshunt.appview.common.profile.view.activity.ProfileViewState" />
+
+        <variable
+            name="approvalCounts"
+            type="com.newshunt.dataentity.common.asset.ApprovalCounts" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/background_image"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="#999999"/>
+
+        <View
+            android:id="@+id/frame_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="#66000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <include
+            android:id="@+id/profile_app_bar"
+            layout="@layout/profile_appbar_ner" />
+
+        <FrameLayout
+            android:id="@+id/profile_image_layout"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/profile_ner_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.newshunt.common.view.customview.NHImageView
+                android:id="@+id/user_profilePic"
+                android:layout_width="94dp"
+                android:layout_height="94dp"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profile_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image_layout"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:id="@+id/text_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/profile_ner_user_det_top_margin">
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/user_fullName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:textColor="?attr/ner_user_fullname_color"
+                    app:dh_custom_font_weight="six_hundred"
+                    android:textSize="@dimen/profile_ner_username_size"/>
+
+                <com.newshunt.common.view.customview.NHImageView
+                    android:id="@+id/profile_badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="@{profile.isProfileVerified() ? View.VISIBLE : View.GONE}"
+                    android:src="?attr/creator_badge"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/location_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_info"
+                android:orientation="horizontal">
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/user_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:textColor="?attr/ner_user_subtitle_color"
+                    android:textSize="@dimen/profile_ner_medium_text_size"/>
+            </LinearLayout>
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/profile_additional_stats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textColor="?attr/ner_user_fullname_color"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/location_info"
+                android:textSize="@dimen/profile_ner_small_text_size"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/profile_bio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"
+            android:textAlignment="viewStart"
+            android:textColor="?attr/ner_bio_color"
+            android:textSize="@dimen/profile_ner_medium_14_text_size"
+            android:visibility="gone"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_container"
+            app:layout_constraintEnd_toStartOf="@+id/bio_expand_icon"
+            app:layout_goneMarginTop="16dp"
+            app:more_text_color="?attr/ner_know_more_color"
+            app:more_text_style="bold" />
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/bio_expand_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="?attr/profile_ner_down_arrow"
+            android:layout_marginEnd="20dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_bio"/>
+
+        <LinearLayout
+            android:id="@+id/follower_following_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/profile_bio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_goneMarginTop="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp">
+            <LinearLayout
+                android:id="@+id/followers_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:orientation="horizontal">
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/followers_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="?attr/ner_user_fullname_color"
+                    app:dh_custom_font_weight="six_hundred"
+                    android:textSize="@dimen/profile_ner_medium_text_size"/>
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@string/followers"
+                    android:textColor="?attr/ner_follow_color"
+                    android:textSize="@dimen/profile_ner_small_text_size" />
+
+            </LinearLayout>
+            <com.newshunt.common.view.customview.NHImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:src="@drawable/profile_vertical_break"/>
+
+            <LinearLayout
+                android:id="@+id/following_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center"
+                android:visibility="visible"
+                android:orientation="horizontal">
+
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/following_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/ner_user_fullname_color"
+                    app:dh_custom_font_weight="six_hundred"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/profile_ner_medium_text_size"/>
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@string/following"
+                    android:textColor="?attr/ner_follow_color"
+                    android:textSize="@dimen/profile_ner_small_text_size" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/follow_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:visibility="gone"
+            bind:isProfileFollowing="@{profile.isFollowing()}"
+            android:paddingVertical="7dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="24dp"
+            android:paddingStart="@{profile.isFollowing() ? @dimen/following_button_padding : @dimen/follow_button_padding}"
+            android:paddingEnd="@{profile.isFollowing() ? @dimen/following_button_padding : @dimen/follow_button_padding}"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/background_image"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/follow_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:dh_custom_font_weight="five_hundred"
+                bind:isSelected ="@{profile.isFollowing()}"
+                android:text="@{profile.isFollowing() ? @string/following : @string/follow}"
+                android:textColor="@{profile.isFollowing() ? CommonUtils.getColor(R.color.following_button_text_color) : ThemeUtils.getThemeColorByAttribute(context,R.attr.follow_button_text_color)}"
+                android:textSize="@dimen/profile_ner_medium_text_size"/>
+
+        </LinearLayout>
+
+        <include
+            android:id="@+id/approval_card"
+            layout="@layout/layout_profile_approvals_card"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/approval_card_profile_height"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="@{CardsBindUtils.getApprovalCardVisibility(profileViewState, approvalCounts)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/follower_following_layout"
+            bind:approvalCounts="@{approvalCounts}"
+            app:layout_goneMarginTop="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/approval_card"
+            android:background="?attr/entity_tab_divider_background"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

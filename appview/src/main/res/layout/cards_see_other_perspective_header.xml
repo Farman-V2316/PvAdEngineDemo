@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/other_perspective_header"
+        android:onClick="@{(v)-> vm.onClickPerspective(v,item,state)}"
+        android:paddingBottom="@dimen/other_perspective_widget_padding">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/story_card_padding_left"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/story_card_padding_left"/>
+
+        <com.newshunt.common.view.customview.NHImageView
+            android:id="@+id/collapse_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/related_coverage_text"
+            app:layout_constraintStart_toEndOf="@+id/related_coverage_text"
+            app:layout_constraintTop_toTopOf="@+id/related_coverage_text"
+            bind:src="@{CardsBindUtils.getPerspectiveCollapse(state.collapsed)}" />
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/perspective_fav_icon_2"
+            android:layout_width="@dimen/story_card_padding_left"
+            android:layout_height="@dimen/story_card_padding_left"
+            android:layout_marginEnd="@dimen/perspective_icon_margin_right"
+            android:visibility="@{(item.i_moreCoverageIcons().size()&gt;=2) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/related_coverage_text"
+            app:layout_constraintEnd_toStartOf="@+id/perspective_fav_icon_3"
+            app:layout_constraintTop_toTopOf="@+id/related_coverage_text"
+            app:layout_goneMarginRight="0dp"
+            bind:iheight="@{32}"
+            bind:imageUrl="@{item.i_moreCoverageIcons().size()&gt;=2 ?item.i_moreCoverageIcons().get(1):null}"
+            bind:iwidth="@{32}" />
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/perspective_fav_icon_3"
+            android:layout_width="@dimen/story_card_padding_left"
+            android:layout_height="@dimen/story_card_padding_left"
+            android:layout_marginEnd="@dimen/perspective_icon_margin_right"
+            android:visibility="@{(item.i_moreCoverageIcons().size()&gt;=3) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/related_coverage_text"
+            app:layout_constraintEnd_toStartOf="@+id/perspective_fav_icon_4"
+            app:layout_constraintTop_toTopOf="@+id/related_coverage_text"
+            app:layout_goneMarginRight="0dp"
+            bind:iheight="@{32}"
+            bind:imageUrl="@{(item.i_moreCoverageIcons().size()&gt;=3)? item.i_moreCoverageIcons().get(2): null}"
+            bind:iwidth="@{32}" />
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/perspective_fav_icon_1"
+            android:layout_width="@dimen/story_card_padding_left"
+            android:layout_height="@dimen/story_card_padding_left"
+            android:layout_marginEnd="@dimen/perspective_icon_margin_right"
+            android:visibility="@{(item.i_moreCoverageIcons().size() >=1) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/related_coverage_text"
+            app:layout_constraintEnd_toStartOf="@+id/perspective_fav_icon_2"
+            app:layout_constraintTop_toTopOf="@+id/related_coverage_text"
+            app:layout_goneMarginRight="0dp"
+            bind:iheight="@{32}"
+            bind:imageUrl="@{(item.i_moreCoverageIcons().size()&gt;=1)? item.i_moreCoverageIcons().get(0): null}"
+            bind:iwidth="@{32}" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/related_coverage_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:text="@{item.i_npCoverageText() ?? @string/relatedCoverageText}"
+            android:textColor="#1f9ee1"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/perspective_fav_icon_4"
+            android:layout_width="@dimen/story_card_padding_left"
+            android:layout_height="@dimen/story_card_padding_left"
+            android:background="@drawable/perspective_icon_count_background"
+            android:paddingStart="@dimen/news_detail_perspective_icon_padding_top"
+            android:paddingTop="@dimen/news_detail_perspective_icon_padding_top"
+            android:text="@{CardsBindUtils.otherPerspectivetext(item,3)}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/source_share_margintop"
+            android:textStyle="bold"
+            android:visibility="@{CardsBindUtils.showotherPerspectivetext(item,3) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/related_coverage_text"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/related_coverage_text"
+            app:layout_goneMarginRight="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils" />
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset" />
+
+        <variable
+            name="state"
+            type="com.newshunt.appview.common.ui.viewholder.PerspectiveState" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel"/>
+
+    </data>
+
+
+</layout>

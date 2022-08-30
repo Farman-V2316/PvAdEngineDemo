@@ -126,7 +126,7 @@ class NHFollowButton : ConstraintLayout, View.OnClickListener {
             toggleOffImageView.scaleType = ImageView.ScaleType.CENTER_CROP
             toggleOnImage.scaleType = ImageView.ScaleType.CENTER_CROP
             ImageViewCompat.setImageTintList(toggleOnImage,
-                    ColorStateList.valueOf(ContextCompat.getColor(context, R.color.white_color)))
+                    ColorStateList.valueOf(ContextCompat.getColor(context, com.newshunt.common.util.R.color.white_color)))
         }
 
         if (isNewsList) {
@@ -157,8 +157,8 @@ class NHFollowButton : ConstraintLayout, View.OnClickListener {
             followingContainer.visibility = View.VISIBLE
             followContainer.visibility = View.GONE
             if (isBorderVisible) {
-                rootLayout.setPadding(CommonUtils.getDimension(R.dimen.viral_social_icon_text_size), 0,
-                        CommonUtils.getDimension(R.dimen.viral_social_icon_text_size), 0)
+                rootLayout.setPadding(CommonUtils.getDimension(com.newshunt.common.util.R.dimen.viral_social_icon_text_size), 0,
+                        CommonUtils.getDimension(com.newshunt.common.util.R.dimen.viral_social_icon_text_size), 0)
             }
         } else {
             rootLayout.setPadding(CommonUtils.getDimension(R.dimen
@@ -191,17 +191,17 @@ class NHFollowButton : ConstraintLayout, View.OnClickListener {
 
         if (state) {
             background = CommonUtils.getDrawable(R.drawable.follow_toggle_background)
-            val toggleOnTextColor = CommonUtils.getColor(R.color.white_color)
+            val toggleOnTextColor = CommonUtils.getColor(com.newshunt.common.util.R.color.white_color)
             toggleOnText.setTextColor(toggleOnTextColor)
-            DrawableCompat.setTint(toggleOnImage.getDrawable(), ContextCompat.getColor(context, R.color.follow_color))
+            DrawableCompat.setTint(toggleOnImage.getDrawable(), ContextCompat.getColor(context, com.newshunt.common.util.R.color.follow_color))
         } else {
             background = if (darkThemeFollowButton) CommonUtils.getDrawable(R.drawable
                     .follow_toggle_background_night) else CommonUtils.getDrawable(R.drawable.follow_toggle_background)
-            val toggleOnTextColor = if (darkThemeFollowButton) CommonUtils.getColor(R.color
-                    .white_color) else CommonUtils.getColor(R.color.follow_color)
+            val toggleOnTextColor = if (darkThemeFollowButton) CommonUtils.getColor(com.newshunt.common.util.R.color
+                    .white_color) else CommonUtils.getColor(com.newshunt.common.util.R.color.follow_color)
             toggleOnText.setTextColor(toggleOnTextColor)
             DrawableCompat.setTint(toggleOnImage.getDrawable(), ContextCompat.getColor(context,
-                    if (darkThemeFollowButton) R.color.white_color else R.color
+                    if (darkThemeFollowButton) com.newshunt.common.util.R.color.white_color else com.newshunt.common.util.R.color
                             .follow_color))
         }
     }

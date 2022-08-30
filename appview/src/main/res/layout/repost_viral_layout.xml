@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.common.helper.common.Constants"/>
+
+        <import type="com.newshunt.appview.common.ui.helper.CardsBindUtils"/>
+
+        <import type="com.newshunt.dataentity.common.helper.common.CommonUtils"/>
+
+        <import type="com.newshunt.news.util.NewsConstants"/>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="vm"
+            type="com.newshunt.appview.common.viewmodel.CardsViewModel"/>
+
+        <variable
+            name="item"
+            type="com.newshunt.dataentity.common.asset.CommonAsset"/>
+
+        <variable
+            name="cardTypeIndex"
+            type="Integer"/>
+
+        <variable
+            name="isDetailView"
+            type="Boolean"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <com.newshunt.common.view.customview.NHRoundedCornerImageView
+            android:id="@+id/thumbnail_small_viral"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/default_thumbnail_bg"
+            android:visibility="@{CardsBindUtils.canShowRepostSmallViralImage(cardTypeIndex)? View.VISIBLE : View.GONE}"
+            app:cornerRadius="@dimen/news_image_radius"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:roundedCorners="allCorners"
+            bind:hide_on_empty="@{true}"
+            bind:dimensionAspectRatio="@{CardsBindUtils.getViralAspectRatio(item)}"
+            bind:showNsfw="@{Boolean.valueOf(vm.nsfwLiveData) &amp; item.i_viral().nsfw}"
+            bind:viralBg="@{item}"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/viral_text"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:textSize="10dp"
+            android:visibility="@{CardsBindUtils.canShowRepostSmallViralImage(cardTypeIndex)? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:supportsEmoji="true"
+            bind:dimensionAspectRatio="@{CardsBindUtils.getViralAspectRatio(item)}"
+            bind:showNsfw="@{Boolean.valueOf(vm.nsfwLiveData) &amp; item.i_viral().nsfw}"
+            bind:viraltext="@{item}"/>
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/viral_text_nsfw_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NSFW"
+            android:gravity="center"
+            android:textSize="8dp"
+            android:padding="2dp"
+            android:textColor="@color/white_color"
+            android:textStyle="bold"
+            android:visibility="@{(Boolean.valueOf(vm.nsfwLiveData) &amp; item.i_viral().nsfw) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

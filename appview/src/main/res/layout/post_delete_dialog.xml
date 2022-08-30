@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/post_creation_discard_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="?attr/popup_bg_color">
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/post_creation_dialog_start_margin"
+            android:layout_marginStart="@dimen/post_creation_dialog_start_margin"
+            android:layout_marginTop="@dimen/post_creation_dialog_start_margin"
+            android:text="@{headingText}"
+            android:textColor="#db4437"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginEnd="@dimen/post_creation_dialog_start_margin"
+            android:layout_marginStart="@dimen/post_creation_dialog_start_margin"
+            android:layout_marginTop="10dp"
+            android:lineSpacingExtra="5dp"
+            android:text="@{messageText}"
+            android:textColor="?attr/cp_discard_dialog_desc_text_color"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/positive_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/post_creation_dialog_start_margin"
+            android:layout_marginEnd="@dimen/post_creation_dialog_start_margin"
+            android:layout_marginTop="42dp"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="@{(v) -> frag.onPositiveClick()}"
+            android:text="@{positiveText}"
+            android:textAllCaps="true"
+            android:textColor="#db4437"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description" />
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/negative_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/post_creation_dialog_start_margin"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="@{(v) -> frag.onNegativeClick()}"
+            android:text="@{negativeText}"
+            android:textAllCaps="true"
+            android:textColor="#9698a3"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/positive_button"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="frag"
+            type="com.newshunt.appview.common.postcreation.view.customview.PostDeleteDialog" />
+
+        <variable
+            name="positiveText"
+            type="String"/>
+
+        <variable
+            name="negativeText"
+            type="String"/>
+
+        <variable
+            name="messageText"
+            type="String"/>
+
+        <variable
+            name="headingText"
+            type="String"/>
+    </data>
+</layout>

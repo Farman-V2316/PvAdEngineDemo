@@ -1,0 +1,28 @@
+{
+	"id": "175925884",
+	"type": "STORY",
+	"title": "Story with one image. looks simillar to existing hero cards",
+	"uiType": "NORMAL",
+	"source": {
+		"id": "124223",
+		"sourceName": "alx.r",
+		"displayName": "Alex Robert",
+		"icon": "https://randomuser.me/api/portraits/men/2.jpg",
+		"imageUrl": "https://randomuser.me/api/portraits/men/1.jpg",
+		"type": "creator"
+	},
+	"showPublishDate": true,
+	"shareUrl": "http://dhunt.in/6ZkQn",
+	"cardLabel": null,
+	"deeplinkUrl": null,
+	"shareParam": null,
+	"counts": null,
+	"thumbnail": {
+		"url": "http://assets-news-bcdn-ll.dailyhunt.in/cmd/crop/#DH_EMB_IMG_REP#_60/fetchdata15/images/f1/dc/77/f1dc7707ca5b545fbbe0e01aebcffe99.jpg",
+		"width": 0.0,
+		"height": 0.0
+	},
+	"thumbnailUrls": null,
+	"viral": null,
+	"poll": null
+}
