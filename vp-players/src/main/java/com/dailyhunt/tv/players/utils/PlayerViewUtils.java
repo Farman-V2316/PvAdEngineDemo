@@ -22,7 +22,7 @@ public class PlayerViewUtils {
   public static void showNoNetworkToast() {
     try {
       FontHelper.showCustomFontToast(CommonUtils.getApplication(),
-          CommonUtils.getString(R.string.no_connection_error),
+          CommonUtils.getString(com.newshunt.common.util.R.string.no_connection_error),
           Toast.LENGTH_SHORT);
     } catch (Exception e) {
       Logger.caughtException(e);

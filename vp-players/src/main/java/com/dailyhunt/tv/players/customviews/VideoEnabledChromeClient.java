@@ -205,7 +205,7 @@ public class VideoEnabledChromeClient extends WebChromeClient
      */
     mVideoLayout = new FrameLayout(webView.getContext());
 
-    mVideoLayout.setBackgroundResource(R.color.black_color);
+    mVideoLayout.setBackgroundResource(com.newshunt.common.util.R.color.black_color);
     mVideoLayout.addView(video);
     ViewGroup.LayoutParams lp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
         FrameLayout.LayoutParams.MATCH_PARENT);

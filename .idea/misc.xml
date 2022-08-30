@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="ad-engine/src/main/res/layout/layout_ima_video_ads.xml" value="0.3421875" />
+        <entry key="appview/src/main/res/layout/layout_profile_ner_header.xml" value="0.1" />
         <entry key="sso/src/main/res/layout/activity_true_caller_dialog.xml" value="0.175" />
       </map>
     </option>

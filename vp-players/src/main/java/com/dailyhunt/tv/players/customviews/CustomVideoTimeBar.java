@@ -262,37 +262,37 @@ public class CustomVideoTimeBar extends View implements TimeBar {
     int defaultScrubberDisabledSize = dpToPx(displayMetrics, DEFAULT_SCRUBBER_DISABLED_SIZE_DP);
     int defaultScrubberDraggedSize = dpToPx(displayMetrics, DEFAULT_SCRUBBER_DRAGGED_SIZE_DP);
     if (attrs != null) {
-      TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.DefaultTimeBar, 0,
+      TypedArray a = context.getTheme().obtainStyledAttributes(attrs, com.dailyhunt.tv.exolibrary.R.styleable.DefaultTimeBar, 0,
           0);
       try {
-        scrubberDrawable = a.getDrawable(R.styleable.DefaultTimeBar_scrubber_drawable);
+        scrubberDrawable = a.getDrawable(com.google.android.exoplayer2.ui.R.styleable.DefaultTimeBar_scrubber_drawable);
         if (scrubberDrawable != null) {
           setDrawableLayoutDirection(scrubberDrawable);
           defaultTouchTargetHeight =
               Math.max(scrubberDrawable.getMinimumHeight(), defaultTouchTargetHeight);
         }
-        barHeight = a.getDimensionPixelSize(R.styleable.DefaultTimeBar_bar_height,
+        barHeight = a.getDimensionPixelSize(com.google.android.exoplayer2.ui.R.styleable.DefaultTimeBar_bar_height,
             defaultBarHeight);
-        touchTargetHeight = a.getDimensionPixelSize(R.styleable.DefaultTimeBar_touch_target_height,
+        touchTargetHeight = a.getDimensionPixelSize(com.google.android.exoplayer2.ui.R.styleable.DefaultTimeBar_touch_target_height,
             defaultTouchTargetHeight);
-        adMarkerWidth = a.getDimensionPixelSize(R.styleable.DefaultTimeBar_ad_marker_width,
+        adMarkerWidth = a.getDimensionPixelSize(com.google.android.exoplayer2.ui.R.styleable.DefaultTimeBar_ad_marker_width,
             defaultAdMarkerWidth);
         scrubberEnabledSize = a.getDimensionPixelSize(
-            R.styleable.DefaultTimeBar_scrubber_enabled_size, defaultScrubberEnabledSize);
+            com.google.android.exoplayer2.ui.R.styleable.DefaultTimeBar_scrubber_enabled_size, defaultScrubberEnabledSize);
         scrubberDisabledSize = a.getDimensionPixelSize(
-            R.styleable.DefaultTimeBar_scrubber_disabled_size, defaultScrubberDisabledSize);
+            com.google.android.exoplayer2.ui.R.styleable.DefaultTimeBar_scrubber_disabled_size, defaultScrubberDisabledSize);
         scrubberDraggedSize = a.getDimensionPixelSize(
-            R.styleable.DefaultTimeBar_scrubber_dragged_size, defaultScrubberDraggedSize);
-        int playedColor = a.getInt(R.styleable.DefaultTimeBar_played_color, DEFAULT_PLAYED_COLOR);
-        int scrubberColor = a.getInt(R.styleable.DefaultTimeBar_scrubber_color,
+            com.google.android.exoplayer2.ui.R.styleable.DefaultTimeBar_scrubber_dragged_size, defaultScrubberDraggedSize);
+        int playedColor = a.getInt(com.google.android.exoplayer2.ui.R.styleable.DefaultTimeBar_played_color, DEFAULT_PLAYED_COLOR);
+        int scrubberColor = a.getInt(com.google.android.exoplayer2.ui.R.styleable.DefaultTimeBar_scrubber_color,
             getDefaultScrubberColor(playedColor));
-        int bufferedColor = a.getInt(R.styleable.DefaultTimeBar_buffered_color,
+        int bufferedColor = a.getInt(com.google.android.exoplayer2.ui.R.styleable.DefaultTimeBar_buffered_color,
             getDefaultBufferedColor(playedColor));
-        int unplayedColor = a.getInt(R.styleable.DefaultTimeBar_unplayed_color,
+        int unplayedColor = a.getInt(com.google.android.exoplayer2.ui.R.styleable.DefaultTimeBar_unplayed_color,
             getDefaultUnplayedColor(playedColor));
-        int adMarkerColor = a.getInt(R.styleable.DefaultTimeBar_ad_marker_color,
+        int adMarkerColor = a.getInt(com.google.android.exoplayer2.ui.R.styleable.DefaultTimeBar_ad_marker_color,
             DEFAULT_AD_MARKER_COLOR);
-        int playedAdMarkerColor = a.getInt(R.styleable.DefaultTimeBar_played_ad_marker_color,
+        int playedAdMarkerColor = a.getInt(com.google.android.exoplayer2.ui.R.styleable.DefaultTimeBar_played_ad_marker_color,
             getDefaultPlayedAdMarkerColor(adMarkerColor));
         playedPaint.setColor(playedColor);
         scrubberPaint.setColor(scrubberColor);

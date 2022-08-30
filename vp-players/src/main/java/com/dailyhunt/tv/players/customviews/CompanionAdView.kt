@@ -73,15 +73,15 @@ class CompanionAdView @JvmOverloads constructor(
         companionSlot = findViewById(R.id.companion_slot)
         toggleView = findViewById(R.id.toggle_btn)
 
-        setBackgroundColor(if (mode == AdTheme.NIGHT) CommonUtils.getColor(R.color
+        setBackgroundColor(if (mode == AdTheme.NIGHT) CommonUtils.getColor(com.newshunt.dhutil.R.color
                 .companion_ad_background_color_night)
-        else CommonUtils.getColor(R.color.companion_ad_background_color))
+        else CommonUtils.getColor(com.newshunt.dhutil.R.color.companion_ad_background_color))
 
         if (mode == AdTheme.NIGHT) {
-            heading.setTextColor(CommonUtils.getColor(R.color.companion_ad_header_text_color_night))
-            findViewById<TextView>(R.id.ad_icon).setTextColor(CommonUtils.getColor(R.color
+            heading.setTextColor(CommonUtils.getColor(com.newshunt.dhutil.R.color.companion_ad_background_color_night))
+            findViewById<TextView>(R.id.ad_icon).setTextColor(CommonUtils.getColor(com.newshunt.dhutil.R.color
                 .companion_ad_background_color_night))
-            findViewById<View>(R.id.top_divider).setBackgroundColor(CommonUtils.getColor(R.color
+            findViewById<View>(R.id.top_divider).setBackgroundColor(CommonUtils.getColor(com.newshunt.dhutil.R.color
                 .story_card_divider_color_night))
         }
         val config = AdsUpgradeInfoProvider.getInstance().adsUpgradeInfo?.instreamAdsConfig
@@ -134,8 +134,8 @@ class CompanionAdView @JvmOverloads constructor(
         }
         if (isHeaderValid) {
             heading.text = collapsedText
-            toggleView.setImageResource(if (mode == AdTheme.DAY) R.drawable.arrow_expand
-            else R.drawable.arrow_expand_night)
+            toggleView.setImageResource(if (mode == AdTheme.DAY) com.newshunt.dhutil.R.drawable.arrow_expand
+            else com.newshunt.dhutil.R.drawable.arrow_expand_night)
         }
         companionSlot.visibility = View.GONE
         expanded = false
@@ -147,8 +147,8 @@ class CompanionAdView @JvmOverloads constructor(
         }
         if (isHeaderValid) {
             heading.text = expandedText
-            toggleView.setImageResource(if (mode == AdTheme.DAY) R.drawable.arrow_collapse
-            else R.drawable.arrow_collapse_night)
+            toggleView.setImageResource(if (mode == AdTheme.DAY) com.newshunt.dhutil.R.drawable.arrow_collapse
+            else com.newshunt.dhutil.R.drawable.arrow_collapse_night)
             adHeader.visibility = View.VISIBLE
         }
         companionSlot.visibility = View.VISIBLE

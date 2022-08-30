@@ -578,7 +578,7 @@ class PlayerFragmentYoutube : BasePlayerFragment(), YoutubeView, PlayerCustomYou
             return
         }
         try {
-            FontHelper.showCustomFontToast(activity, getString(R.string.no_connection_error),
+            FontHelper.showCustomFontToast(activity, getString(com.newshunt.common.util.R.string.no_connection_error),
                     Toast.LENGTH_SHORT)
         } catch (e: Exception) {
             Logger.caughtException(e)
