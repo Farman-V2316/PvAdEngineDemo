@@ -192,8 +192,10 @@
                 android:layout_gravity="center"
                 android:includeFontPadding="false"
                 android:text="@string/view"
-                android:textColor="@{ThemeUtils.getThemeColorByAttribute(context,R.attr.follow_button_text_color)}"
-                app:layout_constraintEnd_toEndOf="@+id/guideline_end"/>
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+
+                />
         </FrameLayout>
 
         <FrameLayout
@@ -218,7 +220,7 @@
                 android:layout_gravity="center"
                 android:includeFontPadding="false"
                 android:text="@{item.blocked? @string/blocked : @string/unblock_text}"
-                android:textColor="@{item.blocked ? @color/following_button_text_color : ThemeUtils.getThemeColorByAttribute(context,R.attr.follow_button_text_color)}"
+                android:textColor="@{@color/following_button_text_color}"
                 app:layout_constraintEnd_toEndOf="@+id/guideline_end"/>
         </FrameLayout>
 

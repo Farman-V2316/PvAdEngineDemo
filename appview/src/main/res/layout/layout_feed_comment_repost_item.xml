@@ -64,7 +64,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginStart="@dimen/simple_topic_title_marginleft"
                 android:layout_marginTop="@dimen/following_button_padding"
-                android:background="@{CardsBindUtils.canShowCreatorBadge(item.i_source()) ? CommonUtils.getDrawable(R.drawable.source_name_container) : null}"
+                android:background="@drawable/admin_owner_badge_bg"
                 android:paddingEnd="@{CardsBindUtils.canShowCreatorBadge(item.i_source()) ? CommonUtils.getDimension(R.dimen.profile_follow_counts_padding) : CommonUtils.getDimension(R.dimen.padding_privacy_zero)}"
                 android:paddingStart="@{CardsBindUtils.canShowCreatorBadge(item.i_source()) ? CommonUtils.getDimension(R.dimen.following_button_padding) : CommonUtils.getDimension(R.dimen.padding_privacy_zero)}">
 
@@ -80,7 +80,7 @@
                     android:gravity="center"
                     app:dh_custom_font_weight="seven_hundred"
                     android:text="@{item.i_source().displayName}"
-                    android:textColor="@{CardsBindUtils.canShowCreatorBadge(item.i_source()) ? CommonUtils.getColor(R.color.social_handle_text_color) : ThemeUtils.getThemeColorByAttribute(context, R.attr.source_name_color)}" />
+                    android:textColor="#1f9ee1" />
 
                 <com.newshunt.common.view.customview.NHImageView
                     android:id="@+id/creator_badge"

@@ -255,7 +255,7 @@
                 app:dh_custom_font_weight="five_hundred"
                 bind:isSelected ="@{profile.isFollowing()}"
                 android:text="@{profile.isFollowing() ? @string/following : @string/follow}"
-                android:textColor="@{profile.isFollowing() ? CommonUtils.getColor(R.color.following_button_text_color) : ThemeUtils.getThemeColorByAttribute(context,R.attr.follow_button_text_color)}"
+                android:textColor="@{CommonUtils.getColor(R.color.following_button_text_color)}"
                 android:textSize="@dimen/profile_ner_medium_text_size"/>
 
         </LinearLayout>

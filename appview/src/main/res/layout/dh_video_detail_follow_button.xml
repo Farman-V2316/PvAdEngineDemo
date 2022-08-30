@@ -55,7 +55,7 @@
             android:textSize="11dp"
             bind:textview_text="@{item.i_isFollowin() ? @string/following : @string/follow}"
             bind:item="@{item}"
-            android:textColor="@{(item.i_isFollowin()) ? @color/following_button_text_color : ThemeUtils.getThemeColorByAttribute(context,R.attr.follow_button_text_color)}" />
+            android:textColor="@{ @color/following_button_text_color}" />
 
     </LinearLayout>
 </layout>

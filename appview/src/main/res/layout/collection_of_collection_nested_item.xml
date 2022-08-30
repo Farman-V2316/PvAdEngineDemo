@@ -90,7 +90,7 @@
                     android:textSize="10dp"
                     android:layout_gravity="center_vertical"
                     app:dh_custom_font_weight="five_hundred"
-                    android:textColor="@{item.i_isFollowin() ? CommonUtils.getColor(R.color.following_button_text_color) : ThemeUtils.getThemeColorByAttribute(context,R.attr.follow_button_text_color)}"
+                    android:textColor="@{CommonUtils.getColor(R.color.following_button_text_color)}"
                     />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
