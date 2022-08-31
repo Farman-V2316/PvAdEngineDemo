@@ -84,7 +84,7 @@ dependencies {
     testImplementation ("androidx.fragment:fragment-testing:"+project.fragmentVersion)
 
 
-    //panda
+    //PANDA: removed manually for testing
     //api project.featureSource ? project(':navigation-drawer') : 'com.newshunt.sdk.feature:navigation-drawer:' + project.fsv_aar
     //api project.featureSource ? project(':onboarding') : 'com.newshunt.sdk.feature:onboarding:' +project.fsv_aar
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

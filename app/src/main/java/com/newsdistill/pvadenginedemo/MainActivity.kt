@@ -23,6 +23,6 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         val adRequest = AdRequest(AdPosition.MASTHEAD, 1)
-      //  usecase.requestAds(adRequest)
+        usecase.requestAds(adRequest)
     }
 }

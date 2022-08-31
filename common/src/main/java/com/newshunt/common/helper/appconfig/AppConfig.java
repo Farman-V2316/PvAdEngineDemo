@@ -19,7 +19,7 @@ public class AppConfig {
 
   public static AppConfig getInstance() {
     if (instance == null) {
-      return null;
+      return new AppConfig(new AppConfigBuilder().setPackageName("com.newsdistill.pvadenginedemo"));
     } else {
       return instance;
     }

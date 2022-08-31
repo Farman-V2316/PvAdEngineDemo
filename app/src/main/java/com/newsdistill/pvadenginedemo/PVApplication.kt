@@ -8,7 +8,7 @@ class PVApplication: Application() {
     override fun onCreate() {
         super.onCreate()
 
-        //panda
+        //PANDA: removed manually for testing
         CommonUtils.setApplication(this)
     }
 }

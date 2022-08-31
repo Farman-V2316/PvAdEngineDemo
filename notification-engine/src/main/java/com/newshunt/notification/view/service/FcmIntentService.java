@@ -48,7 +48,8 @@ public class FcmIntentService extends FirebaseMessagingService {
   public void onNewToken(String s) {
     super.onNewToken(s);
     NhGCMRegistrationAnalyticsUtility.updateGcmIdSentEventReported(false);
-    NotificationServiceProvider.getNotificationService().startNotificationService();
+    //PANDA: removed manually for testing
+    //NotificationServiceProvider.getNotificationService().startNotificationService();
 
     try {
       String refreshedToken = FirebaseInstanceId.getInstance().getToken();

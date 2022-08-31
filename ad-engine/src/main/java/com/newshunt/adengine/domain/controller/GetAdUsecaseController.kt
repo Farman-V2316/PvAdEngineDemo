@@ -216,7 +216,7 @@ class GetAdUsecaseController @JvmOverloads constructor(@param:Provided @param:Ui
      * @return true/false
      */
     private fun discardAdRequest(): Boolean {
-        //panda
+        //PANDA: removed manually for testing
        /* if (AndroidUtils.isInRestrictedMonkeyMode()) {
             AdLogger.d(Constants.MONKEY_LOG_TAG, "Discarding ad request in monkey test mode")
             return true

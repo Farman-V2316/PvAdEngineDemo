@@ -286,7 +286,7 @@ dependencies {
 
     implementation project(':ad-engine')
 
-    //panda
+    //PANDA: removed manually for testing
     //api project(':appview')
    // api project.enableNews ? project(':notification-inbox') : project.featureSource ? project(':empty') : 'com.newshunt.sdk.feature:empty:' + project.fsv_aar
    // implementation project(':web-app')
