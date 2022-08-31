@@ -77,8 +77,10 @@ allprojects {
 
         bom_v = '27.1.0'  //firebase BoM version
         dagger_v = "2.12"
-        msv = 26 // min sdk version
-        msv_debug = 26 // min sdk version for improving build speed
+
+        //panda
+        msv = 21 // min sdk version
+        msv_debug = 21 // min sdk version for improving build speed
 
         appVersion = System.getenv("VERSION_NAME") ?: "20.0.0"
 
@@ -131,7 +133,7 @@ allprojects {
 }
 
 task generateSources {
-    afterEvaluate {
+   /* afterEvaluate {
         if (project.generateSourceWithConditionalLog) {
             def script
             if (project.featureGo) {
@@ -145,5 +147,5 @@ task generateSources {
             script.err.eachLine { line -> println "ERROR: " + line }
             script.waitFor()
         }
-    }
+    }*/
 }

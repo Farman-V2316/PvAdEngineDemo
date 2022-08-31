@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "301533748651",
+    "firebase_url": "https://dailyhunt-cb1ab.firebaseio.com",
+    "project_id": "dailyhunt-cb1ab",
+    "storage_bucket": "dailyhunt-cb1ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301533748651:android:574923a9e52e0dec",
+        "android_client_info": {
+          "package_name": "com.newsdistill.pvadenginedemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "301533748651-teibkbu6mrvtgrt0h0b7rs9aad9aae1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsWYECGI9FQ5xU-FmwDlwyckxe71Y6MEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "301533748651-64kutmaielr563t33hdadpd2p03tcafu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "301533748651-gagd35d2d6mhi581hm569dmhdgvjv8t0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eternoinfotech.newshunt",
+                "app_store_id": "338525188"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

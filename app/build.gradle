@@ -1,9 +1,10 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.firebase-perf'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 buildscript {
     repositories {
@@ -39,49 +40,8 @@ android {
         enabled = true
     }
 
-    bundle {
-        language {
-            enableSplit = false // Do not enable this as we use locale based on app language
-        }
-        density {
-            enableSplit = true
-        }
-        abi {
-            enableSplit = true
-        }
-    }
-
     configurations {
         all*.exclude group: 'com.google.guava', module: 'listenablefuture'
-    }
-
-    signingConfigs {
-        release {
-            storeFile file("eterno_androidks")
-            storePassword System.getenv("KSTOREPWD")
-            keyAlias "eterno_androidks"
-            keyPassword System.getenv("KSTOREPWD")
-        }
-
-        debugRelease {
-            storeFile file('eterno_androidks')
-            storePassword 'eterno123'
-            keyAlias "eterno_androidks"
-            keyPassword 'eterno123'
-        }
-    }
-
-
-    //to prevent build  failure of including both rx1 and rx2
-    packagingOptions {
-        exclude 'META-INF/rxjava.properties'
-        exclude '**/*.java'
-        exclude 'LICENSE_OFL'
-        exclude 'LICENSE_UNICODE'
-        exclude 'error_prone/Annotations.gwt.xml'
-        exclude 'third_party/java_src/error_prone/project/annotations/Annotations.gwt.xml'
-        exclude 'third_party/java_src/error_prone/project/annotations/Google_internal.gwt.xml'
-        exclude 'META-INF/android.arch.lifecycle_runtime.version'
     }
 
     compileOptions {
@@ -128,61 +88,18 @@ android {
         }
     }
 
-    sourceSets {
-        debug {
-        }
-
-        test {
-        }
-
-        release {
-            java.srcDirs = ['src/release/java']
-        }
-    }
-
     buildTypes {
         debug {
             minifyEnabled false
             shrinkResources false
             multiDexEnabled true
             minSdkVer = project.msv_debug
-            signingConfig signingConfigs.debugRelease
+           // signingConfig signingConfigs.debugRelease
         }
     }
 
-    flavorDimensions "log", "package", "config", "memory"
 
-    /* Separate assets directory because they contain separate databases for each environment */
-    sourceSets {
-
-
-        qa {
-            assets.srcDirs = ['src/qa/assets']
-            java.srcDirs = ['src/qa/java']
-            res.srcDirs += ['src/qa/res']
-        }
-
-
-
-        perf {
-            assets.srcDirs = ['src/prod/assets']
-            java.srcDirs = ['src/prod/java', 'src/perf/java']
-            res.srcDirs += ['src/prod/res', 'src/perf/res']
-        }
-
-
-        go {
-            res.srcDirs += new File('src/main/res')
-            res.srcDirs += new File('src/go/res')
-        }
-
-        regular {
-            res.srcDirs += new File('src/main/res')
-            res.srcDirs += new File('src/regular/res')
-        }
-    }
-
-    productFlavors {
+   /* productFlavors {
         def BOOKS_API_ENDPOINT = "BOOKS_API_ENDPOINT"
         def AUTHORIZATION_ENDPOINT = "AUTHORIZATION_ENDPOINT"
         def ORDER_ENDPOINT = "ORDER_ENDPOINT"
@@ -245,53 +162,7 @@ android {
         def LOCAL_ZONE_URL = "LOCAL_ZONE_URL"
         def IS_PROFILEABLE = "is_profileable"
 
-        logged {
-            buildConfigField "boolean", LOGGER_ENABLED, 'true'
-            dimension "log"
-            resValue "bool", IS_PROFILEABLE, 'true'
-        }
-
-        nolog {
-            buildConfigField "boolean", LOGGER_ENABLED, 'false'
-            dimension "log"
-            resValue "bool", IS_PROFILEABLE, 'false'
-        }
-
-        variant {
-            dimension "package"
-            buildConfigField "boolean", VARIANT_BUILD, 'true'
-        }
-
-        eterno {
-            dimension "package"
-            buildConfigField "boolean", VARIANT_BUILD, 'false'
-        }
-
-        go {
-            buildConfigField "boolean", GO_BUILD, 'true'
-            resValue "string", facebook_app_id, "408176739739864"
-            dimension "memory"
-        }
-
-        regular {
-            buildConfigField "boolean", GO_BUILD, 'false'
-            resValue "string", facebook_app_id, "131285656905938"
-            dimension "memory"
-        }
-
-        go {
-            buildConfigField "boolean", GO_BUILD, 'true'
-            resValue "string", fb_login_protocol_scheme, "fb408176739739864"
-            dimension "memory"
-        }
-
-        regular {
-            buildConfigField "boolean", GO_BUILD, 'false'
-            resValue "string", fb_login_protocol_scheme, "fb131285656905938"
-            dimension "memory"
-        }
-
-        qa {
+        debug {
             versionName project.ext.appVersion + ".2"
             versionCode project.ext.version_others
             minSdkVersion minSdkVer
@@ -347,10 +218,6 @@ android {
             buildConfigField "boolean", APPEND_ID_TO_BOOK_DESC, 'true'
             buildConfigField "int", MIN_DURATION_FOR_PULL_JOB, "10"
             buildConfigField "boolean", ENABLE_APP_INDEXING, 'false'
-            buildConfigField "String", BUILD_ENV, '"qa"'
-            resValue "bool", large_heap_enabled, 'false'
-            resValue "string", launcher_disp_name, "DH Qa"
-            dimension "config"
         }
 
         perf {
@@ -409,14 +276,8 @@ android {
             buildConfigField "boolean", APPEND_ID_TO_BOOK_DESC, 'false'
             buildConfigField "int", MIN_DURATION_FOR_PULL_JOB, "3600"
             buildConfigField "boolean", ENABLE_APP_INDEXING, 'false'
-            buildConfigField "String", BUILD_ENV, '"perf"'
-            resValue "bool", large_heap_enabled, 'true'
-            resValue "string", launcher_disp_name, "DH Perf"
-            dimension "config"
         }
-    }
-
-
+    }*/
 
 }
 
@@ -431,7 +292,6 @@ dependencies {
    // implementation project(':web-app')
 
     implementation platform('com.google.firebase:firebase-bom:'+project.bom_v)
-
     implementation('com.google.android.gms:play-services-analytics:' + project.gpv_analytics) {
         exclude group: 'com.google.android.gms', module: 'play-services-basement'
     }
@@ -474,19 +334,6 @@ dependencies {
     androidTestImplementation 'com.squareup:javawriter:2.5.1'
     implementation 'com.squareup.leakcanary:leakcanary-android:' + project.lcv
     implementation 'com.facebook.stetho:stetho:' + project.fb_stetho
-    implementation 'com.facebook.stetho:stetho:' + project.fb_stetho
-    implementation 'com.facebook.stetho:stetho:' + project.fb_stetho
-    implementation 'com.facebook.stetho:stetho:' + project.fb_stetho
-    implementation 'com.facebook.stetho:stetho:' + project.fb_stetho
-    implementation 'com.facebook.stetho:stetho:' + project.fb_stetho
-    implementation 'com.facebook.stetho:stetho:' + project.fb_stetho
-
-    implementation 'com.facebook.stetho:stetho-okhttp3:' + project.fb_stetho
-    implementation 'com.facebook.stetho:stetho-okhttp3:' + project.fb_stetho
-    implementation 'com.facebook.stetho:stetho-okhttp3:' + project.fb_stetho
-    implementation 'com.facebook.stetho:stetho-okhttp3:' + project.fb_stetho
-    implementation 'com.facebook.stetho:stetho-okhttp3:' + project.fb_stetho
-    implementation 'com.facebook.stetho:stetho-okhttp3:' + project.fb_stetho
     implementation 'com.facebook.stetho:stetho-okhttp3:' + project.fb_stetho
     implementation 'com.squareup:otto:' + project.bus_v
     api 'com.google.dagger:dagger:' + project.dagger_v
@@ -517,7 +364,7 @@ gradle.taskGraph.whenReady { graph ->
 
 gradle.buildFinished {
 
-    if (project.generateSourceWithConditionalLog) {
+   /* if (project.generateSourceWithConditionalLog) {
         def scriptDegen
         if (project.featureGo) {
             println("degenerating code with GO")
@@ -529,7 +376,5 @@ gradle.buildFinished {
         scriptDegen.in.eachLine { line -> println line }
         scriptDegen.err.eachLine { line -> println "ERROR: " + line }
         scriptDegen.waitFor()
-    }
+    }*/
 }
-
-apply plugin: 'com.google.gms.google-services'
