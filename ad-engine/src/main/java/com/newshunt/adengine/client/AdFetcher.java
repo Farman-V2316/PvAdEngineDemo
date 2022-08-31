@@ -93,8 +93,7 @@ public class AdFetcher {
     if(amazonSdkPayload != null) {
       bodyParams.put(AdConstants.AD_REQ_AMAZON_PAYLOAD, JsonUtils.toJson(amazonSdkPayload));
     }
-    String adStats =
-        AdStatisticsHelper.INSTANCE.getDataAsString(NHAnalyticsSession.getSessionId());
+    String adStats = AdStatisticsHelper.INSTANCE.getDataAsString(NHAnalyticsSession.getSessionId());
     if (!CommonUtils.isEmpty(adStats)) {
       bodyParams.put(AdConstants.AD_REQ_STATS, adStats);
     }

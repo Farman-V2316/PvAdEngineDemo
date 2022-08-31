@@ -32,7 +32,7 @@ public class PreferenceManager {
     Context context = CommonUtils.getApplication();
     String preferenceFileName = preferenceType.getFileName();
     String preferenceKey = savedPreference.getName();
-    if (AppConfig.getInstance().isGoBuild()) {
+    if (AppConfig.getInstance() != null && AppConfig.getInstance().isGoBuild()) {
       return preferenceDao.contains(preferenceFileName, preferenceKey);
     }
     else {
@@ -407,7 +407,8 @@ public class PreferenceManager {
     if (preferenceType != null) {
       fileName = preferenceType.getFileName();
     }
-    if (AppConfig.getInstance().isGoBuild()) {
+    if (AppConfig.getInstance() != null &&
+            AppConfig.getInstance().isGoBuild()) {
       preferenceDao.remove(fileName, key);
     }
     else {
