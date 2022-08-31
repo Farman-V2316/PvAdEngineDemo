@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2015 Newshunt. All rights reserved.
+  -->
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/actionbar"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/actionbar_height"
+    android:background="?attr/news_toolbar_bg"
+    android:elevation="0dp"
+    app:contentInsetEnd="0dp"
+    app:contentInsetStart="0dp">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/toolbar_margin_top">
+
+        <FrameLayout android:id="@+id/toolbar_back_button_container"
+                     android:layout_width="@dimen/image_container_width"
+            android:layout_height="@dimen/image_container_height"
+            android:background="?attr/selectableItemBackground">
+            <ImageView
+                android:id="@+id/toolbar_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="?attr/ic_actionbar_back" />
+        </FrameLayout>
+
+
+        <com.newshunt.common.view.customview.fontview.NHTextView
+            android:id="@+id/actionbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/toolbar_back_button_container"
+            android:layout_toRightOf="@+id/toolbar_back_button_container"
+            android:includeFontPadding="false"
+            android:textColor="?attr/default_text_color"
+            android:textSize="@dimen/text_medium">
+        </com.newshunt.common.view.customview.fontview.NHTextView>
+
+        <View android:layout_width="match_parent"
+              android:layout_height="@dimen/toolbar_bottom_line_height"
+              android:layout_alignParentBottom="true"
+              android:background="?attr/toolbar_bottom_line"/>
+    </RelativeLayout>
+</androidx.appcompat.widget.Toolbar>
