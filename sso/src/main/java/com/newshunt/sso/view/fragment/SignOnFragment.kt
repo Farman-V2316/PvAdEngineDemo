@@ -626,8 +626,8 @@ class SignOnFragment : BaseFragment(), View.OnClickListener, FetchUserProfilesVi
 
 
     override fun phoneNumberLogin() {
-        val intent = Intent(activity, TrueCallerVerificationDialogActivity::class.java)
-        startActivityForResult(intent, REQ_CODE_LOGIN_RESULT)
+//        val intent = Intent(activity, TrueCallerVerificationDialogActivity::class.java)
+//        startActivityForResult(intent, REQ_CODE_LOGIN_RESULT)
     }
 
     //Google Login related callbacks.
