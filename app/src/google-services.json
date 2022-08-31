@@ -1,42 +1,182 @@
 {
   "project_info": {
-    "project_number": "301533748651",
-    "firebase_url": "https://dailyhunt-cb1ab.firebaseio.com",
-    "project_id": "dailyhunt-cb1ab",
-    "storage_bucket": "dailyhunt-cb1ab.appspot.com"
+    "project_number": "166891710020",
+    "firebase_url": "https://newsdistill-7e02f.firebaseio.com",
+    "project_id": "newsdistill-7e02f",
+    "storage_bucket": "newsdistill-7e02f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:301533748651:android:574923a9e52e0dec",
+        "mobilesdk_app_id": "1:166891710020:android:21a85f63fb1c94f5",
         "android_client_info": {
-          "package_name": "com.newsdistill.pvadenginedemo"
+          "package_name": "com.android.newsdistilln1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "301533748651-teibkbu6mrvtgrt0h0b7rs9aad9aae1n.apps.googleusercontent.com",
+          "client_id": "166891710020-9008bj951klpb40kbqse0n12p8copouq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBsWYECGI9FQ5xU-FmwDlwyckxe71Y6MEQ"
+          "current_key": "AIzaSyCT9xVUBQObbU5T_xyFZ6_lHtwmPPL7h30"
+        },
+        {
+          "current_key": "AIzaSyCcMvi1A_VSgKyO7_Ca6LAocdocyiaKxMo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "301533748651-64kutmaielr563t33hdadpd2p03tcafu.apps.googleusercontent.com",
+              "client_id": "100236324960828303419",
               "client_type": 3
             },
             {
-              "client_id": "301533748651-gagd35d2d6mhi581hm569dmhdgvjv8t0.apps.googleusercontent.com",
+              "client_id": "166891710020-p8p21fiab3hr7cq0nn0jjua1cnlp9pj4.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.eternoinfotech.newshunt",
-                "app_store_id": "338525188"
+                "bundle_id": "com.newsDistill.NewsDistillApp",
+                "app_store_id": "1190633052"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166891710020:android:8de2ef8ec901139b",
+        "android_client_info": {
+          "package_name": "com.android.newsdistills1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166891710020-9008bj951klpb40kbqse0n12p8copouq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT9xVUBQObbU5T_xyFZ6_lHtwmPPL7h30"
+        },
+        {
+          "current_key": "AIzaSyCcMvi1A_VSgKyO7_Ca6LAocdocyiaKxMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100236324960828303419",
+              "client_type": 3
+            },
+            {
+              "client_id": "166891710020-p8p21fiab3hr7cq0nn0jjua1cnlp9pj4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.newsDistill.NewsDistillApp",
+                "app_store_id": "1190633052"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166891710020:android:a5934182049ce78d",
+        "android_client_info": {
+          "package_name": "com.newsdistill.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166891710020-auvfsffr14c7dhkej05ic89emqol14dk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.newsdistill.mobile",
+            "certificate_hash": "0ddd29e157c7430de4c257a9bc832fd58bec1cb3"
+          }
+        },
+        {
+          "client_id": "166891710020-q3j9c6epes9juketiob57f7ua6917rmn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.newsdistill.mobile",
+            "certificate_hash": "142dceb3c67285241fd46540378f7dd22ed4fc5e"
+          }
+        },
+        {
+          "client_id": "166891710020-9008bj951klpb40kbqse0n12p8copouq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT9xVUBQObbU5T_xyFZ6_lHtwmPPL7h30"
+        },
+        {
+          "current_key": "AIzaSyCcMvi1A_VSgKyO7_Ca6LAocdocyiaKxMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100236324960828303419",
+              "client_type": 3
+            },
+            {
+              "client_id": "166891710020-p8p21fiab3hr7cq0nn0jjua1cnlp9pj4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.newsDistill.NewsDistillApp",
+                "app_store_id": "1190633052"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-9121696319986720~6484475628"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166891710020:android:64efdef9f241ccee5b7e11",
+        "android_client_info": {
+          "package_name": "com.newsdistill.pvadenginedemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166891710020-9008bj951klpb40kbqse0n12p8copouq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT9xVUBQObbU5T_xyFZ6_lHtwmPPL7h30"
+        },
+        {
+          "current_key": "AIzaSyCcMvi1A_VSgKyO7_Ca6LAocdocyiaKxMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100236324960828303419",
+              "client_type": 3
+            },
+            {
+              "client_id": "166891710020-p8p21fiab3hr7cq0nn0jjua1cnlp9pj4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.newsDistill.NewsDistillApp",
+                "app_store_id": "1190633052"
               }
             }
           ]
