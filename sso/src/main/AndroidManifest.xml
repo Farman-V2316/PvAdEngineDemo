@@ -27,8 +27,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.fragment.TrueCallerVerificationDialogActivity"
-            android:theme="@style/NoActionBarDay"/>
 
     </application>
 </manifest>
