@@ -102,9 +102,13 @@ public class AdFetcher {
     bodyParams.put(AdConstants.AD_REQ_FCAP, JsonUtils.toJson(AdFrequencyStats.getFcMetCampaignsFor(uniqueRequestId)));
     bodyParams.put(AdConstants.AD_REQ_LANG_INFO, JsonUtils.toJson(LangInfoRepo.INSTANCE.getNonNullLangInfo()));
 
-    final String url = AdsUtil.buildAdServerURL(adRequest);
+    final String url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/html.json";
+    //PANDA: removed manually for testing
+    //final String url = AdsUtil.buildAdServerURL(adRequest);
 
-    Call newRequest = HttpClientManager.newAdRequestCall(url, bodyParams, priority);
+    Call newRequest = HttpClientManager.newAdRequestCall(url, null, priority);
+    //PANDA: removed manually for testing
+    //Call newRequest = HttpClientManager.newAdRequestCall(url, bodyParams, priority);
     if (newRequest == null) {
       adRequester.onAdRequestError("Failed to create okHttp request.", uniqueRequestId);
       return;

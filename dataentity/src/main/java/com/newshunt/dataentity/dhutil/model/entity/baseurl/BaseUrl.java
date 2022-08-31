@@ -205,7 +205,8 @@ public class BaseUrl implements Serializable {
   }
 
   public String getAdvertisementUrl() {
-    return advertisementUrl;
+    //TODO: PANDA: added manually for testing
+    return "http://qa-money.newshunt.com/publicVibe/v1/pgi/html.json";
   }
 
   public void setAdvertisementUrl(String advertisementUrl) {
