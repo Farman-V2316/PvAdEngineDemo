@@ -46,7 +46,7 @@ dependencies {
   implementation 'com.google.android.gms:play-services-auth:16.0.1'
   implementation project(path: ':dailyhunt-common')
   annotationProcessor 'com.google.auto.factory:auto-factory:1.0-beta3'
-  api project(':truesdk-0.8-releasePartner')
+  //api project(':truesdk-0.8-releasePartner')
   api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
