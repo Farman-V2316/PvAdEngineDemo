@@ -405,9 +405,9 @@
         <item name="no_saved_stories">@drawable/ic_no_saved_stories</item>
         <item name="no_followers">@drawable/ic_no_followers</item>
         <item name="not_following">@drawable/ic_not_following</item>
-        <item name="no_blocked_items">@drawable/ic_no_block</item>
-        <item name="tooltip_bg">@drawable/remove_tab_tool_tip_background</item>
-        <item name="reorder_tab_tooltip_bg">@drawable/reorder_tab_tool_tip_background</item>
+        <item name="no_blocked_items">@drawable/ic_no_activity</item>
+        <item name="tooltip_bg">@drawable/astro_read_more_text_bg</item>
+        <item name="reorder_tab_tooltip_bg">@drawable/read_more_background</item>
         <item name="tv_detail_background_color">@color/daytv_detail_background_color</item>
         <item name="tv_detail_actionbartitle_color">@color/daytv_detail_actionbartitle_color</item>
         <item name="tv_card_detail_item_mask">@color/daytv_card_item_mask</item>
@@ -460,7 +460,7 @@
         <item name="gender_radio_btn_selected_bg">@color/gender_radio_btn_select_state_day</item>
         <item name="edit_text_bg_border">@color/black</item>
         <item name="edit_icon">@drawable/ic_edit_icon</item>
-        <item name="disclaimer_icon">@drawable/edit_profile_disclaimer_tooltip</item>
+        <item name="disclaimer_icon">@drawable/edit_comment_bg_dhtv</item>
         <item name="shimmer_rgb">@integer/shimmer_rgb_day</item>
         <item name="stop_audio_icon">@drawable/ic_stop</item>
         <item name="play_audio_icon">@drawable/ic_play</item>
@@ -644,7 +644,7 @@
         <item name="collection_separator_line">@color/seprator_color_day</item>
         <item name="more_perspective_separator_line">@color/black</item>
         <item name="search_seperate_line">@color/search_seprator_color_day</item>
-        <item name="ic_disclaimer">@drawable/ic_info</item>
+        <item name="ic_disclaimer">@drawable/info_icon</item>
 
         <!--Video Detail white bg mode-->
         <item name="vd_title_color">@color/vd_title_color_day</item>
@@ -693,9 +693,9 @@
         <item name="import_contacts_msg_color">@color/import_contacts_title</item>
         <item name="sign_on_header_textColor_onboarding">@color/sign_on_onboarding_color_day</item>
         <item name="app_bar_color">@color/presearch_bg_day</item>
-        <item name="add_icon">@drawable/ic_addmore</item>
+        <item name="add_icon">@drawable/more_icn_hr</item>
         <item name="tab_title_color">@color/profile_tab_unselected_text_new</item>
-        <item name="tab_title_select_color">@color/source_tab_selected_text</item>
+        <item name="tab_title_select_color">@color/source_tab_selected_text_new_day</item>
         <item name="default_share_icon">@drawable/default_share_vector</item>
         <item name="default_share_icon_detail">@drawable/default_share_detail</item>
         <item name="collection_header_title">@color/collection_header_title_day</item>
@@ -743,7 +743,7 @@
         <item name="searchbar_bg_color">@color/searchbar_bg_color</item>
         <item name="common_topbar_bg">@color/color_white</item>
         <item name="create_post_fab_icon">@drawable/ic_fab_pencil_day</item>
-        <item name="reply_icon">@drawable/ic_reply_icon</item>
+        <item name="reply_icon">@drawable/ic_replay_white_48dp</item>
     </style>
 
     <style name="AppThemeNightV23" parent="AppTheme">
@@ -754,10 +754,6 @@
         <item name="state_info_layout_border">@color/black_color</item>
         <item name="follow_text_color">@color/white_color</item>
         <item name="search_bottom_color">@color/search_bar_highlight_night</item>
-        <item name="tv_detail_description_color">@color/darktv_detail_description_color</item>
-        <item name="tv_detail_divider_color">@color/darktv_detail_divider_color</item>
-        <item name="tv_detail_description_color">@color/daytv_detail_description_color</item>
-        <item name="tv_detail_divider_color">@color/daytv_detail_item_divider_color</item>
         <item name="android:windowBackground">@color/theme_night_background</item>
         <item name="android:actionModeBackground">@color/toolbar_color_night</item>
         <item name="android:textColorSecondary">@android:color/white</item>
@@ -1157,8 +1153,8 @@
         <item name="no_followers">@drawable/ic_no_followers_nm</item>
         <item name="not_following">@drawable/ic_not_following_nm</item>
         <item name="no_blocked_items">@drawable/ic_not_following_nm</item>
-        <item name="tooltip_bg">@drawable/remove_tab_tool_tip_bg_nm</item>
-        <item name="reorder_tab_tooltip_bg">@drawable/reorder_tab_tool_tip_bg_nm</item>
+        <item name="tooltip_bg">@drawable/read_more_background</item>
+        <item name="reorder_tab_tooltip_bg">@drawable/read_more_background</item>
         <item name="story_tag_item_text_color">@color/story_tag_text_color_night_mode</item>
         <item name="story_tag_item_bg">@drawable/story_item_tag_night</item>
 
@@ -1200,7 +1196,7 @@
         <item name="gender_radio_btn_selected_bg">@color/gender_radio_btn_select_state_night</item>
         <item name="edit_text_bg_border">@color/white_color</item>
         <item name="edit_icon">@drawable/ic_edit_icon_nm</item>
-        <item name="disclaimer_icon">@drawable/edit_profile_disclaimer_tooltip_nm</item>
+        <item name="disclaimer_icon">@drawable/profile_notification_icon</item>
         <item name="shimmer_rgb">@integer/shimmer_rgb_night</item>
         <item name="feed_divider_color">@color/card_list_divider_night_color</item>
         <item name="stop_audio_icon">@drawable/ic_stop_night</item>
@@ -1383,7 +1379,7 @@
         <item name="collection_separator_line">@color/collection_bg_color_night</item>
         <item name="more_perspective_separator_line">@color/more_perspective_seprator_color_night</item>
         <item name="search_seperate_line">@color/search_seprator_color_night</item>
-        <item name="ic_disclaimer">@drawable/ic_info_night</item>
+        <item name="ic_disclaimer">@drawable/info_icon</item>
 
         <!-- Video Detail Black bg mode-->
         <item name="vd_title_color">@color/vd_title_color_night</item>
@@ -1426,7 +1422,7 @@
         <item name="import_contacts_msg_color">@color/import_contacts_msg_night</item>
         <item name="sign_on_header_textColor_onboarding">@color/sign_on_onboarding_color_night</item>
         <item name="app_bar_color">@color/edit_text_fill_color_night</item>
-        <item name="add_icon">@drawable/ic_addmore_nm</item>
+        <item name="add_icon">@drawable/ic_more</item>
         <item name="tab_title_color">@color/profile_tab_unselected_text_new_night</item>
         <item name="tab_title_select_color">@color/white_color</item>
         <item name="default_share_icon_detail">@drawable/default_share_detail_night</item>
@@ -1476,7 +1472,7 @@
         <item name="searchbar_bg_color">@color/searchbar_bg_color_night</item>
         <item name="common_topbar_bg">@color/common_topbar_bg_night</item>
         <item name="create_post_fab_icon">@drawable/ic_fab_pencil_night</item>
-        <item name="reply_icon">@drawable/ic_reply_icon_night_mode</item>
+        <item name="reply_icon">@drawable/ic_replay_white_48dp</item>
     </style>
 
     <style name="MyDrawerArrowToggle" parent="Widget.AppCompat.DrawerArrowToggle">

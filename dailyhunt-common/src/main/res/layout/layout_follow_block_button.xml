@@ -12,7 +12,6 @@
         android:id="@+id/follow_container"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:background="@drawable/follow_button_bg"
         android:gravity="center_vertical"
         android:visibility="gone"
         android:paddingHorizontal="16dp"
@@ -44,7 +43,7 @@
         android:id="@+id/following_container"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:background="@drawable/block_button_bg_grey"
+        android:background="@drawable/black_filter_down_arrow"
         android:gravity="center_vertical"
         android:paddingHorizontal="16dp"
         android:visibility="visible"
@@ -58,7 +57,7 @@
             android:layout_height="16dp"
             android:layout_marginVertical="10dp"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_block_unselected"/>
+            android:src="@drawable/profile_back_button_day_non_login"/>
 
 
         <com.newshunt.common.view.customview.fontview.NHTextView
