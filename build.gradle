@@ -78,7 +78,7 @@ allprojects {
         bom_v = '27.1.0'  //firebase BoM version
         dagger_v = "2.12"
 
-        //panda
+        //PANDA: removed manually for testing
         msv = 21 // min sdk version
         msv_debug = 21 // min sdk version for improving build speed
 

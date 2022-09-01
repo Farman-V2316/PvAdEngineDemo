@@ -51,7 +51,7 @@ data class AdRequest(
         //Temp flag to allow Instream ads to skip common cache.
         val skipCacheMatching: Boolean = false,
         var amazonSdkPayload: AmazonSdkPayload? = null,
-      //panda
+      //PANDA: removed manually for testing
         val isNotificationEnabled: Boolean = false,
        // val isNotificationEnabled: Boolean = NotificationManagerCompat.from(CommonUtils.getApplication()).areNotificationsEnabled(),
         val activity: Activity? = null,

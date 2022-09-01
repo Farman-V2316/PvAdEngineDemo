@@ -19,7 +19,9 @@ public class AppConfig {
 
   public static AppConfig getInstance() {
     if (instance == null) {
-      return null;
+      //PANDA: added manually for testing
+      instance = new AppConfig(new AppConfigBuilder().setPackageName("com.newsdistill.pvadenginedemo"));
+      return instance;
     } else {
       return instance;
     }

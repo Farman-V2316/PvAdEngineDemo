@@ -7,6 +7,7 @@ import com.newshunt.adengine.model.entity.version.AdPosition
 import com.newshunt.adengine.model.entity.version.AdRequest
 import com.newshunt.adengine.view.helper.AdsHelper
 import com.newshunt.common.helper.common.BusProvider
+import io.reactivex.plugins.RxJavaPlugins
 
 class MainActivity : AppCompatActivity() {
     val uiBus = BusProvider.getUIBusInstance()
@@ -23,6 +24,15 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         val adRequest = AdRequest(AdPosition.MASTHEAD, 1)
-      //  usecase.requestAds(adRequest)
+        usecase.requestAds(adRequest)
+
+        tempFix()
+    }
+
+    // fix rxjava2 crash
+    private fun tempFix() {
+        RxJavaPlugins.setErrorHandler {
+            it?.printStackTrace()
+        }
     }
 }
