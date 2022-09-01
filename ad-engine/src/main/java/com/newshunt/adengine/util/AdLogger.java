@@ -10,8 +10,11 @@ import com.newshunt.common.helper.common.Logger;
  */
 public class AdLogger {
   private static final String pattern = "**************** - >";
-  private static final boolean ENABLED = AppConfig.getInstance() != null && AppConfig.getInstance()
-      .isLoggerEnabled();
+  //PANDA:
+  /*private static final boolean ENABLED = AppConfig.getInstance() != null && AppConfig.getInstance()
+      .isLoggerEnabled();*/
+
+  private static final boolean ENABLED = true;
 
   public static void v(String aTag, String aMessage) {
     if (ENABLED) {

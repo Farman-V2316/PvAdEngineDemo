@@ -102,7 +102,10 @@ public class AdFetcher {
     bodyParams.put(AdConstants.AD_REQ_FCAP, JsonUtils.toJson(AdFrequencyStats.getFcMetCampaignsFor(uniqueRequestId)));
     bodyParams.put(AdConstants.AD_REQ_LANG_INFO, JsonUtils.toJson(LangInfoRepo.INSTANCE.getNonNullLangInfo()));
 
+    //PV_AD_SERVER_URL
+    //final String url = "http://qa-money.newshunt.com/publicVibe/v1/list-ad/native.json";
     final String url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/html.json";
+
     //PANDA: removed manually for testing
     //final String url = AdsUtil.buildAdServerURL(adRequest);
 
