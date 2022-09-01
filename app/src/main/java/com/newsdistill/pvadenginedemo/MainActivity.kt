@@ -26,6 +26,11 @@ class MainActivity : AppCompatActivity() {
         val adRequest = AdRequest(AdPosition.MASTHEAD, 1)
         usecase.requestAds(adRequest)
 
+        tempFix()
+    }
+
+    // fix rxjava2 crash
+    private fun tempFix() {
         RxJavaPlugins.setErrorHandler {
             it?.printStackTrace()
         }
