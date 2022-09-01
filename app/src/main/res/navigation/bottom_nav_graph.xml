@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_nav_graph"
+    app:startDestination="@id/action_home">
+
+    <keep_state_fragment
+        android:id="@+id/action_home"
+        android:name="com.newsdistill.pvadenginedemo.dummydata.fragments.CommunityFragment"
+        android:label="CommunityFragment" />
+
+    <keep_state_fragment
+        android:id="@+id/action_shorts"
+        android:name="com.newsdistill.pvadenginedemo.dummydata.fragments.ShortsFragment"
+        android:label="ShortsFragment" />
+
+</navigation>
