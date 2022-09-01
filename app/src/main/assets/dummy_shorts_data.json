@@ -1,0 +1,375 @@
+{
+  "posts":[
+    {
+      "cardType": "NEWS",
+      "cardSubType": "DEFAULT",
+      "viewType": "SHORTS",
+      "postId": "1662033648330121126",
+      "sourceId": "9",
+      "languageId": 2,
+      "actualLanguageId": 2,
+      "genreId": 19,
+      "newsTypeId": "99",
+      "videoTypeId": "0",
+      "title": "టీ తాగే వారికి శుభవార్త!",
+      "imageUrl": "https://media.publicvibe.com/community/topic/20220901/1384687703_18933_120047772_1440x810.jpg",
+      "imageUrlSmall": [
+        "https://media.publicvibe.com/community/topic/20220901/1384687703_42881_120047835_398x532.jpg"
+      ],
+      "imageUrlMedium": [
+        "https://media.publicvibe.com/community/topic/20220901/1384687703_42881_120047835_398x532.jpg"
+      ],
+      "imageUrlLarge": [
+        "https://media.publicvibe.com/community/topic/20220901/1384687703_42881_120047835_398x532.jpg"
+      ],
+      "simpleDescription": "టీ ఎక్కువగా తీసుకుంటే డెత్ రిస్క్ తగ్గుతుందని పరిశోధకులు కనుగొన్నారు. టీ తాగని వారితో పోలిస్తే రోజుకు రెండు లేదా మూడు కప్పులు తాగేవారిలో మరణ ప్రమాదం తక్కువని డేటా విశ్లేషణ స్పష్టం చేసింది. యూకేలోని నేషనల్ ఇన్‌స్టిట్యూట్ ఆఫ్ హెల్త్‌కు చెందిన నేషనల్ క్యాన్సర్ ఇన్‌స్టిట్యూట్‌ పరిశోధకులు బ్లాక్ టీ వల్ల కలిగే సంభావ్య మరణాల ప్రయోజనాల గురించి తమ విశ్లేషణలో తెలుసుకున్నారు. రోజుకు రెండు కప్పులకు పైగా టీ తాగే వ్యక్తుల్లో ఏ కారణం చేతనైనా మరణించే ప్రమాదం తాగని వారికంటే 9% నుంచి 13% వరకు తక్కువని NIH ఒక ప్రక",
+      "who": {
+        "id": "1570686452753500405",
+        "name": "Yamini",
+        "imageUrl": "https://www.pvibe.in/profile_images/profile39.jpg",
+        "redirection": true,
+        "type": "member"
+      },
+      "feedSourceName": "SHORTS_LATEST_POSTS",
+      "status": 99,
+      "displayScore": 98,
+      "stats": {
+        "views": 573,
+        "shares": 0,
+        "answers": 0,
+        "links": 0,
+        "reactions": [
+          {
+            "type": "1",
+            "count": 2
+          }
+        ],
+        "tags": {
+          "tags": [
+            {
+              "id": "5958734",
+              "labelName": "టీ"
+            },
+            {
+              "id": "17471634",
+              "labelName": "బ్లాక్ టీ"
+            },
+            {
+              "id": "340881",
+              "labelName": "ఆరోగ్యం"
+            },
+            {
+              "id": "2246",
+              "labelName": "Health"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "cardType": "NEWS",
+      "cardSubType": "DEFAULT",
+      "viewType": "SHORTS",
+      "postId": "1662030394219189317",
+      "sourceId": "9",
+      "languageId": 2,
+      "actualLanguageId": 2,
+      "genreId": 19,
+      "newsTypeId": "95",
+      "videoTypeId": "0",
+      "imageUrl": "https://media.publicvibe.com/community/topic/20220901/1384688658_80453_110633703_1920x1080.jpg",
+      "imageUrlSmall": [
+        "https://media.publicvibe.com/community/topic/20220901/1384688658_80453_110633703_1920x1080.jpg"
+      ],
+      "imageUrlMedium": [
+        "https://media.publicvibe.com/community/topic/20220901/1384688658_80453_110633703_1920x1080.jpg"
+      ],
+      "imageUrlLarge": [
+        "https://media.publicvibe.com/community/topic/20220901/1384688658_80453_110633703_1920x1080.jpg"
+      ],
+      "simpleDescription": "",
+      "who": {
+        "id": "1570686452753500405",
+        "name": "Yamini",
+        "imageUrl": "https://www.pvibe.in/profile_images/profile39.jpg",
+        "redirection": true,
+        "type": "member"
+      },
+      "feedSourceName": "SHORTS_LATEST_POSTS",
+      "status": 99,
+      "displayScore": 97,
+      "stats": {
+        "views": 481,
+        "shares": 0,
+        "answers": 0,
+        "links": 0,
+        "reactions": [
+          {
+            "type": "1",
+            "count": 2
+          }
+        ],
+        "tags": {
+          "tags": [
+            {
+              "id": "553849",
+              "labelName": "quotes"
+            },
+            {
+              "id": "340790",
+              "labelName": "సూక్తులు"
+            },
+            {
+              "id": "32",
+              "labelName": "Quotes"
+            }
+          ]
+        }
+      }
+    },
+
+    {
+      "cardType": "VIDEO",
+      "cardSubType": "MP4",
+      "viewType": "SHORTS",
+      "postId": "1661859931064197772",
+      "sourceId": "13",
+      "languageId": 2,
+      "actualLanguageId": 2,
+      "genreId": 58,
+      "categoryId": 140,
+      "newsTypeId": "98",
+      "videoTypeId": "98",
+      "title": "ప్రాణం తీసిన అంబులెన్సు.. డోర్లు తెరుచుకోకపోవడంతో దారుణం",
+      "link": "https://stream.publicvibe.com/video/a43-1d86e310287411edb4d4a0ced4523dcc_480px.mp4",
+      "imageUrl": "https://media.publicvibe.com/community/topic/20220830/1844059876_98462_114534999_720x1280.jpg",
+      "imageUrlSmall": [
+        "https://media.publicvibe.com/community/topic/20220830/1844059876_98462_114534999_720x1280.jpg"
+      ],
+      "imageUrlMedium": [
+        "https://media.publicvibe.com/community/topic/20220830/1844059876_98462_114534999_720x1280.jpg"
+      ],
+      "imageUrlLarge": [
+        "https://media.publicvibe.com/community/topic/20220830/1844059876_98462_114534999_720x1280.jpg"
+      ],
+      "simpleDescription": "",
+      "who": {
+        "id": "1608531325187500221",
+        "name": "PublicVibe-Telugu",
+        "imageUrl": "https://media.publicvibe.com/meedia/20220211/notification_2022021106444882420220211064448824_533x800.jpg",
+        "redirection": true,
+        "type": "member"
+      },
+      "feedSourceName": "SHORTS_TRENDING_POSTS",
+      "label2": "ట్రెండింగ్",
+      "status": 99,
+      "displayScore": 98,
+      "videos": [
+        {
+          "very low": "https://stream.publicvibe.com/video/a43-1d86e310287411edb4d4a0ced4523dcc_240px.mp4",
+          "low": "https://stream.publicvibe.com/video/a43-1d86e310287411edb4d4a0ced4523dcc_360px.mp4",
+          "medium": "https://stream.publicvibe.com/video/a43-1d86e310287411edb4d4a0ced4523dcc_480px.mp4",
+          "downloadUrl": "https://stream.publicvibe.com/video/a43-1d86e310287411edb4d4a0ced4523dcc_download.mp4"
+        }
+      ],
+      "stats": {
+        "views": 31995,
+        "shares": 0,
+        "answers": 2,
+        "links": 0,
+        "reactions": [
+          {
+            "type": "1",
+            "count": 134
+          }
+        ],
+        "tags": {
+          "tags": [
+            {
+              "id": "334223",
+              "labelName": "రోడ్డు ప్రమాదం"
+            },
+            {
+              "id": "472178",
+              "labelName": "accidents"
+            },
+            {
+              "id": "833827",
+              "labelName": "క్రైమ్"
+            },
+            {
+              "id": "5103202",
+              "labelName": "ప్రమాదాలు"
+            },
+            {
+              "id": "6241236",
+              "labelName": "అంబులెన్స్"
+            },
+            {
+              "id": "9755054",
+              "labelName": "Viral"
+            },
+            {
+              "id": "9294475",
+              "labelName": "Viral"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "cardType": "VIDEO",
+      "cardSubType": "MP4",
+      "viewType": "SHORTS",
+      "postId": "1662033396916179368",
+      "sourceId": "13",
+      "languageId": 2,
+      "actualLanguageId": 2,
+      "genreId": 33,
+      "categoryId": 76,
+      "newsTypeId": "98",
+      "videoTypeId": "98",
+      "title": "అమానవీయ ఘటన.. తల్లి ఒడిలోనే ప్రాణాలు కోల్పోయిన చిన్నారి",
+      "link": "https://stream.publicvibe.com/video/a43-365ff64129ed11ed9dfd604ad9acf299_480px.mp4",
+      "imageUrl": "https://media.publicvibe.com/community/topic/20220901/1844059876_25246_115643413_720x1280.jpg",
+      "imageUrlSmall": [
+        "https://media.publicvibe.com/community/topic/20220901/1844059876_25246_115643413_720x1280.jpg"
+      ],
+      "imageUrlMedium": [
+        "https://media.publicvibe.com/community/topic/20220901/1844059876_25246_115643413_720x1280.jpg"
+      ],
+      "imageUrlLarge": [
+        "https://media.publicvibe.com/community/topic/20220901/1844059876_25246_115643413_720x1280.jpg"
+      ],
+      "simpleDescription": "",
+      "who": {
+        "id": "1608531325187500221",
+        "name": "PublicVibe-Telugu",
+        "imageUrl": "https://media.publicvibe.com/meedia/20220211/notification_2022021106444882420220211064448824_533x800.jpg",
+        "redirection": true,
+        "type": "member"
+      },
+      "feedSourceName": "SHORTS_LATEST_POSTS_2",
+      "status": 99,
+      "displayScore": 98,
+      "videos": [
+        {
+          "original": "https://www.pvibe.in/community/topic/resumableuploads/c6b48610-200b-4daf-b497-320230fe0bb0.mp4",
+          "very low": "https://stream.publicvibe.com/video/a43-365ff64129ed11ed9dfd604ad9acf299_240px.mp4",
+          "low": "https://stream.publicvibe.com/video/a43-365ff64129ed11ed9dfd604ad9acf299_360px.mp4",
+          "medium": "https://stream.publicvibe.com/video/a43-365ff64129ed11ed9dfd604ad9acf299_480px.mp4",
+          "downloadUrl": "https://stream.publicvibe.com/video/a43-365ff64129ed11ed9dfd604ad9acf299_download.mp4"
+        }
+      ],
+      "stats": {
+        "views": 802,
+        "shares": 0,
+        "answers": 0,
+        "links": 0,
+        "tags": {
+          "tags": [
+            {
+              "id": "36",
+              "labelName": "బజ్"
+            },
+            {
+              "id": "5052614",
+              "labelName": "డాక్టర్లు"
+            },
+            {
+              "id": "5710547",
+              "labelName": "చిన్నారి"
+            },
+            {
+              "id": "119942",
+              "labelName": "నేర వార్తలు"
+            },
+            {
+              "id": "5088705",
+              "labelName": "Crimes Related to Women & Children"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "cardType": "VIDEO",
+      "cardSubType": "MP4",
+      "viewType": "SHORTS",
+      "postId": "1662033344305191699",
+      "sourceId": "13",
+      "languageId": 2,
+      "actualLanguageId": 2,
+      "genreId": 18,
+      "categoryId": 114,
+      "newsTypeId": "98",
+      "videoTypeId": "98",
+      "title": "వీడియో: షాక్.. గిలగిలా కొట్టుకుంటూ నీటిలో మునిగి చనిపోయిన యువకుడు",
+      "link": "https://stream.publicvibe.com/video/a43-2998a15029ed11ed95ffb394406cd75f_480px.mp4",
+      "imageUrl": "https://media.publicvibe.com/community/topic/20220901/1844059876_76757_115549972_720x1280.jpg",
+      "imageUrlSmall": [
+        "https://media.publicvibe.com/community/topic/20220901/1844059876_76757_115549972_720x1280.jpg"
+      ],
+      "imageUrlMedium": [
+        "https://media.publicvibe.com/community/topic/20220901/1844059876_76757_115549972_720x1280.jpg"
+      ],
+      "imageUrlLarge": [
+        "https://media.publicvibe.com/community/topic/20220901/1844059876_76757_115549972_720x1280.jpg"
+      ],
+      "simpleDescription": "",
+      "who": {
+        "id": "1608531325187500221",
+        "name": "PublicVibe-Telugu",
+        "imageUrl": "https://media.publicvibe.com/meedia/20220211/notification_2022021106444882420220211064448824_533x800.jpg",
+        "redirection": true,
+        "type": "member"
+      },
+      "feedSourceName": "SHORTS_LATEST_POSTS_2",
+      "status": 99,
+      "displayScore": 98,
+      "videos": [
+        {
+          "original": "https://www.pvibe.in/community/topic/resumableuploads/d2c3bdc2-0b52-4a25-a4ca-b44d733a4b76.mp4",
+          "very low": "https://stream.publicvibe.com/video/a43-2998a15029ed11ed95ffb394406cd75f_240px.mp4",
+          "medium": "https://stream.publicvibe.com/video/a43-2998a15029ed11ed95ffb394406cd75f_480px.mp4"
+        }
+      ],
+      "stats": {
+        "views": 779,
+        "shares": 0,
+        "answers": 0,
+        "links": 0,
+        "reactions": [
+          {
+            "type": "1",
+            "count": 3
+          }
+        ],
+        "tags": {
+          "tags": [
+            {
+              "id": "36",
+              "labelName": "బజ్"
+            },
+            {
+              "id": "5393072",
+              "labelName": "గుండెపోటు"
+            },
+            {
+              "id": "6615752",
+              "labelName": "స్విమ్మింగ్ పూల్"
+            },
+            {
+              "id": "5099076",
+              "labelName": "ఆఫ్ బీట్"
+            },
+            {
+              "id": "5090996",
+              "labelName": "Viral"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
