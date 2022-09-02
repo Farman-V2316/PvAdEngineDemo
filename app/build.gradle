@@ -304,6 +304,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics'
     implementation 'com.google.android.play:core:' + project.play_core_v
     implementation 'com.google.android.play:core-ktx:' + project.play_core_ktx_v
+    implementation 'androidx.navigation:navigation-runtime-ktx:2.5.1'
 
     //Test dependencies
     testImplementation 'org.mockito:mockito-core:' + project.test_mv

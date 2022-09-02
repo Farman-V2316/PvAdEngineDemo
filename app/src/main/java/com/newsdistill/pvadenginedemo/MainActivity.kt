@@ -1,7 +1,6 @@
 package com.newsdistill.pvadenginedemo
 
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.MenuItem
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +12,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.newsdistill.pvadenginedemo.ads.insertAd
 import com.newsdistill.pvadenginedemo.dummydata.fragments.CommunityFragment
 import com.newsdistill.pvadenginedemo.dummydata.fragments.ShortsFragment
-import com.newsdistill.pvadenginedemo.dummydata.util.DisplayUtils
 import com.newsdistill.pvadenginedemo.dummydata.util.KeepStateNavigator
 import com.newshunt.adengine.model.entity.NativeAdContainer
 import com.newshunt.common.helper.common.BusProvider
@@ -34,42 +32,39 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        println("panda: PVAd demo launched....")
         initUI()
-
 //        adContainer = findViewById(R.id.ad_container)
 //        initAd(uiBus, uniqueRequestId)
     }
 
     private fun initUI() {
-        setDisplayMetrics()
+        setDisplayMetrics(this)
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         navController = Navigation.findNavController(this, R.id.main_container)
-        // get fragment
-        navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.main_container) as NavHostFragment?
-        // setup custom navigator
-        // setup custom navigator
-        if (navHostFragment != null) {
-            navigator = KeepStateNavigator(
-                this,
-                navHostFragment!!.getChildFragmentManager(),
-                R.id.main_container
+        navHostFragment = supportFragmentManager.findFragmentById(R.id.main_container)
+                as NavHostFragment?
+        navHostFragment?.let {
+            navigator = KeepStateNavigator(this,
+                navHostFragment!!.getChildFragmentManager(), R.id.main_container
             )
         }
-        if (navigator != null) {
+
+        navigator?.let {
             navController!!.navigatorProvider.addNavigator(navigator!!)
             navController!!.setGraph(R.navigation.bottom_nav_graph)
             NavigationUI.setupWithNavController(bottomNavigationView!!, navController!!)
             communityFragment = navigator!!.getCurrentFragment() as CommunityFragment
         }
-        bottomNavigationView!!.setOnNavigationItemSelectedListener { item ->
-            selectTab(item)
-            true
-        }
+
+       bottomNavigationView?.let {
+           it.setOnNavigationItemSelectedListener { item ->
+               selectTab(item)
+               true
+           }
+       }
     }
 
-    fun selectTab(item: MenuItem) {
+    private fun selectTab(item: MenuItem) {
         when(item.itemId) {
             R.id.action_home -> {
                 navController?.navigate(R.id.action_home)
@@ -95,7 +90,6 @@ class MainActivity : AppCompatActivity() {
     @Subscribe
     fun setAdResponse(nativeAdContainer: NativeAdContainer) {
         println("panda: setAdResponse-------------------> $nativeAdContainer")
-
         if (nativeAdContainer.baseAdEntities == null ||
             nativeAdContainer.uniqueRequestId != uniqueRequestId
         ) {
@@ -104,24 +98,5 @@ class MainActivity : AppCompatActivity() {
         if(adContainer != null) {
             insertAd(this, nativeAdContainer, adContainer)
         }
-    }
-
-    private fun setDisplayMetrics() {
-        val displayMetrics = DisplayMetrics()
-        this.windowManager.defaultDisplay.getMetrics(displayMetrics)
-        val instance: DisplayUtils = DisplayUtils.getInstance()
-        instance.setHeightPx(displayMetrics.heightPixels)
-        instance.setWidthPx(displayMetrics.widthPixels)
-        instance.setDensity(displayMetrics.density)
-        val screenHeight = displayMetrics.heightPixels / displayMetrics.density
-        val screenWidth = displayMetrics.widthPixels / displayMetrics.density
-        instance.setScreenHeight(screenHeight)
-        instance.setScreenWidth(screenWidth)
-        instance.setVisibleScreenHeight(screenHeight - 20) //minus statusbar
-        instance.setVisibleScreenHeightMinusBottomNav(screenHeight - 20 - 55)
-        if (screenHeight != 0f) {
-            instance.setAspectRatio(screenWidth / screenHeight)
-        }
-        instance.setScaleDensity(displayMetrics.scaledDensity)
     }
 }
