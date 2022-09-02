@@ -29,8 +29,12 @@ import java.util.Locale;
  * @author arun.babu
  */
 public class Logger {
-  private static boolean loggerEnabled = AppConfig.getInstance() != null && AppConfig.getInstance()
+  //PANDA:
+ /* private static boolean loggerEnabled = AppConfig.getInstance() != null && AppConfig.getInstance()
       .isLoggerEnabled();
+*/
+
+  private static boolean loggerEnabled = true;
 
   private static boolean enableFileLogging = false;
 

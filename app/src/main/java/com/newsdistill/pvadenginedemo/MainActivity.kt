@@ -3,26 +3,27 @@ package com.newsdistill.pvadenginedemo
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.MenuItem
+import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.newsdistill.pvadenginedemo.ads.insertAd
 import com.newsdistill.pvadenginedemo.dummydata.fragments.CommunityFragment
 import com.newsdistill.pvadenginedemo.dummydata.fragments.ShortsFragment
 import com.newsdistill.pvadenginedemo.dummydata.util.DisplayUtils
 import com.newsdistill.pvadenginedemo.dummydata.util.KeepStateNavigator
-import com.newshunt.adengine.domain.controller.GetAdUsecaseController
-import com.newshunt.adengine.model.entity.version.AdPosition
-import com.newshunt.adengine.model.entity.version.AdRequest
+import com.newshunt.adengine.model.entity.NativeAdContainer
 import com.newshunt.common.helper.common.BusProvider
-import io.reactivex.plugins.RxJavaPlugins
+import com.squareup.otto.Subscribe
 
 class MainActivity : AppCompatActivity() {
-    val uiBus = BusProvider.getUIBusInstance()
-    val uniqueRequestId = 11
-    val usecase = GetAdUsecaseController(uiBus, uniqueRequestId)
+    private lateinit var  adContainer: RelativeLayout
+    private  var uiBus = BusProvider.getUIBusInstance()
+    private val uniqueRequestId = 111
+
     var navController: NavController? = null
     var bottomNavigationView: BottomNavigationView? = null
     private var navHostFragment: NavHostFragment? = null
@@ -34,6 +35,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         println("panda: PVAd demo launched....")
+        initUI()
+
+//        adContainer = findViewById(R.id.ad_container)
+//        initAd(uiBus, uniqueRequestId)
+    }
+
+    private fun initUI() {
         setDisplayMetrics()
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         navController = Navigation.findNavController(this, R.id.main_container)
@@ -76,16 +84,25 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val adRequest = AdRequest(AdPosition.MASTHEAD, 1)
-        usecase.requestAds(adRequest)
-
-        tempFix()
+        uiBus.register(this)
     }
 
-    // fix rxjava2 crash
-    private fun tempFix() {
-        RxJavaPlugins.setErrorHandler {
-            it?.printStackTrace()
+    override fun onStop() {
+        super.onStop()
+        uiBus.unregister(this)
+    }
+
+    @Subscribe
+    fun setAdResponse(nativeAdContainer: NativeAdContainer) {
+        println("panda: setAdResponse-------------------> $nativeAdContainer")
+
+        if (nativeAdContainer.baseAdEntities == null ||
+            nativeAdContainer.uniqueRequestId != uniqueRequestId
+        ) {
+            return
+        }
+        if(adContainer != null) {
+            insertAd(this, nativeAdContainer, adContainer)
         }
     }
 
