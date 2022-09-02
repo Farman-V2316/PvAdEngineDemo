@@ -33,8 +33,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initUI()
-//        adContainer = findViewById(R.id.ad_container)
-//        initAd(uiBus, uniqueRequestId)
     }
 
     private fun initUI() {
@@ -85,18 +83,5 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         uiBus.unregister(this)
-    }
-
-    @Subscribe
-    fun setAdResponse(nativeAdContainer: NativeAdContainer) {
-        println("panda: setAdResponse-------------------> $nativeAdContainer")
-        if (nativeAdContainer.baseAdEntities == null ||
-            nativeAdContainer.uniqueRequestId != uniqueRequestId
-        ) {
-            return
-        }
-        if(adContainer != null) {
-            insertAd(this, nativeAdContainer, adContainer)
-        }
     }
 }

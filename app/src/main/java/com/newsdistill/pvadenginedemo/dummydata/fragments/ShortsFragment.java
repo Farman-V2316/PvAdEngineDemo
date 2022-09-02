@@ -15,7 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.newsdistill.pvadenginedemo.R;
 import com.newsdistill.pvadenginedemo.dummydata.FetchDummyData;
 import com.newsdistill.pvadenginedemo.dummydata.adapter.FeedAdapter;
+import com.newsdistill.pvadenginedemo.model.Ad;
 import com.newsdistill.pvadenginedemo.model.CommunityPost;
+import com.newshunt.common.helper.common.BusProvider;
+import com.squareup.otto.Bus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +26,7 @@ import java.util.List;
 public class ShortsFragment extends Fragment {
 
     private  RecyclerView recyclerView;
+    private Bus bus = BusProvider.getUIBusInstance();
 
     @Nullable
     @Override
@@ -47,6 +51,9 @@ public class ShortsFragment extends Fragment {
                 "dummy_shorts_data.json").getDummyData();
         posts.addAll(communityPosts);
 
+        //add AD
+        posts.add(1, new Ad());
+        posts.add(5, new Ad());
         return posts;
     }
 }

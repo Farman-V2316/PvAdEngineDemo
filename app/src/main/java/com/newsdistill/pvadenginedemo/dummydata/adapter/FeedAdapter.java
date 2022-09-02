@@ -10,7 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.newsdistill.pvadenginedemo.R;
+import com.newsdistill.pvadenginedemo.dummydata.viewholders.AdViewHolder;
 import com.newsdistill.pvadenginedemo.dummydata.viewholders.BasicCardViewHolder;
+import com.newsdistill.pvadenginedemo.model.Ad;
 import com.newsdistill.pvadenginedemo.model.CommunityPost;
 
 import java.util.ArrayList;
@@ -19,12 +21,12 @@ import java.util.List;
 public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
 
     private List<Object> posts = new ArrayList<>();
-    private Context context;
+    private Activity context;
     private String pageName;
     private static final int TYPE_FEED = 1;
     private static final int TYPE_AD = 2;
 
-    public FeedAdapter(Context context, List<Object> posts, String pageName) {
+    public FeedAdapter(Activity context, List<Object> posts, String pageName) {
         this.context = context;
         this.posts = posts;
         this.pageName = pageName;
@@ -37,6 +39,10 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
             if (obj instanceof CommunityPost) {
                 return TYPE_FEED;
             }
+
+            if (obj instanceof Ad) {
+                return TYPE_AD;
+            }
         }
         return 0;
     }
@@ -48,6 +54,11 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
             View view = LayoutInflater.from(context).inflate(R.layout.feed_item_layout, parent, false);
             return new BasicCardViewHolder(context, view, pageName);
         }
+
+        if (viewType == TYPE_AD) {
+            View view = LayoutInflater.from(context).inflate(R.layout.ad_layout, parent, false);
+            return new AdViewHolder(view);
+        }
         return null;
     }
 
@@ -58,6 +69,11 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
             if (holder instanceof BasicCardViewHolder) {
                 CommunityPost post = (CommunityPost) obj;
                 ((BasicCardViewHolder)holder).bind(post);
+            }
+
+            if (holder instanceof AdViewHolder) {
+                int adRequestID = (position > 2) ? 111 : 100;
+                ((AdViewHolder)holder).bind(context, position, adRequestID);
             }
         }
     }

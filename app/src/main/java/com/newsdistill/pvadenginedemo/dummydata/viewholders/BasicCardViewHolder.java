@@ -37,7 +37,7 @@ public class BasicCardViewHolder extends RecyclerView.ViewHolder {
         titleView = view.findViewById(R.id.titleView);
     }
 
-    public void bind(CommunityPost post){
+    public void bind(CommunityPost post) {
         appendImageView(post);
         titleView.setText(post.getTitle());
     }
