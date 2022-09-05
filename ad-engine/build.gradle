@@ -71,6 +71,8 @@ dependencies {
     }
   }
 
+  implementation "com.google.firebase:firebase-perf"
+
   api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
   implementation "androidx.work:work-runtime-ktx:" + project.work_version
   kapt "com.google.dagger:dagger-compiler:" + project.dagger_v
