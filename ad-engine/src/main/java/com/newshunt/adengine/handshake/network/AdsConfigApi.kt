@@ -27,7 +27,4 @@ interface AdsConfigApi {
     @GET("publicVibe/v1/pvHandshake.json")
     fun performTestAdsHandshake(): Observable<ApiResponse<AdsUpgradeInfo>>
 
-    @GET("api/v1/contentContextHandshake")
-    fun adsContentContextHandshake(@Query("version") version: String): Observable<ApiResponse<EntityContextMeta>>
-
 }

@@ -74,7 +74,6 @@ class AdEngineGateway {
              */
             // PANDA: new added
             AdsVersionApiHelper.performHandshake()
-//            AdsVersionApiHelper.performContentContextHandshake();
 
         }
 
