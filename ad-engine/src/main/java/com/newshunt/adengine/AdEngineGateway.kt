@@ -8,6 +8,7 @@ import com.amazon.device.ads.DTBAdNetwork
 import com.amazon.device.ads.DTBAdNetworkInfo
 import com.amazon.device.ads.MRAIDPolicy
 import com.newshunt.adengine.client.NativeAdInventoryManager
+import com.newshunt.adengine.handshake.helper.AdsVersionApiHelper
 import com.newshunt.adengine.usecase.FetchAllAdFcDataUsecase
 import com.newshunt.adengine.util.AdCampaignsSyncHelper
 import com.newshunt.adengine.util.AdCampaignsSyncManager
@@ -71,6 +72,10 @@ class AdEngineGateway {
              * Add `isDTBMobile": "true", "isTest` as value in Replace part
              * select ok
              */
+            // PANDA: new added
+            AdsVersionApiHelper.performHandshake()
+//            AdsVersionApiHelper.performContentContextHandshake();
+
         }
 
         private fun populateAdFCData(): Disposable {
