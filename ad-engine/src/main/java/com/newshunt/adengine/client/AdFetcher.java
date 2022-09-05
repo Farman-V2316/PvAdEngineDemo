@@ -103,7 +103,11 @@ public class AdFetcher {
     bodyParams.put(AdConstants.AD_REQ_LANG_INFO, JsonUtils.toJson(LangInfoRepo.INSTANCE.getNonNullLangInfo()));
 
     //PV_AD_SERVER_URL
-   // final String url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/image.json";
+
+    //TODO.. Shorts - image
+    //final String url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/image.json";
+
+    //Shorts - html ad
     final String url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/html.json";
 
     //PANDA: removed manually for testing

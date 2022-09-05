@@ -77,20 +77,27 @@ class ShortsAdHandler {
                         -1, adContainer
                     ) as? UpdateableAdView
                 }
+
+
+                println("panda: updateableAdView-> $updateableAdView")
+                viewDataBinding?.let {
+                    adContainer.removeAllViews()
+                    val rLParams = RelativeLayout.LayoutParams(
+                        RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
+                    rLParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+
+                    adContainer.addView(viewDataBinding.root, rLParams)
+
+                    updateableAdView?.updateView(activity, baseAdEntity)
+                }
+            }
+
+            AdDisplayType.PGI_ARTICLE_AD.index -> {
+                //TODO..
             }
         }
 
-        println("panda: updateableAdView-> $updateableAdView")
-        viewDataBinding?.let {
-            adContainer.removeAllViews()
-            val rLParams = RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
-            rLParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
 
-            adContainer.addView(viewDataBinding.root, rLParams)
-
-            updateableAdView?.updateView(activity, baseAdEntity)
-        }
         return updateableAdView
     }
 
