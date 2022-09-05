@@ -3,9 +3,10 @@ package com.newsdistill.pvadenginedemo.dummydata.viewholders;
 import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,33 +14,56 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.newsdistill.pvadenginedemo.R;
+import com.newsdistill.pvadenginedemo.ads.HomeFeedAdHandler;
 import com.newsdistill.pvadenginedemo.dummydata.util.DisplayUtils;
 import com.newsdistill.pvadenginedemo.model.CommunityPost;
+import com.newshunt.adengine.model.entity.NativeAdContainer;
+import com.newshunt.adengine.model.entity.version.AdPosition;
+import com.squareup.otto.Subscribe;
 
 public class BasicCardViewHolder extends RecyclerView.ViewHolder {
 
     private static final String TAG = BasicCardViewHolder.class.getSimpleName();
-    private Context context;
+    private Activity context;
     private String pageName;
 
     private ImageView imageView;
     private TextView titleView;
+    private RelativeLayout adContainer;
+    private HomeFeedAdHandler homeFeedAdHandler = new HomeFeedAdHandler();
 
     public BasicCardViewHolder(@NonNull View itemView) {
         super(itemView);
     }
 
-    public BasicCardViewHolder(Context context, View view, String pageName) {
+    public BasicCardViewHolder(Activity context, View view, String pageName) {
         super(view);
         this.context = context;
         this.pageName = pageName;
         imageView = view.findViewById(R.id.imageView);
         titleView = view.findViewById(R.id.titleView);
+        adContainer = view.findViewById(R.id.home_ad_layout);
     }
 
     public void bind(CommunityPost post) {
         appendImageView(post);
         titleView.setText(post.getTitle());
+        Log.d("panda", "binding a feed ad for post id : " + post.getPostId());
+        addFeedAd(post);
+    }
+
+    private void addFeedAd(CommunityPost post) {
+        homeFeedAdHandler.loadHomeFeedAd(AdPosition.PGI);
+    }
+
+    @Subscribe
+    public void setAdResponse(NativeAdContainer nativeAdContainer) {
+        Log.d( "panda:", " setAdResponse-------------------> $nativeAdContainer");
+        if (nativeAdContainer.getUniqueRequestId() != homeFeedAdHandler.getAdRequestID())
+            return;
+
+        adContainer  = itemView.findViewById(R.id.home_ad_layout);
+        homeFeedAdHandler.insertAd(context, nativeAdContainer, adContainer);
     }
 
     private void appendImageView(CommunityPost post) {
