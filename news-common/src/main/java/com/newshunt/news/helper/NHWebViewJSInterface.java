@@ -7,13 +7,11 @@ import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
-
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -45,6 +43,7 @@ import com.newshunt.common.helper.share.ShareUi;
 import com.newshunt.common.helper.share.ShareUtils;
 import com.newshunt.common.helper.share.ShareViewShowListener;
 import com.newshunt.common.helper.sticky.StickyAudioPlayControlsKt;
+import com.newshunt.common.util.R;
 import com.newshunt.common.view.customview.GenericCustomSnackBar;
 import com.newshunt.common.view.view.BaseFragment;
 import com.newshunt.dataentity.analytics.entity.NhAnalyticsAppEventParam;
@@ -83,18 +82,14 @@ import com.newshunt.news.analytics.NhAnalyticsNewsEventParam;
 import com.newshunt.news.util.NewsConstants;
 import com.newshunt.notification.model.entity.server.StickyAudioCommentary;
 import com.newshunt.notification.model.manager.StickyNotificationsManager;
-import com.newshunt.sso.SSO;
 import com.squareup.otto.Subscribe;
-
-import org.jetbrains.annotations.NotNull;
-
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.newshunt.common.util.R;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * JS interface for WebView's to handle NHCommand
@@ -425,11 +420,6 @@ public class NHWebViewJSInterface {
   @JavascriptInterface
   public boolean isAutoPlayAllowed() {
     return AutoPlayHelper.isAutoPlayAllowed();
-  }
-
-  @JavascriptInterface
-  public String getUserId() {
-    return SSO.getInstance().getUserDetails() != null ? SSO.getInstance().getUserDetails().getUserID() : Constants.EMPTY_STRING;
   }
 
   @JavascriptInterface
