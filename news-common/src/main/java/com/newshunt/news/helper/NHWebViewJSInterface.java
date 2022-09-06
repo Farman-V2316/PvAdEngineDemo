@@ -15,9 +15,6 @@ import androidx.lifecycle.Observer;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.newshunt.analytics.client.AnalyticsClient;
-import com.newshunt.analytics.entity.NhAnalyticsAppEvent;
-import com.newshunt.analytics.entity.NhAnalyticsDevEvent;
 import com.newshunt.common.helper.AppUtilsProvider;
 import com.newshunt.common.helper.common.AndroidUtils;
 import com.newshunt.common.helper.common.BusProvider;
@@ -78,10 +75,7 @@ import com.newshunt.dhutil.helper.preference.AstroPreference;
 import com.newshunt.dhutil.helper.preference.UserPreferenceUtil;
 import com.newshunt.dhutil.helper.theme.ThemeUtils;
 import com.newshunt.dhutil.view.view.BackgroundChangeListener;
-import com.newshunt.news.analytics.NhAnalyticsNewsEventParam;
 import com.newshunt.news.util.NewsConstants;
-import com.newshunt.notification.model.entity.server.StickyAudioCommentary;
-import com.newshunt.notification.model.manager.StickyNotificationsManager;
 import com.squareup.otto.Subscribe;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -594,53 +588,55 @@ public class NHWebViewJSInterface {
    * Event for sharing via web.
    */
   private void logShareAnalyticsForWeb() {
-    if (shareContent == null) {
-      return;
-    }
-
-    Map<NhAnalyticsEventParam, Object> map = new HashMap<>();
-    if (!CommonUtils.isEmpty(shareContent.getPackageName())) {
-      map.put(NhAnalyticsNewsEventParam.SHARE_TYPE, shareContent.getPackageName());
-    }
-    if (!CommonUtils.isEmpty(shareContent.getShareUi())) {
-      map.put(NhAnalyticsNewsEventParam.SHARE_UI, shareContent.getShareUi());
-    }
-    if (pageReferrer != null && pageReferrer.getReferrer() != null) {
-      map.put(NhAnalyticsAppEventParam.REFERRER, pageReferrer.getReferrer());
-    }
-    if (pageReferrer != null && !CommonUtils.isEmpty(pageReferrer.getId())) {
-      map.put(NhAnalyticsAppEventParam.REFERRER_ID, pageReferrer.getId());
-    }
-    if (pageReferrer != null) {
-      map.put(NhAnalyticsAppEventParam.REFERRER_FLOW, pageReferrer.getReferrer());
-      map.put(NhAnalyticsAppEventParam.REFERRER_FLOW_ID, pageReferrer.getId());
-    }
-
-    AnalyticsClient.log(NhAnalyticsAppEvent.STORY_SHARED, NhAnalyticsEventSection.NEWS, map);
-    webShareAPIHelper.onShared(shareContent);
+    //TODO: PANDA removed
+    //if (shareContent == null) {
+    //  return;
+    //}
+    //
+    //Map<NhAnalyticsEventParam, Object> map = new HashMap<>();
+    //if (!CommonUtils.isEmpty(shareContent.getPackageName())) {
+    //  map.put(NhAnalyticsNewsEventParam.SHARE_TYPE, shareContent.getPackageName());
+    //}
+    //if (!CommonUtils.isEmpty(shareContent.getShareUi())) {
+    //  map.put(NhAnalyticsNewsEventParam.SHARE_UI, shareContent.getShareUi());
+    //}
+    //if (pageReferrer != null && pageReferrer.getReferrer() != null) {
+    //  map.put(NhAnalyticsAppEventParam.REFERRER, pageReferrer.getReferrer());
+    //}
+    //if (pageReferrer != null && !CommonUtils.isEmpty(pageReferrer.getId())) {
+    //  map.put(NhAnalyticsAppEventParam.REFERRER_ID, pageReferrer.getId());
+    //}
+    //if (pageReferrer != null) {
+    //  map.put(NhAnalyticsAppEventParam.REFERRER_FLOW, pageReferrer.getReferrer());
+    //  map.put(NhAnalyticsAppEventParam.REFERRER_FLOW_ID, pageReferrer.getId());
+    //}
+    //
+    //AnalyticsClient.log(NhAnalyticsAppEvent.STORY_SHARED, NhAnalyticsEventSection.NEWS, map);
+    //webShareAPIHelper.onShared(shareContent);
   }
 
   @JavascriptInterface
   public void logEvent(String eventName, String sectionName, String jsonParams) {
-    try {
-      Map<String, String> stringParams = new HashMap<>();
-      stringParams = JsonUtils.fromJson(jsonParams, stringParams.getClass());
-      NhAnalyticsEventSection section = null;
-      if (!DataUtil.isEmpty(sectionName)) {
-        section = NhAnalyticsEventSection.valueOf(sectionName);
-      }
-
-      if (section == null) {
-        section = NhAnalyticsEventSection.APP;
-      }
-
-      Map<String, Object> params = new HashMap<>();
-      params.putAll(stringParams);
-      AnalyticsClient.logStringParamsBasedEvents(eventName, section, params);
-    } catch (Exception ex) {
-      AnalyticsClient.logDynamic(NhAnalyticsDevEvent.DEV_CUSTOM_ERROR, NhAnalyticsEventSection.APP,
-          null, Collections.singletonMap("Error", ex.getMessage()), false);
-    }
+    //TODO: PANDA removed
+    //try {
+    //  Map<String, String> stringParams = new HashMap<>();
+    //  stringParams = JsonUtils.fromJson(jsonParams, stringParams.getClass());
+    //  NhAnalyticsEventSection section = null;
+    //  if (!DataUtil.isEmpty(sectionName)) {
+    //    section = NhAnalyticsEventSection.valueOf(sectionName);
+    //  }
+    //
+    //  if (section == null) {
+    //    section = NhAnalyticsEventSection.APP;
+    //  }
+    //
+    //  Map<String, Object> params = new HashMap<>();
+    //  params.putAll(stringParams);
+    //  AnalyticsClient.logStringParamsBasedEvents(eventName, section, params);
+    //} catch (Exception ex) {
+    //  AnalyticsClient.logDynamic(NhAnalyticsDevEvent.DEV_CUSTOM_ERROR, NhAnalyticsEventSection.APP,
+    //      null, Collections.singletonMap("Error", ex.getMessage()), false);
+    //}
   }
 
   @JavascriptInterface
@@ -652,7 +648,8 @@ public class NHWebViewJSInterface {
     List<OptInEntity> optInEntityList =
         JsonUtils.fromJson(json, new TypeToken<List<OptInEntity>>() {
         }.getType());
-    StickyNotificationsManager.INSTANCE.userOptInNotifications(optInEntityList);
+    //TODO: PANDA removed
+    //StickyNotificationsManager.INSTANCE.userOptInNotifications(optInEntityList);
   }
 
   @JavascriptInterface
@@ -664,7 +661,8 @@ public class NHWebViewJSInterface {
     List<OptOutEntity> optOutEntityList =
         JsonUtils.fromJson(json, new TypeToken<List<OptOutEntity>>() {
         }.getType());
-    StickyNotificationsManager.INSTANCE.optOutNotifications(optOutEntityList, true);
+    //TODO: PANDA removed
+    //StickyNotificationsManager.INSTANCE.optOutNotifications(optOutEntityList, true);
   }
 
   @JavascriptInterface
@@ -675,8 +673,8 @@ public class NHWebViewJSInterface {
 
     OptOutEntity optOutEntity = JsonUtils.fromJson(json, new TypeToken<OptOutEntity>() {
     }.getType());
-
-    StickyNotificationsManager.INSTANCE.jsCallbackStopAudio(optOutEntity);
+    //TODO: PANDA removed
+    //StickyNotificationsManager.INSTANCE.jsCallbackStopAudio(optOutEntity);
   }
 
   @JavascriptInterface
@@ -684,11 +682,11 @@ public class NHWebViewJSInterface {
     if (CommonUtils.isEmpty(type)) {
       return Constants.EMPTY_STRING;
     }
-
-    List<String> optedIds = StickyNotificationsManager.INSTANCE.getOptedInNotificationIds(type);
-
-    return (CommonUtils.isEmpty(optedIds)) ? Constants.EMPTY_STRING :
-        TextUtils.join(Constants.COMMA_CHARACTER, optedIds.toArray());
+    //TODO: PANDA removed
+    //List<String> optedIds = StickyNotificationsManager.INSTANCE.getOptedInNotificationIds(type);
+    //return (CommonUtils.isEmpty(optedIds)) ? Constants.EMPTY_STRING :
+    //    TextUtils.join(Constants.COMMA_CHARACTER, optedIds.toArray());
+    return Constants.EMPTY_STRING;
   }
 
   @JavascriptInterface
@@ -696,7 +694,9 @@ public class NHWebViewJSInterface {
     if (CommonUtils.isEmpty(id) || CommonUtils.isEmpty(type)) {
       return false;
     }
-    return StickyNotificationsManager.INSTANCE.getOptInState(id, type);
+    //TODO: PANDA removed
+    //return StickyNotificationsManager.INSTANCE.getOptInState(id, type);
+    return false;
   }
 
   @JavascriptInterface
@@ -705,11 +705,13 @@ public class NHWebViewJSInterface {
       return Constants.EMPTY_STRING;
     }
 
-    List<String> optedIdsFromSeries = StickyNotificationsManager.INSTANCE
-        .getOptInSeries(JsonUtils.fromJson(json, new TypeToken<List<String>>() {
-        }.getType()), type);
-    return CommonUtils.isEmpty(optedIdsFromSeries) ? Constants.EMPTY_STRING :
-        JsonUtils.toJson(optedIdsFromSeries);
+    //TODO: PANDA removed
+    //List<String> optedIdsFromSeries = StickyNotificationsManager.INSTANCE
+    //    .getOptInSeries(JsonUtils.fromJson(json, new TypeToken<List<String>>() {
+    //    }.getType()), type);
+    //return CommonUtils.isEmpty(optedIdsFromSeries) ? Constants.EMPTY_STRING :
+    //    JsonUtils.toJson(optedIdsFromSeries);
+    return Constants.EMPTY_STRING;
   }
 
   public PageReferrer getPageReferrer() {
@@ -722,10 +724,12 @@ public class NHWebViewJSInterface {
       return Constants.EMPTY_STRING;
     }
 
-    StickyAudioCommentary stickyAudioCommentary =
-        StickyNotificationsManager.INSTANCE.getAudioCommentaryState(id, type);
-    return (stickyAudioCommentary == null || stickyAudioCommentary.getState() == null) ?
-        Constants.EMPTY_STRING : stickyAudioCommentary.getState().getJsState();
+    //TODO: PANDA removed
+    //StickyAudioCommentary stickyAudioCommentary =
+    //    StickyNotificationsManager.INSTANCE.getAudioCommentaryState(id, type);
+    //return (stickyAudioCommentary == null || stickyAudioCommentary.getState() == null) ?
+    //    Constants.EMPTY_STRING : stickyAudioCommentary.getState().getJsState();
+    return Constants.EMPTY_STRING;
   }
 
   @JavascriptInterface

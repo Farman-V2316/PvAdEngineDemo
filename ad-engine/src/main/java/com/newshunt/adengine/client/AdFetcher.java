@@ -4,20 +4,18 @@
 
 package com.newshunt.adengine.client;
 
-import com.dailyhunt.huntlytics.sdk.NHAnalyticsSession;
 import com.newshunt.adengine.model.entity.version.AdRequest;
 import com.newshunt.adengine.model.entity.version.AmazonSdkPayload;
 import com.newshunt.adengine.util.AdConstants;
 import com.newshunt.adengine.util.AdFrequencyStats;
 import com.newshunt.adengine.util.AdLogger;
 import com.newshunt.adengine.util.AdStatisticsHelper;
-import com.newshunt.adengine.util.AdsUtil;
 import com.newshunt.common.helper.common.JsonUtils;
 import com.newshunt.common.util.LangInfoRepo;
 import com.newshunt.dataentity.common.helper.common.CommonUtils;
 import com.newshunt.dataentity.dhutil.model.entity.adupgrade.AdsUpgradeInfo;
 import com.newshunt.dhutil.helper.AdsUpgradeInfoProvider;
-import com.newshunt.permissionhelper.utilities.PermissionUtils;
+import com.newshunt.adengine.util.permission.PermissionUtils;
 import com.newshunt.sdk.network.Priority;
 
 import java.io.IOException;
@@ -93,10 +91,11 @@ public class AdFetcher {
     if(amazonSdkPayload != null) {
       bodyParams.put(AdConstants.AD_REQ_AMAZON_PAYLOAD, JsonUtils.toJson(amazonSdkPayload));
     }
-    String adStats = AdStatisticsHelper.INSTANCE.getDataAsString(NHAnalyticsSession.getSessionId());
-    if (!CommonUtils.isEmpty(adStats)) {
-      bodyParams.put(AdConstants.AD_REQ_STATS, adStats);
-    }
+    //TODO: PANDA removed
+    //String adStats = AdStatisticsHelper.INSTANCE.getDataAsString(NHAnalyticsSession.getSessionId());
+    //if (!CommonUtils.isEmpty(adStats)) {
+    //  bodyParams.put(AdConstants.AD_REQ_STATS, adStats);
+    //}
 
     bodyParams.put(AdConstants.AD_REQ_PERMISSION, PermissionUtils.getUsesPermission());
     bodyParams.put(AdConstants.AD_REQ_FCAP, JsonUtils.toJson(AdFrequencyStats.getFcMetCampaignsFor(uniqueRequestId)));

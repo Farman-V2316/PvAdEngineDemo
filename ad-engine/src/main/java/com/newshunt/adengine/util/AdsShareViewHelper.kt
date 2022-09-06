@@ -18,8 +18,6 @@ import com.newshunt.adengine.client.AsyncAdImpressionReporter
 import com.newshunt.adengine.model.entity.BaseDisplayAdEntity
 import com.newshunt.adengine.model.entity.Shareability
 import com.newshunt.adengine.model.entity.version.AdPosition
-import com.newshunt.analytics.client.AnalyticsClient
-import com.newshunt.analytics.entity.NhAnalyticsAppEvent
 import com.newshunt.common.helper.common.AndroidUtils
 import com.newshunt.common.helper.common.BusProvider
 import com.newshunt.common.helper.common.Constants
@@ -236,10 +234,11 @@ class AdsShareViewHelper(private val context: Context?) :
                 AnalyticsParam.ITEM_ID to it.aduid,
                 AnalyticsParam.ITEM_CATEGORY_ID to it.campaignId
             )
-            AnalyticsClient.log(
-                NhAnalyticsAppEvent.STORY_SHARED, NhAnalyticsEventSection.ADS, map,
-                PageReferrer(NhGenericReferrer.STORY_CARD, it.id)
-            )
+            //TODO: PANDA removed
+//            AnalyticsClient.log(
+//                NhAnalyticsAppEvent.STORY_SHARED, NhAnalyticsEventSection.ADS, map,
+//                PageReferrer(NhGenericReferrer.STORY_CARD, it.id)
+//            )
         }
     }
 

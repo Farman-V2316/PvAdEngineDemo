@@ -27,7 +27,6 @@ import com.newshunt.news.model.usecase.JsFollowAndDislikeUsecase
 import com.newshunt.news.model.usecase.Result0
 import com.newshunt.news.model.usecase.ToggleFollowUseCase
 import com.newshunt.news.model.usecase.toMediator2
-import com.newshunt.permissionhelper.utilities.Permission
 
 /**
  * Helper class to be used in jscallbacks.
@@ -94,23 +93,25 @@ object JsCallbackHelper {
 
     @JvmStatic
     fun getPermissionStatus(permission: String): Boolean {
-        var requestPermission: Permission? = null
-        try {
-            requestPermission = Permission.valueOf(permission)
-        } catch (rte: RuntimeException) {
-            Logger.e(LOG_TAG, rte.message)
-        }
-        if (requestPermission == Permission.INVALID) {
-            return false
-        }
-        requestPermission?.let {
-            try {
-                return CommonUtils.getApplication().checkSelfPermission(it.permission) == PackageManager.PERMISSION_GRANTED
-            } catch (rte: RuntimeException) {
-                Logger.e(LOG_TAG, rte.message)
-            }
-
-        }
+        //TODO: PANDA removed
+//        var requestPermission: Permission? = null
+//        try {
+//            requestPermission = Permission.valueOf(permission)
+//        } catch (rte: RuntimeException) {
+//            Logger.e(LOG_TAG, rte.message)
+//        }
+//        if (requestPermission == Permission.INVALID) {
+//            return false
+//        }
+//        requestPermission?.let {
+//            try {
+//                return CommonUtils.getApplication().checkSelfPermission(it.permission) == PackageManager.PERMISSION_GRANTED
+//            } catch (rte: RuntimeException) {
+//                Logger.e(LOG_TAG, rte.message)
+//            }
+//
+//        }
+//        return false
         return false
     }
 }
