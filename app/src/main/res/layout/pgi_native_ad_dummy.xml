@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/scroll_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <ScrollView
+        android:id="@+id/pgi_detail_scrollview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/cta_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ad_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--PGI Title-->
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/ad_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ad_content_top_bottom_margin"
+                android:layout_marginEnd="@dimen/ad_content_margin"
+                android:layout_marginStart="@dimen/ad_content_margin"
+                android:clickable="false"
+                android:gravity="top"
+                android:textSize="@dimen/pgi_ad_title_text_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Short info and ad icon space -->
+            <include
+                android:id="@+id/native_pgi_ad_branding_bar"
+                layout="@layout/native_pgi_ad_branding_bar_dummy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:layout_marginEnd="@dimen/ad_content_margin"
+                android:layout_marginStart="@dimen/ad_content_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ad_title"
+                />
+
+            <com.newshunt.common.view.customview.NHWrappedHeightLayout
+                android:id="@+id/mediaView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ad_margin_top"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/native_pgi_ad_branding_bar"
+                app:layout_goneMarginTop="0dp" />
+
+            <com.newshunt.common.view.customview.NHImageView
+                android:id="@+id/ad_image"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ad_margin_top"
+                android:adjustViewBounds="true"
+                android:background="@color/ads_shadow_dark_color"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/native_pgi_ad_branding_bar"
+                app:layout_goneMarginTop="0dp" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/source_share_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/ad_content_margin"
+                android:layout_marginStart="@dimen/ad_content_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/media_barrier">
+
+                <!--Publish Date and Time-->
+                <com.newshunt.common.view.customview.fontview.NHTextView
+                    android:id="@+id/short_info"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pgi_item_top_bottom_margin"
+                    android:gravity="start"
+                    android:textSize="@dimen/ad_short_info_text_size"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toStartOf="@id/share_icon_top"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/share_icon_top"
+                    android:layout_width="@dimen/ad_share_pgi_small_icon_size"
+                    android:layout_height="@dimen/ad_share_pgi_small_icon_size"
+                    android:layout_marginTop="@dimen/pgi_item_top_bottom_margin"
+                    android:contentDescription="@string/share"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.newshunt.common.view.customview.NhWebView
+                android:id="@+id/pgi_ad_details_webview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ad_content_margin"
+                android:layout_marginTop="@dimen/ad_title_margin_top"
+                android:layout_marginEnd="@dimen/ad_content_margin"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/source_share_container" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/ad_body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ad_title_margin_top"
+                android:layout_marginEnd="@dimen/ad_content_margin"
+                android:layout_marginStart="@dimen/ad_content_margin"
+                android:paddingBottom="@dimen/ad_margin_top"
+                android:textSize="@dimen/native_pgi_sdk_ad_detail_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/source_share_container" />
+
+            <com.newshunt.common.view.customview.fontview.NHTextView
+                android:id="@+id/ad_report"
+                style="@style/ad_report_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="#C0FFFFFF"
+                android:padding="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.newshunt.common.view.customview.fontview.NHTextView
+        android:id="@+id/cta_button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/pgi_cta_button_height"
+        android:layout_marginStart="@dimen/pgi_cta_margin"
+        android:layout_marginEnd="@dimen/pgi_cta_margin"
+        android:layout_marginBottom="@dimen/pgi_cta_margin"
+        android:background="@drawable/ads_cta_bg"
+        android:clickable="false"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/ad_pgi_cta_text"
+        android:textStyle="bold"
+        android:translationZ="3dp"
+        app:dh_custom_font_weight="seven_hundred"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/share_icon_bottom"
+        android:layout_width="@dimen/ad_share_pgi_icon_size"
+        android:layout_height="@dimen/ad_share_pgi_icon_size"
+        android:layout_marginEnd="@dimen/ad_share_native_pgi_icon_margin_right"
+        android:layout_marginBottom="@dimen/ad_share_native_pgi_icon_margin_bottom"
+        android:contentDescription="@string/share"
+        android:elevation="@dimen/fab_share_elevation_size"
+        app:layout_constraintBottom_toTopOf="@+id/cta_button"
+        app:layout_constraintRight_toRightOf="parent"
+         />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

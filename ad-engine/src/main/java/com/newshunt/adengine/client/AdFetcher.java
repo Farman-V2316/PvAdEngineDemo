@@ -105,10 +105,10 @@ public class AdFetcher {
     //PV_AD_SERVER_URL
 
     //TODO.. Shorts - image
-    //final String url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/image.json";
+    final String url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/image.json";
 
     //Shorts - html ad
-    final String url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/html.json";
+//    final String url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/html.json";
 
     //PANDA: removed manually for testing
     //final String url = AdsUtil.buildAdServerURL(adRequest);

@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.newsdistill.pvadenginedemo.R;
@@ -25,11 +27,18 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
     private String pageName;
     private static final int TYPE_FEED = 1;
     private static final int TYPE_AD = 2;
-
+    LifecycleOwner viewLifecycleOwner;
     public FeedAdapter(Activity context, List<Object> posts, String pageName) {
         this.context = context;
         this.posts = posts;
         this.pageName = pageName;
+    }
+
+    public FeedAdapter(FragmentActivity activity, List<Object> data, String pageName, LifecycleOwner viewLifecycleOwner) {
+        this.context = activity;
+        this.posts = data;
+        this.pageName = pageName;
+        this.viewLifecycleOwner = viewLifecycleOwner;
     }
 
     @Override
@@ -57,7 +66,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
 
         if (viewType == TYPE_AD) {
             View view = LayoutInflater.from(context).inflate(R.layout.ad_layout, parent, false);
-            return new AdViewHolder(view);
+            return new AdViewHolder(view, viewLifecycleOwner);
         }
         return null;
     }

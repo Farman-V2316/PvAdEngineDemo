@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.widget.RelativeLayout
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.LifecycleOwner
+import com.newsdistill.pvadenginedemo.R
 import com.newshunt.adengine.databinding.LayoutHtmlFullPageAdBinding
+import com.newshunt.adengine.databinding.PgiNativeAdBinding
 import com.newshunt.adengine.domain.controller.GetAdUsecaseController
 import com.newshunt.adengine.model.entity.BaseAdEntity
 import com.newshunt.adengine.model.entity.NativeAdContainer
@@ -15,12 +18,13 @@ import com.newshunt.adengine.util.AdsUtil
 import com.newshunt.adengine.view.UpdateableAdView
 import com.newshunt.adengine.view.helper.AdsViewHolderFactory
 import com.newshunt.adengine.view.viewholder.NativeAdHtmlViewHolder
+import com.newshunt.adengine.view.viewholder.PgiNativeAdViewHolder
 import com.newshunt.dataentity.common.asset.AdDisplayType
 import com.newshunt.dataentity.common.helper.common.CommonUtils
 import com.squareup.otto.Bus
 import io.reactivex.plugins.RxJavaPlugins
 
-class ShortsAdHandler {
+class ShortsAdHandler(var viewLifecycleOwner : LifecycleOwner) {
 
     fun initAd(adPosition: AdPosition, uniqueRequestId: Int, uiBus: Bus) {
         val useCase = GetAdUsecaseController(uiBus, uniqueRequestId)
@@ -80,7 +84,7 @@ class ShortsAdHandler {
 
 
                 println("panda: updateableAdView-> $updateableAdView")
-                viewDataBinding?.let {
+                /*viewDataBinding?.let {
                     adContainer.removeAllViews()
                     val rLParams = RelativeLayout.LayoutParams(
                         RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
@@ -89,11 +93,19 @@ class ShortsAdHandler {
                     adContainer.addView(viewDataBinding.root, rLParams)
 
                     updateableAdView?.updateView(activity, baseAdEntity)
-                }
+                }*/
             }
 
             AdDisplayType.PGI_ARTICLE_AD.index -> {
                 //TODO..
+                val layoutInflater = LayoutInflater.from(activity)
+                viewDataBinding = DataBindingUtil.inflate(layoutInflater,
+                    R.layout.pgi_native_ad_dummy, adContainer, false)
+                updateableAdView = PgiNativeAdViewHolder(viewDataBinding, lifecycleOwner = viewLifecycleOwner)
+
+                adContainer.addView(viewDataBinding.root)
+                updateableAdView?.updateView(activity, baseAdEntity)
+
             }
         }
 
