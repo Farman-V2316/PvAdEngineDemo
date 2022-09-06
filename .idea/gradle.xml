@@ -26,7 +26,6 @@
             <option value="$PROJECT_DIR$/notification-engine" />
             <option value="$PROJECT_DIR$/omsdk" />
             <option value="$PROJECT_DIR$/permissionhelper" />
-            <option value="$PROJECT_DIR$/sso" />
             <option value="$PROJECT_DIR$/vp-players" />
           </set>
         </option>

@@ -9,13 +9,11 @@ import com.newshunt.adengine.model.entity.BaseDisplayAdEntity
 import com.newshunt.adengine.model.entity.MultipleAdEntity
 import com.newshunt.adengine.model.entity.NativeAdHtml
 import com.newshunt.adengine.model.entity.version.AdRequest
-import com.newshunt.common.helper.common.Constants
 import com.newshunt.common.helper.common.PasswordEncryption
 import com.newshunt.common.helper.info.ClientInfoHelper
 import com.newshunt.common.helper.info.ConnectionInfoHelper
 import com.newshunt.common.helper.info.DeviceInfoHelper
 import com.newshunt.common.helper.info.LocationInfoHelper
-import com.newshunt.common.helper.preference.PreferenceManager
 import com.newshunt.dataentity.common.helper.common.CommonUtils
 import com.newshunt.dataentity.common.model.entity.status.ClientInfo
 import com.newshunt.dataentity.common.model.entity.status.ConnectionInfo
@@ -24,7 +22,6 @@ import com.newshunt.dataentity.common.model.entity.status.LocationInfo
 import com.newshunt.dhutil.helper.autoplay.AutoPlayHelper
 import com.newshunt.dhutil.helper.preference.UserPreferenceUtil
 import com.newshunt.sdk.network.connection.ConnectionManager
-import com.newshunt.sso.helper.preference.SSOPreference
 import java.util.UUID
 import java.util.concurrent.TimeUnit
 
@@ -214,8 +211,9 @@ object AdMacroUtils {
             CL_UUID -> UUID.randomUUID().toString()
             CL_CLIENT_ID -> clientInfo?.clientId
             CL_USER_LANGUAGE -> langMask
-            CL_COUNTRY_CODE -> PreferenceManager.getPreference(SSOPreference.COUNTRY_CODE,
-                Constants.EMPTY_STRING)
+            //TODO: PANDA removed for removing dependency with SSO module
+//            CL_COUNTRY_CODE -> PreferenceManager.getPreference(SSOPreference.COUNTRY_CODE,
+//                Constants.EMPTY_STRING)
             CL_APP_VERSION -> deviceInfo?.appVersion
             CL_UDID -> PasswordEncryption.encryptForAds(deviceInfo?.deviceId)
             CL_ADVERTISING_ID -> PasswordEncryption.encryptForAds(ClientInfoHelper.getGoogleAdId())
