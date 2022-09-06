@@ -41,7 +41,7 @@ public class ShortsFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false));
         new PagerSnapHelper().attachToRecyclerView(recyclerView);
-        FeedAdapter feedAdapter = new FeedAdapter(getActivity(), getData(), "shorts");
+        FeedAdapter feedAdapter = new FeedAdapter(getActivity(), getData(), "shorts", getViewLifecycleOwner());
         recyclerView.setAdapter(feedAdapter);
     }
 

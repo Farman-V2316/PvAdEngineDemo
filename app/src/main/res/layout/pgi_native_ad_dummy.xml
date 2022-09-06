@@ -93,8 +93,7 @@
                 android:layout_marginEnd="@dimen/ad_content_margin"
                 android:layout_marginStart="@dimen/ad_content_margin"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/media_barrier">
+                app:layout_constraintStart_toStartOf="parent">
 
                 <!--Publish Date and Time-->
                 <com.newshunt.common.view.customview.fontview.NHTextView
