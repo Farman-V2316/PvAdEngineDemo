@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_enabled="true" android:drawable="@drawable/invite_btn_enabled_state_bg"/>
-    <item android:state_enabled="false" android:drawable="@drawable/invite_btn_disabled_state_bg"/>
-    <item android:drawable="@drawable/invite_btn_disabled_state_bg"/>
-</selector>
