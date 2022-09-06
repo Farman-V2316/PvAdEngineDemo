@@ -17,15 +17,6 @@
             android:enabled="true"
             android:process=":notifier" />
 
-        <activity
-            android:name=".view.RateUsDialogActivity"
-            android:theme="@style/NoActionBarDay"
-            android:configChanges="uiMode" />
-
-        <activity
-            android:name=".view.SharableAppDialogActivity"
-            android:theme="@style/NoActionBarDay"
-            android:configChanges="uiMode" />
 
         <activity
             android:name=".view.activity.AppSectionHomeRoutingActivity"

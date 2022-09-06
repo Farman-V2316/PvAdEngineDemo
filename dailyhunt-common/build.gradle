@@ -42,7 +42,7 @@ dependencies {
   implementation platform('com.google.firebase:firebase-bom:'+project.bom_v)
   api fileTree(dir: 'libs', include: ['*.jar'])
 
-  api project(':permissionhelper')
+//  api project(':permissionhelper')
   api project(':exo-library')
   api project(':datastore')
 

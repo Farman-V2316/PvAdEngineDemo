@@ -4,38 +4,21 @@
 
 package com.newshunt.dhutil.helper.autoplay;
 
-import android.app.Activity;
-import android.content.Intent;
 import androidx.annotation.IntDef;
-
 import com.dailyhunt.tv.exolibrary.download.config.CacheConfigHelper;
-import com.newshunt.analytics.client.AnalyticsClient;
-import com.newshunt.analytics.entity.NhAnalyticsAppEvent;
-import com.newshunt.dataentity.analytics.entity.NhAnalyticsEventParam;
-import com.newshunt.dataentity.analytics.section.NhAnalyticsEventSection;
-import com.newshunt.dataentity.analytics.referrer.PageReferrer;
-import com.newshunt.common.helper.appconfig.AppConfig;
-import com.newshunt.common.helper.common.BusProvider;
-import com.newshunt.common.helper.common.Constants;
-import com.newshunt.dataentity.common.helper.common.CommonUtils;
 import com.newshunt.common.helper.info.ConnectionInfoHelper;
 import com.newshunt.common.helper.preference.GenericAppStatePreference;
 import com.newshunt.common.helper.preference.PreferenceManager;
-import com.newshunt.dhutil.analytics.AutoPlayEventParam;
-import com.newshunt.dhutil.helper.common.DailyhuntConstants;
+import com.newshunt.dataentity.common.helper.common.CommonUtils;
 import com.newshunt.sdk.network.connection.ConnectionType;
 import com.newshunt.sdk.network.internal.NetworkSDKUtils;
-
 import java.lang.annotation.Retention;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.newshunt.dhutil.helper.autoplay.AutoPlayHelper.AutoPlayPreference.AUTO_PLAY_ALWAYS;
+import static com.newshunt.dhutil.helper.autoplay.AutoPlayHelper.AutoPlayPreference.AUTO_PLAY_DATA;
 import static com.newshunt.dhutil.helper.autoplay.AutoPlayHelper.AutoPlayPreference.AUTO_PLAY_OFF;
 import static com.newshunt.dhutil.helper.autoplay.AutoPlayHelper.AutoPlayPreference.AUTO_PLAY_WIFI;
-import static com.newshunt.dhutil.helper.autoplay.AutoPlayHelper.AutoPlayPreference.AUTO_PLAY_DATA;
-
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 /**
@@ -109,117 +92,10 @@ public class AutoPlayHelper {
   }
 
   /**
-   * This method saves the user's preference to SharedPreferences and also updates in-memory
-   * cache of the preference. This is saved in RAM to avoid reading from preferences too many times.
-   * @param preference user's preference
-   */
-  public static void saveAutoPlayPreference(@AutoPlayPreference final int preference) {
-    switch (preference) {
-      case AUTO_PLAY_ALWAYS:
-      case AUTO_PLAY_DATA:
-      case AUTO_PLAY_OFF:
-      case AUTO_PLAY_WIFI:
-        autoPlayPreference.set(preference);
-        PreferenceManager.savePreference(GenericAppStatePreference.AUTO_PLAY_PREFERENCE,
-            preference);
-        BusProvider.postOnUIBus(new AutoPlayPreferenceChangedEvent(preference));
-      default:
-        break;
-    }
-  }
-
-  /**
-   * This method launches the Auto play settings activity
-   * @param activity Activity context
-   */
-  public static void launchAutoPlaySettingsActivity(Activity activity) {
-    Intent intent = new Intent();
-    intent.setAction(DailyhuntConstants.AUTO_PLAY_SETTINGS_ACTION);
-    intent.setPackage(AppConfig.getInstance().getPackageName());
-    activity.startActivity(intent);
-  }
-
-  /**
    * This method returns the user's autoplay preference
    * @return
    */
   public static @AutoPlayPreference int getAutoPlayPreference() {
     return autoPlayPreference.get();
-  }
-
-  /**
-   * This method saves a preference whether or not Auto play must be displayed in settings
-   * activity. This method is to save the B.E handshake response.
-   * @param showAutoPlaySettings boolean to indicate the choice
-   */
-  public static void saveShowAutoPlaySetting(final boolean showAutoPlaySettings) {
-    PreferenceManager.savePreference(GenericAppStatePreference.SHOW_AUTO_PLAY_SETTINGS,
-        showAutoPlaySettings);
-  }
-
-  /**
-   * This method tells whether Autoplay settings must be displayed on Settings Screen
-   * @return true if autoplay must be shown. False otherwise.
-   */
-  public static boolean shouldShowAutoPlaySettings() {
-    return PreferenceManager.getPreference(GenericAppStatePreference.SHOW_AUTO_PLAY_SETTINGS, true);
-  }
-
-  /**
-   * This method tells whether user has deliberately turned OFF auto play
-   * @return
-   */
-  public static boolean isAutoPlayDisabledByUser() {
-    return autoPlayPreference.get() == AUTO_PLAY_OFF;
-  }
-
-  /**
-   * Helper method to log Analytics event for video auto play preference
-   * @param oldValue Old user preference
-   * @param newValue New user perference
-   * @param referrer Referrer
-   * @param section Section
-   * @param eventType Type parameter for the event
-   */
-  public static void logAutoPlayToggleEvent(@AutoPlayPreference final int oldValue,
-                                            @AutoPlayPreference final int newValue,
-                                            final PageReferrer referrer,
-                                            final NhAnalyticsEventSection section,
-                                            final String eventType) {
-    Map<NhAnalyticsEventParam, Object> propertiesMap = new HashMap<>();
-    propertiesMap.put(AutoPlayEventParam.TYPE, eventType);
-    propertiesMap.put(AutoPlayEventParam.PREVIOUS_STATE, mapUserPrefToAnalyticsString(oldValue));
-    propertiesMap.put(AutoPlayEventParam.NEW_STATE, mapUserPrefToAnalyticsString(newValue));
-    AnalyticsClient.log(NhAnalyticsAppEvent.AUTOPLAY_MODE_CHANGED, section, propertiesMap,
-        referrer);
-  }
-
-  private static String mapUserPrefToAnalyticsString(final @AutoPlayPreference int pref) {
-    switch (pref) {
-      case AUTO_PLAY_ALWAYS:
-        return ANALYTICS_AUTO_PLAY_ALWAYS;
-      case AUTO_PLAY_OFF:
-        return ANALYTICS_AUTO_PLAY_OFF;
-      case AUTO_PLAY_WIFI:
-        return ANALYTICS_AUTO_PLAY_WIFI;
-      case AUTO_PLAY_DATA:
-        return ANALYTICS_AUTO_PLAY_DATA;
-      default:
-        return Constants.EMPTY_STRING;
-    }
-  }
-
-  /**
-   * Event to indicate a change in auto play settings
-   */
-  public static class AutoPlayPreferenceChangedEvent {
-    private @AutoPlayPreference int preference;
-
-    public AutoPlayPreferenceChangedEvent(int preference) {
-      this.preference = preference;
-    }
-    public @AutoPlayPreference int getAutoPlayPreference() {
-      return preference;
-    }
   }
 }

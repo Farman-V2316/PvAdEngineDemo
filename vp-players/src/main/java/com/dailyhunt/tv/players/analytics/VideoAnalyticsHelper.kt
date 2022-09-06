@@ -8,16 +8,13 @@ import com.newshunt.adengine.analytics.NhAnalyticsAdEventParam
 import com.newshunt.adengine.model.entity.version.AdPosition
 import com.newshunt.analytics.client.AnalyticsClient
 import com.newshunt.analytics.client.AttributeFilter
-import com.newshunt.analytics.entity.NhAnalyticsAppEvent
 import com.newshunt.dataentity.analytics.entity.AnalyticsParam
 import com.newshunt.dataentity.analytics.entity.NhAnalyticsAppEventParam
 import com.newshunt.dataentity.analytics.entity.NhAnalyticsEventParam
 import com.newshunt.dataentity.analytics.referrer.PageReferrer
-import com.newshunt.dataentity.analytics.section.NhAnalyticsEventSection
 import com.newshunt.dataentity.common.asset.CommonAsset
 import com.newshunt.dataentity.common.helper.common.CommonUtils
 import com.newshunt.dataentity.news.model.entity.server.asset.PlayerType
-import com.newshunt.helper.SearchAnalyticsHelper
 import com.newshunt.news.analytics.NhAnalyticsNewsEventParam
 
 /**

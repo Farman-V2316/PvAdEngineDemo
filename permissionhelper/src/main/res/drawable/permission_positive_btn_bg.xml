@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2022 NewsHunt. All rights reserved.
-  -->
-
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <solid android:color="@color/black" />
-</shape>

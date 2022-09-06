@@ -3,7 +3,6 @@
 */
 package com.newshunt.adengine.util
 
-import com.dailyhunt.huntlytics.sdk.NHAnalyticsSession
 import com.newshunt.adengine.model.entity.AdStatistics
 import com.newshunt.adengine.model.entity.version.AdPosition
 import com.newshunt.news.analytics.NhAnalyticsAppState
@@ -42,7 +41,8 @@ object AdStatisticsHelper {
         if (adStatistics.isExpired()) {
             resetStatsOnExpiry()
         }
-        addNewSessionEntry(NHAnalyticsSession.getSessionId())
+        //TODO: PANDA removed
+//        addNewSessionEntry(NHAnalyticsSession.getSessionId())
         Logger.d(TAG, "Initial stats : $adStatistics")
     }
 

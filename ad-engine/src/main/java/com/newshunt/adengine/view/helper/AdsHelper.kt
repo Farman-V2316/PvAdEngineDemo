@@ -23,8 +23,6 @@ import com.newshunt.adengine.model.entity.version.AmazonSdkPayload
 import com.newshunt.adengine.util.AdFrequencyStats
 import com.newshunt.adengine.util.AdLogger
 import com.newshunt.adengine.util.AdsUtil
-import com.newshunt.analytics.client.AnalyticsClient
-import com.newshunt.analytics.entity.NhAnalyticsDevEvent
 import com.newshunt.common.helper.common.BusProvider
 import com.newshunt.common.helper.common.Constants
 import com.newshunt.common.helper.preference.PreferenceManager
@@ -203,8 +201,9 @@ class AdsHelper(private val adDbHelper: AdDBHelper,
                                     "adIndex" to currentAdData.toString(),
                                     "adId" to res.uniqueAdIdentifier
                             )
-                            AnalyticsClient.logDynamic(NhAnalyticsDevEvent.DEV_CUSTOM_ERROR,
-                                    NhAnalyticsEventSection.APP, null, map, false)
+                            //TODO: PANDA removed
+//                            AnalyticsClient.logDynamic(NhAnalyticsDevEvent.DEV_CUSTOM_ERROR,
+//                                    NhAnalyticsEventSection.APP, null, map, false)
                         }
 
                         when (ad?.adPosition) {

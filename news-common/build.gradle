@@ -36,7 +36,10 @@ android {
 
 dependencies {
   api fileTree(dir: 'libs', include: ['*.jar'])
-  api project(':notification-engine')
+//  api project(':notification-engine')
+  api project(':dataentity')
+  api project(':analytics')
+  api project(':dailyhunt-common')
 
   api 'com.google.dagger:dagger:' + project.dagger_v
   annotationProcessor "com.google.dagger:dagger-compiler:" + project.dagger_v

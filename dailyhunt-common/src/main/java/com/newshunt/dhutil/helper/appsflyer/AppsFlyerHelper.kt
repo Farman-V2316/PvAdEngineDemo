@@ -7,7 +7,6 @@ import android.util.Pair
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
 import com.google.gson.reflect.TypeToken
-import com.newshunt.analytics.FirebaseAnalyticsHelper
 import com.newshunt.common.helper.appconfig.AppConfig
 import com.newshunt.common.helper.common.*
 import com.newshunt.common.helper.info.ClientInfoHelper
@@ -706,7 +705,8 @@ object AppsFlyerHelper {
         }
         config?.let {
             if(it.triggerFirebaseEvent == true) {
-                FirebaseAnalyticsHelper.logAppsFlyerEvents(eventName, null)
+                //TODO: PANDA remmoved
+//                FirebaseAnalyticsHelper.logAppsFlyerEvents(eventName, null)
             }
         }
     }
