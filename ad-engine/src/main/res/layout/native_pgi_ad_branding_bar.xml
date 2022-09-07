@@ -71,7 +71,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:text="@{sourceAlphabetText}"
-            android:textColor="?attr/source_alphabet_text_color"
             android:textSize="@dimen/sponsored_text_size"
             android:visibility="@{AdBindUtils.canShow(sourceAlphabetText)? View.VISIBLE: View.GONE}"
             app:layout_constraintBottom_toBottomOf="@+id/ad_attr"
