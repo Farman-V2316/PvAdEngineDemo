@@ -25,11 +25,11 @@
     <RelativeLayout
         android:id="@+id/home_ad_layout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#dadada"
-        android:layout_marginTop="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:visibility="gone"
         android:paddingTop="2dp"
         android:paddingBottom="2dp"
+        android:layout_gravity="top"
         />
 </LinearLayout>

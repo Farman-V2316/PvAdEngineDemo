@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="ad-engine/src/main/res/layout/ad_brand_bottombar.xml" value="0.33229166666666665" />
+        <entry key="ad-engine/src/main/res/layout/ads_native_high_layout.xml" value="0.1" />
         <entry key="ad-engine/src/main/res/layout/layout_ima_video_ads.xml" value="0.3421875" />
-        <entry key="ad-engine/src/main/res/layout/news_item_type_html_ad.xml" value="0.2759259259259259" />
+        <entry key="ad-engine/src/main/res/layout/news_item_ad_banner_bottombar.xml" value="0.33229166666666665" />
+        <entry key="ad-engine/src/main/res/layout/news_item_type_html_ad.xml" value="0.1" />
         <entry key="ad-engine/src/main/res/layout/news_item_type_image_link_ad.xml" value="0.2759259259259259" />
+        <entry key="ad-engine/src/main/res/layout/news_item_type_image_link_ad_pv.xml" value="0.33229166666666665" />
+        <entry key="ad-engine/src/main/res/layout/osv_bottom_bar.xml" value="0.33229166666666665" />
         <entry key="ad-engine/src/main/res/layout/pgi_native_ad.xml" value="0.3271794871794872" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165625" />
         <entry key="app/src/main/res/layout/ad_layout.xml" value="0.13697916666666668" />
