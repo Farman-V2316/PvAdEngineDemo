@@ -28,11 +28,6 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
     private static final int TYPE_FEED = 1;
     private static final int TYPE_AD = 2;
     LifecycleOwner viewLifecycleOwner;
-    public FeedAdapter(Activity context, List<Object> posts, String pageName) {
-        this.context = context;
-        this.posts = posts;
-        this.pageName = pageName;
-    }
 
     public FeedAdapter(FragmentActivity activity, List<Object> data, String pageName, LifecycleOwner viewLifecycleOwner) {
         this.context = activity;
@@ -61,7 +56,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (viewType == TYPE_FEED) {
             View view = LayoutInflater.from(context).inflate(R.layout.feed_item_layout, parent, false);
-            return new BasicCardViewHolder(context, view, pageName);
+            return new BasicCardViewHolder(context, view, pageName, viewLifecycleOwner);
         }
 
         if (viewType == TYPE_AD) {
@@ -77,7 +72,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
         if (holder != null) {
             if (holder instanceof BasicCardViewHolder) {
                 CommunityPost post = (CommunityPost) obj;
-                ((BasicCardViewHolder)holder).bind(post);
+                ((BasicCardViewHolder)holder).bind(post, position);
             }
 
             if (holder instanceof AdViewHolder) {

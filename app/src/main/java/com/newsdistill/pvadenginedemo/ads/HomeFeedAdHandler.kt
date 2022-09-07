@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.widget.RelativeLayout
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.LifecycleOwner
 import com.newshunt.adengine.databinding.LayoutHtmlFullPageAdBinding
 import com.newshunt.adengine.domain.controller.GetAdUsecaseController
 import com.newshunt.adengine.model.entity.BaseAdEntity
@@ -15,24 +16,25 @@ import com.newshunt.adengine.util.AdsUtil
 import com.newshunt.adengine.view.UpdateableAdView
 import com.newshunt.adengine.view.helper.AdsViewHolderFactory
 import com.newshunt.adengine.view.viewholder.NativeAdHtmlViewHolder
+import com.newshunt.adengine.view.viewholder.PgiNativeAdViewHolder
 import com.newshunt.common.helper.common.BusProvider
 import com.newshunt.dataentity.common.asset.AdDisplayType
 import com.newshunt.dataentity.common.helper.common.CommonUtils
 import com.squareup.otto.Bus
 import io.reactivex.plugins.RxJavaPlugins
 
-class HomeFeedAdHandler {
+class HomeFeedAdHandler(var lifecycleOwner: LifecycleOwner) {
     var adRequestID = -1
     var bus = BusProvider.getUIBusInstance()
 
-    fun loadHomeFeedAd(adPosition: AdPosition) {
+    fun loadHomeFeedAd(adPosition: AdPosition, zoneAdType: String) {
         bus.register(this)
-        initAd(adPosition, adRequestID, bus)
+        initAd(adPosition, adRequestID, bus, zoneAdType)
     }
 
-    private fun initAd(adPosition: AdPosition, uniqueRequestId: Int, uiBus: Bus) {
+    fun initAd(adPosition: AdPosition, uniqueRequestId: Int, uiBus: Bus, zoneAdType: String) {
         val useCase = GetAdUsecaseController(uiBus, uniqueRequestId)
-        useCase.requestAds(AdRequest(adPosition, 1, skipCacheMatching = true))
+        useCase.requestAds(AdRequest(adPosition, 1, skipCacheMatching = true, zoneAdType = "PGI_IMAGE"))
 
         tempFix()
     }
@@ -67,9 +69,8 @@ class HomeFeedAdHandler {
         getUpdatableAdView(activity, cardType, adContainer, baseAdEntity)
     }
 
-    private fun getUpdatableAdView(
-        activity: Activity?, cardType: Int,
-        adContainer: RelativeLayout, baseAdEntity: BaseAdEntity,
+    private fun getUpdatableAdView(activity: Activity?, cardType: Int,
+                                   adContainer: RelativeLayout, baseAdEntity: BaseAdEntity
     ): UpdateableAdView? {
         if (activity == null) {
             return null
@@ -87,22 +88,32 @@ class HomeFeedAdHandler {
                         it,
                         -1, adContainer
                     ) as? UpdateableAdView
-                }
 
-
-                println("panda: updateableAdView-> $updateableAdView")
-                viewDataBinding?.let {
+                    println("panda: updateableAdView-> $updateableAdView")
                     adContainer.removeAllViews()
                     val rLParams = RelativeLayout.LayoutParams(
                         RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
                     rLParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
 
-                    adContainer.addView(viewDataBinding.root, rLParams)
+                    adContainer.addView(viewDataBinding!!.root, rLParams)
 
                     updateableAdView?.updateView(activity, baseAdEntity)
                 }
             }
+
+            AdDisplayType.PGI_ARTICLE_AD.index -> {
+                val layoutInflater = LayoutInflater.from(activity)
+                viewDataBinding = DataBindingUtil.inflate(layoutInflater,
+                    com.newshunt.adengine.R.layout.pgi_native_ad, adContainer, false)
+                updateableAdView = PgiNativeAdViewHolder(viewDataBinding, lifecycleOwner = lifecycleOwner)
+
+                adContainer.addView(viewDataBinding.root)
+                updateableAdView?.updateView(activity, baseAdEntity)
+
+            }
         }
+
+
         return updateableAdView
     }
 }

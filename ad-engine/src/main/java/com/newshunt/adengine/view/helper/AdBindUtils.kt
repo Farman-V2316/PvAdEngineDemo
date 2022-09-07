@@ -389,7 +389,7 @@ class AdBindUtils {
             return when (adEntity.adPosition) {
                 AdPosition.P0,
                 AdPosition.PP1,
-                AdPosition.CARD_P1,
+                AdPosition.LIST_AD,
                 AdPosition.SUPPLEMENT -> false
                 else -> !CommonUtils.isEmpty(AdsUtil.getMergedTitle(item.title, item.body))
             }

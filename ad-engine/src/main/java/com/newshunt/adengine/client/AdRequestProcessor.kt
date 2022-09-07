@@ -202,7 +202,7 @@ class AdRequestProcessor(private val adEntityConsumer: AdEntityConsumer,
 
     private fun parseDefaultSdkResponse(adPosition: AdPosition): List<BaseDisplayAdEntity> {
         val inputStream: InputStream? = when (adPosition) {
-            AdPosition.CARD_P1 -> CommonUtils.getApplication().resources.openRawResource(
+            AdPosition.LIST_AD -> CommonUtils.getApplication().resources.openRawResource(
                     R.raw.default_sdk_order_cardp1)
             AdPosition.PGI -> CommonUtils.getApplication().resources.openRawResource(
                     R.raw.default_sdk_order_pgi)

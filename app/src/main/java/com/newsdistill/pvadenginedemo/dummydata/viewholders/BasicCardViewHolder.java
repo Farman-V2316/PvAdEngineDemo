@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -30,30 +31,44 @@ public class BasicCardViewHolder extends RecyclerView.ViewHolder {
     private ImageView imageView;
     private TextView titleView;
     private RelativeLayout adContainer;
-    private HomeFeedAdHandler homeFeedAdHandler = new HomeFeedAdHandler();
+    private HomeFeedAdHandler homeFeedAdHandler;
+    private LifecycleOwner lifecycleOwner;
 
-    public BasicCardViewHolder(@NonNull View itemView) {
-        super(itemView);
-    }
-
-    public BasicCardViewHolder(Activity context, View view, String pageName) {
+    public BasicCardViewHolder(Activity context, @NonNull View view, String pageName, LifecycleOwner viewLifecycleOwner) {
         super(view);
         this.context = context;
         this.pageName = pageName;
+        this.lifecycleOwner = viewLifecycleOwner;
         imageView = view.findViewById(R.id.imageView);
         titleView = view.findViewById(R.id.titleView);
         adContainer = view.findViewById(R.id.home_ad_layout);
+        homeFeedAdHandler = new HomeFeedAdHandler(lifecycleOwner);
+
     }
 
-    public void bind(CommunityPost post) {
+    public void bind(CommunityPost post, int position) {
         appendImageView(post);
         titleView.setText(post.getTitle());
         Log.d("panda", "binding a feed ad for post id : " + post.getPostId());
-        addFeedAd(post);
+        String adZoneType = getZoneAdType(position);
+        addFeedAd(post, adZoneType);
     }
 
-    private void addFeedAd(CommunityPost post) {
-        homeFeedAdHandler.loadHomeFeedAd(AdPosition.PGI);
+    private String getZoneAdType(int position) {
+        switch (position) {
+            case 1:
+            case 5:
+            case 9:
+
+            case 3:
+            case 7 : return "PGI_IMAGE";
+
+            default: return "";
+        }
+    }
+
+    private void addFeedAd(CommunityPost post, String adZoneType) {
+        homeFeedAdHandler.loadHomeFeedAd(AdPosition.PGI, adZoneType);
     }
 
     @Subscribe

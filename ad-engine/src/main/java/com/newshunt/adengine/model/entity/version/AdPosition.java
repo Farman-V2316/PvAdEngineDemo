@@ -18,8 +18,8 @@ public enum AdPosition implements Serializable {
   STORY("storypage"),
   @SerializedName("supplement")
   SUPPLEMENT("supplement"),
-  @SerializedName("card-p1")
-  CARD_P1("card-p1"),
+  @SerializedName("list-ad")
+  LIST_AD("list-ad"),
   @SerializedName("pgi")
   PGI("pgi"),
   @SerializedName("vdo-pgi")

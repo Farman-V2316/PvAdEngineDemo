@@ -110,6 +110,8 @@ public class AdFetcher {
       url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/image.json";
     } else if (adRequest.getZoneAdType().equals("PGI_HTML")) {
       url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/html.json";
+    } else if (adRequest.getZoneAdType().equals("LIST_AD_IMAGE")) {
+      url = "http://qa-money.newshunt.com/publicVibe/v1/list-ad/image.json";
     }
     //Shorts - html ad
 //    final String url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/html.json";

@@ -22,7 +22,6 @@ import com.newshunt.adengine.util.AdsUtil
 import com.newshunt.adengine.util.EvergreenAdsHelper
 import com.newshunt.common.helper.common.AndroidUtils
 import com.newshunt.common.helper.common.BusProvider
-import com.newshunt.common.helper.common.Constants
 import com.newshunt.dataentity.dhutil.model.entity.adupgrade.AdsUpgradeInfo
 import com.newshunt.dhutil.helper.AdsUpgradeInfoProvider
 import com.newshunt.news.di.qualifiers.UiBus
@@ -194,7 +193,7 @@ class GetAdUsecaseController @JvmOverloads constructor(@param:Provided @param:Ui
         return when (adPosition) {
             AdPosition.SPLASH -> NativeAdInventoryManager.getSplashInstance()
             AdPosition.P0 -> NativeAdInventoryManager.getP0Instance()
-            AdPosition.CARD_P1 -> NativeAdInventoryManager.getCardP1Instance()
+            AdPosition.LIST_AD -> NativeAdInventoryManager.getCardP1Instance()
             AdPosition.MASTHEAD -> NativeAdInventoryManager.getMastHeadInstance()
             AdPosition.STORY -> NativeAdInventoryManager.getStoryInstance()
             AdPosition.SUPPLEMENT -> NativeAdInventoryManager.getSupplementAdsInstance()

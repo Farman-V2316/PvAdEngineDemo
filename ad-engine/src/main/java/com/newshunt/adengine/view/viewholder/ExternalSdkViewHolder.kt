@@ -75,7 +75,7 @@ class ExternalSdkViewHolder(private val viewBinding: ViewDataBinding, uniqueRequ
         viewBinding.executePendingBindings()
 
         when (baseDisplayAdEntity.adPosition) {
-            AdPosition.CARD_P1, AdPosition.P0, AdPosition.PP1,
+            AdPosition.LIST_AD, AdPosition.P0, AdPosition.PP1,
             AdPosition.SUPPLEMENT, AdPosition.STORY -> {
                 val padding = CommonUtils.getDimension(R.dimen.ad_content_top_bottom_margin)
                 view.setPadding(0, padding, 0, padding)

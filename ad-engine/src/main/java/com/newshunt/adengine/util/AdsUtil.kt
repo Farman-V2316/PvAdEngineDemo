@@ -9,7 +9,6 @@ import `in`.dailyhunt.money.frequency.FCEngine
 import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.util.TypedValue
@@ -404,7 +403,7 @@ class AdsUtil {
 
         private fun getPreferenceForAdPositionForGoodNw(adPosition: AdPosition): AdsPreference? {
             return when (adPosition) {
-                AdPosition.CARD_P1 -> AdsPreference.CARD_P1_AD_CACHE_LEVEL_GOOD
+                AdPosition.LIST_AD -> AdsPreference.CARD_P1_AD_CACHE_LEVEL_GOOD
                 AdPosition.STORY -> AdsPreference.STORY_AD_CACHE_LEVEL_GOOD
                 AdPosition.SUPPLEMENT -> AdsPreference.SUPPLEMENT_AD_CACHE_LEVEL_GOOD
                 AdPosition.MASTHEAD -> AdsPreference.MASTHEAD_AD_CACHE_LEVEL_GOOD
@@ -416,7 +415,7 @@ class AdsUtil {
 
         private fun getPreferenceForAdPositionForAverageNw(adPosition: AdPosition): AdsPreference? {
             return when (adPosition) {
-                AdPosition.CARD_P1 -> AdsPreference.CARD_P1_AD_CACHE_LEVEL_AVERAGE
+                AdPosition.LIST_AD -> AdsPreference.CARD_P1_AD_CACHE_LEVEL_AVERAGE
                 AdPosition.STORY -> AdsPreference.STORY_AD_CACHE_LEVEL_AVERAGE
                 AdPosition.SUPPLEMENT -> AdsPreference.SUPPLEMENT_AD_CACHE_LEVEL_AVERAGE
                 AdPosition.MASTHEAD -> AdsPreference.MASTHEAD_AD_CACHE_LEVEL_AVERAGE
@@ -428,7 +427,7 @@ class AdsUtil {
 
         private fun getPreferenceForAdPositionForSlowNw(adPosition: AdPosition): AdsPreference? {
             return when (adPosition) {
-                AdPosition.CARD_P1 -> AdsPreference.CARD_P1_AD_CACHE_LEVEL_SLOW
+                AdPosition.LIST_AD -> AdsPreference.CARD_P1_AD_CACHE_LEVEL_SLOW
                 AdPosition.STORY -> AdsPreference.STORY_AD_CACHE_LEVEL_SLOW
                 AdPosition.SUPPLEMENT -> AdsPreference.SUPPLEMENT_AD_CACHE_LEVEL_SLOW
                 AdPosition.MASTHEAD -> AdsPreference.MASTHEAD_AD_CACHE_LEVEL_SLOW
@@ -695,7 +694,7 @@ class AdsUtil {
         @JvmStatic
         fun isNewsZone(adPosition: AdPosition?): Boolean {
             return when (adPosition ?: return false) {
-                AdPosition.P0, AdPosition.PP1, AdPosition.CARD_P1, AdPosition.PGI,
+                AdPosition.P0, AdPosition.PP1, AdPosition.LIST_AD, AdPosition.PGI,
                 AdPosition.STORY, AdPosition.SUPPLEMENT, AdPosition.MASTHEAD -> true
                 else -> false
             }
@@ -740,7 +739,7 @@ class AdsUtil {
         @JvmStatic
         fun isValidNewsAd(adEntity: BaseAdEntity?): Boolean {
             when (adEntity?.adPosition ?: return false) {
-                AdPosition.P0, AdPosition.PP1, AdPosition.STORY, AdPosition.CARD_P1,
+                AdPosition.P0, AdPosition.PP1, AdPosition.STORY, AdPosition.LIST_AD,
                 AdPosition.PGI, AdPosition.SUPPLEMENT, AdPosition.MASTHEAD -> return true
                 else -> return false
             }
@@ -825,7 +824,7 @@ class AdsUtil {
                         || item.showIf?.rules?.isEmpty() == true) {
                     when (item.zone) {
                         AdPosition.P0.value,
-                        AdPosition.CARD_P1.value,
+                        AdPosition.LIST_AD.value,
                         AdPosition.PGI.value,
                         AdPosition.MASTHEAD.value,
                         AdPosition.STORY.value -> {
@@ -1198,7 +1197,7 @@ class AdsUtil {
             return when (adPosition) {
                 AdPosition.P0 -> adsUpgradeInfo.cardP0AdConfig
                 AdPosition.PP1 -> adsUpgradeInfo.cardPP1AdsConfig
-                AdPosition.CARD_P1 -> adsUpgradeInfo.cardP1AdConfig
+                AdPosition.LIST_AD -> adsUpgradeInfo.cardP1AdConfig
                 AdPosition.STORY -> adsUpgradeInfo.storyPageAdConfig
                 AdPosition.MASTHEAD -> adsUpgradeInfo.mastheadAdConfig
                 AdPosition.SUPPLEMENT -> adsUpgradeInfo.supplementAdConfig
@@ -1330,7 +1329,7 @@ class AdsUtil {
          */
         fun computeAdInsertedIndex(adEntity: BaseDisplayAdEntity, position: Int): Int {
             return when (adEntity.adPosition) {
-                AdPosition.P0, AdPosition.CARD_P1, AdPosition.PP1 -> position
+                AdPosition.P0, AdPosition.LIST_AD, AdPosition.PP1 -> position
                 else -> -1
             }
         }
