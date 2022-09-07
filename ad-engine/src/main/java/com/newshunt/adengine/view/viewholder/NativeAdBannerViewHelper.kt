@@ -93,7 +93,7 @@ class NativeAdBannerViewHelper(private val nativeAd: BaseDisplayAdEntity,
         view.setOnClickListener(clickListener)
         if (clickableViews.isNotEmpty()) {
             for (childView in clickableViews) {
-                childView.setOnClickListener(clickListener)
+//                childView.setOnClickListener(clickListener)
             }
         }
     }

@@ -56,7 +56,13 @@ public class BasicCardViewHolder extends RecyclerView.ViewHolder {
 
         if (pageName.equals("home")) {
             Log.d("panda", "binding a feed ad for post id : " + post.getPostId());
-            String adZoneType = getZoneAdType(position);
+            String adZoneType = AdZoneType.LIST_AD_IMAGE.name();
+
+            if (position % 2 == 0) {
+                adZoneType = AdZoneType.LIST_AD_HTML.name();
+            }
+
+
             addFeedAd(post, adZoneType);
             adContainer.setVisibility(View.VISIBLE);
         }
@@ -64,7 +70,7 @@ public class BasicCardViewHolder extends RecyclerView.ViewHolder {
 
     private String getZoneAdType(int position) {
         switch (position) {
-            case 1:
+            case 1: return AdZoneType.LIST_AD_HTML.name();
             case 5:
             case 9:
 
@@ -82,7 +88,7 @@ public class BasicCardViewHolder extends RecyclerView.ViewHolder {
 
     @Subscribe
     public void setAdResponse(NativeAdContainer nativeAdContainer) {
-        Log.d( "panda:", " setAdResponse-------------------> $nativeAdContainer");
+        Log.d( "panda:", " setAdResponse------------------->" + nativeAdContainer);
         if (nativeAdContainer.getUniqueRequestId() != homeFeedAdHandler.getAdRequestID())
             return;
 

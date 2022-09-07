@@ -127,11 +127,11 @@ class NativeAdHtmlViewHolder(val viewBinding: ViewDataBinding,
     init {
         this.viewBinding.root.visibility = View.GONE
         if (viewBinding is NewsItemTypeHtmlAdBinding) {
-            bottomBanner = viewBinding.adBannerBottombar.adBannerBottombar
+            //bottomBanner = viewBinding.adBannerBottombar.adBannerBottombar
             adContainer = viewBinding.adDefaultContainer
             borderContainer = viewBinding.borderContainer
             relativeLayout = viewBinding.htmlAdLayout
-            bottomBrandBanner = viewBinding.adBannerBrandBottombarOsv.adOsvBottombar
+           // bottomBrandBanner = viewBinding.adBannerBrandBottombarOsv.adOsvBottombar
         } else if (viewBinding is LayoutHtmlFullPageAdBinding) {
             relativeLayout = viewBinding.htmlAdLayout
         }
@@ -225,8 +225,8 @@ class NativeAdHtmlViewHolder(val viewBinding: ViewDataBinding,
         mastAdView?.adDelegate?.richmediaEventHandler = this
         mastAdView?.adDelegate?.adDownloadHandler = this
         mastAdView?.let { mastAdView ->
-            bottomBanner?.setOnClickListener { onAdClicked(mastAdView, baseAdEntity.action) }
-            bottomBrandBanner?.setOnClickListener{ onAdClicked(mastAdView, baseAdEntity.action) }
+           // bottomBanner?.setOnClickListener { onAdClicked(mastAdView, baseAdEntity.action) }
+           // bottomBrandBanner?.setOnClickListener{ onAdClicked(mastAdView, baseAdEntity.action) }
         }
         viewBinding.setVariable(BR.adEntity, nativeAdHtml)
         viewBinding.executePendingBindings()
