@@ -3,22 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="ad-engine/src/main/res/layout/ad_brand_bottombar.xml" value="0.33229166666666665" />
+        <entry key="ad-engine/src/main/res/layout/ad_brand_bottombar.xml" value="0.30572916666666666" />
         <entry key="ad-engine/src/main/res/layout/ads_native_high_layout.xml" value="0.1" />
+        <entry key="ad-engine/src/main/res/layout/ads_native_low_layout.xml" value="0.20925925925925926" />
+        <entry key="ad-engine/src/main/res/layout/ads_source_and_share_layout.xml" value="0.20925925925925926" />
         <entry key="ad-engine/src/main/res/layout/layout_ima_video_ads.xml" value="0.3421875" />
-        <entry key="ad-engine/src/main/res/layout/news_item_ad_banner_bottombar.xml" value="0.33229166666666665" />
-        <entry key="ad-engine/src/main/res/layout/news_item_type_html_ad.xml" value="0.1" />
-        <entry key="ad-engine/src/main/res/layout/news_item_type_image_link_ad.xml" value="0.2759259259259259" />
-        <entry key="ad-engine/src/main/res/layout/news_item_type_image_link_ad_pv.xml" value="0.33229166666666665" />
-        <entry key="ad-engine/src/main/res/layout/osv_bottom_bar.xml" value="0.33229166666666665" />
-        <entry key="ad-engine/src/main/res/layout/pgi_native_ad.xml" value="0.3271794871794872" />
+        <entry key="ad-engine/src/main/res/layout/news_item_ad_banner_bottombar.xml" value="0.12916666666666668" />
+        <entry key="ad-engine/src/main/res/layout/osv_bottom_bar.xml" value="0.30572916666666666" />
+        <entry key="app/src/main/res/drawable/ic_nav_home_day_selected.xml" value="0.142" />
+        <entry key="app/src/main/res/drawable/ic_nav_home_night_selected.xml" value="0.142" />
+        <entry key="app/src/main/res/drawable/nav_bar_home.xml" value="0.142" />
+        <entry key="app/src/main/res/drawable/nav_bar_shorts.xml" value="0.142" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165625" />
-        <entry key="app/src/main/res/layout/ad_layout.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/app_actionbar_layout.xml" value="0.11666666666666667" />
-        <entry key="app/src/main/res/layout/feed_item_layout.xml" value="0.21666666666666667" />
+        <entry key="app/src/main/res/layout/feed_item_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/feed_layout.xml" value="0.2828125" />
         <entry key="app/src/main/res/layout/layout_common_top_bar.xml" value="0.11666666666666667" />
+        <entry key="app/src/main/res/layout/native_pgi_ad_branding_bar_dummy.xml" value="0.1" />
         <entry key="app/src/main/res/layout/view_dailyhunt_tab_toolbar.xml" value="0.11666666666666667" />
         <entry key="app/src/main/res/layout/view_follow_tab_toolbar.xml" value="0.11666666666666667" />
+        <entry key="app/src/main/res/menu/bottom_navigation_home.xml" value="0.2828125" />
         <entry key="appview/src/main/res/layout/disclaimer_popup.xml" value="0.11666666666666667" />
         <entry key="appview/src/main/res/layout/language_selection_see_all_viewholder.xml" value="0.11666666666666667" />
         <entry key="appview/src/main/res/layout/layout_profile_ner_header.xml" value="0.1" />
@@ -27,7 +31,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

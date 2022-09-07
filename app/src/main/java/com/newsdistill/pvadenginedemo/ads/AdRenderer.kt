@@ -7,18 +7,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleOwner
 import com.newshunt.adengine.R
-import com.newshunt.adengine.databinding.AdsNativeHighLayoutBinding
-import com.newshunt.adengine.databinding.AdsNativeLowLayoutBinding
-import com.newshunt.adengine.databinding.NewsItemTypeHtmlAdBinding
-import com.newshunt.adengine.databinding.NewsItemTypeImageLinkAdBinding
+import com.newshunt.adengine.databinding.*
 import com.newshunt.adengine.model.entity.BaseAdEntity
 import com.newshunt.adengine.util.AdsUtil
 import com.newshunt.adengine.view.UpdateableAdView
 import com.newshunt.adengine.view.helper.AdsViewHolderFactory
-import com.newshunt.adengine.view.viewholder.NativeAdHtmlViewHolder
-import com.newshunt.adengine.view.viewholder.NativeAdImageLinkViewHolder
-import com.newshunt.adengine.view.viewholder.NativeViewHolder
-import com.newshunt.adengine.view.viewholder.PgiNativeAdViewHolder
+import com.newshunt.adengine.view.viewholder.*
 import com.newshunt.dataentity.common.asset.AdDisplayType
 
 class AdRenderer(var lifecycleOwner: LifecycleOwner) {
@@ -102,10 +96,10 @@ class AdRenderer(var lifecycleOwner: LifecycleOwner) {
                 viewDataBinding = DataBindingUtil.inflate<AdsNativeHighLayoutBinding>(LayoutInflater.from(activity),
                         R.layout.ads_native_high_layout, adContainer, false)
 
-                updateableAdView = NativeViewHolder(viewDataBinding, 100, lifecycleOwner)
+                updateableAdView = NativeHighTemplateViewHolder(viewDataBinding, 100, lifecycleOwner)
                 adContainer.removeAllViews()
                 adContainer.addView(viewDataBinding.root)
-                (updateableAdView as NativeViewHolder).updateView(activity, baseAdEntity)
+                (updateableAdView as NativeHighTemplateViewHolder).updateView(activity, baseAdEntity)
             }
 
             AdDisplayType.HTML_AD.index -> {
@@ -117,6 +111,15 @@ class AdRenderer(var lifecycleOwner: LifecycleOwner) {
                 adContainer.removeAllViews()
                 adContainer.addView(viewDataBinding.root)
                 (updateableAdView as NativeAdHtmlViewHolder).updateView(activity, baseAdEntity)
+            }
+            AdDisplayType.IMA_VIDEO_AD.index -> {
+                viewDataBinding = DataBindingUtil.inflate<LayoutImaVideoAdsBinding>(LayoutInflater.from(activity), R.layout
+                    .layout_ima_video_ads, adContainer, false)
+                updateableAdView = IMAVideoAdViewHolder(viewDataBinding as LayoutImaVideoAdsBinding, 100,
+                    lifecycleOwner)
+                adContainer.removeAllViews()
+                adContainer.addView(viewDataBinding.root)
+                (updateableAdView as IMAVideoAdViewHolder).updateView(activity, baseAdEntity)
             }
         }
 

@@ -61,11 +61,18 @@ public class BasicCardViewHolder extends RecyclerView.ViewHolder {
             if (position % 2 == 0) {
                 adZoneType = AdZoneType.LIST_AD_HTML.name();
             }
+            if (position %3 == 0) {
+                adZoneType = AdZoneType.LIST_AD_VIDEO.name();
+            }
 
-
+            if (position == 5 || position == 9) {
+                adZoneType = AdZoneType.LIST_AD_NATIVE.name();
+            }
             addFeedAd(post, adZoneType);
             adContainer.setVisibility(View.VISIBLE);
+            adContainer.removeAllViews();
         }
+
     }
 
     private String getZoneAdType(int position) {
