@@ -109,16 +109,4 @@ class ShortsAdHandler(var viewLifecycleOwner : LifecycleOwner) {
 
         return updateableAdView
     }
-
-    private fun showPgiAd(activity: Activity?, baseAdEntity: BaseAdEntity) {
-        val viewDataBinding = DataBindingUtil.inflate<LayoutHtmlFullPageAdBinding>(
-            LayoutInflater.from(activity),
-            com.newshunt.adengine.R.layout.layout_html_full_page_ad, null, false)
-            .apply {
-            }
-        val nativeAdHtmlViewHolder = NativeAdHtmlViewHolder(viewDataBinding)
-        activity?.let { activity ->
-            nativeAdHtmlViewHolder.updateView(activity, baseAdEntity)
-        }
-    }
 }

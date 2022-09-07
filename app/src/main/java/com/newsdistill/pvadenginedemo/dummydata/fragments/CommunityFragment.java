@@ -38,7 +38,7 @@ public class CommunityFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false));
         new PagerSnapHelper().attachToRecyclerView(recyclerView);
-        FeedAdapter feedAdapter = new FeedAdapter(getActivity(), getData(), "home");
+        FeedAdapter feedAdapter = new FeedAdapter(getActivity(), getData(), "home", getViewLifecycleOwner());
         recyclerView.setAdapter(feedAdapter);
     }
 

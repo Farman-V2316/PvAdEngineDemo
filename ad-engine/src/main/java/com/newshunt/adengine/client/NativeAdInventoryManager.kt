@@ -27,7 +27,6 @@ import com.newshunt.sdk.network.Priority
 import com.squareup.otto.Bus
 import java.lang.ref.WeakReference
 import java.util.ArrayList
-import java.util.HashSet
 
 /**
  * Manages ad-inventory. When ad count reached below threshold it
@@ -137,7 +136,7 @@ class NativeAdInventoryManager private constructor(bus: Bus, cacheSize: Int,
                 synchronized(NativeAdInventoryManager::class.java) {
                     if (cardP1Instance == null) {
                         cardP1Instance = NativeAdInventoryManager(BusProvider.getAdBusInstance(), 1, 0,
-                                AdPosition.CARD_P1)
+                                AdPosition.LIST_AD)
                     }
                 }
             }

@@ -27,7 +27,6 @@ import com.newshunt.common.helper.common.BusProvider
 import com.newshunt.common.helper.common.Constants
 import com.newshunt.common.helper.preference.PreferenceManager
 import com.newshunt.dataentity.analytics.referrer.PageReferrer
-import com.newshunt.dataentity.analytics.section.NhAnalyticsEventSection
 import com.newshunt.dataentity.common.asset.CommonAsset
 import com.newshunt.dataentity.common.asset.Format
 import com.newshunt.dataentity.common.pages.PageEntity
@@ -92,7 +91,7 @@ class AdsHelper(private val adDbHelper: AdDBHelper,
     }
 
     private val uiBus = BusProvider.getUIBusInstance()
-    private val zonesSupported = setOf(AdPosition.P0.value, AdPosition.PP1.value, AdPosition.CARD_P1.value)
+    private val zonesSupported = setOf(AdPosition.P0.value, AdPosition.PP1.value, AdPosition.LIST_AD.value)
     private var allowedZones = mutableSetOf<String>()
 
     /**
@@ -216,7 +215,7 @@ class AdsHelper(private val adDbHelper: AdDBHelper,
                                 processingTag = null
                                 currentAdData = prevAdData
                             }
-                            AdPosition.CARD_P1 -> {
+                            AdPosition.LIST_AD -> {
                                 currentAdData = prevAdData
                             }
                             else -> {
@@ -603,7 +602,7 @@ class AdsHelper(private val adDbHelper: AdDBHelper,
      * inserted yet.Returns -1 if ad cannot be inserted or not available.
      */
     fun tryinsertP1Ad(visibleItemCount: Int, firstVisibleItem: Int, totalItemCount: Int) {
-        if (!allowedZones.contains(AdPosition.CARD_P1.value)
+        if (!allowedZones.contains(AdPosition.LIST_AD.value)
                 || cardP0ResponseAwaited || !isP0AdInserted && premiumBaseAdEntity != null && premiumBaseAdEntity !is NoFillOrErrorAd
                 || isPP1ResponseAwaited || !isPP1AdsInserted) {
             return
@@ -624,7 +623,7 @@ class AdsHelper(private val adDbHelper: AdDBHelper,
         AdLogger.d(LOG_TAG, "first: $firstVisibleItem, last: $lastVisibleItem, visible: $visibleItemCount")
         if (availableAds.isEmpty()) {
             if (canRequestAd(lastVisibleItem)) {
-                if (requestAds && requestAds(AdPosition.CARD_P1)) {
+                if (requestAds && requestAds(AdPosition.LIST_AD)) {
                     cardP1ResponseAwaited = true
                     AdLogger.d(LOG_TAG, "Card P1 ad request made")
                     p1AdRequestAlreadyMadeInThisSession = true
@@ -698,7 +697,7 @@ class AdsHelper(private val adDbHelper: AdDBHelper,
     fun setAdResponse(nativeAdContainer: NativeAdContainer) {
         //Ads helper deals with only P0, Card-p1, Card-PP1 ads in news list.
         if (nativeAdContainer.adPosition != AdPosition.P0 &&
-                nativeAdContainer.adPosition != AdPosition.CARD_P1 &&
+                nativeAdContainer.adPosition != AdPosition.LIST_AD &&
                 nativeAdContainer.adPosition != AdPosition.PP1) {
             return
         }
@@ -712,7 +711,7 @@ class AdsHelper(private val adDbHelper: AdDBHelper,
 
         when (nativeAdContainer.adPosition) {
             AdPosition.P0 -> cardP0ResponseAwaited = false
-            AdPosition.CARD_P1 -> cardP1ResponseAwaited = false
+            AdPosition.LIST_AD -> cardP1ResponseAwaited = false
             else -> {
             }
         }
