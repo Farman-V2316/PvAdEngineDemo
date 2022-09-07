@@ -26,7 +26,12 @@ class AdViewHolder(itemView: View, viewLifecycleOwner : LifecycleOwner) : Recycl
         this.activity = context
         this.adRequestID = adRequestID
         bus.register(this)
-        adHandler.initAd(AdPosition.PGI, adRequestID, bus)
+        val zoneAdType:String = when (position){
+            1,5,9 -> "PGI_IMAGE"
+            3,7-> "PGI_HTML"
+            else -> {""}
+        }
+        adHandler.initAd(AdPosition.PGI, adRequestID, bus, zoneAdType)
     }
 
     @Subscribe

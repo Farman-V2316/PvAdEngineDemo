@@ -52,9 +52,11 @@ public class ShortsFragment extends Fragment {
         posts.addAll(communityPosts);
 
         //add AD
-        posts.add(2, new Ad());
-        posts.add(4, new Ad());
-        posts.add(6, new Ad());
+        posts.add(1, new Ad());
+        posts.add(3, new Ad());
+        posts.add(5, new Ad());
+        posts.add(7, new Ad());
+        posts.add(9, new Ad());
         return posts;
     }
 }

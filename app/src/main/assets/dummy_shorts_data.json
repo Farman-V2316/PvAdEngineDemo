@@ -67,6 +67,95 @@
       }
     },
     {
+      "cardType": "VIDEO",
+      "cardSubType": "MP4",
+      "viewType": "SHORTS",
+      "postId": "1661859931064197772",
+      "sourceId": "13",
+      "languageId": 2,
+      "actualLanguageId": 2,
+      "genreId": 58,
+      "categoryId": 140,
+      "newsTypeId": "98",
+      "videoTypeId": "98",
+      "title": "ప్రాణం తీసిన అంబులెన్సు.. డోర్లు తెరుచుకోకపోవడంతో దారుణం",
+      "link": "https://stream.publicvibe.com/video/a43-1d86e310287411edb4d4a0ced4523dcc_480px.mp4",
+      "imageUrl": "https://media.publicvibe.com/community/topic/20220830/1844059876_98462_114534999_720x1280.jpg",
+      "imageUrlSmall": [
+        "https://media.publicvibe.com/community/topic/20220830/1844059876_98462_114534999_720x1280.jpg"
+      ],
+      "imageUrlMedium": [
+        "https://media.publicvibe.com/community/topic/20220830/1844059876_98462_114534999_720x1280.jpg"
+      ],
+      "imageUrlLarge": [
+        "https://media.publicvibe.com/community/topic/20220830/1844059876_98462_114534999_720x1280.jpg"
+      ],
+      "simpleDescription": "",
+      "who": {
+        "id": "1608531325187500221",
+        "name": "PublicVibe-Telugu",
+        "imageUrl": "https://media.publicvibe.com/meedia/20220211/notification_2022021106444882420220211064448824_533x800.jpg",
+        "redirection": true,
+        "type": "member"
+      },
+      "feedSourceName": "SHORTS_TRENDING_POSTS",
+      "label2": "ట్రెండింగ్",
+      "status": 99,
+      "displayScore": 98,
+      "videos": [
+        {
+          "very low": "https://stream.publicvibe.com/video/a43-1d86e310287411edb4d4a0ced4523dcc_240px.mp4",
+          "low": "https://stream.publicvibe.com/video/a43-1d86e310287411edb4d4a0ced4523dcc_360px.mp4",
+          "medium": "https://stream.publicvibe.com/video/a43-1d86e310287411edb4d4a0ced4523dcc_480px.mp4",
+          "downloadUrl": "https://stream.publicvibe.com/video/a43-1d86e310287411edb4d4a0ced4523dcc_download.mp4"
+        }
+      ],
+      "stats": {
+        "views": 31995,
+        "shares": 0,
+        "answers": 2,
+        "links": 0,
+        "reactions": [
+          {
+            "type": "1",
+            "count": 134
+          }
+        ],
+        "tags": {
+          "tags": [
+            {
+              "id": "334223",
+              "labelName": "రోడ్డు ప్రమాదం"
+            },
+            {
+              "id": "472178",
+              "labelName": "accidents"
+            },
+            {
+              "id": "833827",
+              "labelName": "క్రైమ్"
+            },
+            {
+              "id": "5103202",
+              "labelName": "ప్రమాదాలు"
+            },
+            {
+              "id": "6241236",
+              "labelName": "అంబులెన్స్"
+            },
+            {
+              "id": "9755054",
+              "labelName": "Viral"
+            },
+            {
+              "id": "9294475",
+              "labelName": "Viral"
+            }
+          ]
+        }
+      }
+    },
+    {
       "cardType": "NEWS",
       "cardSubType": "DEFAULT",
       "viewType": "SHORTS",
@@ -127,7 +216,57 @@
         }
       }
     },
-
+    {
+      "cardType": "NEWS",
+      "cardSubType": "DEFAULT",
+      "viewType": "SHORTS",
+      "postId": "1662528231012198151",
+      "sourceId": "9",
+      "languageId": 2,
+      "actualLanguageId": 2,
+      "genreId": 19,
+      "newsTypeId": "95",
+      "videoTypeId": "0",
+      "imageUrl": "https://media.publicvibe.com/community/topic/20220907/1379173420_74681_052350429_1920x1080.jpg",
+      "imageUrlSmall": [
+        "https://media.publicvibe.com/community/topic/20220907/1379173420_74681_052350429_1920x1080.jpg"
+      ],
+      "imageUrlMedium": [
+        "https://media.publicvibe.com/community/topic/20220907/1379173420_74681_052350429_1920x1080.jpg"
+      ],
+      "imageUrlLarge": [
+        "https://media.publicvibe.com/community/topic/20220907/1379173420_74681_052350429_1920x1080.jpg"
+      ],
+      "simpleDescription": "",
+      "who": {
+        "id": "1570686452753500405",
+        "name": "Yamini",
+        "imageUrl": "https://www.pvibe.in/profile_images/profile39.jpg",
+        "redirection": true,
+        "type": "member"
+      },
+      "feedSourceName": "SHORTS_LATEST_POSTS_2",
+      "status": 99,
+      "displayScore": 97,
+      "stats": {
+        "views": 62,
+        "shares": 0,
+        "answers": 0,
+        "links": 0,
+        "tags": {
+          "tags": [
+            {
+              "id": "553849",
+              "labelName": "సూక్తులు"
+            },
+            {
+              "id": "32",
+              "labelName": "Quotes"
+            }
+          ]
+        }
+      }
+    },
     {
       "cardType": "VIDEO",
       "cardSubType": "MP4",
@@ -293,6 +432,57 @@
       }
     },
     {
+      "cardType": "NEWS",
+      "cardSubType": "DEFAULT",
+      "viewType": "SHORTS",
+      "postId": "1662528231012198151",
+      "sourceId": "9",
+      "languageId": 2,
+      "actualLanguageId": 2,
+      "genreId": 19,
+      "newsTypeId": "95",
+      "videoTypeId": "0",
+      "imageUrl": "https://media.publicvibe.com/community/topic/20220907/1379173420_74681_052350429_1920x1080.jpg",
+      "imageUrlSmall": [
+        "https://media.publicvibe.com/community/topic/20220907/1379173420_74681_052350429_1920x1080.jpg"
+      ],
+      "imageUrlMedium": [
+        "https://media.publicvibe.com/community/topic/20220907/1379173420_74681_052350429_1920x1080.jpg"
+      ],
+      "imageUrlLarge": [
+        "https://media.publicvibe.com/community/topic/20220907/1379173420_74681_052350429_1920x1080.jpg"
+      ],
+      "simpleDescription": "",
+      "who": {
+        "id": "1570686452753500405",
+        "name": "Yamini",
+        "imageUrl": "https://www.pvibe.in/profile_images/profile39.jpg",
+        "redirection": true,
+        "type": "member"
+      },
+      "feedSourceName": "SHORTS_LATEST_POSTS_2",
+      "status": 99,
+      "displayScore": 97,
+      "stats": {
+        "views": 62,
+        "shares": 0,
+        "answers": 0,
+        "links": 0,
+        "tags": {
+          "tags": [
+            {
+              "id": "553849",
+              "labelName": "సూక్తులు"
+            },
+            {
+              "id": "32",
+              "labelName": "Quotes"
+            }
+          ]
+        }
+      }
+    },
+    {
       "cardType": "VIDEO",
       "cardSubType": "MP4",
       "viewType": "SHORTS",
@@ -366,6 +556,63 @@
             {
               "id": "5090996",
               "labelName": "Viral"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "cardType": "NEWS",
+      "cardSubType": "DEFAULT",
+      "viewType": "SHORTS",
+      "postId": "1662528231012198151",
+      "sourceId": "9",
+      "languageId": 2,
+      "actualLanguageId": 2,
+      "genreId": 19,
+      "newsTypeId": "95",
+      "videoTypeId": "0",
+      "imageUrl": "https://media.publicvibe.com/community/topic/20220907/1379173420_74681_052350429_1920x1080.jpg",
+      "imageUrlSmall": [
+        "https://media.publicvibe.com/community/topic/20220907/1379173420_74681_052350429_1920x1080.jpg"
+      ],
+      "imageUrlMedium": [
+        "https://media.publicvibe.com/community/topic/20220907/1379173420_74681_052350429_1920x1080.jpg"
+      ],
+      "imageUrlLarge": [
+        "https://media.publicvibe.com/community/topic/20220907/1379173420_74681_052350429_1920x1080.jpg"
+      ],
+      "simpleDescription": "",
+      "who": {
+        "id": "1570686452753500405",
+        "name": "Yamini",
+        "imageUrl": "https://www.pvibe.in/profile_images/profile39.jpg",
+        "redirection": true,
+        "type": "member"
+      },
+      "feedSourceName": "SHORTS_LATEST_POSTS_2",
+      "status": 99,
+      "displayScore": 97,
+      "stats": {
+        "views": 201,
+        "shares": 0,
+        "answers": 0,
+        "links": 0,
+        "reactions": [
+          {
+            "type": "1",
+            "count": 1
+          }
+        ],
+        "tags": {
+          "tags": [
+            {
+              "id": "553849",
+              "labelName": "సూక్తులు"
+            },
+            {
+              "id": "32",
+              "labelName": "Quotes"
             }
           ]
         }

@@ -26,9 +26,9 @@ import io.reactivex.plugins.RxJavaPlugins
 
 class ShortsAdHandler(var viewLifecycleOwner : LifecycleOwner) {
 
-    fun initAd(adPosition: AdPosition, uniqueRequestId: Int, uiBus: Bus) {
+    fun initAd(adPosition: AdPosition, uniqueRequestId: Int, uiBus: Bus, zoneAdType: String) {
         val useCase = GetAdUsecaseController(uiBus, uniqueRequestId)
-        useCase.requestAds(AdRequest(adPosition, 1, skipCacheMatching = true))
+        useCase.requestAds(AdRequest(adPosition, 1, skipCacheMatching = true, zoneAdType = zoneAdType))
 
         tempFix()
     }
@@ -80,27 +80,24 @@ class ShortsAdHandler(var viewLifecycleOwner : LifecycleOwner) {
                         it,
                         -1, adContainer
                     ) as? UpdateableAdView
-                }
 
-
-                println("panda: updateableAdView-> $updateableAdView")
-                /*viewDataBinding?.let {
+                    println("panda: updateableAdView-> $updateableAdView")
                     adContainer.removeAllViews()
                     val rLParams = RelativeLayout.LayoutParams(
                         RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
                     rLParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
 
-                    adContainer.addView(viewDataBinding.root, rLParams)
+                    adContainer.addView(viewDataBinding!!.root, rLParams)
 
                     updateableAdView?.updateView(activity, baseAdEntity)
-                }*/
+                }
             }
 
             AdDisplayType.PGI_ARTICLE_AD.index -> {
                 //TODO..
                 val layoutInflater = LayoutInflater.from(activity)
                 viewDataBinding = DataBindingUtil.inflate(layoutInflater,
-                    R.layout.pgi_native_ad_dummy, adContainer, false)
+                    com.newshunt.adengine.R.layout.pgi_native_ad, adContainer, false)
                 updateableAdView = PgiNativeAdViewHolder(viewDataBinding, lifecycleOwner = viewLifecycleOwner)
 
                 adContainer.addView(viewDataBinding.root)

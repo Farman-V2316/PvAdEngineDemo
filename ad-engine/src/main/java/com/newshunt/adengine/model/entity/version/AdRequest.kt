@@ -55,7 +55,8 @@ data class AdRequest(
         val isNotificationEnabled: Boolean = false,
        // val isNotificationEnabled: Boolean = NotificationManagerCompat.from(CommonUtils.getApplication()).areNotificationsEnabled(),
         val activity: Activity? = null,
-        var adsBaseUrl: String? = null) {
+        var adsBaseUrl: String? = null,
+        var zoneAdType: String? = null) {
 
         fun copyWith(localRequestedAdTags: MutableList<String>?): AdRequest {
                 return localRequestedAdTags?.let {
