@@ -6,6 +6,7 @@ import android.widget.RelativeLayout
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.newsdistill.pvadenginedemo.R
+import com.newsdistill.pvadenginedemo.ads.AdZoneType
 import com.newsdistill.pvadenginedemo.ads.ShortsAdHandler
 import com.newshunt.adengine.model.entity.NativeAdContainer
 import com.newshunt.adengine.model.entity.version.AdPosition
@@ -27,8 +28,8 @@ class AdViewHolder(itemView: View, viewLifecycleOwner : LifecycleOwner) : Recycl
         this.adRequestID = adRequestID
         bus.register(this)
         val zoneAdType:String = when (position){
-            1,5,9 -> "PGI_IMAGE"
-            3,7-> "PGI_HTML"
+            1,5,9 -> AdZoneType.PGI_IMAGE.name
+            3,7-> AdZoneType.PGI_HTML.name
             else -> {""}
         }
         adHandler.initAd(AdPosition.PGI, adRequestID, bus, zoneAdType)

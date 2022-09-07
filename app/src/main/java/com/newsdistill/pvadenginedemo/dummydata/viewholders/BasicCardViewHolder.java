@@ -15,11 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.newsdistill.pvadenginedemo.R;
+import com.newsdistill.pvadenginedemo.ads.AdZoneType;
 import com.newsdistill.pvadenginedemo.ads.HomeFeedAdHandler;
 import com.newsdistill.pvadenginedemo.dummydata.util.DisplayUtils;
 import com.newsdistill.pvadenginedemo.model.CommunityPost;
 import com.newshunt.adengine.model.entity.NativeAdContainer;
 import com.newshunt.adengine.model.entity.version.AdPosition;
+import com.newshunt.common.helper.common.BusProvider;
+import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
 public class BasicCardViewHolder extends RecyclerView.ViewHolder {
@@ -33,6 +36,7 @@ public class BasicCardViewHolder extends RecyclerView.ViewHolder {
     private RelativeLayout adContainer;
     private HomeFeedAdHandler homeFeedAdHandler;
     private LifecycleOwner lifecycleOwner;
+    private Bus bus = BusProvider.getUIBusInstance();
 
     public BasicCardViewHolder(Activity context, @NonNull View view, String pageName, LifecycleOwner viewLifecycleOwner) {
         super(view);
@@ -43,15 +47,19 @@ public class BasicCardViewHolder extends RecyclerView.ViewHolder {
         titleView = view.findViewById(R.id.titleView);
         adContainer = view.findViewById(R.id.home_ad_layout);
         homeFeedAdHandler = new HomeFeedAdHandler(lifecycleOwner);
-
+        bus.register(this);
     }
 
     public void bind(CommunityPost post, int position) {
         appendImageView(post);
         titleView.setText(post.getTitle());
-        Log.d("panda", "binding a feed ad for post id : " + post.getPostId());
-        String adZoneType = getZoneAdType(position);
-        addFeedAd(post, adZoneType);
+
+        if (pageName.equals("home")) {
+            Log.d("panda", "binding a feed ad for post id : " + post.getPostId());
+            String adZoneType = getZoneAdType(position);
+            addFeedAd(post, adZoneType);
+            adContainer.setVisibility(View.VISIBLE);
+        }
     }
 
     private String getZoneAdType(int position) {
@@ -61,15 +69,16 @@ public class BasicCardViewHolder extends RecyclerView.ViewHolder {
             case 9:
 
             case 3:
-            case 7 : return "PGI_IMAGE";
+            case 7 : return AdZoneType.LIST_AD_IMAGE.name();
 
-            default: return "";
+            default: return AdZoneType.LIST_AD_HTML.name();
         }
     }
 
     private void addFeedAd(CommunityPost post, String adZoneType) {
-        homeFeedAdHandler.loadHomeFeedAd(AdPosition.PGI, adZoneType);
+        homeFeedAdHandler.loadHomeFeedAd(AdPosition.LIST_AD, bus, adZoneType);
     }
+
 
     @Subscribe
     public void setAdResponse(NativeAdContainer nativeAdContainer) {

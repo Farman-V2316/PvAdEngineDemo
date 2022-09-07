@@ -103,18 +103,22 @@ public class AdFetcher {
 
     //PV_AD_SERVER_URL
 
-    //TODO.. Shorts - image
     String url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/image.json";
 
-    if (adRequest.getZoneAdType().equals("PGI_IMAGE")) {
+    if (adRequest.getZoneAdType().equals("LIST_AD_IMAGE")) {
+      url = "http://qa-money.newshunt.com/publicVibe/v1/list-ad/image.json";
+    } else if (adRequest.getZoneAdType().equals("LIST_AD_HTML")) {
+      url = "http://qa-money.newshunt.com/publicVibe/v1/list-ad/html.json";
+    } else if (adRequest.getZoneAdType().equals("LIST_AD_NATIVE")) {
+      url = "http://qa-money.newshunt.com/publicVibe/v1/list-ad/native.json";
+    } else if (adRequest.getZoneAdType().equals("LIST_AD_VIDEO")) {
+      url = "http://qa-money.newshunt.com/publicVibe/v1/list-ad/video.json";
+    }
+    else if (adRequest.getZoneAdType().equals("PGI_IMAGE")) {
       url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/image.json";
     } else if (adRequest.getZoneAdType().equals("PGI_HTML")) {
       url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/html.json";
-    } else if (adRequest.getZoneAdType().equals("LIST_AD_IMAGE")) {
-      url = "http://qa-money.newshunt.com/publicVibe/v1/list-ad/image.json";
     }
-    //Shorts - html ad
-//    final String url = "http://qa-money.newshunt.com/publicVibe/v1/pgi/html.json";
 
     //PANDA: removed manually for testing
     //final String url = AdsUtil.buildAdServerURL(adRequest);

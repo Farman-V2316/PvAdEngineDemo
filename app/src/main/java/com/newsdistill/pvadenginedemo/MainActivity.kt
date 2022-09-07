@@ -9,13 +9,10 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.newsdistill.pvadenginedemo.ads.insertAd
 import com.newsdistill.pvadenginedemo.dummydata.fragments.CommunityFragment
 import com.newsdistill.pvadenginedemo.dummydata.fragments.ShortsFragment
 import com.newsdistill.pvadenginedemo.dummydata.util.KeepStateNavigator
-import com.newshunt.adengine.model.entity.NativeAdContainer
 import com.newshunt.common.helper.common.BusProvider
-import com.squareup.otto.Subscribe
 
 class MainActivity : AppCompatActivity() {
     private lateinit var  adContainer: RelativeLayout
