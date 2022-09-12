@@ -32,7 +32,6 @@ import com.newshunt.dataentity.news.model.entity.DetailCardType
 import com.newshunt.dataentity.social.entity.AdSpec
 import com.newshunt.dataentity.social.entity.Position
 import com.newshunt.dataentity.social.entity.ZoneConfig
-import com.newshunt.dhutil.analytics.originalMessage
 import com.newshunt.dhutil.helper.AdsUpgradeInfoProvider
 import com.newshunt.news.model.usecase.MediatorUsecase
 import com.squareup.otto.Bus
@@ -106,7 +105,7 @@ class PostAdsHelper(private val post: CommonAsset?,
         adSpecLiveData.observe(lifecycleOwner, androidx.lifecycle.Observer {
             adSpecFetchDone = true
             if (it.isFailure) {
-                AdLogger.e(TAG, "AdSpec fetch failed : ${it.exceptionOrNull()?.originalMessage()}")
+                AdLogger.e(TAG, "AdSpec fetch failed : ${it.exceptionOrNull()?.message}")
             } else {
                 it.getOrNull()?.let { adSpecs ->
                     parentAdSpec = adSpecs[parentEntity?.id]

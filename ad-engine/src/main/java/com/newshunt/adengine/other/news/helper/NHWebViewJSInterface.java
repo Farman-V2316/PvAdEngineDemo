@@ -17,8 +17,6 @@ import com.newshunt.common.helper.AppUtilsProvider;
 import com.newshunt.common.helper.common.AndroidUtils;
 import com.newshunt.common.helper.common.BusProvider;
 import com.newshunt.common.helper.common.Constants;
-import com.newshunt.common.helper.common.DataUtil;
-import com.newshunt.common.helper.common.DeeplinkHelper;
 import com.newshunt.common.helper.common.JsonUtils;
 import com.newshunt.common.helper.common.Logger;
 import com.newshunt.common.helper.common.NHWebViewUtils;
@@ -38,36 +36,25 @@ import com.newshunt.common.helper.share.ShareUi;
 import com.newshunt.common.helper.share.ShareViewShowListener;
 import com.newshunt.common.helper.sticky.StickyAudioPlayControlsKt;
 import com.newshunt.common.util.R;
-import com.newshunt.common.view.customview.GenericCustomSnackBar;
 import com.newshunt.common.view.view.BaseFragment;
 import com.newshunt.dataentity.analytics.referrer.PageReferrer;
-import com.newshunt.dataentity.common.JsOpenFeedRequest;
 import com.newshunt.dataentity.common.JsPhoneNumber;
 import com.newshunt.dataentity.common.JsPostActionParam;
-import com.newshunt.dataentity.common.JsSwipeableStories;
-import com.newshunt.dataentity.common.SnackMeta;
 import com.newshunt.dataentity.common.helper.common.CommonUtils;
 import com.newshunt.dataentity.common.pages.PageEntity;
 import com.newshunt.dataentity.dhutil.model.entity.PhoneSelectorInterface;
 import com.newshunt.dataentity.news.analytics.NewsReferrer;
-import com.newshunt.dataentity.news.model.entity.server.asset.AssetType;
-import com.newshunt.dataentity.news.model.entity.server.asset.PlaceHolderAsset;
 import com.newshunt.dataentity.notification.asset.OptInEntity;
 import com.newshunt.dataentity.notification.asset.OptOutEntity;
 import com.newshunt.dataentity.social.entity.MenuLocation;
-import com.newshunt.deeplink.navigator.CommonNavigator;
-import com.newshunt.deeplink.navigator.DeeplinkNavigator;
 import com.newshunt.dhutil.ExtnsKt;
 import com.newshunt.dhutil.helper.autoplay.AutoPlayHelper;
-import com.newshunt.dhutil.helper.nhcommand.NHCommandMainHandler;
 import com.newshunt.dhutil.helper.preference.AppStatePreference;
 import com.newshunt.dhutil.helper.preference.AstroPreference;
 import com.newshunt.dhutil.helper.preference.UserPreferenceUtil;
 import com.newshunt.dhutil.helper.theme.ThemeUtils;
-import com.newshunt.news.util.NewsConstants;
 import com.squareup.otto.Subscribe;
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -141,62 +128,9 @@ public class NHWebViewJSInterface {
     }
   }
 
-    @JavascriptInterface
-    public void showJSSnackBar(String text, int duration) {
-        if (CommonUtils.isEmpty(text)) {
-            return;
-        }
-        AndroidUtils.getMainThreadHandler().post(
-                () -> {
-                    Snackbar snackbar = GenericCustomSnackBar.showSnackBar(webView, CommonUtils.getApplication(), text,
-                            duration);
-                    snackbar.show();
-                }
-        );
-    }
-
-  @JavascriptInterface
-  public void showSnackbar(String json) {
-    if (CommonUtils.isEmpty(json)) {
-      return;
-    }
-
-    SnackMeta jsSnackbarEntity = JsonUtils.fromJson(json, SnackMeta.class);
-
-    AndroidUtils.getMainThreadHandler().post(
-        () -> {
-          if(jsSnackbarEntity != null && jsSnackbarEntity.getMessage() != null) {
-            Snackbar snackbar = GenericCustomSnackBar.showSnackBar(webView, CommonUtils.getApplication(), jsSnackbarEntity.getMessage(),
-                    jsSnackbarEntity.getDuration(), null, null, jsSnackbarEntity.getCtaText(),
-                    v -> {
-                      CommonNavigator.launchDeeplink(webView.getContext(),
-                          jsSnackbarEntity.getCtaUrl(), null);
-                    });
-            snackbar.show();
-          }
-        }
-    );
-  }
-
   @JavascriptInterface
   public String getDefaultSharePackageName(){
     return PreferenceManager.getPreference(AppStatePreference.SELECTED_APP_TO_SHARE,Constants.EMPTY_STRING);
-  }
-
-  @JavascriptInterface
-  public void handleAction(String url) {
-    Activity activity = activityRef != null ? activityRef.get() : null;
-    Fragment fragment = fragmentRef != null ? fragmentRef.get() : null;
-
-    webView.post(() -> {
-      if (url.startsWith(Constants.NH_COMMAND_PREFIX)) {
-        handleNhCommand(url, activity, fragment);
-      } else if (DeeplinkHelper.isInternalDeeplinkUrl(url)) {
-        launchDeepLink(url, activity, fragment, pageReferrer, false, true);
-      } else {
-        webView.loadUrl(url);
-      }
-    });
   }
 
   @JavascriptInterface
@@ -291,15 +225,6 @@ public class NHWebViewJSInterface {
   }
 
   @JavascriptInterface
-  public void launchDeeplink(String url, boolean finishCurrentActivity) {
-    Activity parentActivity = activityRef != null ? activityRef.get() : null;
-    Fragment parentFragment = fragmentRef != null ? fragmentRef.get() : null;
-
-    launchDeepLink(url, parentActivity, parentFragment, pageReferrer, finishCurrentActivity,
-        false);
-  }
-
-  @JavascriptInterface
   public boolean isNightMode() {
     return ThemeUtils.isNightMode();
   }
@@ -364,26 +289,6 @@ public class NHWebViewJSInterface {
     return DeviceInfoHelper.getAppVersion();
   }
 
-  /**
-   * Based on the url, launch the deeplink
-   *
-   * @param url            - The deeplink url.
-   * @param parentActivity - The activity which will handle the command
-   * @param parentFragment - The fragment which will handle the command.
-   */
-  private void launchDeepLink(String url, Activity parentActivity, Fragment parentFragment,
-                              PageReferrer pageReferrer, boolean finishCurrentActivity,
-                              boolean needDoubleBackExitViaDeeplink) {
-    if (parentActivity == null) {
-      parentActivity = parentFragment.getActivity();
-    }
-    if (parentActivity == null) {
-      return;
-    }
-    CommonNavigator.launchDeeplink(parentActivity, url, needDoubleBackExitViaDeeplink, pageReferrer,
-        finishCurrentActivity, pageEntity);
-  }
-
   @JavascriptInterface
   public void setWebCookiesToHttp(String loadedUrl, String domainName) {
     if (CommonUtils.isEmpty(loadedUrl) || CommonUtils.isEmpty(domainName)) {
@@ -417,19 +322,6 @@ public class NHWebViewJSInterface {
       }
       setWebCookiesToHttp(loadedUrl, domainName);
     });
-  }
-
-
-  /**
-   * @param url            - The url of the command
-   * @param parentActivity - The activity which will handle the command
-   * @param parentFragment - The fragment which will handle the command.
-   */
-  private void handleNhCommand(String url, Activity parentActivity, Fragment parentFragment) {
-    if (pageReferrer == null) {
-      pageReferrer = new PageReferrer(NewsReferrer.TICKER, null);
-    }
-    NHCommandMainHandler.getInstance().handle(url, parentActivity, parentFragment, pageReferrer);
   }
 
   //A js interface for whether an app is enabled on the device or not.
@@ -665,46 +557,6 @@ public class NHWebViewJSInterface {
     //return (stickyAudioCommentary == null || stickyAudioCommentary.getState() == null) ?
     //    Constants.EMPTY_STRING : stickyAudioCommentary.getState().getJsState();
     return Constants.EMPTY_STRING;
-  }
-
-  @JavascriptInterface
-  public void openFeed(String json) {
-    Activity parentActivity = activityRef != null ? activityRef.get() : null;
-    if (CommonUtils.isEmpty(json) || parentActivity == null) {
-      return;
-    }
-
-    JsOpenFeedRequest jsOpenFeedRequest = JsonUtils.fromJson(json, JsOpenFeedRequest.class);
-    if (jsOpenFeedRequest == null || CommonUtils.isEmpty(jsOpenFeedRequest.getSwipeableStories())) {
-      Logger.e("JSInterface" , "Invalid data received in the json");
-      return;
-    }
-
-    ArrayList<PlaceHolderAsset> storyIdList = new ArrayList<>();
-
-    int position = 0;
-    int i = 0;
-    for (JsSwipeableStories jsSwipeableStory : jsOpenFeedRequest.getSwipeableStories()) {
-
-      String storyId = jsSwipeableStory.getId();
-      PlaceHolderAsset assetItem = new PlaceHolderAsset(storyId, AssetType.PLACE_HOLDER,
-          jsSwipeableStory.getId(), jsSwipeableStory.getId(), null, jsSwipeableStory.getExperiments());
-      storyIdList.add(assetItem);
-
-      if (DataUtil.equalsIgnoreCase(jsSwipeableStory.getId(), jsOpenFeedRequest.getAssetClicked())) {
-        position = i;
-      }
-      i++;
-    }
-    Intent targetIntent = new Intent(Constants.NEWS_DETAIL_ACTION);
-    targetIntent.setPackage(CommonUtils.getApplication().getPackageName());
-    targetIntent.putExtra(Constants.STORY_ID, jsOpenFeedRequest.getAssetClicked());
-    targetIntent.putExtra(NewsConstants.STORIES_EXTRA, CommonUtils.bigBundlePut(storyIdList));
-    targetIntent.putExtra(Constants.BUNDLE_IS_FROM_NOTIFICATION, true);
-    targetIntent.putExtra(Constants.NEWS_LIST_SELECTED_INDEX, position);
-    targetIntent.putExtra(NewsConstants.NEWS_PAGE_ENTITY, pageEntity);
-    DeeplinkNavigator.extractDeeplinkIntentParamToIntent(targetIntent, null, jsOpenFeedRequest.getIntent());
-    parentActivity.startActivity(targetIntent);
   }
 
   @JavascriptInterface
