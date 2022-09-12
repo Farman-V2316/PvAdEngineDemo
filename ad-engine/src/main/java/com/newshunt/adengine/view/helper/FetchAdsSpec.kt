@@ -10,7 +10,6 @@ import com.newshunt.adengine.util.AdLogger
 import com.newshunt.dataentity.common.asset.CommonAsset
 import com.newshunt.dataentity.common.pages.PageEntity
 import com.newshunt.dataentity.social.entity.AdSpec
-import com.newshunt.dhutil.analytics.originalMessage
 import com.newshunt.news.model.usecase.MediatorUsecase
 import javax.inject.Inject
 import javax.inject.Named
@@ -64,7 +63,7 @@ class FetchAdsSpec(private val postList: List<AdspecAndSourceId>?,
 
         parentAdSpecLiveData.observe(lifecycleOwner, androidx.lifecycle.Observer {
             if (it.isFailure) {
-                AdLogger.e(TAG, "${parentEntity?.id} AdSpec fetch failed : ${it.exceptionOrNull()?.originalMessage()}")
+                AdLogger.e(TAG, "${parentEntity?.id} AdSpec fetch failed : ${it.exceptionOrNull()?.message}")
             } else {
                 it.getOrNull()?.let { adSpecs ->
                     val parentAdSpec = adSpecs[parentEntity?.id]

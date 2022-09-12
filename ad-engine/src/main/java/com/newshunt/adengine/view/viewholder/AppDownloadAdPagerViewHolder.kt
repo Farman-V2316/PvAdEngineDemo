@@ -9,6 +9,7 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import com.newshunt.adengine.databinding.NewsItemTypeNativeAdBinding
 import com.newshunt.adengine.model.entity.AdReportInfo
@@ -30,7 +31,6 @@ import com.newshunt.common.view.customview.fontview.NHTextView
 import com.newshunt.dataentity.analytics.referrer.PageReferrer
 import com.newshunt.dataentity.common.helper.common.CommonUtils
 import com.newshunt.dataentity.news.analytics.NewsReferrer
-import com.newshunt.deeplink.navigator.CommonNavigator
 import com.newshunt.dhutil.helper.nhcommand.NHCommandMainHandler
 import com.newshunt.dhutil.helper.theme.ThemeUtils.isNightMode
 import com.newshunt.news.analytics.NhAnalyticsAppState
@@ -137,7 +137,8 @@ class AppDownloadAdPagerViewHolder(viewBinding: NewsItemTypeNativeAdBinding,
         if (!clickHandled && (!CommonUtils.isPlayStoreUrl(url) ||
                     !AndroidUtils.openPlayStoreForApp(parentActivity, url))) {
             if (DeeplinkHelper.isInternalDeeplinkUrl(url)) {
-                CommonNavigator.launchDeeplink(parentActivity, url, null)
+                Toast.makeText(itemView.context, "launchDeeplink - AppDownloadAdPagerViewHolder", Toast.LENGTH_LONG).show()
+//                CommonNavigator.launchDeeplink(parentActivity, url, null)
             } else {
                 handleBrowserSelection(parentActivity, adEntity.action, adEntity)
             }

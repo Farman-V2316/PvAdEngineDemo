@@ -18,7 +18,6 @@ import com.newshunt.dataentity.analytics.entity.NhAnalyticsAppEventParam
 import com.newshunt.dataentity.common.helper.common.CommonUtils
 import com.newshunt.dataentity.dhutil.model.entity.appsflyer.*
 import com.newshunt.dataentity.dhutil.model.entity.upgrade.RegisteredClientInfo
-import com.newshunt.deeplink.navigator.CommonNavigator
 import com.newshunt.dhutil.analytics.AnalyticsHelper
 import com.newshunt.dhutil.helper.launch.CampaignAcquisitionHelper
 import com.newshunt.dhutil.helper.preference.AppStatePreference
@@ -123,69 +122,6 @@ object AppsFlyerHelper {
     }
 
     /**
-     * Initialize the parameters in AppsFlyer SDK.
-     *
-     * @param isOnboardingDone If onboarding done or not
-     */
-    fun initAppsFlyerSDK(isOnboardingDone: Boolean) {
-        if (!isAppsFlyerEnabled(isOnboardingDone)) {
-            return
-        }
-        val clientID = ClientInfoHelper.getServerConfirmedClientId()
-        if (clientID.isNullOrBlank() || initDone) {
-            Logger.e(APPSFLYER_TAG, "Skip init appsflyer: initDone = $initDone, clientId = $clientID")
-            return
-        }
-        val appsFlyerLib = AppsFlyerLib.getInstance()
-        appsFlyerLib.setDebugLog(AppConfig.getInstance()?.isLoggerEnabled ?: false)
-        appsFlyerLib.setCustomerUserId(clientID)
-        Logger.d(APPSFLYER_TAG, "Client ID $clientID set to AppsFlyer SDK")
-        initDone = true
-
-        if (gcmToken.isNullOrBlank().not()) {
-            refreshGCMToken(gcmToken)
-        }
-
-        val listener = if (CommonNavigator.isFirstLaunch()) {
-            if (!PreferenceManager.getPreference(AppsFlyerEventPreference.APPSFLYER_INIT_FIRED, false) ) {
-                AnalyticsHelper.logAppsFlyerInitEvent()
-                PreferenceManager.savePreference(AppsFlyerEventPreference.APPSFLYER_INIT_FIRED, true)
-            }
-            getAppsFlyerConversionListener()
-        } else {
-            null
-        }
-        appsFlyerLib.init(APPSFLYER_DEV_KEY, listener, CommonUtils.getApplication())
-        CommonUtils.runInBackground {
-            try {
-                AppUserPreferenceUtils.setAppsFlyerUID(PasswordEncryption.encrypt(appsFlyerLib.getAppsFlyerUID(CommonUtils.getApplication())))
-            } catch (e: Exception) {
-                Logger.caughtException(e)
-            }
-        }
-        appsFlyerLib.setCollectIMEI(false)
-        appsFlyerLib.setCollectAndroidID(false)
-        appsFlyerLib.start(CommonUtils.getApplication(), APPSFLYER_DEV_KEY)
-        Logger.d(APPSFLYER_TAG, "initAppsFlyerSDK Done: senderID $fcmSenderId")
-    }
-
-    /**
-     * Pass on the latest GCM token to AppsFlyer SDK, to enable uninstall tracking. This method
-     * must be called from inside onTokenRefresh
-     *
-     * @param refreshedToken Refreshed token
-     */
-    fun refreshGCMToken(refreshedToken: String?) {
-        gcmToken = refreshedToken
-        if (!initDone || refreshedToken.isNullOrBlank()) {
-            return
-        }
-
-        AppsFlyerLib.getInstance().updateServerUninstallToken(CommonUtils.getApplication(), refreshedToken)
-        gcmToken = Constants.EMPTY_STRING
-    }
-
-    /**
      * Track an AppsFlyer event in the background
      * @param event  event
      * @param params optional params.
@@ -193,50 +129,6 @@ object AppsFlyerHelper {
     fun trackEvent(event: AppsFlyerEvents, params: Map<String, Any>?) {
         if (initDone) {
             CommonUtils.runInBackground { trackEvent(event, params, true) }
-        }
-    }
-
-    /**
-     * Process and fire all expired events, in the background
-     */
-    fun processExpiredEvents() {
-        if (!initDone) {
-            return
-        }
-        CommonUtils.runInBackground {
-            Logger.d(APPSFLYER_TAG, "Processing expired events")
-            for (event in AppsFlyerEvents.values()) {
-                when (event) {
-                    AppsFlyerEvents.EVENT_SPLASH_OPEN,
-                    AppsFlyerEvents.EVENT_LANG_SELECTED,
-                    AppsFlyerEvents.EVENT_FIRST_VIDEO_AD_IMPRESSION,
-                    AppsFlyerEvents.EVENT_FIRST_AD_IMPRESSION,
-                    AppsFlyerEvents.EVENT_FIRST_DETAIL_VIEW,
-                    AppsFlyerEvents.EVENT_USER_LOGIN_GOOGLE,
-                    AppsFlyerEvents.EVENT_USER_LOGIN_FACEBOOK,
-                    AppsFlyerEvents.EVENT_USER_LOGIN_TRUECALLER,
-                    AppsFlyerEvents.EVENT_USER_ENGAGEMENT_LIKE,
-                    AppsFlyerEvents.EVENT_USER_ENGAGEMENT_SHARE,
-                    AppsFlyerEvents.EVENT_USER_ENGAGEMENT_COMMENT,
-                    AppsFlyerEvents.EVENT_USER_ENGAGEMENT_REPOST,
-                    AppsFlyerEvents.EVENT_USER_NEW_INSTALL,
-                    AppsFlyerEvents.EVENT_USER_RE_INSTALL,
-                    AppsFlyerEvents.EVENT_NOTIFICATION_DELIVERY,
-                    AppsFlyerEvents.EVENT_NOTIFICATION_CLICK,
-                    AppsFlyerEvents.EVENT_FIRST_CONTENT_VIEWED,
-                    AppsFlyerEvents.EVENT_LANG_SELECTED_ENGLISH,
-                    AppsFlyerEvents.EVENT_LANG_SELECTED_BENGALI,
-                    AppsFlyerEvents.EVENT_LANG_SELECTED_GUJARATI,
-                    AppsFlyerEvents.EVENT_LANG_SELECTED_HINDI,
-                    AppsFlyerEvents.EVENT_LANG_SELECTED_KANNADA,
-                    AppsFlyerEvents.EVENT_LANG_SELECTED_MARATHI,
-                    AppsFlyerEvents.EVENT_LANG_SELECTED_MALAYALAM,
-                    AppsFlyerEvents.EVENT_LANG_SELECTED_PUNJABI,
-                    AppsFlyerEvents.EVENT_LANG_SELECTED_TAMIL,
-                    AppsFlyerEvents.EVENT_LANG_SELECTED_TELUGU-> {}
-                    else -> trackEvent(event, null, false)
-                }
-            }
         }
     }
 
