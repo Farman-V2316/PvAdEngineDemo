@@ -24,7 +24,6 @@
             <option value="$PROJECT_DIR$/news-common" />
             <option value="$PROJECT_DIR$/news-model" />
             <option value="$PROJECT_DIR$/omsdk" />
-            <option value="$PROJECT_DIR$/vp-players" />
           </set>
         </option>
       </GradleProjectSettings>
