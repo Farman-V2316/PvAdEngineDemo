@@ -78,7 +78,7 @@ class AdsShareViewHelper(private val context: Context?) :
             } else {
                 null
             }
-        return if (sharePackageName == null) com.newshunt.common.util.R.drawable.ic_share else getWhatsappIcon()
+        return if (sharePackageName == null) R.drawable.ic_share else getWhatsappIcon()
     }
 
     fun getSharableAppIcon(): Drawable{
@@ -92,8 +92,8 @@ class AdsShareViewHelper(private val context: Context?) :
             return CommonUtils.getDrawable(getWhatsappIcon())
         }
         sharePackageName = null
-        val tintColor = if (ThemeUtils.isNightMode()) com.newshunt.common.util.R.color.white_color else com.newshunt.common.util.R.color.black
-        return CommonUtils.getTintedDrawable(com.newshunt.common.util.R.drawable.ic_share, tintColor)
+        val tintColor = if (ThemeUtils.isNightMode()) android.R.color.white else android.R.color.white
+        return CommonUtils.getTintedDrawable(R.drawable.ic_share, tintColor)
     }
 
     private fun getWhatsappIcon(): Int {
@@ -124,7 +124,7 @@ class AdsShareViewHelper(private val context: Context?) :
         context?.let {
             if (!CommonUtils.isNetworkAvailable(context)) {
                 FontHelper.showCustomFontToast(context, CommonUtils.getString(
-                        com.newshunt.common.util.R.string
+                        R.string
                             .error_no_connection
                     ), Toast.LENGTH_SHORT)
                 return
@@ -194,7 +194,7 @@ class AdsShareViewHelper(private val context: Context?) :
             }
         }
         context?.let {
-            FontHelper.showCustomFontToast(it, CommonUtils.getString(com.newshunt.common.util.R.string.error_image_save_failed),
+            FontHelper.showCustomFontToast(it, CommonUtils.getString(R.string.error_image_save_failed),
                     Toast.LENGTH_SHORT)
         }
         Logger.caughtException(e)

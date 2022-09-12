@@ -52,7 +52,7 @@ import com.newshunt.sdk.network.image.Image
 @BindingAdapter("bind:imageUrl")
 fun loadImageUrl(view: ImageView, url: String?) {
     if (!CommonUtils.isEmpty(url)) {
-        Image.load(url).placeHolder(com.newshunt.common.util.R.color.empty_image_color).into(view)
+        Image.load(url).placeHolder(R.color.empty_image_color).into(view)
     }
 }
 
