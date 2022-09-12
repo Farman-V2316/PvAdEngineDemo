@@ -3,7 +3,6 @@ rootProject.name = "PvAdEngineDemo"
 include ':app'
 include ':exo-library'
 include ':ad-engine'
-include ':news-common'
 include ':datastore'
 include ':omsdk'
 include ':common'

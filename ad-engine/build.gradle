@@ -44,7 +44,10 @@ dependencies {
   implementation platform('com.google.firebase:firebase-bom:'+project.bom_v)
   api fileTree(include: ['*.jar'], dir: 'libs')
 
-  api project(':news-common')
+  api project(':dataentity')
+  api project(':analytics')
+  api project(':dailyhunt-common')
+//  api project(':news-common')
   api project(':ima-sdk')
 
   api project.featureSource ? project(':MASTAdView') : 'com.newshunt.sdk.feature:MASTAdView:' + project.fsv_aar
@@ -77,4 +80,14 @@ dependencies {
   implementation "androidx.work:work-runtime-ktx:" + project.work_version
   kapt "com.google.dagger:dagger-compiler:" + project.dagger_v
   annotationProcessor 'com.google.auto.factory:auto-factory:1.0-beta3'
+  api 'com.google.auto.factory:auto-factory:1.0-beta3'
+  kapt 'com.google.auto.factory:auto-factory:1.0-beta3'
+  // news-common
+  api fileTree(dir: 'libs', include: ['*.jar'])
+
+  kapt "androidx.room:room-compiler:"+project.room_v
+
+  api 'com.google.dagger:dagger:' + project.dagger_v
+  annotationProcessor "com.google.dagger:dagger-compiler:" + project.dagger_v
+  api 'org.glassfish:javax.annotation:10.0-b28'
 }

@@ -34,16 +34,13 @@ import com.newshunt.common.helper.share.ShareFactory
 import com.newshunt.common.helper.share.ShareUi
 import com.newshunt.dataentity.analytics.entity.AnalyticsParam
 import com.newshunt.dataentity.analytics.entity.NhAnalyticsEventParam
-import com.newshunt.dataentity.analytics.referrer.NhGenericReferrer
-import com.newshunt.dataentity.analytics.referrer.PageReferrer
-import com.newshunt.dataentity.analytics.section.NhAnalyticsEventSection
 import com.newshunt.dataentity.common.helper.common.CommonUtils
 import com.newshunt.dataentity.common.helper.share.ShareApplication
 import com.newshunt.dataentity.common.model.entity.AppExitEvent
 import com.newshunt.dhutil.helper.AppSettingsProvider
 import com.newshunt.dhutil.helper.preference.AppStatePreference
 import com.newshunt.dhutil.helper.theme.ThemeUtils
-import com.newshunt.news.viewmodel.SocialInteractionViewModel
+import com.newshunt.adengine.other.news.viewmodel.SocialInteractionViewModel
 import com.newshunt.onboarding.model.entity.datacollection.InstalledAppInfo
 import com.squareup.otto.Subscribe
 import java.io.File
