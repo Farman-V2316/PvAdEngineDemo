@@ -45,7 +45,7 @@ dependencies {
   api fileTree(include: ['*.jar'], dir: 'libs')
 
   api project(':dataentity')
-  api project(':analytics')
+//  api project(':analytics')
   api project(':dailyhunt-common')
 //  api project(':news-common')
   api project(':ima-sdk')
