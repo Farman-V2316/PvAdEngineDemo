@@ -7,8 +7,8 @@ import com.newshunt.adengine.model.entity.BaseDisplayAdEntity
 import com.newshunt.common.helper.common.Constants
 import com.newshunt.dataentity.common.asset.PostEntity
 import com.newshunt.dataentity.social.entity.LikeType
-import com.newshunt.news.helper.LikeEmojiBindingUtils
-import com.newshunt.news.viewmodel.EmojiClickHandlingViewModel
+import com.newshunt.adengine.other.news.helper.LikeEmojiBindingUtils
+import com.newshunt.adengine.other.news.viewmodel.EmojiClickHandlingViewModel
 
 /**
  * Class to handle reaction clicks on Ads.
@@ -20,10 +20,10 @@ class AdsActionHandler : EmojiClickHandlingViewModel {
     private var cvm: EmojiClickHandlingViewModel? = null
 
     fun onReactionClick(view :View, adEntity: BaseDisplayAdEntity, vm: EmojiClickHandlingViewModel) {
-        LikeEmojiBindingUtils.showLikePopup(view, adEntity.contentAsset, null,
-            this, false, Constants.EMPTY_STRING)
-        baseDisplayAdEntity = adEntity
-        cvm = vm
+//        LikeEmojiBindingUtils.showLikePopup(view, adEntity.contentAsset, null,
+//            this, false, Constants.EMPTY_STRING)
+//        baseDisplayAdEntity = adEntity
+//        cvm = vm
     }
 
     override fun onEmojiClick(view: View, item: Any, parent: Any?, likeType: LikeType, isComment: Boolean?, commentType: String?) {

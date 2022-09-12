@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2019 Newshunt. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.newshunt.adengine.other.news.helper.LikeEmojiBindingUtils"/>
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.newshunt.adengine.other.news.viewmodel.EmojiClickHandlingViewModel"/>
+
+        <variable
+            name="item"
+            type="Object"/>
+
+        <variable
+            name="parentItem"
+            type="Object"/>
+
+        <variable
+            name="popupView"
+            type="com.newshunt.adengine.other.news.view.customview.LikeEmojiPopup"/>
+
+        <variable
+            name="emojiType"
+            type="com.newshunt.dataentity.social.entity.LikeType"/>
+
+        <variable
+            name="isComment"
+            type="Boolean"/>
+
+        <variable
+            name="commentType"
+            type="String"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:onClick="@{(v)->LikeEmojiBindingUtils.onEmojiViewItemClick(v,item,parentItem,vm,emojiType,popupView, isComment, commentType)}"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/emoticon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            app:imageResource="@{LikeEmojiBindingUtils.getEmojiIconResource(emojiType,context, true)}"/>
+    </LinearLayout>
+</layout>

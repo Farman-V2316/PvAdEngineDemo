@@ -12,7 +12,7 @@
         <import type="com.newshunt.dataentity.common.helper.common.CommonUtils"/>
         <import type="com.newshunt.common.helper.common.Constants"/>
 
-        <import type="com.newshunt.news.helper.LikeEmojiBindingUtils" />
+        <import type="com.newshunt.adengine.other.news.helper.LikeEmojiBindingUtils" />
 
         <import type="com.newshunt.dhutil.helper.theme.ThemeUtils"/>
 
@@ -48,7 +48,7 @@
 
         <variable
             name="vm"
-            type="com.newshunt.news.viewmodel.SocialInteractionViewModel" />
+            type="com.newshunt.adengine.other.news.viewmodel.SocialInteractionViewModel" />
 
         <variable
             name="appSettingsProvider"

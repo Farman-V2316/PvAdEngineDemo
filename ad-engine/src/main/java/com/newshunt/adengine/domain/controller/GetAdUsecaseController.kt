@@ -24,7 +24,7 @@ import com.newshunt.common.helper.common.AndroidUtils
 import com.newshunt.common.helper.common.BusProvider
 import com.newshunt.dataentity.dhutil.model.entity.adupgrade.AdsUpgradeInfo
 import com.newshunt.dhutil.helper.AdsUpgradeInfoProvider
-import com.newshunt.news.di.qualifiers.UiBus
+import com.newshunt.adengine.other.news.di.qualifiers.UiBus
 import com.newshunt.sdk.network.Priority
 import com.squareup.otto.Bus
 import com.squareup.otto.Subscribe

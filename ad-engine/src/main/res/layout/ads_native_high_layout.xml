@@ -42,7 +42,7 @@
 
         <variable
             name="vm"
-            type="com.newshunt.news.viewmodel.SocialInteractionViewModel" />
+            type="com.newshunt.adengine.other.news.viewmodel.SocialInteractionViewModel" />
 
         <variable
             name="appSettingsProvider"

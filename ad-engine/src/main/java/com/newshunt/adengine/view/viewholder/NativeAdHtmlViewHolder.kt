@@ -32,6 +32,7 @@ import com.newshunt.adengine.model.entity.NativeAdHtml
 import com.newshunt.adengine.model.entity.omsdk.OMTrackType
 import com.newshunt.adengine.model.entity.version.AdLPBackAction
 import com.newshunt.adengine.model.entity.version.AdPosition
+import com.newshunt.adengine.other.news.helper.NHWebViewJSInterface
 import com.newshunt.adengine.util.AdConstants
 import com.newshunt.adengine.util.AdsOpenUtility
 import com.newshunt.adengine.util.AdsUtil
@@ -59,7 +60,6 @@ import com.newshunt.helper.player.PlaySettingsListener
 import com.newshunt.helper.player.PlayerControlHelper.isListMuteMode
 import com.newshunt.helper.player.PlayerControlHelper.toggleMute
 import com.newshunt.news.analytics.NhAnalyticsAppState
-import com.newshunt.news.helper.NHWebViewJSInterface
 import com.newshunt.news.util.NewsConstants
 import com.newshunt.viral.utils.visibility_utils.ScrollAwareViewHolder
 import java.lang.ref.WeakReference
