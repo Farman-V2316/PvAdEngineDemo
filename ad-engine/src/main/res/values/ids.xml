@@ -5,4 +5,5 @@
     <item name="publisher_ad_id" type="id"/>
     <item name="amazon_ad_id" type="id"/>
     <item name="dh_view_tag_id" type="id"/>
+    <item name="omid_adview_tag_id" type="id"/>
 </resources>

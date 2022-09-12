@@ -940,7 +940,7 @@ class AdsUtil {
                     container.setStroke(borderSize, ViewUtils.getColor(containerBorder))
                 } else {
                     container.setStroke(borderSize, ThemeUtils.getThemeColorByAttribute(container.context,
-                            com.newshunt.dhutil.R.attr.ads_container_border_color))
+                            R.attr.ads_container_border_color))
                 }
             }
 
@@ -955,14 +955,14 @@ class AdsUtil {
             drawableBackground.shape = GradientDrawable.RECTANGLE
             if (containerBackgroundColor != null && containerBorderColor != null) {
                 drawableBackground.setColor(ViewUtils.getColor(containerBackgroundColor)!!.toInt())
-                drawableBackground.setStroke(CommonUtils.getDimension(com.newshunt.common.util.R.dimen.readmore_btn_stroke_width),
+                drawableBackground.setStroke(CommonUtils.getDimension(R.dimen.readmore_btn_stroke_width),
                         ViewUtils.getColor(containerBorderColor)!!)
             } else {
                 drawableBackground.setColor(ThemeUtils.getThemeColorByAttribute(container.context,
                         com.newshunt.dhutil.R.attr.ads_container_background_color))
-                drawableBackground.setStroke(CommonUtils.getDimension(com.newshunt.common.util.R.dimen.readmore_btn_stroke_width),
+                drawableBackground.setStroke(CommonUtils.getDimension(R.dimen.readmore_btn_stroke_width),
                         ThemeUtils.getThemeColorByAttribute(container.context,
-                                com.newshunt.dhutil.R.attr.ads_container_border_color))
+                                R.attr.ads_container_border_color))
             }
             return drawableBackground
         }

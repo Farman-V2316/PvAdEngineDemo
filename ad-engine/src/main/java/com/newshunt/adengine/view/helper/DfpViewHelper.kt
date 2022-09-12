@@ -107,7 +107,7 @@ class DfpViewHelper(view: View, private var activity: Activity) {
             }
 
             view?.visibility = View.VISIBLE
-            it.setTag(com.newshunt.common.util.R.id.omid_adview_tag_id, Constants.OM_WEBVIEW_TAG)
+            it.setTag(R.id.omid_adview_tag_id, Constants.OM_WEBVIEW_TAG)
         }
     }
 
