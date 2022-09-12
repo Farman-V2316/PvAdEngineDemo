@@ -18,7 +18,6 @@ import com.newshunt.common.helper.common.JsonUtils
 import com.newshunt.common.helper.common.Logger
 import com.newshunt.dataentity.common.helper.common.CommonUtils
 import com.newshunt.dataentity.dhutil.model.entity.appsflyer.AppsFlyerEvents
-import com.newshunt.dhutil.helper.appsflyer.AppsFlyerHelper.trackEvent
 import com.newshunt.dhutil.helper.autoplay.AutoPlayHelper
 import com.newshunt.dhutil.helper.retrofit.RestAdapterProvider
 import com.newshunt.sdk.network.Priority
@@ -92,7 +91,7 @@ class AsyncAdImpressionReporter(private val baseDisplayAdEntity: BaseDisplayAdEn
         val event = if (baseDisplayAdEntity.isVideoAd) AppsFlyerEvents.EVENT_FIRST_VIDEO_AD_IMPRESSION
         else AppsFlyerEvents.EVENT_FIRST_AD_IMPRESSION
 
-        trackEvent(event, null)
+//        trackEvent(event, null)
         execute(isMainImpression = false, addBodyParams = false, urls = additionalBeaconUrls)
     }
 
