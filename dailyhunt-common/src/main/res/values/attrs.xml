@@ -416,7 +416,6 @@
         <attr name="notification_social_text_color" format="reference"/>
         <attr name="notification_action_mode_graident" format="reference"/>
         <attr name="ads_container_background_color" format="reference"/>
-        <attr name="ads_container_border_color" format="reference"/>
         <attr name="tv_vertical_divider_color" format="reference"/>
         <attr name="filter_background" format="reference"/>
         <attr name="following_count_bg" format="reference"/>

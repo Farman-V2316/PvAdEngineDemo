@@ -129,4 +129,5 @@
     <dimen name="ad_margin_top">16dp</dimen>
     <dimen name="ad_content_margin">20dp</dimen>
     <dimen name="bottombar_margin">16dp</dimen>
+  <dimen name="readmore_btn_stroke_width">1dp</dimen>
 </resources>

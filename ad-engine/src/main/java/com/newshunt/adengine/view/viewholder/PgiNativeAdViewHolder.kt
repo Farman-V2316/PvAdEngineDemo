@@ -142,7 +142,7 @@ class PgiNativeAdViewHolder(private val viewBinding: ViewDataBinding, lifecycleO
         if (CommonUtils.isEmpty(itemImage.data)) {
             pgiNativeAdDetailImage.setBackgroundResource(com.newshunt.dhutil.R.drawable.default_news_img)
         } else {
-            Image.load(itemImage.data).placeHolder(com.newshunt.common.util.R.color.empty_image_color)
+            Image.load(itemImage.data).placeHolder(R.color.empty_image_color)
                     .into(pgiNativeAdDetailImage, ImageView.ScaleType.CENTER_CROP)
         }
         pgiNativeAdDetailImage.visibility = View.VISIBLE

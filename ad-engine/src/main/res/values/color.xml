@@ -21,4 +21,5 @@
     <color name ="interactive_ad_cta_text_color">#565868</color>
     <color name="ad_cta_translucent_color">#66000000</color>
     <color name="ad_i_icon_color_blue">#798DED</color>
+    <color name="empty_image_color">#F2F2F2</color>
 </resources>

@@ -9,9 +9,7 @@ import com.newshunt.adengine.model.entity.version.AmazonSdkPayload;
 import com.newshunt.adengine.util.AdConstants;
 import com.newshunt.adengine.util.AdFrequencyStats;
 import com.newshunt.adengine.util.AdLogger;
-import com.newshunt.adengine.util.AdStatisticsHelper;
 import com.newshunt.common.helper.common.JsonUtils;
-import com.newshunt.common.util.LangInfoRepo;
 import com.newshunt.dataentity.common.helper.common.CommonUtils;
 import com.newshunt.dataentity.dhutil.model.entity.adupgrade.AdsUpgradeInfo;
 import com.newshunt.dhutil.helper.AdsUpgradeInfoProvider;
@@ -99,7 +97,8 @@ public class AdFetcher {
 
     bodyParams.put(AdConstants.AD_REQ_PERMISSION, PermissionUtils.getUsesPermission());
     bodyParams.put(AdConstants.AD_REQ_FCAP, JsonUtils.toJson(AdFrequencyStats.getFcMetCampaignsFor(uniqueRequestId)));
-    bodyParams.put(AdConstants.AD_REQ_LANG_INFO, JsonUtils.toJson(LangInfoRepo.INSTANCE.getNonNullLangInfo()));
+    // TODO: PANDA removed
+    //bodyParams.put(AdConstants.AD_REQ_LANG_INFO, JsonUtils.toJson(LangInfoRepo.INSTANCE.getNonNullLangInfo()));
 
     //PV_AD_SERVER_URL
 

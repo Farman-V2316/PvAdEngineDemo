@@ -99,7 +99,7 @@ class AmazonAdViewHelper(view: View, private var activity: Activity) {
             }
 
             view?.visibility = View.VISIBLE
-            container.setTag(com.newshunt.common.util.R.id.omid_adview_tag_id, Constants.OM_WEBVIEW_TAG)
+            container.setTag(R.id.omid_adview_tag_id, Constants.OM_WEBVIEW_TAG)
         }
 
     }
