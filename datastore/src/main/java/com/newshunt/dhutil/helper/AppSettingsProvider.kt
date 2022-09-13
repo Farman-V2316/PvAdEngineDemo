@@ -8,7 +8,6 @@ import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import androidx.lifecycle.MutableLiveData
-import com.dailyhunt.datastore.R
 import com.newshunt.common.helper.common.*
 import com.newshunt.common.helper.preference.GenericAppStatePreference
 import com.newshunt.common.helper.preference.PreferenceManager
@@ -17,8 +16,6 @@ import com.newshunt.dataentity.common.helper.common.CommonUtils
 import com.newshunt.dataentity.common.model.entity.SettingsChangeEvent
 import com.newshunt.dhutil.helper.preference.AppStatePreference
 import com.newshunt.dhutil.helper.preference.UserPreferenceUtil
-import com.newshunt.news.model.usecase.ResetVersionApiUsescase
-import com.newshunt.news.model.usecase.toMediator2
 import com.newshunt.onboarding.model.entity.datacollection.InstalledAppInfo
 
 /**
@@ -93,38 +90,4 @@ object AppSettingsProvider {
         }
     }
 
-    fun getNotificationLiveData(): MutableLiveData<Boolean> {
-        return notificationLiveData
-    }
-
-    fun onLanguagesChanged() {
-        val event = SettingsChangeEvent(SettingsChangeEvent.ChangeType.LANGUAGES)
-        resetVersionedApis()
-        BusProvider.getUIBusInstance().post(event)
-        settingsChangedLiveData.postValue(event)
-    }
-
-    fun onAppLanguageChanged(handshakeType: Int, adjunctHandshakeFlag: Boolean?) {
-        val event = SettingsChangeEvent(SettingsChangeEvent.ChangeType.APP_LANGUAGE, handshakeType, adjunctHandshakeFlag)
-        resetVersionedApis()
-        AndroidUtils.getMainThreadHandler().post { BusProvider.getUIBusInstance().post(event)  }
-        settingsChangedLiveData.postValue(event)
-    }
-
-    fun onThemeChanged() {
-        val event = SettingsChangeEvent(SettingsChangeEvent.ChangeType.THEME)
-        BusProvider.getUIBusInstance().post(event)
-        settingsChangedLiveData.postValue(event)
-    }
-
-    fun onCardStyleChanged() {
-        with(SettingsChangeEvent(SettingsChangeEvent.ChangeType.CARD_STYLE)) {
-            BusProvider.getUIBusInstance().post(this)
-            settingsChangedLiveData.postValue(this)
-        }
-    }
-
-    private fun resetVersionedApis() {
-        ResetVersionApiUsescase().toMediator2().execute(Any())
-    }
 }

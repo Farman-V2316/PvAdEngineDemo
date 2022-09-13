@@ -14,7 +14,6 @@ import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.PorterDuff;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.net.ConnectivityManager;
@@ -22,13 +21,10 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.BatteryManager;
-import android.os.Build;
 import android.os.SystemClock;
 import android.util.Base64;
 import android.util.DisplayMetrics;
-import android.util.Patterns;
 import android.util.TypedValue;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -45,8 +41,6 @@ import androidx.lifecycle.MutableLiveData;
 import com.google.gson.Gson;
 import com.newshunt.common.helper.common.Constants;
 import com.newshunt.dataentity.common.asset.VideoAsset;
-import com.newshunt.dataentity.common.model.entity.model.Status;
-import com.newshunt.dataentity.common.model.entity.model.StatusError;
 import com.newshunt.sdk.network.NetworkSDK;
 
 import java.io.BufferedReader;
@@ -61,7 +55,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -82,8 +75,6 @@ public class CommonUtils {
   public static int followedLocationsCount = -1;
   private static boolean isLanguageSelectedOnLanguageCard = false;
   public static final Gson GSON = new Gson();
-  private static final String UNEXPECTED_ERROR =
-      "Unexpected error occurred. Please try again " + "later.";
   private static final String LOG_TAG = "CommonUtils";
   //WARNING: BE SURE TO OBSERVE ONLY WITH PROCESS LIFECYCLE OWNER OR REMOVE OBSERVER SOON AS DONE!!
   private static MutableLiveData<Boolean> lowMemory = new MutableLiveData<>();
@@ -124,29 +115,6 @@ public class CommonUtils {
   }
 
   /**
-   * Utility function to copy all from MapB to MapA
-   * (NOTE : if destinationMap is null, then copy of sourceMap will be returned)
-   *
-   * @param destinationMap - destination map
-   * @param sourceMap      - sourceMap
-   * @param <T>            - generic key T
-   * @param <V>            - generic value V
-   * @return - merged Map
-   */
-  public static <T, V> Map<T, V> copyAll(Map<T, V> destinationMap, Map<T, V> sourceMap) {
-    if (isEmpty(sourceMap)) {
-      return destinationMap;
-    }
-
-    if (destinationMap == null) {
-      destinationMap = new HashMap<>();
-    }
-
-    destinationMap.putAll(sourceMap);
-    return destinationMap;
-  }
-
-  /**
    * Null-safe equivalent of {@code a.equals(b)}.
    *
    * @param a - object a
@@ -175,25 +143,6 @@ public class CommonUtils {
     return str.matches("[0-9]+");
   }
 
-  public static int getDpFromPixels(int pixel, Context context) {
-    float scale = context.getResources().getDisplayMetrics().density;
-    return (int) (pixel / scale);
-  }
-
-  public static boolean isEmptyWithoutTrim(String str) {
-    return !(str != null && (str.length() > 0));
-  }
-
-  /**
-   * method to check email and redirecting user to next screen
-   *
-   * @param input entered email address
-   * @return true id input is valid else false
-   */
-  public static boolean validateEmailAddress(String input) {
-    return Patterns.EMAIL_ADDRESS.matcher(input).matches();
-  }
-
   /**
    * This method convets dp unit to equivalent device specific value in
    * pixels.
@@ -207,19 +156,6 @@ public class CommonUtils {
   public static int getPixelFromDP(int dp, Context context) {
     float scale = context.getResources().getDisplayMetrics().density;
     return (int) (dp * scale);
-  }
-
-  public static int getStatusBarHeight(Context aContext) {
-    int result = 0;
-    if (null != aContext) {
-      int resourceId = aContext.getResources().getIdentifier(
-          "status_bar_height", "dimen", "android");
-      if (resourceId > 0) {
-        result = aContext.getResources().getDimensionPixelSize(
-            resourceId);
-      }
-    }
-    return result;
   }
 
   /**
@@ -239,20 +175,6 @@ public class CommonUtils {
       }
     }
     return file.delete();
-  }
-
-  public static boolean isVisibleAndContainsCoordinate(View aView, MotionEvent ev) {
-    boolean isVisibleAndContainsCoordinate = false;
-    if (null != aView) {
-      if (View.VISIBLE == aView.getVisibility()) {
-        int y = (int) ev.getY();
-        int x = (int) ev.getX();
-        Rect rect = new Rect();
-        aView.getDrawingRect(rect);
-        isVisibleAndContainsCoordinate = rect.contains(x, y);
-      }
-    }
-    return isVisibleAndContainsCoordinate;
   }
 
   public static boolean isNetworkAvailable(Context aContext) {
@@ -288,10 +210,6 @@ public class CommonUtils {
       return 0;
     }
     return application.getResources().getDisplayMetrics().heightPixels;
-  }
-
-  public static int getAppWindowHeight(Context context) {
-    return getDeviceScreenHeight() - getStatusBarHeight(context);
   }
 
   public static float getDeviceDensity() {
@@ -334,18 +252,6 @@ public class CommonUtils {
   }
 
   /**
-   * Utility method for reading plural strings from resources.
-   *
-   * @param resId      - plural string resource id
-   * @param quantity   - qualifying quantity to pick which string from
-   * @param formatArgs - format args in the string picked up
-   * @return - a quantified string
-   */
-  public static String getQuantifiedString(int resId, int quantity, Object... formatArgs) {
-    return application.getResources().getQuantityString(resId, quantity, formatArgs);
-  }
-
-  /**
    * Utility method for reading string array from resources. Application context will be used.
    *
    * @param resId - Resource id for the format string
@@ -354,34 +260,8 @@ public class CommonUtils {
     return application.getResources().getStringArray(resId);
   }
 
-  /**
-   * Utility Method to get the string from the resource name
-   *
-   * @param resource Resource name of string
-   * @return string value of the resource
-   */
-  public static String getStringFromResource(String resource) {
-    String packageName = getApplication().getPackageName();
-    int resId = getApplication().getResources().getIdentifier(resource, Constants.TEXT_STRING,
-        packageName);
-    if (resId > 0) {
-      return getString(resId);
-    }
-    return null;
-  }
-
   public static int getColor(int resId) {
     return application.getResources().getColor(resId);
-  }
-
-  public static int getInteger(int resId) {
-    return application.getResources().getInteger(resId);
-  }
-
-  public static float getFloat(int resId) {
-    TypedValue outValue = new TypedValue();
-    application.getResources().getValue(resId, outValue, true);
-    return outValue.getFloat();
   }
 
   public static int getDimension(int resId) {
@@ -399,16 +279,6 @@ public class CommonUtils {
 
   public static Drawable getDrawable(int resId) {
     return AppCompatResources.getDrawable(CommonUtils.getApplication(), resId);
-  }
-
-  public static Status createUnexpectedErrorStatus() {
-    String code = Constants.EMPTY_STRING;
-    //TODO:(arun.babu) to make it work using R.strings
-    //String message = CommonUtils.getString(R.string.unexpected_error_message);
-    String message = UNEXPECTED_ERROR;
-    String description = Constants.EMPTY_STRING;
-    String codeType = StatusError.UNEXPECTED_ERROR.getName();
-    return new Status(code, message);
   }
 
   /**
